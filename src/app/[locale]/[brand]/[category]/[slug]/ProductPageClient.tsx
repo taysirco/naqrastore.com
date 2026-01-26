@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { QuickSummary, ProductComparisonTable, ExpertOpinion } from '@/components/seo/AIOverviewsOptimization';
 
 interface Product {
     id: string;
@@ -132,8 +133,8 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                                         key={idx}
                                         onClick={() => setSelectedImage(idx)}
                                         className={`flex-shrink-0 w-20 h-20 rounded-xl border-2 overflow-hidden transition-all ${selectedImage === idx
-                                                ? `border-${brandColor}-600 shadow-lg ring-2 ring-${brandColor}-600/20`
-                                                : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                                            ? `border-${brandColor}-600 shadow-lg ring-2 ring-${brandColor}-600/20`
+                                            : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                             }`}
                                     >
                                         <img
@@ -149,11 +150,31 @@ export default function ProductPageClient({ product, locale, brand, category }: 
 
                     {/* Product Info */}
                     <div className="space-y-6">
+
+                        {/* AI Quick Summary - New Addition */}
+                        <QuickSummary
+                            product={{
+                                brand: product.brand,
+                                price: product.price,
+                                translations: {
+                                    en: {
+                                        name: product.translations?.en?.name || product.slug,
+                                        shortDescription: product.translations?.en?.shortDescription || ''
+                                    },
+                                    ar: {
+                                        name: product.translations?.ar?.name || product.slug,
+                                        shortDescription: product.translations?.ar?.shortDescription || ''
+                                    }
+                                }
+                            }}
+                            locale={locale}
+                        />
+
                         {/* Brand & Stock */}
                         <div className="flex flex-wrap items-center gap-2">
                             <span className={`px-4 py-1.5 text-sm font-bold rounded-full ${brand === 'anker'
-                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
-                                    : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+                                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                                : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
                                 }`}>
                                 {translatedBrand}
                             </span>
@@ -218,8 +239,8 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                                 </button>
                             </div>
                             <button className={`flex-1 min-w-[200px] px-8 py-4 font-bold text-lg rounded-xl transition-all transform hover:scale-[1.02] shadow-lg ${brand === 'anker'
-                                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/30'
-                                    : 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/30'
+                                ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/30'
+                                : 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/30'
                                 }`}>
                                 🛒 {tProduct('addToCart')}
                             </button>
@@ -299,6 +320,31 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                             </ul>
                         </div>
                     )}
+
+                    {/* New AI Overviews Sections */}
+                    <div className="p-6 md:p-8 border-b border-gray-100 dark:border-gray-800">
+                        {/* Expert Opinion - E-E-A-T Signal */}
+                        <ExpertOpinion
+                            productName={productName}
+                            brand={translatedBrand}
+                            category={category}
+                            locale={locale}
+                        />
+
+                        {/* Product Comparison Table - For Google Extraction */}
+                        <ProductComparisonTable
+                            product={{
+                                slug: product.slug,
+                                brand: product.brand,
+                                price: product.price,
+                                translations: {
+                                    en: { name: product.translations?.en?.name || product.slug },
+                                    ar: { name: product.translations?.ar?.name || product.slug }
+                                }
+                            }}
+                            locale={locale}
+                        />
+                    </div>
 
                     {/* Description Section */}
                     {productDesc && (
