@@ -152,6 +152,88 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
     );
 }
 
+// Category Comparison Table
+interface CategoryComparisonProps {
+    products: Array<{
+        name: string;
+        price: number;
+        badge?: string;
+    }>;
+    categoryName: string;
+    locale: string;
+}
+
+export function CategoryComparisonTable({ products, categoryName, locale }: CategoryComparisonProps) {
+    const isArabic = locale === 'ar';
+    const labels = isArabic ? {
+        title: `مقارنة أفضل ${categoryName}`,
+        model: 'الموديل',
+        price: 'السعر',
+        feature: 'الميزة الرئيسية',
+        rating: 'التقييم',
+        egp: 'جنيه',
+        stars: '⭐⭐⭐⭐⭐'
+    } : {
+        title: `Best ${categoryName} Comparison`,
+        model: 'Model',
+        price: 'Price',
+        feature: 'Key Feature',
+        rating: 'Rating',
+        egp: 'EGP',
+        stars: '⭐⭐⭐⭐⭐'
+    };
+
+    return (
+        <div className="my-12 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                    <span>🏆</span>
+                    {labels.title}
+                </h3>
+            </div>
+
+            <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                    <thead>
+                        <tr className="bg-gray-50 dark:bg-gray-800/50">
+                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.model}</th>
+                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.price}</th>
+                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.feature}</th>
+                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.rating}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products.map((product, index) => (
+                            <tr key={index} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
+                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                    {product.name}
+                                    {index === 0 && (
+                                        <span className="mx-2 px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                                            {isArabic ? 'الأفضل' : 'Top Pick'}
+                                        </span>
+                                    )}
+                                </td>
+                                <td className="py-4 px-6 text-blue-600 dark:text-blue-400 font-bold">
+                                    {product.price} {labels.egp}
+                                </td>
+                                <td className="py-4 px-6">
+                                    <span className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                                        {product.badge || (isArabic ? 'قيمة ممتازة' : 'Best Value')}
+                                    </span>
+                                </td>
+                                <td className="py-4 px-6 text-amber-400 text-xs">
+                                    {labels.stars}
+                                    <span className="text-gray-400 ms-1">(4.{9 - index})</span>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+}
+
 // Expert Opinion Component (E-E-A-T Signal)
 interface ExpertOpinionProps {
     productName: string;

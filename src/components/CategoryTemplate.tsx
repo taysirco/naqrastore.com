@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
+import { CategoryComparisonTable, ExpertOpinion } from './seo/AIOverviewsOptimization';
 
 interface Product {
     id: string;
@@ -146,6 +147,14 @@ export default function CategoryTemplate({
 
             {/* Content Section */}
             <section className="container mx-auto px-4 py-12">
+                {/* AI Overviews: Expert Opinion */}
+                <ExpertOpinion
+                    productName={translatedCategory}
+                    brand={translatedBrand}
+                    category={categorySlug}
+                    locale={locale}
+                />
+
                 {/* SEO Description */}
                 <div className="max-w-4xl mb-12 prose prose-lg dark:prose-invert">
                     <div
@@ -157,6 +166,13 @@ export default function CategoryTemplate({
                         }}
                     />
                 </div>
+
+                {/* AI Overviews: Comparison Table */}
+                <CategoryComparisonTable
+                    products={content.products}
+                    categoryName={translatedCategory}
+                    locale={locale}
+                />
 
                 {/* Products Grid */}
                 <h2 className="text-2xl font-bold mb-8">
