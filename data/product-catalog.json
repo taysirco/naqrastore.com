@@ -1,0 +1,990 @@
+{
+    "categories": [
+        {
+            "slug": "power-banks",
+            "icon": "🔋",
+            "order": 1,
+            "enName": "Power Banks",
+            "arName": "باور بانك",
+            "enDesc": "Portable chargers and power banks for all your devices",
+            "arDesc": "شواحن متنقلة وبطاريات احتياطية لجميع أجهزتك",
+            "keywords": "باور بانك, شاحن متنقل, بطارية متنقلة, power bank"
+        },
+        {
+            "slug": "wall-chargers",
+            "icon": "🔌",
+            "order": 2,
+            "enName": "Wall Chargers",
+            "arName": "شواحن حائط",
+            "enDesc": "Fast wall chargers for iPhone, Samsung and all smartphones",
+            "arDesc": "شواحن حائط سريعة للايفون و سامسونج وجميع الهواتف",
+            "keywords": "شاحن, شاحن حائط, شاحن سريع, فيش شحن, wall charger"
+        },
+        {
+            "slug": "cables",
+            "icon": "🔗",
+            "order": 3,
+            "enName": "Charging Cables",
+            "arName": "كابلات شحن",
+            "enDesc": "High quality USB-C, Lightning and Micro USB cables",
+            "arDesc": "كابلات شحن عالية الجودة USB-C و Lightning و Micro USB",
+            "keywords": "كابل, سلك شحن, وصلة ايفون, كيبل تايب سي, cable"
+        },
+        {
+            "slug": "car-chargers",
+            "icon": "🚗",
+            "order": 4,
+            "enName": "Car Chargers",
+            "arName": "شواحن سيارة",
+            "enDesc": "Fast car chargers for your phone while driving",
+            "arDesc": "شواحن سيارة سريعة لشحن هاتفك أثناء القيادة",
+            "keywords": "شاحن سيارة, شاحن للعربية, car charger"
+        },
+        {
+            "slug": "audio",
+            "icon": "🎧",
+            "order": 5,
+            "enName": "Audio & Earbuds",
+            "arName": "سماعات وايربودز",
+            "enDesc": "Wireless earbuds and Bluetooth headphones",
+            "arDesc": "سماعات لاسلكية وايربودز بلوتوث",
+            "keywords": "سماعات, ايربودز, سماعة بلوتوث, earbuds, airpods"
+        },
+        {
+            "slug": "smart-watches",
+            "icon": "⌚",
+            "order": 6,
+            "enName": "Smart Watches",
+            "arName": "ساعات ذكية",
+            "enDesc": "Smart watches and fitness trackers",
+            "arDesc": "ساعات ذكية وأجهزة تتبع اللياقة البدنية",
+            "keywords": "ساعة ذكية, سمارت ووتش, smart watch"
+        }
+    ],
+    "products": {
+        "anker": {
+            "power-banks": [
+                {
+                    "slug": "anker-powercore-10000",
+                    "sku": "ANK-PB-10K",
+                    "brand": "Anker",
+                    "categorySlug": "power-banks",
+                    "price": 699,
+                    "originalPrice": 899,
+                    "stock": 50,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powercore-10000-black-1.webp",
+                            "alt": "Anker PowerCore 10000mAh باور بانك انكر",
+                            "source": "https://m.media-amazon.com/images/I/61HoAL8dpGL._AC_SL1200_.jpg"
+                        },
+                        {
+                            "filename": "anker-powercore-10000-black-2.webp",
+                            "alt": "باور بانك انكر 10000 امبير",
+                            "source": "https://m.media-amazon.com/images/I/71kh7AaXXAL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerCore 10000mAh Portable Charger",
+                            "shortDesc": "Ultra-compact 10000mAh power bank with high-speed charging",
+                            "description": "The Anker PowerCore 10000 is one of the world's smallest and lightest 10000mAh portable chargers. The high-speed charging ensures your devices power up quickly, while the compact design fits easily in your pocket or bag.",
+                            "features": [
+                                "Ultra-compact design - fits in your palm",
+                                "10000mAh capacity - charges iPhone 2.5 times",
+                                "High-speed charging with PowerIQ technology",
+                                "MultiProtect safety system",
+                                "18-month warranty"
+                            ],
+                            "metaTitle": "Anker PowerCore 10000mAh Power Bank | Best Price in Egypt",
+                            "metaDesc": "Buy Anker PowerCore 10000mAh portable charger in Egypt. Ultra-compact design, fast charging, 18-month warranty. Free delivery available."
+                        },
+                        "ar": {
+                            "name": "Anker PowerCore باور بانك انكر 10000 مللي امبير",
+                            "shortDesc": "باور بانك انكر صغير الحجم بسعة 10000 مللي امبير مع شحن سريع",
+                            "description": "باور بانك انكر PowerCore 10000 هو أحد أصغر وأخف شواحن الطاقة المحمولة بسعة 10000 مللي أمبير في العالم. يضمن الشحن عالي السرعة شحن أجهزتك بسرعة، بينما يتيح التصميم المدمج حمله بسهولة في جيبك أو حقيبتك.",
+                            "features": [
+                                "تصميم صغير جداً - يناسب كف اليد",
+                                "سعة 10000 مللي أمبير - يشحن الايفون 2.5 مرة",
+                                "شحن سريع بتقنية PowerIQ",
+                                "نظام حماية MultiProtect",
+                                "ضمان 18 شهر"
+                            ],
+                            "metaTitle": "باور بانك انكر 10000 مللي امبير | أفضل سعر في مصر",
+                            "metaDesc": "اشتري باور بانك انكر 10000 مللي أمبير في مصر. تصميم صغير، شحن سريع، ضمان 18 شهر. شحن مجاني متاح."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "باور بانك انكر, باور بانك انكر 10000, انكر باور بانك, باور بنك انكر, anker power bank, anker powercore 10000, شاحن متنقل انكر",
+                        "focusKeyword": "باور بانك انكر 10000"
+                    },
+                    "faq": [
+                        {
+                            "question": "كم يشحن باور بانك انكر 10000 من مرة للايفون؟",
+                            "answer": "يشحن الايفون حوالي 2.5 مرة كاملة حسب موديل الايفون."
+                        },
+                        {
+                            "question": "ما مدة شحن الباور بانك نفسه؟",
+                            "answer": "يحتاج حوالي 4-5 ساعات للشحن الكامل باستخدام شاحن 5V/2A."
+                        },
+                        {
+                            "question": "هل يعمل مع سامسونج وأندرويد؟",
+                            "answer": "نعم، يعمل مع جميع الهواتف الذكية والأجهزة التي تشحن عبر USB."
+                        }
+                    ]
+                },
+                {
+                    "slug": "anker-powercore-20000",
+                    "sku": "ANK-PB-20K",
+                    "brand": "Anker",
+                    "categorySlug": "power-banks",
+                    "price": 1199,
+                    "originalPrice": 1499,
+                    "stock": 35,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powercore-20000-1.webp",
+                            "alt": "Anker PowerCore 20000mAh باور بانك انكر 20000",
+                            "source": "https://m.media-amazon.com/images/I/61yDFd-pNKL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerCore 20000mAh Portable Charger",
+                            "shortDesc": "High-capacity 20000mAh power bank with dual USB ports",
+                            "description": "The Anker PowerCore 20000 delivers massive charging capacity in a portable design. With dual USB ports, you can charge two devices simultaneously at high speed.",
+                            "features": [
+                                "20000mAh ultra-high capacity",
+                                "Dual USB ports for simultaneous charging",
+                                "PowerIQ and VoltageBoost technology",
+                                "Charges iPhone 5 times",
+                                "24-month warranty"
+                            ],
+                            "metaTitle": "Anker PowerCore 20000mAh Power Bank | Free Delivery Egypt",
+                            "metaDesc": "Buy Anker PowerCore 20000mAh portable charger. Dual USB ports, ultra-high capacity, 24-month warranty. Best price in Egypt."
+                        },
+                        "ar": {
+                            "name": "Anker PowerCore باور بانك انكر 20000 مللي امبير",
+                            "shortDesc": "باور بانك انكر بسعة كبيرة 20000 مللي امبير مع منفذين USB",
+                            "description": "باور بانك انكر 20000 يوفر سعة شحن ضخمة في تصميم محمول. مع منفذين USB، يمكنك شحن جهازين في نفس الوقت بسرعة عالية.",
+                            "features": [
+                                "سعة 20000 مللي أمبير فائقة",
+                                "منفذين USB للشحن المتزامن",
+                                "تقنية PowerIQ و VoltageBoost",
+                                "يشحن الايفون 5 مرات",
+                                "ضمان 24 شهر"
+                            ],
+                            "metaTitle": "باور بانك انكر 20000 مللي امبير | توصيل مجاني مصر",
+                            "metaDesc": "اشتري باور بانك انكر 20000 مللي أمبير. منفذين USB، سعة فائقة، ضمان 24 شهر. أفضل سعر في مصر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "باور بانك انكر 20000, سعر باور بانك انكر 20000, انكر 20000, anker power bank 20000, شاحن متنقل انكر 20000",
+                        "focusKeyword": "باور بانك انكر 20000"
+                    },
+                    "faq": [
+                        {
+                            "question": "ما الفرق بين 10000 و 20000؟",
+                            "answer": "سعة 20000 تشحن الايفون 5 مرات بدلاً من 2.5 مرة، كما يحتوي على منفذين USB للشحن المتزامن."
+                        },
+                        {
+                            "question": "هل يدعم الشحن السريع؟",
+                            "answer": "نعم، يدعم تقنية PowerIQ للشحن السريع حتى 2.4A."
+                        }
+                    ]
+                },
+                {
+                    "slug": "anker-powercore-26800",
+                    "sku": "ANK-PB-26K",
+                    "brand": "Anker",
+                    "categorySlug": "power-banks",
+                    "price": 1699,
+                    "originalPrice": 1999,
+                    "stock": 20,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powercore-26800-1.webp",
+                            "alt": "Anker PowerCore 26800mAh باور بانك انكر 26800",
+                            "source": "https://m.media-amazon.com/images/I/61-1AypVlUL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerCore 26800mAh Power Bank",
+                            "shortDesc": "Massive 26800mAh capacity with 3 USB ports",
+                            "description": "The PowerCore 26800 delivers industry-leading capacity to keep your devices charged for days. Three USB ports let you charge three devices at once.",
+                            "features": [
+                                "26800mAh massive capacity",
+                                "3 USB ports for multi-device charging",
+                                "Recharge in 6 hours with dual input",
+                                "PowerIQ 2.0 technology",
+                                "24-month warranty"
+                            ],
+                            "metaTitle": "Anker PowerCore 26800mAh - Largest Capacity Power Bank Egypt",
+                            "metaDesc": "Buy Anker PowerCore 26800mAh in Egypt. Massive capacity, 3 USB ports, fast charging. Best for travel and heavy users."
+                        },
+                        "ar": {
+                            "name": "Anker PowerCore باور بانك انكر 26800 مللي امبير",
+                            "shortDesc": "سعة ضخمة 26800 مللي امبير مع 3 منافذ USB",
+                            "description": "باور بانك انكر 26800 يوفر سعة رائدة في الصناعة للحفاظ على شحن أجهزتك لأيام. ثلاث منافذ USB تتيح لك شحن ثلاث أجهزة في وقت واحد.",
+                            "features": [
+                                "سعة ضخمة 26800 مللي أمبير",
+                                "3 منافذ USB للشحن المتعدد",
+                                "إعادة الشحن في 6 ساعات بمدخلين",
+                                "تقنية PowerIQ 2.0",
+                                "ضمان 24 شهر"
+                            ],
+                            "metaTitle": "باور بانك انكر 26800 مللي امبير - أكبر سعة في مصر",
+                            "metaDesc": "اشتري باور بانك انكر 26800 مللي أمبير في مصر. سعة ضخمة، 3 منافذ USB، شحن سريع. الأفضل للسفر والاستخدام المكثف."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "باور بانك انكر 26800, انكر 26800, شاحن متنقل انكر 26800, بطارية انكر 26800",
+                        "focusKeyword": "باور بانك انكر 26800"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يمكن حمله على الطائرة؟",
+                            "answer": "نعم، سعة 26800mAh (حوالي 96.48Wh) مسموح بها على معظم الطائرات."
+                        }
+                    ]
+                }
+            ],
+            "wall-chargers": [
+                {
+                    "slug": "anker-powerport-20w",
+                    "sku": "ANK-WC-20W",
+                    "brand": "Anker",
+                    "categorySlug": "wall-chargers",
+                    "price": 349,
+                    "originalPrice": 449,
+                    "stock": 100,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powerport-20w-1.webp",
+                            "alt": "شاحن انكر 20 واط للايفون",
+                            "source": "https://m.media-amazon.com/images/I/51h9cBt2Q2L._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerPort III 20W USB-C Charger",
+                            "shortDesc": "Ultra-compact 20W fast charger for iPhone 15/14/13",
+                            "description": "The Anker PowerPort III 20W delivers fast, efficient charging for iPhone 15, 14, 13, and other USB-C devices. Compact design perfect for travel.",
+                            "features": [
+                                "20W fast charging output",
+                                "USB-C Power Delivery",
+                                "Ultra-compact foldable plug",
+                                "MultiProtect safety system",
+                                "Works with iPhone 15/14/13/12"
+                            ],
+                            "metaTitle": "Anker 20W USB-C Fast Charger for iPhone | Egypt",
+                            "metaDesc": "Buy Anker 20W USB-C fast charger for iPhone in Egypt. Ultra-compact, fast charging, best price with warranty."
+                        },
+                        "ar": {
+                            "name": "شاحن انكر 20 واط USB-C للايفون",
+                            "shortDesc": "شاحن انكر صغير وسريع 20 واط للايفون 15/14/13",
+                            "description": "شاحن انكر 20 واط يوفر شحن سريع وفعال للايفون 15 و 14 و 13 وأجهزة USB-C الأخرى. تصميم صغير مثالي للسفر.",
+                            "features": [
+                                "شحن سريع 20 واط",
+                                "USB-C Power Delivery",
+                                "تصميم صغير مع قابس قابل للطي",
+                                "نظام حماية MultiProtect",
+                                "يعمل مع ايفون 15/14/13/12"
+                            ],
+                            "metaTitle": "شاحن انكر 20 واط للايفون | أفضل سعر في مصر",
+                            "metaDesc": "اشتري شاحن انكر 20 واط USB-C للايفون في مصر. تصميم صغير، شحن سريع، ضمان وأفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "شاحن انكر, شاحن انكر 20 واط, شاحن انكر ايفون, راس شاحن انكر, شاحن انكر الاصلي, anker charger 20w",
+                        "focusKeyword": "شاحن انكر 20 واط"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يشمل الكابل؟",
+                            "answer": "لا، الشاحن فقط. يمكنك شراء كابل USB-C to Lightning منفصل."
+                        },
+                        {
+                            "question": "ما سرعة الشحن للايفون؟",
+                            "answer": "يشحن الايفون من 0% إلى 50% في حوالي 30 دقيقة."
+                        }
+                    ]
+                },
+                {
+                    "slug": "anker-powerport-25w",
+                    "sku": "ANK-WC-25W",
+                    "brand": "Anker",
+                    "categorySlug": "wall-chargers",
+                    "price": 449,
+                    "originalPrice": 549,
+                    "stock": 80,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powerport-25w-1.webp",
+                            "alt": "شاحن انكر 25 واط للايفون وسامسونج",
+                            "source": "https://m.media-amazon.com/images/I/51ZRGLG5WAL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerPort 25W USB-C Super Fast Charger",
+                            "shortDesc": "25W super fast charger for iPhone and Samsung",
+                            "description": "The Anker 25W charger provides super fast charging for Samsung Galaxy phones and fast charging for iPhone. Compatible with PPS for optimal charging speed.",
+                            "features": [
+                                "25W super fast charging",
+                                "PPS compatible for Samsung",
+                                "USB-C Power Delivery 3.0",
+                                "Compact portable design",
+                                "18-month warranty"
+                            ],
+                            "metaTitle": "Anker 25W Super Fast Charger | Samsung & iPhone Egypt",
+                            "metaDesc": "Buy Anker 25W super fast charger for Samsung and iPhone in Egypt. PPS compatible, compact design, best price."
+                        },
+                        "ar": {
+                            "name": "شاحن انكر 25 واط USB-C فائق السرعة",
+                            "shortDesc": "شاحن انكر 25 واط فائق السرعة للايفون وسامسونج",
+                            "description": "شاحن انكر 25 واط يوفر شحن فائق السرعة لهواتف سامسونج جالاكسي وشحن سريع للايفون. متوافق مع PPS للحصول على أفضل سرعة شحن.",
+                            "features": [
+                                "شحن فائق السرعة 25 واط",
+                                "متوافق مع PPS لسامسونج",
+                                "USB-C Power Delivery 3.0",
+                                "تصميم صغير ومحمول",
+                                "ضمان 18 شهر"
+                            ],
+                            "metaTitle": "شاحن انكر 25 واط فائق السرعة | سامسونج وايفون مصر",
+                            "metaDesc": "اشتري شاحن انكر 25 واط فائق السرعة لسامسونج والايفون في مصر. متوافق مع PPS، تصميم صغير، أفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "شاحن انكر 25 واط, شاحن انكر سامسونج, شاحن سريع انكر, anker 25w charger",
+                        "focusKeyword": "شاحن انكر 25 واط"
+                    },
+                    "faq": [
+                        {
+                            "question": "ما الفرق بين 20 واط و 25 واط؟",
+                            "answer": "25 واط يدعم PPS لشحن أسرع لهواتف سامسونج، و 20 واط كافي للايفون."
+                        }
+                    ]
+                },
+                {
+                    "slug": "anker-powerport-45w",
+                    "sku": "ANK-WC-45W",
+                    "brand": "Anker",
+                    "categorySlug": "wall-chargers",
+                    "price": 749,
+                    "originalPrice": 899,
+                    "stock": 40,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powerport-45w-1.webp",
+                            "alt": "شاحن انكر 45 واط فائق السرعة",
+                            "source": "https://m.media-amazon.com/images/I/61AjTQdObkL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker Nano 45W USB-C Wall Charger",
+                            "shortDesc": "45W high-power charger for laptop and phones",
+                            "description": "The Anker Nano 45W is compact yet powerful enough to charge laptops, tablets, and phones. GaN technology enables smaller size with higher power.",
+                            "features": [
+                                "45W high-power output",
+                                "GaN technology for compact size",
+                                "Charges laptops and phones",
+                                "USB-C Power Delivery 3.0",
+                                "24-month warranty"
+                            ],
+                            "metaTitle": "Anker 45W GaN Charger for Laptop & Phone | Egypt",
+                            "metaDesc": "Buy Anker 45W GaN USB-C charger in Egypt. Compact, powerful, charges laptops and phones. Best price with warranty."
+                        },
+                        "ar": {
+                            "name": "شاحن انكر نانو 45 واط USB-C",
+                            "shortDesc": "شاحن انكر 45 واط قوي للابتوب والهواتف",
+                            "description": "شاحن انكر نانو 45 واط صغير لكنه قوي بما يكفي لشحن اللابتوب والتابلت والهواتف. تقنية GaN تتيح حجماً أصغر مع طاقة أعلى.",
+                            "features": [
+                                "خرج 45 واط قوي",
+                                "تقنية GaN لحجم صغير",
+                                "يشحن اللابتوب والهواتف",
+                                "USB-C Power Delivery 3.0",
+                                "ضمان 24 شهر"
+                            ],
+                            "metaTitle": "شاحن انكر 45 واط GaN للابتوب والهواتف | مصر",
+                            "metaDesc": "اشتري شاحن انكر 45 واط GaN USB-C في مصر. صغير وقوي، يشحن اللابتوب والهواتف. أفضل سعر مع ضمان."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "شاحن انكر 45 واط, شاحن انكر للابتوب, شاحن قوي انكر, anker 45w charger",
+                        "focusKeyword": "شاحن انكر 45 واط"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يشحن الماك بوك؟",
+                            "answer": "نعم، يشحن MacBook Air وبعض موديلات MacBook Pro."
+                        }
+                    ]
+                }
+            ],
+            "cables": [
+                {
+                    "slug": "anker-powerline-usb-c-lightning",
+                    "sku": "ANK-CB-CL",
+                    "brand": "Anker",
+                    "categorySlug": "cables",
+                    "price": 249,
+                    "originalPrice": 349,
+                    "stock": 150,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powerline-usb-c-lightning-1.webp",
+                            "alt": "كابل انكر USB-C to Lightning للايفون",
+                            "source": "https://m.media-amazon.com/images/I/61yzBx6q6TL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerLine III USB-C to Lightning Cable",
+                            "shortDesc": "MFi certified fast charging cable for iPhone",
+                            "description": "The Anker PowerLine III USB-C to Lightning cable is MFi certified and supports fast charging for iPhone when used with a USB-C charger. Built to last with exceptional durability.",
+                            "features": [
+                                "MFi certified for iPhone",
+                                "Supports fast charging",
+                                "35,000+ bend lifespan",
+                                "1m / 2m length options",
+                                "18-month warranty"
+                            ],
+                            "metaTitle": "Anker USB-C to Lightning Cable for iPhone | MFi Certified Egypt",
+                            "metaDesc": "Buy Anker PowerLine USB-C to Lightning cable in Egypt. MFi certified, fast charging, durable. Best price for iPhone cable."
+                        },
+                        "ar": {
+                            "name": "كابل انكر USB-C to Lightning للايفون",
+                            "shortDesc": "كابل انكر معتمد MFi للشحن السريع للايفون",
+                            "description": "كابل انكر PowerLine III USB-C to Lightning معتمد من MFi ويدعم الشحن السريع للايفون عند استخدامه مع شاحن USB-C. مصمم ليدوم مع متانة استثنائية.",
+                            "features": [
+                                "معتمد MFi للايفون",
+                                "يدعم الشحن السريع",
+                                "يتحمل أكثر من 35,000 ثني",
+                                "متوفر بطول 1 متر / 2 متر",
+                                "ضمان 18 شهر"
+                            ],
+                            "metaTitle": "كابل انكر USB-C to Lightning للايفون | معتمد MFi مصر",
+                            "metaDesc": "اشتري كابل انكر PowerLine USB-C to Lightning في مصر. معتمد MFi، شحن سريع، متين. أفضل سعر لكابل ايفون."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "كابل انكر ايفون, وصلة انكر للايفون, كابل انكر تايب سي, سلك انكر ايفون, anker lightning cable",
+                        "focusKeyword": "كابل انكر ايفون"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يعمل مع جميع الايفونات؟",
+                            "answer": "نعم، يعمل مع iPhone 5 وما بعده حتى أحدث ايفون 15."
+                        }
+                    ]
+                },
+                {
+                    "slug": "anker-powerline-usb-c-usb-c",
+                    "sku": "ANK-CB-CC",
+                    "brand": "Anker",
+                    "categorySlug": "cables",
+                    "price": 199,
+                    "originalPrice": 279,
+                    "stock": 120,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-powerline-usb-c-usb-c-1.webp",
+                            "alt": "كابل انكر USB-C to USB-C",
+                            "source": "https://m.media-amazon.com/images/I/61A3lQNEm1L._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerLine III USB-C to USB-C Cable",
+                            "shortDesc": "60W fast charging USB-C cable for phones and tablets",
+                            "description": "The Anker PowerLine III USB-C to USB-C cable supports 60W fast charging and is perfect for all USB-C devices including phones, tablets, and laptops.",
+                            "features": [
+                                "60W fast charging support",
+                                "USB 2.0 data transfer",
+                                "35,000+ bend lifespan",
+                                "1m / 2m length options",
+                                "18-month warranty"
+                            ],
+                            "metaTitle": "Anker USB-C to USB-C Cable 60W | Fast Charging Egypt",
+                            "metaDesc": "Buy Anker USB-C to USB-C cable in Egypt. 60W fast charging, durable, best price for Samsung and USB-C phones."
+                        },
+                        "ar": {
+                            "name": "كابل انكر USB-C to USB-C بقوة 60 واط",
+                            "shortDesc": "كابل انكر USB-C للشحن السريع 60 واط للهواتف والتابلت",
+                            "description": "كابل انكر PowerLine III USB-C to USB-C يدعم الشحن السريع بقوة 60 واط ومثالي لجميع أجهزة USB-C بما في ذلك الهواتف والتابلت واللابتوب.",
+                            "features": [
+                                "يدعم الشحن السريع 60 واط",
+                                "نقل بيانات USB 2.0",
+                                "يتحمل أكثر من 35,000 ثني",
+                                "متوفر بطول 1 متر / 2 متر",
+                                "ضمان 18 شهر"
+                            ],
+                            "metaTitle": "كابل انكر USB-C to USB-C بقوة 60 واط | شحن سريع مصر",
+                            "metaDesc": "اشتري كابل انكر USB-C to USB-C في مصر. شحن سريع 60 واط، متين، أفضل سعر لسامسونج وهواتف USB-C."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "كابل انكر تايب سي, وصلة انكر تايب سي, كابل USB-C انكر, كيبل تايب سي انكر",
+                        "focusKeyword": "كابل انكر تايب سي"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يشحن اللابتوب؟",
+                            "answer": "نعم، يدعم شحن حتى 60 واط وهو كافي لمعظم اللابتوبات الصغيرة."
+                        }
+                    ]
+                }
+            ],
+            "car-chargers": [
+                {
+                    "slug": "anker-car-charger-dual-usb",
+                    "sku": "ANK-CC-DUAL",
+                    "brand": "Anker",
+                    "categorySlug": "car-chargers",
+                    "price": 349,
+                    "originalPrice": 449,
+                    "stock": 60,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "anker-car-charger-dual-1.webp",
+                            "alt": "شاحن سيارة انكر بمنفذين USB",
+                            "source": "https://m.media-amazon.com/images/I/51jFw4z5rdL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Anker PowerDrive 2 Dual USB Car Charger",
+                            "shortDesc": "24W dual USB car charger with PowerIQ",
+                            "description": "The Anker PowerDrive 2 provides two USB ports with a combined 24W output. PowerIQ technology ensures fast charging for all your devices on the road.",
+                            "features": [
+                                "24W combined output",
+                                "Dual USB ports",
+                                "PowerIQ fast charging",
+                                "Compact LED indicator",
+                                "18-month warranty"
+                            ],
+                            "metaTitle": "Anker Dual USB Car Charger 24W | Fast Charging Egypt",
+                            "metaDesc": "Buy Anker PowerDrive dual USB car charger in Egypt. 24W fast charging, two ports, compact design. Best price."
+                        },
+                        "ar": {
+                            "name": "شاحن سيارة انكر PowerDrive 2 بمنفذين USB",
+                            "shortDesc": "شاحن سيارة انكر 24 واط بمنفذين USB مع PowerIQ",
+                            "description": "شاحن سيارة انكر PowerDrive 2 يوفر منفذين USB بقوة 24 واط مجتمعة. تقنية PowerIQ تضمن شحن سريع لجميع أجهزتك أثناء القيادة.",
+                            "features": [
+                                "خرج 24 واط مجتمعة",
+                                "منفذين USB",
+                                "شحن سريع PowerIQ",
+                                "تصميم صغير مع مؤشر LED",
+                                "ضمان 18 شهر"
+                            ],
+                            "metaTitle": "شاحن سيارة انكر بمنفذين USB 24 واط | شحن سريع مصر",
+                            "metaDesc": "اشتري شاحن سيارة انكر PowerDrive بمنفذين USB في مصر. شحن سريع 24 واط، منفذين، تصميم صغير. أفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "شاحن سيارة انكر, شاحن انكر سيارة, شاحن سيارة سريع, anker car charger",
+                        "focusKeyword": "شاحن سيارة انكر"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يناسب جميع السيارات؟",
+                            "answer": "نعم، يناسب أي سيارة بمقبس 12V/24V القياسي."
+                        }
+                    ]
+                }
+            ]
+        },
+        "joyroom": {
+            "power-banks": [
+                {
+                    "slug": "joyroom-power-bank-10000",
+                    "sku": "JR-PB-10K",
+                    "brand": "Joyroom",
+                    "categorySlug": "power-banks",
+                    "price": 399,
+                    "originalPrice": 549,
+                    "stock": 80,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-powerbank-10000-1.webp",
+                            "alt": "باور بانك جوي روم 10000 مللي امبير",
+                            "source": "https://m.media-amazon.com/images/I/61L5VzIrH8L._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom 10000mAh Slim Power Bank",
+                            "shortDesc": "Ultra-slim 10000mAh power bank with dual output",
+                            "description": "The Joyroom 10000mAh power bank features an ultra-slim design with dual output ports. Perfect for everyday charging with quick charge support.",
+                            "features": [
+                                "10000mAh capacity",
+                                "Ultra-slim design",
+                                "Dual USB output",
+                                "Quick Charge 3.0 support",
+                                "LED display"
+                            ],
+                            "metaTitle": "Joyroom 10000mAh Power Bank | Best Price Egypt",
+                            "metaDesc": "Buy Joyroom 10000mAh slim power bank in Egypt. Dual USB output, quick charge, LED display. Best price with warranty."
+                        },
+                        "ar": {
+                            "name": "باور بانك جوي روم 10000 مللي امبير نحيف",
+                            "shortDesc": "باور بانك جوي روم نحيف 10000 مللي امبير بمخرجين",
+                            "description": "باور بانك جوي روم 10000 يتميز بتصميم نحيف للغاية مع مخرجين. مثالي للشحن اليومي مع دعم الشحن السريع.",
+                            "features": [
+                                "سعة 10000 مللي أمبير",
+                                "تصميم نحيف للغاية",
+                                "مخرجين USB",
+                                "دعم Quick Charge 3.0",
+                                "شاشة LED"
+                            ],
+                            "metaTitle": "باور بانك جوي روم 10000 مللي امبير | أفضل سعر مصر",
+                            "metaDesc": "اشتري باور بانك جوي روم 10000 مللي أمبير نحيف في مصر. مخرجين USB، شحن سريع، شاشة LED. أفضل سعر مع ضمان."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "باور بانك جوي روم, باور بانك جوي روم 10000, سعر باور بانك joyroom, joyroom power bank",
+                        "focusKeyword": "باور بانك جوي روم 10000"
+                    },
+                    "faq": [
+                        {
+                            "question": "كم مرة يشحن الهاتف؟",
+                            "answer": "يشحن معظم الهواتف 2-3 مرات حسب سعة البطارية."
+                        }
+                    ]
+                },
+                {
+                    "slug": "joyroom-power-bank-20000",
+                    "sku": "JR-PB-20K",
+                    "brand": "Joyroom",
+                    "categorySlug": "power-banks",
+                    "price": 649,
+                    "originalPrice": 799,
+                    "stock": 50,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-powerbank-20000-1.webp",
+                            "alt": "باور بانك جوي روم 20000 مللي امبير",
+                            "source": "https://m.media-amazon.com/images/I/71Wq8Ww4YPL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom 20000mAh Power Bank with PD",
+                            "shortDesc": "High capacity 20000mAh power bank with 22.5W fast charging",
+                            "description": "The Joyroom 20000mAh power bank supports 22.5W fast charging with PD and QC 3.0. Features dual input and triple output for versatile charging.",
+                            "features": [
+                                "20000mAh high capacity",
+                                "22.5W fast charging",
+                                "PD and QC 3.0 support",
+                                "Triple output ports",
+                                "Digital LED display"
+                            ],
+                            "metaTitle": "Joyroom 20000mAh Power Bank 22.5W | Fast Charging Egypt",
+                            "metaDesc": "Buy Joyroom 20000mAh power bank with 22.5W fast charging in Egypt. PD support, triple output, LED display. Best price."
+                        },
+                        "ar": {
+                            "name": "باور بانك جوي روم 20000 مللي امبير مع PD",
+                            "shortDesc": "باور بانك جوي روم 20000 سعة كبيرة مع شحن سريع 22.5 واط",
+                            "description": "باور بانك جوي روم 20000 يدعم الشحن السريع 22.5 واط مع PD و QC 3.0. يتميز بمدخلين وثلاث مخارج للشحن المتعدد.",
+                            "features": [
+                                "سعة 20000 مللي أمبير كبيرة",
+                                "شحن سريع 22.5 واط",
+                                "دعم PD و QC 3.0",
+                                "ثلاث مخارج للشحن",
+                                "شاشة LED رقمية"
+                            ],
+                            "metaTitle": "باور بانك جوي روم 20000 مللي امبير 22.5 واط | شحن سريع مصر",
+                            "metaDesc": "اشتري باور بانك جوي روم 20000 مللي أمبير مع شحن سريع 22.5 واط في مصر. دعم PD، ثلاث مخارج، شاشة LED. أفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "باور بانك جوي روم 20000, سعر باور بانك joyroom 20000, joyroom power bank 20000",
+                        "focusKeyword": "باور بانك جوي روم 20000"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يدعم الشحن السريع للايفون؟",
+                            "answer": "نعم، يدعم PD للشحن السريع للايفون 8 وما بعده."
+                        }
+                    ]
+                }
+            ],
+            "audio": [
+                {
+                    "slug": "joyroom-t03s-pro-earbuds",
+                    "sku": "JR-T03S-PRO",
+                    "brand": "Joyroom",
+                    "categorySlug": "audio",
+                    "price": 599,
+                    "originalPrice": 799,
+                    "stock": 100,
+                    "featured": true,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-t03s-pro-1.webp",
+                            "alt": "سماعة جوي روم T03S Pro ايربودز",
+                            "source": "https://m.media-amazon.com/images/I/61J4B4s6oYL._AC_SL1500_.jpg"
+                        },
+                        {
+                            "filename": "joyroom-t03s-pro-2.webp",
+                            "alt": "ايربودز جوي روم برو",
+                            "source": "https://m.media-amazon.com/images/I/71LSgKs8URL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom T03S Pro True Wireless Earbuds",
+                            "shortDesc": "Premium TWS earbuds with ANC and 30H playtime",
+                            "description": "The Joyroom T03S Pro features Active Noise Cancellation, touch controls, and up to 30 hours total playtime with the charging case. Premium sound quality with Bluetooth 5.3.",
+                            "features": [
+                                "Active Noise Cancellation (ANC)",
+                                "30 hours total playtime",
+                                "Touch controls",
+                                "Bluetooth 5.3",
+                                "IPX5 water resistance"
+                            ],
+                            "metaTitle": "Joyroom T03S Pro ANC Earbuds | Best TWS Egypt",
+                            "metaDesc": "Buy Joyroom T03S Pro wireless earbuds in Egypt. ANC, 30H battery, Bluetooth 5.3, touch controls. Best price for premium earbuds."
+                        },
+                        "ar": {
+                            "name": "سماعة جوي روم T03S Pro ايربودز لاسلكية",
+                            "shortDesc": "ايربودز جوي روم برو مع إلغاء الضوضاء و30 ساعة استخدام",
+                            "description": "سماعة جوي روم T03S Pro تتميز بإلغاء الضوضاء النشط، تحكم باللمس، وحتى 30 ساعة استخدام مع علبة الشحن. جودة صوت ممتازة مع Bluetooth 5.3.",
+                            "features": [
+                                "إلغاء الضوضاء النشط (ANC)",
+                                "30 ساعة استخدام إجمالي",
+                                "تحكم باللمس",
+                                "Bluetooth 5.3",
+                                "مقاومة للماء IPX5"
+                            ],
+                            "metaTitle": "سماعة جوي روم T03S Pro ايربودز | أفضل سماعات مصر",
+                            "metaDesc": "اشتري سماعة جوي روم T03S Pro لاسلكية في مصر. إلغاء ضوضاء، 30 ساعة بطارية، Bluetooth 5.3، تحكم باللمس. أفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "سماعات جوي روم, ايربودز جوي روم, سماعة joyroom t03s pro, سماعات بلوتوث جوي روم, joyroom earbuds",
+                        "focusKeyword": "سماعات جوي روم"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل تعمل مع الاندرويد والايفون؟",
+                            "answer": "نعم، تعمل مع جميع الأجهزة التي تدعم Bluetooth."
+                        },
+                        {
+                            "question": "كم مدة الشحن الكامل؟",
+                            "answer": "حوالي ساعة ونصف للسماعات وساعتين لعلبة الشحن."
+                        },
+                        {
+                            "question": "هل يوجد تطبيق؟",
+                            "answer": "نعم، تطبيق Joyroom للتحكم في الإعدادات وتحديثات البرامج."
+                        }
+                    ]
+                },
+                {
+                    "slug": "joyroom-jr-t03-wireless-earbuds",
+                    "sku": "JR-T03",
+                    "brand": "Joyroom",
+                    "categorySlug": "audio",
+                    "price": 349,
+                    "originalPrice": 499,
+                    "stock": 120,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-jr-t03-1.webp",
+                            "alt": "سماعة جوي روم JR-T03 ايربودز",
+                            "source": "https://m.media-amazon.com/images/I/51C8K-JotkL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom JR-T03 True Wireless Earbuds",
+                            "shortDesc": "Budget-friendly TWS earbuds with great sound",
+                            "description": "The Joyroom JR-T03 offers excellent value with quality sound, touch controls, and reliable Bluetooth connectivity. Perfect for everyday use.",
+                            "features": [
+                                "20 hours total playtime",
+                                "Touch controls",
+                                "Bluetooth 5.0",
+                                "Stereo sound",
+                                "Compact charging case"
+                            ],
+                            "metaTitle": "Joyroom JR-T03 Wireless Earbuds | Affordable Egypt",
+                            "metaDesc": "Buy Joyroom JR-T03 wireless earbuds in Egypt. Great sound, 20H battery, touch controls. Best budget earbuds."
+                        },
+                        "ar": {
+                            "name": "سماعة جوي روم JR-T03 ايربودز لاسلكية",
+                            "shortDesc": "ايربودز جوي روم اقتصادية بصوت ممتاز",
+                            "description": "سماعة جوي روم JR-T03 تقدم قيمة ممتازة مع صوت عالي الجودة، تحكم باللمس، واتصال Bluetooth موثوق. مثالية للاستخدام اليومي.",
+                            "features": [
+                                "20 ساعة استخدام إجمالي",
+                                "تحكم باللمس",
+                                "Bluetooth 5.0",
+                                "صوت ستيريو",
+                                "علبة شحن صغيرة"
+                            ],
+                            "metaTitle": "سماعة جوي روم JR-T03 ايربودز | اقتصادية مصر",
+                            "metaDesc": "اشتري سماعة جوي روم JR-T03 لاسلكية في مصر. صوت ممتاز، 20 ساعة بطارية، تحكم باللمس. أفضل سماعات اقتصادية."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "سماعة joyroom, ايربودز joyroom, سعر السماعة joyroom, سماعات joyroom الاصلية",
+                        "focusKeyword": "سماعة joyroom"
+                    },
+                    "faq": [
+                        {
+                            "question": "ما الفرق بين T03 و T03S Pro؟",
+                            "answer": "T03S Pro يحتوي على إلغاء ضوضاء ANC وبطارية أطول وBluetooth أحدث."
+                        }
+                    ]
+                }
+            ],
+            "wall-chargers": [
+                {
+                    "slug": "joyroom-20w-usb-c-charger",
+                    "sku": "JR-WC-20W",
+                    "brand": "Joyroom",
+                    "categorySlug": "wall-chargers",
+                    "price": 199,
+                    "originalPrice": 279,
+                    "stock": 100,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-charger-20w-1.webp",
+                            "alt": "شاحن جوي روم 20 واط للايفون",
+                            "source": "https://m.media-amazon.com/images/I/51wjyjz9NHL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom 20W USB-C Fast Charger",
+                            "shortDesc": "Compact 20W fast charger for iPhone and Android",
+                            "description": "The Joyroom 20W USB-C charger provides fast charging for iPhone 15/14/13 and USB-C Android phones. Compact design with multiple safety protections.",
+                            "features": [
+                                "20W PD fast charging",
+                                "USB-C output",
+                                "Compact design",
+                                "Multiple safety protections",
+                                "Works with iPhone and Android"
+                            ],
+                            "metaTitle": "Joyroom 20W USB-C Fast Charger | Best Price Egypt",
+                            "metaDesc": "Buy Joyroom 20W USB-C fast charger in Egypt. PD charging, compact, works with iPhone and Android. Best price."
+                        },
+                        "ar": {
+                            "name": "شاحن جوي روم 20 واط USB-C سريع",
+                            "shortDesc": "شاحن جوي روم صغير 20 واط للايفون والاندرويد",
+                            "description": "شاحن جوي روم 20 واط USB-C يوفر شحن سريع للايفون 15/14/13 وهواتف الاندرويد USB-C. تصميم صغير مع حماية متعددة.",
+                            "features": [
+                                "شحن سريع 20 واط PD",
+                                "مخرج USB-C",
+                                "تصميم صغير",
+                                "حماية متعددة",
+                                "يعمل مع الايفون والاندرويد"
+                            ],
+                            "metaTitle": "شاحن جوي روم 20 واط USB-C سريع | أفضل سعر مصر",
+                            "metaDesc": "اشتري شاحن جوي روم 20 واط USB-C سريع في مصر. شحن PD، تصميم صغير، يعمل مع الايفون والاندرويد. أفضل سعر."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "شاحن joyroom, شاحن جوي روم, شاحن joyroom للايفون, joyroom charger",
+                        "focusKeyword": "شاحن جوي روم"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يشمل الكابل؟",
+                            "answer": "لا، الشاحن فقط. الكابل يُباع منفصلاً."
+                        }
+                    ]
+                }
+            ],
+            "cables": [
+                {
+                    "slug": "joyroom-usb-c-lightning-cable",
+                    "sku": "JR-CB-CL",
+                    "brand": "Joyroom",
+                    "categorySlug": "cables",
+                    "price": 149,
+                    "originalPrice": 199,
+                    "stock": 200,
+                    "featured": false,
+                    "status": "active",
+                    "images": [
+                        {
+                            "filename": "joyroom-cable-lightning-1.webp",
+                            "alt": "كابل جوي روم للايفون USB-C to Lightning",
+                            "source": "https://m.media-amazon.com/images/I/61N4AHv2mYL._AC_SL1500_.jpg"
+                        }
+                    ],
+                    "translations": {
+                        "en": {
+                            "name": "Joyroom USB-C to Lightning Fast Charging Cable",
+                            "shortDesc": "20W fast charging cable for iPhone",
+                            "description": "The Joyroom USB-C to Lightning cable supports 20W fast charging for iPhone. Durable nylon braided construction with reinforced connectors.",
+                            "features": [
+                                "20W fast charging support",
+                                "Nylon braided construction",
+                                "1m / 2m length options",
+                                "MFi compatible",
+                                "12-month warranty"
+                            ],
+                            "metaTitle": "Joyroom USB-C to Lightning Cable | Fast Charging Egypt",
+                            "metaDesc": "Buy Joyroom USB-C to Lightning cable in Egypt. 20W fast charging, nylon braided, durable. Best price for iPhone cable."
+                        },
+                        "ar": {
+                            "name": "كابل جوي روم USB-C to Lightning شحن سريع",
+                            "shortDesc": "كابل جوي روم للايفون شحن سريع 20 واط",
+                            "description": "كابل جوي روم USB-C to Lightning يدعم الشحن السريع 20 واط للايفون. تصنيع نايلون متين مع موصلات معززة.",
+                            "features": [
+                                "يدعم الشحن السريع 20 واط",
+                                "تصنيع نايلون مضفر",
+                                "متوفر بطول 1 متر / 2 متر",
+                                "متوافق MFi",
+                                "ضمان 12 شهر"
+                            ],
+                            "metaTitle": "كابل جوي روم USB-C to Lightning شحن سريع | مصر",
+                            "metaDesc": "اشتري كابل جوي روم USB-C to Lightning في مصر. شحن سريع 20 واط، نايلون مضفر، متين. أفضل سعر لكابل ايفون."
+                        }
+                    },
+                    "seo": {
+                        "keywords": "كابل جوي روم, cable joyroom, كابل ايفون جوي روم",
+                        "focusKeyword": "كابل جوي روم"
+                    },
+                    "faq": [
+                        {
+                            "question": "هل يعمل مع جميع الايفونات؟",
+                            "answer": "نعم، يعمل مع iPhone 5 وما بعده."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

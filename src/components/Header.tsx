@@ -1,0 +1,340 @@
+'use client';
+
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
+export default function Header() {
+    const locale = useLocale();
+    const t = useTranslations('Header');
+    const tCat = useTranslations('Categories');
+    const tBrand = useTranslations('Brands');
+    const isRTL = locale === 'ar';
+    const pathname = usePathname();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Handle scroll effect
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Function to get localized href
+    const getLocalizedHref = (path: string) => {
+        const cleanPath = path.startsWith('/') ? path : `/${path}`;
+        return `/${locale}${cleanPath}`;
+    };
+
+    // Language switcher - proper path replacement
+    const switchLocale = locale === 'ar' ? 'en' : 'ar';
+    const getSwitchPath = () => {
+        if (!pathname) return `/${switchLocale}`;
+        // Remove current locale prefix and add new one
+        const pathWithoutLocale = pathname.replace(/^\/(ar|en)/, '');
+        return `/${switchLocale}${pathWithoutLocale}`;
+    };
+
+    // Categories with proper grouping
+    const ankerCategories = [
+        { slug: 'power-banks', icon: '🔋', key: 'powerBanks' },
+        { slug: 'wall-chargers', icon: '🔌', key: 'wallChargers' },
+        { slug: 'cables', icon: '🔗', key: 'cables' },
+        { slug: 'car-chargers', icon: '🚗', key: 'carChargers' },
+    ];
+
+    const joyroomCategories = [
+        { slug: 'power-banks', icon: '🔋', key: 'powerBanks' },
+        { slug: 'audio', icon: '🎧', key: 'audio' },
+        { slug: 'wall-chargers', icon: '🔌', key: 'wallChargers' },
+        { slug: 'cables', icon: '🔗', key: 'cables' },
+    ];
+
+    return (
+        <>
+            <header
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+                        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg'
+                        : 'bg-transparent'
+                    }`}
+                dir={isRTL ? 'rtl' : 'ltr'}
+            >
+                {/* Top Bar */}
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs py-1.5 hidden md:block">
+                    <div className="container mx-auto px-4 flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                            <span>✅ {isRTL ? 'منتجات أصلية 100%' : '100% Original Products'}</span>
+                            <span>🚚 {isRTL ? 'شحن سريع لجميع المحافظات' : 'Fast Shipping Nationwide'}</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <a href="tel:+201000000000" className="hover:underline">
+                                📞 +20 100 000 0000
+                            </a>
+                            <Link
+                                href={getSwitchPath()}
+                                className="px-2 py-0.5 bg-white/20 rounded hover:bg-white/30 transition-colors"
+                            >
+                                {locale === 'ar' ? 'English' : 'العربية'}
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Main Header */}
+                <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+                    {/* Logo */}
+                    <Link
+                        href={getLocalizedHref('/')}
+                        className="flex items-center gap-2"
+                    >
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">
+                            M
+                        </div>
+                        <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
+                            {isRTL ? 'موبايل ستور' : 'MobileStore'}
+                        </span>
+                    </Link>
+
+                    {/* Desktop Navigation */}
+                    <nav className="hidden lg:flex items-center gap-1">
+                        {/* Anker Dropdown */}
+                        <div className="relative group">
+                            <Link
+                                href={getLocalizedHref('/anker')}
+                                className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors flex items-center gap-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                            >
+                                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                                {tBrand('anker')}
+                                <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </Link>
+                            <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} w-64 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0 p-2 mt-1`}>
+                                <div className="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                                    {isRTL ? 'منتجات أنكر' : 'Anker Products'}
+                                </div>
+                                {ankerCategories.map((cat) => (
+                                    <Link
+                                        key={cat.slug}
+                                        href={getLocalizedHref(`/anker/${cat.slug}`)}
+                                        className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 rounded-lg transition-colors"
+                                    >
+                                        <span className="text-lg">{cat.icon}</span>
+                                        <span>{tCat(cat.key)}</span>
+                                    </Link>
+                                ))}
+                                <div className="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+                                    <Link
+                                        href={getLocalizedHref('/anker')}
+                                        className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                                    >
+                                        {isRTL ? 'عرض الكل' : 'View All'}
+                                        <span>→</span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Joyroom Dropdown */}
+                        <div className="relative group">
+                            <Link
+                                href={getLocalizedHref('/joyroom')}
+                                className="px-4 py-2 text-sm font-medium hover:text-red-600 transition-colors flex items-center gap-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                            >
+                                <span className="w-2 h-2 rounded-full bg-red-600"></span>
+                                {tBrand('joyroom')}
+                                <svg className="w-4 h-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </Link>
+                            <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} w-64 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all transform translate-y-2 group-hover:translate-y-0 p-2 mt-1`}>
+                                <div className="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                                    {isRTL ? 'منتجات جوي روم' : 'Joyroom Products'}
+                                </div>
+                                {joyroomCategories.map((cat) => (
+                                    <Link
+                                        key={cat.slug}
+                                        href={getLocalizedHref(`/joyroom/${cat.slug}`)}
+                                        className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 rounded-lg transition-colors"
+                                    >
+                                        <span className="text-lg">{cat.icon}</span>
+                                        <span>{tCat(cat.key)}</span>
+                                    </Link>
+                                ))}
+                                <div className="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+                                    <Link
+                                        href={getLocalizedHref('/joyroom')}
+                                        className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                                    >
+                                        {isRTL ? 'عرض الكل' : 'View All'}
+                                        <span>→</span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Direct Links */}
+                        <Link
+                            href={getLocalizedHref('/anker/power-banks')}
+                            className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                            {tCat('powerBanks')}
+                        </Link>
+                        <Link
+                            href={getLocalizedHref('/joyroom/audio')}
+                            className="px-4 py-2 text-sm font-medium hover:text-red-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                            {tCat('audio')}
+                        </Link>
+                    </nav>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2">
+                        {/* Search Button */}
+                        <button className="p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors">
+                            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+
+                        {/* Mobile Language Switcher */}
+                        <Link
+                            href={getSwitchPath()}
+                            className="lg:hidden p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors text-sm font-bold"
+                        >
+                            {locale === 'ar' ? 'EN' : 'ع'}
+                        </Link>
+
+                        {/* WhatsApp Button */}
+                        <a
+                            href="https://wa.me/201000000000"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden md:flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-xl transition-colors"
+                        >
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                            <span>{isRTL ? 'واتساب' : 'WhatsApp'}</span>
+                        </a>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="lg:hidden p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                {mobileMenuOpen ? (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                ) : (
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                )}
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            {/* Mobile Menu */}
+            <div
+                className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'visible' : 'invisible'
+                    }`}
+            >
+                {/* Backdrop */}
+                <div
+                    className={`absolute inset-0 bg-black/50 transition-opacity ${mobileMenuOpen ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+
+                {/* Menu Panel */}
+                <div
+                    className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-80 h-full bg-white dark:bg-gray-900 shadow-2xl transform transition-transform ${mobileMenuOpen
+                            ? 'translate-x-0'
+                            : isRTL ? 'translate-x-full' : '-translate-x-full'
+                        }`}
+                    dir={isRTL ? 'rtl' : 'ltr'}
+                >
+                    <div className="p-6">
+                        {/* Mobile Logo */}
+                        <div className="flex items-center justify-between mb-8">
+                            <Link href={getLocalizedHref('/')} className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold">
+                                    M
+                                </div>
+                                <span className="text-lg font-bold">
+                                    {isRTL ? 'موبايل ستور' : 'MobileStore'}
+                                </span>
+                            </Link>
+                            <button onClick={() => setMobileMenuOpen(false)} className="p-2">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Mobile Navigation */}
+                        <nav className="space-y-6">
+                            {/* Anker Section */}
+                            <div>
+                                <h3 className="flex items-center gap-2 text-sm font-bold text-blue-600 mb-3">
+                                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                                    {tBrand('anker')}
+                                </h3>
+                                <div className="space-y-1">
+                                    {ankerCategories.map((cat) => (
+                                        <Link
+                                            key={cat.slug}
+                                            href={getLocalizedHref(`/anker/${cat.slug}`)}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                                        >
+                                            <span>{cat.icon}</span>
+                                            <span>{tCat(cat.key)}</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Joyroom Section */}
+                            <div>
+                                <h3 className="flex items-center gap-2 text-sm font-bold text-red-600 mb-3">
+                                    <span className="w-2 h-2 rounded-full bg-red-600"></span>
+                                    {tBrand('joyroom')}
+                                </h3>
+                                <div className="space-y-1">
+                                    {joyroomCategories.map((cat) => (
+                                        <Link
+                                            key={cat.slug}
+                                            href={getLocalizedHref(`/joyroom/${cat.slug}`)}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                                        >
+                                            <span>{cat.icon}</span>
+                                            <span>{tCat(cat.key)}</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Contact */}
+                            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                                <a
+                                    href="https://wa.me/201000000000"
+                                    className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white font-medium rounded-xl"
+                                >
+                                    📱 {isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            {/* Spacer for fixed header */}
+            <div className="h-16 md:h-[calc(4rem+28px)]"></div>
+        </>
+    );
+}
