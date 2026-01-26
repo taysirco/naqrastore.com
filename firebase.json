@@ -1,0 +1,6 @@
+{
+    "firestore": {
+        "database": "gadgets",
+        "indexes": "firestore.indexes.json"
+    }
+}

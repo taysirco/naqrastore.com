@@ -177,5 +177,240 @@
         "title": "Page Not Found",
         "description": "Sorry, the page you're looking for doesn't exist.",
         "goHome": "Go to Homepage"
+    },
+    "Shipping": {
+        "metaTitle": "Shipping & Delivery | MobileStore Egypt",
+        "metaDescription": "Free shipping on orders over 500 EGP. Fast delivery across Egypt in 1-5 days.",
+        "title": "Shipping & Delivery",
+        "deliveryAreas": {
+            "title": "Delivery Areas",
+            "description": "We deliver to all Egyptian governorates",
+            "cairo": "Cairo",
+            "giza": "Giza",
+            "alexandria": "Alexandria",
+            "delta": "Delta Region",
+            "upperEgypt": "Upper Egypt",
+            "redSea": "Red Sea"
+        },
+        "deliveryTime": {
+            "title": "Delivery Time",
+            "cairo": "Cairo & Giza",
+            "provinces": "Other Governorates",
+            "days": "days"
+        },
+        "shippingCost": {
+            "title": "Shipping Cost",
+            "freeShipping": "🎉 Free shipping for orders over 500 EGP!",
+            "belowMinimum": "Orders under 500 EGP: 40 EGP flat rate"
+        },
+        "cod": {
+            "title": "Cash on Delivery",
+            "description": "Pay when you receive your order. Cash on delivery is available for all areas in Egypt."
+        }
+    },
+    "Warranty": {
+        "metaTitle": "Warranty Policy | MobileStore Egypt",
+        "metaDescription": "Official warranty up to 24 months for Anker and Joyroom products. Learn about our warranty coverage.",
+        "title": "Warranty Policy",
+        "period": {
+            "title": "Warranty Period",
+            "ankerMonths": "Months Warranty",
+            "ankerProducts": "Anker Products",
+            "joyroomMonths": "Months Warranty",
+            "joyroomProducts": "Joyroom Products"
+        },
+        "covered": {
+            "title": "What's Covered",
+            "manufacturing": "Manufacturing defects",
+            "battery": "Battery performance issues",
+            "charging": "Charging or power issues",
+            "ports": "Port and connector defects"
+        },
+        "notCovered": {
+            "title": "What's Not Covered",
+            "physical": "Physical damage (drops, scratches)",
+            "water": "Water damage",
+            "misuse": "Damage from misuse",
+            "unauthorized": "Unauthorized repairs"
+        },
+        "howToClaim": {
+            "title": "How to Claim Warranty",
+            "step1": "Contact us via WhatsApp with your order number",
+            "step2": "Describe the issue with photos/videos",
+            "step3": "We'll arrange pickup or drop-off",
+            "step4": "Receive replacement or repair within 7 days"
+        }
+    },
+    "FAQ": {
+        "metaTitle": "Frequently Asked Questions | MobileStore Egypt",
+        "metaDescription": "Find answers to common questions about ordering, shipping, warranty, and products.",
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find quick answers to your questions",
+        "stillNeedHelp": "Still Need Help?",
+        "contactUs": "Our team is ready to assist you",
+        "contactButton": "Contact Us",
+        "categories": {
+            "ordering": {
+                "title": "Ordering",
+                "q1": "How do I place an order?",
+                "a1": "Simply browse our products, add items to cart, and checkout. You can pay on delivery.",
+                "q2": "Can I modify my order after placing it?",
+                "a2": "Contact us within 1 hour of placing your order and we can make changes.",
+                "q3": "Is there a minimum order amount?",
+                "a3": "No minimum order. However, orders under 500 EGP have a 40 EGP shipping fee."
+            },
+            "shipping": {
+                "title": "Shipping",
+                "q1": "How long does delivery take?",
+                "a1": "1-2 days for Cairo/Giza, 3-5 days for other governorates.",
+                "q2": "Can I track my order?",
+                "a2": "Yes! You'll receive a tracking link via WhatsApp once your order ships.",
+                "q3": "Do you deliver to my area?",
+                "a3": "We deliver to all Egyptian governorates."
+            },
+            "warranty": {
+                "title": "Warranty",
+                "q1": "How long is the warranty?",
+                "a1": "18 months for Anker products, 12 months for Joyroom products.",
+                "q2": "How do I claim warranty?",
+                "a2": "Contact us on WhatsApp with your order number and describe the issue.",
+                "q3": "Is the warranty transferable?",
+                "a3": "Warranty is tied to the original purchase, not transferable."
+            },
+            "products": {
+                "title": "Products",
+                "q1": "Are these original products?",
+                "a1": "Yes! We are an authorized dealer for Anker and Joyroom in Egypt.",
+                "q2": "What's the difference between Anker and Joyroom?",
+                "a2": "Anker is premium with longer warranty. Joyroom offers great value at lower prices.",
+                "q3": "Can I get product advice?",
+                "a3": "Absolutely! Contact us on WhatsApp and we'll help you choose the right product."
+            },
+            "payment": {
+                "title": "Payment",
+                "q1": "What payment methods do you accept?",
+                "a1": "Cash on Delivery (COD) is our main payment method.",
+                "q2": "Can I pay by card?",
+                "a2": "Currently we only accept Cash on Delivery.",
+                "q3": "Is payment secure?",
+                "a3": "Yes! You only pay when you receive and inspect your order."
+            }
+        }
+    },
+    "About": {
+        "metaTitle": "About Us | MobileStore Egypt",
+        "metaDescription": "MobileStore is Egypt's trusted destination for Anker and Joyroom mobile accessories.",
+        "title": "About MobileStore",
+        "subtitle": "Your trusted destination for premium mobile accessories in Egypt",
+        "mission": {
+            "title": "Our Mission",
+            "description": "We're committed to bringing the best mobile accessories to Egypt at competitive prices with excellent customer service and official warranty support."
+        },
+        "whyUs": {
+            "title": "Why Choose Us",
+            "original": {
+                "title": "100% Original Products",
+                "description": "Authorized dealer for Anker and Joyroom brands"
+            },
+            "warranty": {
+                "title": "Official Warranty",
+                "description": "Up to 18 months warranty on all products"
+            },
+            "prices": {
+                "title": "Best Prices",
+                "description": "Competitive prices with no hidden fees"
+            },
+            "support": {
+                "title": "24/7 Support",
+                "description": "Always here to help via WhatsApp"
+            }
+        },
+        "brands": {
+            "title": "Our Brands",
+            "anker": "The #1 charging brand globally. Premium power banks, chargers, and cables.",
+            "joyroom": "Innovative accessories at great value. Earbuds, power banks, and more."
+        },
+        "stats": {
+            "customers": "Happy Customers",
+            "products": "Products",
+            "warranty": "Months Warranty",
+            "support": "Support"
+        }
+    },
+    "Privacy": {
+        "metaTitle": "Privacy Policy | MobileStore Egypt",
+        "metaDescription": "Learn how MobileStore protects your personal information and privacy.",
+        "title": "Privacy Policy",
+        "lastUpdated": "Last updated: January 2026",
+        "sections": {
+            "collection": {
+                "title": "Information We Collect",
+                "content": "We collect information you provide when placing orders:\n• Name and contact information\n• Shipping address\n• Phone number\n• Order history"
+            },
+            "usage": {
+                "title": "How We Use Your Information",
+                "content": "Your information is used to:\n• Process and deliver your orders\n• Send order updates via WhatsApp\n• Improve our services\n• Handle warranty claims"
+            },
+            "sharing": {
+                "title": "Information Sharing",
+                "content": "We only share your information with:\n• Shipping companies (for delivery)\n• Payment processors (if applicable)\nWe never sell your personal data to third parties."
+            },
+            "security": {
+                "title": "Data Security",
+                "content": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, or destruction."
+            },
+            "cookies": {
+                "title": "Cookies",
+                "content": "Our website uses cookies to enhance your browsing experience and remember your preferences. You can disable cookies in your browser settings."
+            },
+            "rights": {
+                "title": "Your Rights",
+                "content": "You have the right to:\n• Access your personal data\n• Request correction of inaccurate data\n• Request deletion of your data\n• Opt out of marketing communications"
+            },
+            "contact": {
+                "title": "Contact Us",
+                "content": "For privacy-related questions, contact us via WhatsApp or email. We're committed to addressing your concerns promptly."
+            }
+        }
+    },
+    "Terms": {
+        "metaTitle": "Terms & Conditions | MobileStore Egypt",
+        "metaDescription": "Read the terms and conditions for shopping at MobileStore Egypt.",
+        "title": "Terms & Conditions",
+        "lastUpdated": "Last updated: January 2026",
+        "sections": {
+            "acceptance": {
+                "title": "Acceptance of Terms",
+                "content": "By placing an order on MobileStore, you agree to these terms and conditions. Please read them carefully before making a purchase."
+            },
+            "orders": {
+                "title": "Orders",
+                "content": "• All orders are subject to availability\n• We reserve the right to refuse or cancel orders\n• Order confirmation will be sent via WhatsApp\n• Prices are in Egyptian Pounds (EGP)"
+            },
+            "pricing": {
+                "title": "Pricing",
+                "content": "All prices are displayed in Egyptian Pounds and include applicable taxes. Prices may change without notice, but confirmed orders will be honored at the quoted price."
+            },
+            "shipping": {
+                "title": "Shipping & Delivery",
+                "content": "• Delivery times are estimates, not guarantees\n• Free shipping for orders over 500 EGP\n• Cash on Delivery is available\n• Risk of loss transfers upon delivery"
+            },
+            "returns": {
+                "title": "Returns & Exchanges",
+                "content": "• Products can be returned within 14 days if unused and in original packaging\n• Defective products are covered under warranty\n• Return shipping costs may apply\n• Refunds processed within 7 business days"
+            },
+            "warranty": {
+                "title": "Product Warranty",
+                "content": "All products carry manufacturer warranty:\n• Anker products: 18 months\n• Joyroom products: 12 months\nWarranty covers manufacturing defects only."
+            },
+            "liability": {
+                "title": "Limitation of Liability",
+                "content": "MobileStore is not liable for indirect, incidental, or consequential damages. Our liability is limited to the purchase price of the product."
+            },
+            "changes": {
+                "title": "Changes to Terms",
+                "content": "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Continued use constitutes acceptance of modified terms."
+            }
+        }
     }
 }
