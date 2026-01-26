@@ -8,23 +8,29 @@ let adminDb: Firestore | null = null;
 let adminStorage: Storage | null = null;
 let adminAuth: Auth | null = null;
 
-// Only initialize if we have valid credentials (prevents build-time errors)
-const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+// Use individual environment variables for cleaner configuration
+const projectId = process.env.FIREBASE_PROJECT_ID;
+const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const databaseId = process.env.FIREBASE_DATABASE_ID || '(default)';
 
-if (serviceAccountKey && serviceAccountKey !== '{"type":"service_account","project_id":"..."}') {
+if (projectId && clientEmail && privateKey) {
     try {
-        const serviceAccount = JSON.parse(serviceAccountKey);
-
         if (!getApps().length) {
             adminApp = initializeApp({
-                credential: cert(serviceAccount),
+                credential: cert({
+                    projectId,
+                    clientEmail,
+                    privateKey,
+                }),
                 storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
             });
         } else {
             adminApp = getApps()[0];
         }
 
-        adminDb = getFirestore(adminApp);
+        // Use custom database ID if specified
+        adminDb = getFirestore(adminApp, databaseId);
         adminStorage = getStorage(adminApp);
         adminAuth = getAuth(adminApp);
     } catch (error) {
