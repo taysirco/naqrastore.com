@@ -1,20 +1,23 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useCart } from '@/context/CartContext';
 
 export default function CheckoutPage() {
     const t = useTranslations('Checkout');
     const router = useRouter();
+    const { items: cartItems, totalAmount, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
 
-    // For demo purposes, using a mock cart. In production, this would come from a cart context/state.
-    const cartItems = [
-        { productId: 'demo-1', name: 'Anker PowerCore 20000', quantity: 1, priceAtPurchase: 1200 }
-    ];
-    const totalAmount = cartItems.reduce((sum, item) => sum + item.priceAtPurchase * item.quantity, 0);
+    // Redirect if cart is empty
+    useEffect(() => {
+        if (!loading && !success && cartItems.length === 0) {
+            router.push('/');
+        }
+    }, [cartItems, loading, success, router]);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -40,6 +43,7 @@ export default function CheckoutPage() {
             if (!res.ok) throw new Error('Failed to place order');
 
             setSuccess(true);
+            clearCart(); // Clear cart after successful order
         } catch (error) {
             alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
         } finally {
@@ -55,6 +59,12 @@ export default function CheckoutPage() {
                     <h1 className="text-2xl font-bold text-green-700 mb-2">تم استلام طلبك بنجاح!</h1>
                     <p className="text-gray-600">سنتواصل معك قريباً لتأكيد الطلب.</p>
                     <p className="text-sm text-gray-400 mt-4">الدفع عند الاستلام</p>
+                    <button
+                        onClick={() => router.push('/')}
+                        className="mt-6 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                    >
+                        العودة للرئيسية
+                    </button>
                 </div>
             </div>
         );
@@ -71,7 +81,7 @@ export default function CheckoutPage() {
                     {cartItems.map((item, idx) => (
                         <div key={idx} className="flex justify-between py-2 border-b">
                             <span>{item.name} x{item.quantity}</span>
-                            <span className="font-bold">{item.priceAtPurchase * item.quantity} جنيه</span>
+                            <span className="font-bold">{item.price * item.quantity} جنيه</span>
                         </div>
                     ))}
                     <div className="flex justify-between pt-4 text-lg font-bold">

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { adminDb } from '@/lib/firebase-admin';
-import { getProductBySlug, StaticProduct } from '@/lib/static-products';
+import { getProductBySlug, StaticProduct, getSmartRelatedProducts } from '@/lib/static-products';
 import ProductPageClient from './ProductPageClient';
 
 type Props = {
@@ -179,12 +179,21 @@ export default async function ProductPage({ params }: Props) {
         notFound();
     }
 
+    // Get static product for smart related products
+    const staticProduct = getProductBySlug(slug);
+
+    // Use smart algorithm to get related products (always returns products)
+    const relatedProducts = staticProduct
+        ? getSmartRelatedProducts(staticProduct, 2).map(p => ({ id: `static_${p.slug}`, ...p } as Product))
+        : [];
+
     return (
         <>
             <ProductSchema product={product} locale={locale} />
             <BreadcrumbSchema product={product} locale={locale} category={category} />
             <ProductPageClient
                 product={product}
+                relatedProducts={relatedProducts}
                 locale={locale}
                 brand={brand}
                 category={category}

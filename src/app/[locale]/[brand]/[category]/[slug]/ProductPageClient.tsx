@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { QuickSummary, ProductComparisonTable, ExpertOpinion, ProductFAQ } from '@/components/seo/AIOverviewsOptimization';
+import { useCart } from '@/context/CartContext';
+import BundleSelector from '@/components/products/BundleSelector';
 
 interface Product {
-    id: string;
+    id: string; // Add id
     slug: string;
     sku?: string;
     brand: string;
@@ -25,6 +27,7 @@ interface Product {
 
 interface ProductPageClientProps {
     product: Product;
+    relatedProducts?: Product[];
     locale: string;
     brand: string;
     category: string;
@@ -40,16 +43,37 @@ const categoryKeyMap: Record<string, string> = {
     'smart-watches': 'smartWatches',
 };
 
-export default function ProductPageClient({ product, locale, brand, category }: ProductPageClientProps) {
+export default function ProductPageClient({ product, relatedProducts = [], locale, brand, category }: ProductPageClientProps) {
     const tCommon = useTranslations('Common');
     const tProduct = useTranslations('Product');
     const tCat = useTranslations('Categories');
     const tBrand = useTranslations('Brands');
 
     const tFAQ = useTranslations('FAQ');
+    const { addToCart } = useCart();
 
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
+
+    // Sticky Buy Bar Logic
+    const [showStickyBar, setShowStickyBar] = useState(false);
+    const addToCartButtonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Show sticky bar when main button is NOT visible (scrolled past)
+                setShowStickyBar(!entry.isIntersecting);
+            },
+            { threshold: 0 }
+        );
+
+        if (addToCartButtonRef.current) {
+            observer.observe(addToCartButtonRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     const getLocalizedHref = (path: string) => {
         const cleanPath = path.startsWith('/') ? path : `/${path}`;
@@ -61,6 +85,17 @@ export default function ProductPageClient({ product, locale, brand, category }: 
     const productDesc = currentTranslation?.description || '';
     const productShortDesc = currentTranslation?.shortDescription || '';
     const productFeatures = currentTranslation?.features || [];
+
+    const handleAddToCart = () => {
+        addToCart({
+            productId: product.id,
+            name: productName,
+            price: product.price,
+            quantity: quantity,
+            image: product.images?.[0]?.url,
+            brand: product.brand
+        });
+    };
 
     const images = product.images || [];
     const primaryImage = images[selectedImage]?.url || '';
@@ -244,10 +279,14 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                                     +
                                 </button>
                             </div>
-                            <button className={`flex-1 min-w-[200px] px-8 py-4 font-bold text-lg rounded-xl transition-all transform hover:scale-[1.02] shadow-lg ${brand === 'anker'
-                                ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/30'
-                                : 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/30'
-                                }`}>
+                            <button
+                                ref={addToCartButtonRef}
+                                onClick={handleAddToCart}
+                                className={`flex-1 min-w-[200px] px-8 py-4 font-bold text-lg rounded-xl transition-all transform hover:scale-[1.02] shadow-lg ${brand === 'anker'
+                                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/30'
+                                    : 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/30'
+                                    }`}
+                            >
                                 🛒 {tProduct('addToCart')}
                             </button>
                         </div>
@@ -268,6 +307,15 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                             </svg>
                             {isRTL ? 'اطلب الآن عبر واتساب' : 'Order Now via WhatsApp'}
                         </a>
+
+                        {/* Bundle Selector Component */}
+                        <div className="mt-8">
+                            <BundleSelector
+                                mainProduct={product}
+                                relatedProducts={relatedProducts}
+                                locale={locale}
+                            />
+                        </div>
 
                         {/* Trust Badges */}
                         <div className="grid grid-cols-2 gap-4 pt-6">
@@ -456,7 +504,10 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                 </div>
             </div>
             {/* Mobile Sticky Action Bar */}
-            <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40">
+            <div
+                className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40 transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'
+                    }`}
+            >
                 <div className="flex gap-3">
                     <div className="flex-1">
                         <span className="block text-xs text-gray-500">{tProduct('price')}</span>
@@ -465,10 +516,13 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                             <span className="text-xs">{tCommon('egp')}</span>
                         </div>
                     </div>
-                    <button className={`flex-1 px-4 py-2 font-bold text-white rounded-lg shadow-lg ${brand === 'anker'
-                        ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-600/20'
-                        : 'bg-red-600 hover:bg-red-700 shadow-red-600/20'
-                        }`}>
+                    <button
+                        onClick={handleAddToCart}
+                        className={`flex-1 px-4 py-2 font-bold text-white rounded-lg shadow-lg ${brand === 'anker'
+                            ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-600/20'
+                            : 'bg-red-600 hover:bg-red-700 shadow-red-600/20'
+                            }`}
+                    >
                         {tProduct('addToCart')}
                     </button>
                     <a
@@ -488,8 +542,8 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                 </div>
             </div>
 
-            {/* Spacer for sticky bar */}
-            <div className="h-24 lg:hidden"></div>
+            {/* Spacer for sticky bar - only show when bar is visible */}
+            <div className={`h-24 lg:hidden transition-all ${showStickyBar ? 'block' : 'hidden'}`}></div>
         </div>
     );
 }

@@ -241,6 +241,7 @@ export const products = [
             { id: "img_737_1", url: "/products/anker/anker-737-powerbank/1.webp", alt: "Anker 737 Power Bank (PowerCore 24K)", order: 0, isPrimary: true },
             { id: "img_737_2", url: "/products/anker/anker-737-powerbank/2.webp", alt: "باور بانك انكر 737 شاشة رقمية", order: 1, isPrimary: false }
         ],
+        relatedProducts: ["anker-312-charger-25w", "anker-765-cable-usb-c"],
         translations: {
             en: {
                 name: "Anker 737 Power Bank (PowerCore 24K)",
@@ -364,6 +365,7 @@ export const products = [
         images: [
             { id: "img_521_1", url: "/products/anker/anker-521-powerhouse/1.webp", alt: "Anker 521 Portable Power Station", order: 0, isPrimary: true }
         ],
+        relatedProducts: ["anker-soundcore-motion-plus", "anker-765-cable-usb-c"],
         translations: {
             en: {
                 name: "Anker 521 Portable Power Station (PowerHouse 256Wh)",
@@ -472,7 +474,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "باور بانك انكر, باور بانك انكر 10000, انكر باور بانك, anker power bank", focusKeyword: "باور بانك انكر 10000" }
+        seo: { keywords: "باور بانك انكر, باور بانك انكر 10000, انكر باور بانك, anker power bank", focusKeyword: "باور بانك انكر 10000" },
+        relatedProducts: ["anker-powerport-20w", "anker-powerline-usb-c-lightning"]
     },
     {
         slug: "anker-powercore-20000",
@@ -533,7 +536,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "باور بانك انكر 20000, سعر باور بانك انكر 20000, anker power bank 20000", focusKeyword: "باور بانك انكر 20000" }
+        seo: { keywords: "باور بانك انكر 20000, سعر باور بانك انكر 20000, anker power bank 20000", focusKeyword: "باور بانك انكر 20000" },
+        relatedProducts: ["anker-powerport-20w", "anker-powerline-usb-c-usb-c"]
     },
     {
         slug: "anker-powercore-26800",
@@ -594,7 +598,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "باور بانك انكر 26800, انكر 26800", focusKeyword: "باور بانك انكر 26800" }
+        seo: { keywords: "باور بانك انكر 26800, انكر 26800", focusKeyword: "باور بانك انكر 26800" },
+        relatedProducts: ["anker-nano-45w", "anker-powerline-usb-c-usb-c"]
     },
 
     // ========== ANKER WALL CHARGERS ==========
@@ -657,7 +662,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "شاحن انكر, شاحن انكر 20 واط, شاحن انكر ايفون, anker charger 20w", focusKeyword: "شاحن انكر 20 واط" }
+        seo: { keywords: "شاحن انكر, شاحن انكر 20 واط, شاحن انكر ايفون, anker charger 20w", focusKeyword: "شاحن انكر 20 واط" },
+        relatedProducts: ["anker-powerline-usb-c-lightning", "anker-powercore-10000"]
     },
     {
         slug: "anker-powerport-25w",
@@ -1092,7 +1098,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "باور بانك جوي روم 20000, joyroom power bank 20000", focusKeyword: "باور بانك جوي روم 20000" }
+        seo: { keywords: "باور بانك جوي روم 20000, joyroom power bank 20000", focusKeyword: "باور بانك جوي روم 20000" },
+        relatedProducts: ["joyroom-20w-usb-c-charger", "joyroom-usb-c-lightning-cable"]
     },
 
     // ========== JOYROOM AUDIO ==========
@@ -1280,7 +1287,8 @@ export const products = [
                 ]
             }
         },
-        seo: { keywords: "شاحن joyroom, شاحن جوي روم, joyroom charger", focusKeyword: "شاحن جوي روم" }
+        seo: { keywords: "شاحن joyroom, شاحن جوي روم, joyroom charger", focusKeyword: "شاحن جوي روم" },
+        relatedProducts: ["joyroom-usb-c-lightning-cable", "joyroom-power-bank-10000"]
     },
 
     // ========== JOYROOM CABLE ==========

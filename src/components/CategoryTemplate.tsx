@@ -191,42 +191,42 @@ export default function CategoryTemplate({
                             className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                         >
                             {/* Product Image */}
-                            <div className={`h-48 bg-gradient-to-br ${brandColorClass} opacity-10 relative`}>
+                            <div className={`h-32 md:h-48 bg-gradient-to-br ${brandColorClass} opacity-10 relative`}>
                                 {product.image ? (
-                                    <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-4" />
+                                    <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-2 md:p-4" />
                                 ) : (
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className={`text-6xl font-bold bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
+                                        <span className={`text-4xl md:text-6xl font-bold bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
                                             {brand.charAt(0)}
                                         </span>
                                     </div>
                                 )}
                                 {product.badge && (
-                                    <span className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'} px-3 py-1 text-xs font-bold rounded-full ${badgeColorClass}`}>
+                                    <span className={`absolute top-2 right-2 md:top-4 md:${isRTL ? 'right-4' : 'left-4'} px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold rounded-full ${badgeColorClass}`}>
                                         {product.badge}
                                     </span>
                                 )}
                             </div>
 
                             {/* Product Info */}
-                            <div className="p-6">
-                                <span className={`text-xs font-bold uppercase tracking-wider bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
+                            <div className="p-3 md:p-6">
+                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
                                     {brand}
                                 </span>
-                                <h3 className="text-lg font-bold mt-2 mb-4 group-hover:text-blue-600 transition-colors">
+                                <h3 className="text-sm md:text-lg font-bold mt-1 md:mt-2 mb-2 md:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 min-h-[2.5em]">
                                     {product.name}
                                 </h3>
 
-                                <div className="flex items-center justify-between">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                                     <div>
-                                        <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                                        <span className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white">
                                             {product.price}
                                         </span>
-                                        <span className="text-sm text-gray-500 mr-1">
+                                        <span className="text-xs md:text-sm text-gray-500 mr-1">
                                             {locale === 'ar' ? 'جنيه' : 'EGP'}
                                         </span>
                                     </div>
-                                    <span className={`px-4 py-2 ${buttonColorClass} text-white text-sm font-bold rounded-lg transition-colors`}>
+                                    <span className={`px-3 py-1.5 md:px-4 md:py-2 ${buttonColorClass} text-white text-xs md:text-sm font-bold rounded-lg transition-colors text-center w-full md:w-auto`}>
                                         {locale === 'ar' ? 'التفاصيل' : 'Details'}
                                     </span>
                                 </div>

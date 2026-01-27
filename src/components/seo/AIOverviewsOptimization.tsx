@@ -76,9 +76,9 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
     const warrantyMonths = product.brand === 'Anker' ? 18 : 12;
 
     return (
-        <div className="my-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg">
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="text-2xl">📊</span>
+        <div className="my-6 md:my-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-4 md:p-6 shadow-lg">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 flex items-center gap-2">
+                <span className="text-xl md:text-2xl">📊</span>
                 {labels.title}
             </h3>
 
@@ -86,35 +86,35 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
                 <table className="w-full text-sm">
                     <thead>
                         <tr className="border-b-2 border-blue-200 dark:border-gray-700">
-                            <th className="py-3 px-4 text-start font-semibold">{labels.store}</th>
-                            <th className="py-3 px-4 text-start font-semibold">{labels.price}</th>
-                            <th className="py-3 px-4 text-start font-semibold">{labels.warranty}</th>
-                            <th className="py-3 px-4 text-start font-semibold">{labels.delivery}</th>
-                            <th className="py-3 px-4 text-start font-semibold">{labels.original}</th>
+                            <th className="py-2 px-2 md:py-3 md:px-4 text-start font-semibold">{labels.store}</th>
+                            <th className="py-2 px-2 md:py-3 md:px-4 text-start font-semibold">{labels.price}</th>
+                            <th className="py-2 px-2 md:py-3 md:px-4 text-start font-semibold">{labels.warranty}</th>
+                            <th className="py-2 px-2 md:py-3 md:px-4 text-start font-semibold">{labels.delivery}</th>
+                            <th className="py-2 px-2 md:py-3 md:px-4 text-start font-semibold">{labels.original}</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* Our Store - Highlighted */}
                         <tr className="bg-green-100 dark:bg-green-900/30 font-medium">
-                            <td className="py-3 px-4 flex items-center gap-2">
-                                <span className="text-lg">⭐</span>
-                                {labels.ourStore}
+                            <td className="py-2 px-2 md:py-3 md:px-4 flex items-center gap-1 md:gap-2">
+                                <span className="text-base md:text-lg">⭐</span>
+                                <span className="text-xs md:text-sm">{labels.ourStore}</span>
                             </td>
-                            <td className="py-3 px-4 text-green-700 dark:text-green-400 font-bold">
-                                {product.price} {labels.egp}
+                            <td className="py-2 px-2 md:py-3 md:px-4 text-green-700 dark:text-green-400 font-bold">
+                                {product.price} <span className="text-xs">{labels.egp}</span>
                             </td>
-                            <td className="py-3 px-4">
-                                <span className="bg-green-200 dark:bg-green-800 px-2 py-1 rounded text-xs font-semibold">
+                            <td className="py-2 px-2 md:py-3 md:px-4">
+                                <span className="bg-green-200 dark:bg-green-800 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-[10px] md:text-xs font-semibold whitespace-nowrap">
                                     {warrantyMonths} {labels.months} ✓
                                 </span>
                             </td>
-                            <td className="py-3 px-4">
+                            <td className="py-2 px-2 md:py-3 md:px-4 text-xs md:text-sm">
                                 1-3 {labels.days}
                                 {product.price >= 500 && (
-                                    <span className="ms-1 text-green-600 text-xs">({labels.free})</span>
+                                    <span className="ms-1 text-green-600 text-[10px] md:text-xs block md:inline">({labels.free})</span>
                                 )}
                             </td>
-                            <td className="py-3 px-4 text-green-600 dark:text-green-400 font-bold">
+                            <td className="py-2 px-2 md:py-3 md:px-4 text-green-600 dark:text-green-400 font-bold text-xs md:text-sm">
                                 {labels.yes}
                             </td>
                         </tr>
@@ -122,13 +122,13 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
                         {/* Competitors */}
                         {comps.map((comp, index) => (
                             <tr key={index} className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                                <td className="py-3 px-4">{comp.name}</td>
-                                <td className="py-3 px-4 text-gray-600 dark:text-gray-400">
+                                <td className="py-2 px-2 md:py-3 md:px-4 text-xs md:text-sm">{comp.name}</td>
+                                <td className="py-2 px-2 md:py-3 md:px-4 text-gray-600 dark:text-gray-400 text-xs md:text-sm">
                                     {typeof comp.price === 'number' ? `${comp.price} ${labels.egp}` : comp.price}
                                 </td>
-                                <td className="py-3 px-4 text-gray-600 dark:text-gray-400">{comp.warranty}</td>
-                                <td className="py-3 px-4 text-gray-600 dark:text-gray-400">{comp.delivery}</td>
-                                <td className="py-3 px-4">
+                                <td className="py-2 px-2 md:py-3 md:px-4 text-gray-600 dark:text-gray-400 text-xs md:text-sm">{comp.warranty}</td>
+                                <td className="py-2 px-2 md:py-3 md:px-4 text-gray-600 dark:text-gray-400 text-xs md:text-sm">{comp.delivery}</td>
+                                <td className="py-2 px-2 md:py-3 md:px-4 text-xs md:text-sm">
                                     {comp.original ? (
                                         <span className="text-green-600">{labels.yes}</span>
                                     ) : (
@@ -184,9 +184,9 @@ export function CategoryComparisonTable({ products, categoryName, locale }: Cate
     };
 
     return (
-        <div className="my-12 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden">
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-                <h3 className="text-xl font-bold flex items-center gap-2">
+        <div className="my-8 md:my-12 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 px-4 py-3 md:px-6 md:py-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold flex items-center gap-2">
                     <span>🏆</span>
                     {labels.title}
                 </h3>
@@ -196,33 +196,34 @@ export function CategoryComparisonTable({ products, categoryName, locale }: Cate
                 <table className="w-full text-sm">
                     <thead>
                         <tr className="bg-gray-50 dark:bg-gray-800/50">
-                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.model}</th>
-                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.price}</th>
-                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.feature}</th>
-                            <th className="py-4 px-6 text-start font-bold text-gray-700 dark:text-gray-300">{labels.rating}</th>
+                            <th className="py-3 px-3 md:py-4 md:px-6 text-start font-bold text-gray-700 dark:text-gray-300 text-xs md:text-sm">{labels.model}</th>
+                            <th className="py-3 px-3 md:py-4 md:px-6 text-start font-bold text-gray-700 dark:text-gray-300 text-xs md:text-sm">{labels.price}</th>
+                            <th className="py-3 px-3 md:py-4 md:px-6 text-start font-bold text-gray-700 dark:text-gray-300 text-xs md:text-sm">{labels.feature}</th>
+                            <th className="py-3 px-3 md:py-4 md:px-6 text-start font-bold text-gray-700 dark:text-gray-300 text-xs md:text-sm">{labels.rating}</th>
                         </tr>
                     </thead>
                     <tbody>
                         {products.map((product, index) => (
                             <tr key={index} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
-                                <td className="py-4 px-6 font-semibold text-gray-900 dark:text-white">
+                                <td className="py-3 px-3 md:py-4 md:px-6 font-semibold text-gray-900 dark:text-white text-xs md:text-sm">
                                     {product.name}
                                     {index === 0 && (
-                                        <span className="mx-2 px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                                        <span className="mx-1 px-1.5 py-0.5 md:mx-2 md:px-2 md:bg-yellow-100 text-yellow-800 text-[10px] md:text-xs rounded-full block md:inline w-fit mt-1 md:mt-0">
                                             {isArabic ? 'الأفضل' : 'Top Pick'}
                                         </span>
                                     )}
                                 </td>
-                                <td className="py-4 px-6 text-blue-600 dark:text-blue-400 font-bold">
-                                    {product.price} {labels.egp}
+                                <td className="py-3 px-3 md:py-4 md:px-6 text-blue-600 dark:text-blue-400 font-bold text-xs md:text-sm">
+                                    {product.price} <span className="text-[10px] md:text-xs">{labels.egp}</span>
                                 </td>
-                                <td className="py-4 px-6">
-                                    <span className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                                <td className="py-3 px-3 md:py-4 md:px-6">
+                                    <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-medium whitespace-nowrap">
                                         {product.badge || (isArabic ? 'قيمة ممتازة' : 'Best Value')}
                                     </span>
                                 </td>
-                                <td className="py-4 px-6 text-amber-400 text-xs">
-                                    {labels.stars}
+                                <td className="py-3 px-3 md:py-4 md:px-6 text-amber-400 text-xs">
+                                    <span className="hidden md:inline">{labels.stars}</span>
+                                    <span className="md:hidden">⭐</span>
                                     <span className="text-gray-400 ms-1">(4.{9 - index})</span>
                                 </td>
                             </tr>
@@ -283,7 +284,7 @@ export function ExpertOpinion({ productName, brand, category, locale }: ExpertOp
     };
 
     return (
-        <div className="my-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-amber-200 dark:border-amber-800">
+        <div className="my-4 md:my-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-4 md:p-6 border border-amber-200 dark:border-amber-800">
             <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white text-xl">

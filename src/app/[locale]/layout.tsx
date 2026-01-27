@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { OrganizationSchema } from '@/components/schemas/ProductSchema';
+import { CartProvider } from '@/context/CartContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,10 @@ export const metadata: Metadata = {
   },
 };
 
+import CartDrawer from "@/components/cart/CartDrawer";
+
+// ... imports remain the same
+
 export default async function RootLayout({
   children,
   params
@@ -54,13 +59,8 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
 
-  // Ensure that the incoming `locale` is valid
-  if (!['ar', 'en'].includes(locale as any)) {
-    notFound();
-  }
+  // ... validation remains
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
@@ -76,13 +76,16 @@ export default async function RootLayout({
       >
         <OrganizationSchema locale={locale} />
         <NextIntlClientProvider messages={messages}>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow pt-16">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <CartProvider>
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <CartDrawer locale={locale} />
+              <Footer />
+            </div>
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>
