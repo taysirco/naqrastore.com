@@ -86,7 +86,7 @@ export default function Home() {
             🇪🇬 {isRTL ? 'الوكيل المعتمد في مصر' : 'Authorized Dealer in Egypt'}
           </span>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight">
             <span className="block">{isRTL ? 'اكسسوارات موبايل' : 'Mobile Accessories'}</span>
             <span className="block bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
               Anker & Joyroom
