@@ -24,9 +24,13 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     {/* About Section */}
                     <div>
-                        <h3 className="text-lg font-bold mb-4">
-                            {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
-                        </h3>
+                        <div className="h-8 md:h-10 w-auto mb-4">
+                            <img
+                                src="/cairovolt_logo.png"
+                                alt={isRTL ? 'كايرو فولت' : 'Cairo Volt'}
+                                className="h-full w-auto object-contain"
+                            />
+                        </div>
                         <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                             {t('aboutDescription')}
                         </p>

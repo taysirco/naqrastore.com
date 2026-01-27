@@ -89,8 +89,12 @@ export default function Header() {
                         href={getLocalizedHref('/')}
                         className="flex items-center gap-2"
                     >
-                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-800">
-                            <img src="/logo.png" alt="Cairo Volt" className="w-full h-full object-contain p-1" />
+                        <div className="h-8 md:h-10 w-auto flex items-center">
+                            <img
+                                src="/cairovolt_logo.png"
+                                alt="Cairo Volt"
+                                className="h-full w-auto object-contain"
+                            />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
                             {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
@@ -261,8 +265,12 @@ export default function Header() {
                         {/* Mobile Logo */}
                         <div className="flex items-center justify-between mb-8">
                             <Link href={getLocalizedHref('/')} className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-gray-100">
-                                    <img src="/logo.png" alt="Cairo Volt" className="w-full h-full object-contain p-1" />
+                                <div className="h-8 w-auto flex items-center">
+                                    <img
+                                        src="/cairovolt_logo.png"
+                                        alt="Cairo Volt"
+                                        className="h-full w-auto object-contain"
+                                    />
                                 </div>
                                 <span className="text-lg font-bold">
                                     {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
