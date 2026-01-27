@@ -44,15 +44,18 @@ export default async function JoyroomHubPage({ params }: Props) {
             { title: 'باور بانك جوي روم', description: '10000 & 20000mAh', href: '/joyroom/power-banks', icon: '⚡', volume: '1,300+ بحث/شهر' },
             { title: 'شاحن جوي روم', description: 'شحن سريع 20W', href: '/joyroom/wall-chargers', icon: '🔌', volume: '110+ بحث/شهر' },
             { title: 'كابلات جوي روم', description: 'Lightning & Type-C', href: '/joyroom/cables', icon: '🔗', volume: 'جديد' },
-            { title: 'إكسسوارات سيارة', description: 'شواحن وحوامل', href: '/joyroom/car-accessories', icon: '🚗', volume: 'جديد' },
+            { title: 'ساعات جوي روم الذكية', description: 'FT3 وأكثر', href: '/joyroom/smart-watches', icon: '⌚', volume: 'جديد', badge: '🔥 جديد' },
+            { title: 'حوامل سيارة', description: 'حوامل مغناطيسية', href: '/joyroom/car-holders', icon: '🧭', volume: 'جديد' },
         ]
         : [
             { title: 'T03s Earbuds', description: 'Hero Product - Best Seller', href: '/en/joyroom/audio', icon: '🎧', volume: '1,900+ searches/mo', badge: '⭐ Hero Product' },
             { title: 'Joyroom Power Banks', description: '10000 & 20000mAh', href: '/en/joyroom/power-banks', icon: '⚡', volume: '1,300+ searches/mo' },
             { title: 'Joyroom Chargers', description: 'Fast Charging 20W', href: '/en/joyroom/wall-chargers', icon: '🔌', volume: '110+ searches/mo' },
             { title: 'Joyroom Cables', description: 'Lightning & Type-C', href: '/en/joyroom/cables', icon: '🔗', volume: 'New' },
-            { title: 'Car Accessories', description: 'Chargers & Holders', href: '/en/joyroom/car-accessories', icon: '🚗', volume: 'New' },
+            { title: 'Joyroom Smart Watches', description: 'FT3 and more', href: '/en/joyroom/smart-watches', icon: '⌚', volume: 'New', badge: '🔥 New' },
+            { title: 'Car Holders', description: 'Magnetic Mounts', href: '/en/joyroom/car-holders', icon: '🧭', volume: 'New' },
         ];
+
 
     return (
         <div className="min-h-screen" dir={isRTL ? 'rtl' : 'ltr'}>

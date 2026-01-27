@@ -43,6 +43,7 @@ export default async function AnkerHubPage({ params }: Props) {
             { title: 'باور بانك انكر', description: 'PowerCore 10000 & 20000mAh', href: '/anker/power-banks', icon: '⚡', volume: '2,900+ بحث/شهر' },
             { title: 'شاحن انكر', description: 'Nano 20W & 25W', href: '/anker/wall-chargers', icon: '🔌', volume: '2,900+ بحث/شهر' },
             { title: 'سماعات Soundcore', description: 'R50i, P20i, Liberty', href: '/anker/audio', icon: '🎧', volume: '3,600+ بحث/شهر' },
+            { title: 'مكبرات صوت Soundcore', description: 'Motion+, Flare 2', href: '/anker/speakers', icon: '🔊', volume: 'جديد', badge: '🔥 جديد' },
             { title: 'كابلات انكر', description: 'PowerLine Lightning & USB-C', href: '/anker/cables', icon: '🔗', volume: '320+ بحث/شهر' },
             { title: 'شاحن سيارة انكر', description: 'PowerDrive 48W', href: '/anker/car-chargers', icon: '🚗', volume: '260+ بحث/شهر' },
         ]
@@ -50,6 +51,7 @@ export default async function AnkerHubPage({ params }: Props) {
             { title: 'Anker Power Banks', description: 'PowerCore 10000 & 20000mAh', href: '/en/anker/power-banks', icon: '⚡', volume: '2,900+ searches/mo' },
             { title: 'Anker Chargers', description: 'Nano 20W & 25W', href: '/en/anker/wall-chargers', icon: '🔌', volume: '2,900+ searches/mo' },
             { title: 'Soundcore Earbuds', description: 'R50i, P20i, Liberty', href: '/en/anker/audio', icon: '🎧', volume: '3,600+ searches/mo' },
+            { title: 'Soundcore Speakers', description: 'Motion+, Flare 2', href: '/en/anker/speakers', icon: '🔊', volume: 'New', badge: '🔥 New' },
             { title: 'Anker Cables', description: 'PowerLine Lightning & USB-C', href: '/en/anker/cables', icon: '🔗', volume: '320+ searches/mo' },
             { title: 'Anker Car Chargers', description: 'PowerDrive 48W', href: '/en/anker/car-chargers', icon: '🚗', volume: '260+ searches/mo' },
         ];
