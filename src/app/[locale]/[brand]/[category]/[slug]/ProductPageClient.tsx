@@ -17,8 +17,8 @@ interface Product {
     featured?: boolean;
     images?: Array<{ url: string; alt?: string; isPrimary?: boolean }>;
     translations?: {
-        en?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string };
-        ar?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string };
+        en?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string; faqs?: Array<{ question: string; answer: string }>; };
+        ar?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string; faqs?: Array<{ question: string; answer: string }>; };
     };
     seo?: { keywords?: string; focusKeyword?: string };
 }
@@ -334,13 +334,38 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                             locale={locale}
                         />
 
-                        {/* Smart Product FAQs */}
+                        {/* Smart Product FAQs (Prioritize Specific Layout) */}
                         <div className="border-t border-gray-100 dark:border-gray-800 my-6 pt-6">
-                            <ProductFAQ
-                                categorySlug={category}
-                                locale={locale}
-                                t={tCommon} // Passing tCommon as a base, component will use internal keys
-                            />
+                            {/* Pass specific FAQs if they exist */}
+                            {currentTranslation?.faqs && currentTranslation.faqs.length > 0 ? (
+                                <div className="my-8">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                        <span>🤔</span>
+                                        {isRTL ? 'أسئلة شائعة عن المنتج' : 'Product FAQs'}
+                                    </h3>
+                                    <div className="space-y-3">
+                                        {currentTranslation.faqs.map((faq, idx) => (
+                                            <details key={idx} className="group bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-800/50 open:bg-blue-50/50 dark:open:bg-blue-900/10">
+                                                <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-800 dark:text-gray-200">
+                                                    <span>{faq.question}</span>
+                                                    <span className="text-xl group-open:rotate-180 transition-transform text-blue-500">
+                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                    </span>
+                                                </summary>
+                                                <p className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                                    {faq.answer}
+                                                </p>
+                                            </details>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : (
+                                <ProductFAQ
+                                    categorySlug={category}
+                                    locale={locale}
+                                    t={tFAQ}
+                                />
+                            )}
                         </div>
 
                         {/* Product Comparison Table - For Google Extraction */}

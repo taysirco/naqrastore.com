@@ -28,6 +28,7 @@ export interface StaticProduct {
             features: string[];
             metaTitle: string;
             metaDesc: string;
+            faqs?: Array<{ question: string; answer: string }>;
         };
         ar: {
             name: string;
@@ -36,6 +37,7 @@ export interface StaticProduct {
             features: string[];
             metaTitle: string;
             metaDesc: string;
+            faqs?: Array<{ question: string; answer: string }>;
         };
     };
     seo: {

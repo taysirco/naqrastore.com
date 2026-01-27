@@ -192,7 +192,21 @@ export const products = [
                 description: "The Anker 737 Power Bank (PowerCore 24K) features ultra-powerful 140W two-way charging, capable of charging a MacBook Pro 16\" to 50% in just 40 minutes. The smart digital display shows output and input power and estimated time for recharge.",
                 features: ["24,000mAh massive capacity", "140W ultra-powerful two-way charging", "Smart digital display", "Charges 3 devices simultaneously", "ActiveShield 2.0 safety monitoring"],
                 metaTitle: "Anker 737 Power Bank 24K 140W | Best Price Egypt",
-                metaDesc: "Buy Anker 737 Power Bank (PowerCore 24K) in Egypt. 140W fast charging, 24000mAh, smart display. Ultimate power for laptops and phones."
+                metaDesc: "Buy Anker 737 Power Bank (PowerCore 24K) in Egypt. 140W fast charging, 24000mAh, smart display. Ultimate power for laptops and phones.",
+                faqs: [
+                    {
+                        question: "Does it charge MacBook Pro 16-inch?",
+                        answer: "Yes, the 140W output via USB-C allows it to charge a MacBook Pro 16\" to 50% in just 40 minutes."
+                    },
+                    {
+                        question: "Is it safe to take on a plane?",
+                        answer: "Yes, at 86.4Wh, it is under the 100Wh TSA limit, so you can safely carry it in your hand luggage."
+                    },
+                    {
+                        question: "How long does it take to recharge?",
+                        answer: "With a 140W charger, it recharges from 0 to 100% in less than 1 hour."
+                    }
+                ]
             },
             ar: {
                 name: "باور بانك انكر 737 (PowerCore 24K) بقوة 140 واط",
@@ -200,7 +214,21 @@ export const products = [
                 description: "يتميز باور بانك انكر 737 (PowerCore 24K) بشحن فائق القوة 140 واط في الاتجاهين، قادر على شحن MacBook Pro 16\" حتى 50% في 40 دقيقة فقط. تعرض الشاشة الرقمية الذكية طاقة الإخراج والإدخال والوقت المتبقي لإعادة الشحن.",
                 features: ["سعة ضخمة 24,000 مللي أمبير", "شحن فائق القوة 140 واط في الاتجاهين", "شاشة عرض رقمية ذكية", "شحن 3 أجهزة في وقت واحد", "مراقبة أمان ActiveShield 2.0"],
                 metaTitle: "باور بانك انكر 737 بقوة 140 واط | أقوى باور بانك في مصر",
-                metaDesc: "اشتري باور بانك انكر 737 (PowerCore 24K) في مصر. شحن 140 واط، سعة 24000، شاشة ذكية. الطاقة القصوى للابتوب والهواتف."
+                metaDesc: "اشتري باور بانك انكر 737 (PowerCore 24K) في مصر. شحن 140 واط، سعة 24000، شاشة ذكية. الطاقة القصوى للابتوب والهواتف.",
+                faqs: [
+                    {
+                        question: "هل يشحن لابتوب ماك بوك برو 16 بوصة؟",
+                        answer: "نعم، بفضل قوة 140 واط عبر منفذ USB-C، يمكنه شحن MacBook Pro 16\" حتى 50% في 40 دقيقة فقط."
+                    },
+                    {
+                        question: "هل مسموح به في الطائرة؟",
+                        answer: "نعم، سعته 86.4 واط/ساعة وهي أقل من الحد الأقصى المسموح به (100 واط/ساعة)، لذا يمكنك حمله في حقيبة اليد بأمان."
+                    },
+                    {
+                        question: "كم يستغرق إعادة شحنه بالكامل؟",
+                        answer: "باستخدام شاحن بقوة 140 واط، يعيد شحن نفسه من 0 إلى 100% في أقل من ساعة واحدة."
+                    }
+                ]
             }
         },
         seo: { keywords: "anker 737, anker 140w, باور بانك انكر 737, انكر 24000", focusKeyword: "anker 737" }
