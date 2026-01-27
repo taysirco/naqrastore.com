@@ -17,10 +17,13 @@
   --brand-joyroom: #e60012;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
+/* Forced Light Mode for system preference overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #0f172a;
   }
 }
 
@@ -35,9 +38,4 @@ body {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark .glass-nav {
-  background: rgba(10, 10, 10, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }

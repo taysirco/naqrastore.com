@@ -72,7 +72,7 @@ export default async function RootLayout({
         <link rel="alternate" hrefLang="x-default" href="https://cairovolt.com/ar" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
         <OrganizationSchema locale={locale} />
         <NextIntlClientProvider messages={messages}>
