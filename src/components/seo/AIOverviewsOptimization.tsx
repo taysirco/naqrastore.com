@@ -336,3 +336,73 @@ export function QuickSummary({ product, locale }: QuickSummaryProps) {
         </div>
     );
 }
+// Product FAQ Component
+interface FAQItem {
+    q: string;
+    a: string;
+}
+
+interface ProductFAQProps {
+    categorySlug: string;
+    locale: string;
+    t: any; // Using any to avoid complex type drilling from next-intl
+}
+
+export function ProductFAQ({ categorySlug, locale, t }: ProductFAQProps) {
+    const isArabic = locale === 'ar';
+    const categoryKey =
+        categorySlug.includes('power-bank') ? 'powerBanks' :
+            categorySlug.includes('audio') || categorySlug.includes('earbuds') ? 'audio' :
+                categorySlug.includes('charger') ? 'wallChargers' :
+                    categorySlug.includes('cable') ? 'cables' : null;
+
+    if (!categoryKey) return null;
+
+    // We can't easily iterate over translated arrays in next-intl inside a client component
+    // So we manually construct the array based on inspection of the JSON structure
+    // This is a pragmatic workaround for client-side translation arrays
+    const faqs: FAQItem[] = [];
+
+    // Attempt to get 3 FAQs
+    try {
+        const q1 = t(`smartCategoryFAQs.${categoryKey}.0.q`);
+        const a1 = t(`smartCategoryFAQs.${categoryKey}.0.a`);
+        if (q1 && a1 && q1 !== `smartCategoryFAQs.${categoryKey}.0.q`) faqs.push({ q: q1, a: a1 });
+
+        const q2 = t(`smartCategoryFAQs.${categoryKey}.1.q`);
+        const a2 = t(`smartCategoryFAQs.${categoryKey}.1.a`);
+        if (q2 && a2 && q2 !== `smartCategoryFAQs.${categoryKey}.1.q`) faqs.push({ q: q2, a: a2 });
+
+        const q3 = t(`smartCategoryFAQs.${categoryKey}.2.q`);
+        const a3 = t(`smartCategoryFAQs.${categoryKey}.2.a`);
+        if (q3 && a3 && q3 !== `smartCategoryFAQs.${categoryKey}.2.q`) faqs.push({ q: q3, a: a3 });
+    } catch (e) {
+        // Translations might not load immediately
+    }
+
+    if (faqs.length === 0) return null;
+
+    return (
+        <div className="my-8">
+            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <span>🤔</span>
+                {isArabic ? 'أسئلة شائعة عن المنتج' : 'Product FAQs'}
+            </h3>
+            <div className="space-y-3">
+                {faqs.map((faq, idx) => (
+                    <details key={idx} className="group bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-800/50 open:bg-blue-50/50 dark:open:bg-blue-900/10">
+                        <summary className="flex items-center justify-between p-4 cursor-pointer font-medium text-gray-800 dark:text-gray-200">
+                            <span>{faq.q}</span>
+                            <span className="text-xl group-open:rotate-180 transition-transform text-blue-500">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                            </span>
+                        </summary>
+                        <p className="px-4 pb-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            {faq.a}
+                        </p>
+                    </details>
+                ))}
+            </div>
+        </div>
+    );
+}

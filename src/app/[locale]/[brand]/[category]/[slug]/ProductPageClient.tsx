@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { QuickSummary, ProductComparisonTable, ExpertOpinion } from '@/components/seo/AIOverviewsOptimization';
+import { QuickSummary, ProductComparisonTable, ExpertOpinion, ProductFAQ } from '@/components/seo/AIOverviewsOptimization';
 
 interface Product {
     id: string;
@@ -46,9 +46,10 @@ export default function ProductPageClient({ product, locale, brand, category }: 
     const tCat = useTranslations('Categories');
     const tBrand = useTranslations('Brands');
 
-    const isRTL = locale === 'ar';
-    const [selectedImage, setSelectedImage] = useState(0);
+    const tFAQ = useTranslations('FAQ');
+
     const [quantity, setQuantity] = useState(1);
+    const [selectedImage, setSelectedImage] = useState(0);
 
     const getLocalizedHref = (path: string) => `/${locale}${path.startsWith('/') ? path : `/${path}`}`;
 
@@ -67,6 +68,8 @@ export default function ProductPageClient({ product, locale, brand, category }: 
     const translatedCategory = tCat(categoryKeyMap[category] || 'other');
     const translatedBrand = brand === 'anker' ? tBrand('anker') : tBrand('joyroom');
     const brandColor = brand === 'anker' ? 'blue' : 'red';
+
+    const isRTL = locale === 'ar';
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950" dir={isRTL ? 'rtl' : 'ltr'}>
@@ -330,6 +333,15 @@ export default function ProductPageClient({ product, locale, brand, category }: 
                             category={category}
                             locale={locale}
                         />
+
+                        {/* Smart Product FAQs */}
+                        <div className="border-t border-gray-100 dark:border-gray-800 my-6 pt-6">
+                            <ProductFAQ
+                                categorySlug={category}
+                                locale={locale}
+                                t={tCommon} // Passing tCommon as a base, component will use internal keys
+                            />
+                        </div>
 
                         {/* Product Comparison Table - For Google Extraction */}
                         <ProductComparisonTable
