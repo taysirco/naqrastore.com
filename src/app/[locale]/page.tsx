@@ -74,26 +74,26 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
-      <section className="relative min-h-[700px] flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white overflow-hidden">
+      <section className="relative min-h-[700px] flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/50 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-200/50 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+          <span className="inline-block px-4 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full text-sm font-medium mb-6 text-blue-800 border border-blue-100">
             🇪🇬 {isRTL ? 'الوكيل المعتمد في مصر' : 'Authorized Dealer in Egypt'}
           </span>
 
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900">
             <span className="block">{isRTL ? 'اكسسوارات موبايل' : 'Mobile Accessories'}</span>
-            <span className="block bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
               Anker & Joyroom
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
             {isRTL
               ? 'منتجات أصلية 100% بضمان رسمي. باور بانك، سماعات، شواحن وكابلات.'
               : '100% Original products with official warranty. Power banks, earbuds, chargers & cables.'}
@@ -105,7 +105,7 @@ export default function Home() {
               <Link
                 key={idx}
                 href={product.href}
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all flex items-center gap-2 shadow-sm border border-gray-100 text-gray-800"
               >
                 <span className="text-xs bg-yellow-400 text-black px-2 py-0.5 rounded-full font-bold">{product.badge}</span>
                 <span>{product.name}</span>
