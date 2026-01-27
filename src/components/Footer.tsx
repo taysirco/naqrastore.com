@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     {/* About Section */}
                     <div>
-                        <div className="h-8 md:h-10 w-auto mb-4">
+                        <div className="h-16 md:h-20 w-auto mb-4">
                             <img
                                 src="/cairovolt_logo.png"
                                 alt={isRTL ? 'كايرو فولت' : 'Cairo Volt'}

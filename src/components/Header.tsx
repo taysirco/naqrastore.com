@@ -89,7 +89,7 @@ export default function Header() {
                         href={getLocalizedHref('/')}
                         className="flex items-center gap-2"
                     >
-                        <div className="h-8 md:h-10 w-auto flex items-center">
+                        <div className="h-16 md:h-20 w-auto flex items-center">
                             <img
                                 src="/cairovolt_logo.png"
                                 alt="Cairo Volt"
@@ -265,7 +265,7 @@ export default function Header() {
                         {/* Mobile Logo */}
                         <div className="flex items-center justify-between mb-8">
                             <Link href={getLocalizedHref('/')} className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
-                                <div className="h-8 w-auto flex items-center">
+                                <div className="h-16 w-auto flex items-center">
                                     <img
                                         src="/cairovolt_logo.png"
                                         alt="Cairo Volt"
