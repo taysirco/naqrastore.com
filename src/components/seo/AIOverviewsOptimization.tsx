@@ -51,7 +51,7 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
         original: 'منتج أصلي؟',
         yes: 'نعم ✓',
         no: 'غير مؤكد',
-        ourStore: 'موبايل ستور (نحن)',
+        ourStore: 'كايرو فولت (نحن)',
         egp: 'جنيه',
         months: 'شهر',
         days: 'أيام',
@@ -65,7 +65,7 @@ export function ProductComparisonTable({ product, competitors, locale }: Compari
         original: 'Original?',
         yes: 'Yes ✓',
         no: 'Uncertain',
-        ourStore: 'MobileStore (Us)',
+        ourStore: 'Cairo Volt (Us)',
         egp: 'EGP',
         months: 'months',
         days: 'days',
@@ -274,11 +274,11 @@ export function ExpertOpinion({ productName, brand, category, locale }: ExpertOp
 
     const labels = isArabic ? {
         title: 'رأي الخبراء',
-        expertName: 'فريق موبايل ستور',
+        expertName: 'فريق كايرو فولت',
         expertTitle: 'خبراء الإكسسوارات والإلكترونيات',
     } : {
         title: 'Expert Opinion',
-        expertName: 'MobileStore Team',
+        expertName: 'Cairo Volt Team',
         expertTitle: 'Electronics & Accessories Experts',
     };
 

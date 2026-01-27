@@ -25,7 +25,7 @@ export default function Footer() {
                     {/* About Section */}
                     <div>
                         <h3 className="text-lg font-bold mb-4">
-                            {isRTL ? 'موبايل ستور' : 'MobileStore'}
+                            {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
                         </h3>
                         <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                             {t('aboutDescription')}

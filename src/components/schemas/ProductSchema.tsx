@@ -20,7 +20,7 @@ interface ProductSchemaProps {
     baseUrl?: string;
 }
 
-export function ProductSchema({ product, locale, baseUrl = 'https://naqrastore.com' }: ProductSchemaProps) {
+export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.com' }: ProductSchemaProps) {
     const t = product.translations[locale as 'en' | 'ar'] || product.translations.en;
     const isArabic = locale === 'ar';
 
@@ -47,7 +47,7 @@ export function ProductSchema({ product, locale, baseUrl = 'https://naqrastore.c
             itemCondition: 'https://schema.org/NewCondition',
             seller: {
                 '@type': 'Organization',
-                name: isArabic ? 'موبايل ستور مصر' : 'MobileStore Egypt',
+                name: isArabic ? 'كايرو فولت' : 'Cairo Volt',
             },
             // Shipping Details - Shows "Free Shipping" badge in Google
             shippingDetails: {
@@ -123,10 +123,10 @@ export function OrganizationSchema({ locale }: { locale: string }) {
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: isArabic ? 'موبايل ستور مصر' : 'MobileStore Egypt',
-        alternateName: isArabic ? 'MobileStore Egypt' : 'موبايل ستور',
-        url: 'https://naqrastore.com',
-        logo: 'https://naqrastore.com/logo.png',
+        name: isArabic ? 'كايرو فولت' : 'Cairo Volt',
+        alternateName: isArabic ? 'Cairo Volt' : 'كايرو فولت',
+        url: 'https://cairovolt.com',
+        logo: 'https://cairovolt.com/logo.png',
         description: isArabic
             ? 'الموزع المعتمد لمنتجات أنكر وجوي روم في مصر'
             : 'Authorized dealer for Anker and Joyroom products in Egypt',
@@ -141,8 +141,8 @@ export function OrganizationSchema({ locale }: { locale: string }) {
             availableLanguage: ['ar', 'en'],
         },
         sameAs: [
-            'https://facebook.com/mobilestore.eg',
-            'https://instagram.com/mobilestore.eg',
+            'https://facebook.com/cairovolt',
+            'https://instagram.com/cairovolt',
         ],
     };
 

@@ -59,7 +59,7 @@
     },
     "Footer": {
         "aboutUs": "About Us",
-        "aboutDescription": "MobileStore is the authorized dealer for Anker and Joyroom products in Egypt. We offer the best mobile accessories at competitive prices with official warranty.",
+        "aboutDescription": "Cairo Volt is the authorized dealer for Anker and Joyroom products in Egypt. We offer the best mobile accessories at competitive prices with official warranty.",
         "shopAnker": "Shop Anker",
         "shopJoyroom": "Shop Joyroom",
         "customerService": "Customer Service",
@@ -168,7 +168,7 @@
         "support247": "24/7 Support"
     },
     "SEO": {
-        "homeTitle": "MobileStore Egypt | Anker & Joyroom Mobile Accessories",
+        "homeTitle": "Cairo Volt | Anker & Joyroom Mobile Accessories",
         "homeDescription": "Shop the best mobile accessories from Anker and Joyroom in Egypt. Power banks, chargers, earbuds, cables at the best prices with official warranty.",
         "ankerTitle": "Anker Egypt | Power Banks & Chargers",
         "joyroomTitle": "Joyroom Egypt | Earbuds & Power Banks"
@@ -179,7 +179,7 @@
         "goHome": "Go to Homepage"
     },
     "Shipping": {
-        "metaTitle": "Shipping & Delivery | MobileStore Egypt",
+        "metaTitle": "Shipping & Delivery | Cairo Volt",
         "metaDescription": "Free shipping on orders over 500 EGP. Fast delivery across Egypt in 1-5 days.",
         "title": "Shipping & Delivery",
         "deliveryAreas": {
@@ -209,7 +209,7 @@
         }
     },
     "Warranty": {
-        "metaTitle": "Warranty Policy | MobileStore Egypt",
+        "metaTitle": "Warranty Policy | Cairo Volt",
         "metaDescription": "Official warranty up to 24 months for Anker and Joyroom products. Learn about our warranty coverage.",
         "title": "Warranty Policy",
         "period": {
@@ -242,7 +242,7 @@
         }
     },
     "FAQ": {
-        "metaTitle": "Frequently Asked Questions | MobileStore Egypt",
+        "metaTitle": "Frequently Asked Questions | Cairo Volt",
         "metaDescription": "Find answers to common questions about ordering, shipping, warranty, and products.",
         "title": "Frequently Asked Questions",
         "subtitle": "Find quick answers to your questions",
@@ -298,9 +298,9 @@
         }
     },
     "About": {
-        "metaTitle": "About Us | MobileStore Egypt",
-        "metaDescription": "MobileStore is Egypt's trusted destination for Anker and Joyroom mobile accessories.",
-        "title": "About MobileStore",
+        "metaTitle": "About Us | Cairo Volt",
+        "metaDescription": "Cairo Volt is Egypt's trusted destination for Anker and Joyroom mobile accessories.",
+        "title": "About Cairo Volt",
         "subtitle": "Your trusted destination for premium mobile accessories in Egypt",
         "mission": {
             "title": "Our Mission",
@@ -338,8 +338,8 @@
         }
     },
     "Privacy": {
-        "metaTitle": "Privacy Policy | MobileStore Egypt",
-        "metaDescription": "Learn how MobileStore protects your personal information and privacy.",
+        "metaTitle": "Privacy Policy | Cairo Volt",
+        "metaDescription": "Learn how Cairo Volt protects your personal information and privacy.",
         "title": "Privacy Policy",
         "lastUpdated": "Last updated: January 2026",
         "sections": {
@@ -374,14 +374,14 @@
         }
     },
     "Terms": {
-        "metaTitle": "Terms & Conditions | MobileStore Egypt",
-        "metaDescription": "Read the terms and conditions for shopping at MobileStore Egypt.",
+        "metaTitle": "Terms & Conditions | Cairo Volt",
+        "metaDescription": "Read the terms and conditions for shopping at Cairo Volt.",
         "title": "Terms & Conditions",
         "lastUpdated": "Last updated: January 2026",
         "sections": {
             "acceptance": {
                 "title": "Acceptance of Terms",
-                "content": "By placing an order on MobileStore, you agree to these terms and conditions. Please read them carefully before making a purchase."
+                "content": "By placing an order on Cairo Volt, you agree to these terms and conditions. Please read them carefully before making a purchase."
             },
             "orders": {
                 "title": "Orders",
@@ -405,7 +405,7 @@
             },
             "liability": {
                 "title": "Limitation of Liability",
-                "content": "MobileStore is not liable for indirect, incidental, or consequential damages. Our liability is limited to the purchase price of the product."
+                "content": "Cairo Volt is not liable for indirect, incidental, or consequential damages. Our liability is limited to the purchase price of the product."
             },
             "changes": {
                 "title": "Changes to Terms",

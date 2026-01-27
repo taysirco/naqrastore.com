@@ -56,8 +56,8 @@ export default function Header() {
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg'
-                        : 'bg-transparent'
+                    ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg'
+                    : 'bg-transparent'
                     }`}
                 dir={isRTL ? 'rtl' : 'ltr'}
             >
@@ -93,7 +93,7 @@ export default function Header() {
                             M
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
-                            {isRTL ? 'موبايل ستور' : 'MobileStore'}
+                            {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
                         </span>
                     </Link>
 
@@ -252,8 +252,8 @@ export default function Header() {
                 {/* Menu Panel */}
                 <div
                     className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-80 h-full bg-white dark:bg-gray-900 shadow-2xl transform transition-transform ${mobileMenuOpen
-                            ? 'translate-x-0'
-                            : isRTL ? 'translate-x-full' : '-translate-x-full'
+                        ? 'translate-x-0'
+                        : isRTL ? 'translate-x-full' : '-translate-x-full'
                         }`}
                     dir={isRTL ? 'rtl' : 'ltr'}
                 >
@@ -265,7 +265,7 @@ export default function Header() {
                                     M
                                 </div>
                                 <span className="text-lg font-bold">
-                                    {isRTL ? 'موبايل ستور' : 'MobileStore'}
+                                    {isRTL ? 'كايرو فولت' : 'Cairo Volt'}
                                 </span>
                             </Link>
                             <button onClick={() => setMobileMenuOpen(false)} className="p-2">

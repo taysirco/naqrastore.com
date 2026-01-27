@@ -20,21 +20,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mobile Accessories Egypt | Anker & Joyroom Official Store",
-  description: "Shop the best mobile accessories in Egypt. Certified Anker power banks, Joyroom headphones, chargers, and cables. Fast shipping across Egypt.",
+  metadataBase: new URL('https://cairovolt.com'),
+  title: {
+    template: '%s | Cairo Volt',
+    default: 'Cairo Volt - Premium Mobile Accessories in Egypt',
+  },
+  description: 'Shop the best mobile accessories from Anker and Joyroom in Egypt. Power banks, chargers, earbuds, cables at the best prices with official warranty.',
+  icons: {
+    icon: '/favicon.ico',
+  },
   alternates: {
-    canonical: 'https://naqrastore.com',
+    canonical: 'https://cairovolt.com',
     languages: {
-      'ar': 'https://naqrastore.com/ar',
-      'en': 'https://naqrastore.com/en',
-      'x-default': 'https://naqrastore.com/ar',
+      'ar': 'https://cairovolt.com/ar',
+      'en': 'https://cairovolt.com/en',
+      'x-default': 'https://cairovolt.com/ar',
     },
   },
   openGraph: {
     type: 'website',
     locale: 'ar_EG',
     alternateLocale: 'en_US',
-    siteName: 'MobileStore Egypt',
+    siteName: 'Cairo Volt',
   },
 };
 
@@ -60,9 +67,9 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         {/* hreflang tags for better international SEO */}
-        <link rel="alternate" hrefLang="ar" href="https://naqrastore.com/ar" />
-        <link rel="alternate" hrefLang="en" href="https://naqrastore.com/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://naqrastore.com/ar" />
+        <link rel="alternate" hrefLang="ar" href="https://cairovolt.com/ar" />
+        <link rel="alternate" hrefLang="en" href="https://cairovolt.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://cairovolt.com/ar" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-black`}
