@@ -225,10 +225,10 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                 </div>
             </div>
 
-            {/* Desktop Layout - Enhanced */}
-            <div className="hidden lg:flex flex-row gap-8 items-start">
-                {/* Product Images & Plus Signs */}
-                <div className="flex items-center gap-3">
+            {/* Desktop Layout - Professional Grid */}
+            <div className="hidden lg:block">
+                {/* Products Row with Plus Signs */}
+                <div className="flex items-stretch justify-center gap-4 mb-8">
                     {allProducts.map((product, idx) => {
                         const isSelected = selectedIds.includes(product.id);
                         const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en;
@@ -236,100 +236,105 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
 
                         return (
                             <div key={product.id} className="flex items-center">
+                                {/* Product Card */}
                                 <button
                                     onClick={() => toggleProduct(product.id)}
                                     disabled={isMain}
-                                    className={`relative group transition-all duration-300 ${!isSelected ? 'opacity-50 grayscale' : ''} ${!isMain ? 'cursor-pointer hover:scale-105' : 'cursor-default'}`}
+                                    className={`relative group transition-all duration-300 
+                                        ${!isSelected ? 'opacity-50 grayscale' : ''} 
+                                        ${!isMain ? 'cursor-pointer hover:scale-[1.02]' : 'cursor-default'}`}
                                 >
-                                    <div className={`w-32 h-32 rounded-xl border-2 p-2 bg-white dark:bg-gray-800 relative transition-all
-                                        ${isSelected ? 'border-green-500 shadow-lg' : 'border-gray-200 dark:border-gray-700'}
-                                    `}>
-                                        {product.images?.[0]?.url && (
-                                            <Image
-                                                src={product.images[0].url}
-                                                alt={t?.name || product.slug}
-                                                fill
-                                                className="object-contain p-2"
-                                            />
-                                        )}
-                                    </div>
-                                    {isSelected && (
-                                        <div className="absolute -top-2 -end-2 bg-green-500 text-white rounded-full w-7 h-7 flex items-center justify-center text-sm shadow-lg z-10 font-bold">
-                                            ✓
+                                    <div className={`w-48 rounded-2xl border-2 p-4 bg-white dark:bg-gray-800 transition-all
+                                        ${isSelected
+                                            ? 'border-green-500 shadow-xl shadow-green-100 dark:shadow-green-900/20'
+                                            : 'border-gray-200 dark:border-gray-700'
+                                        }`}
+                                    >
+                                        {/* Image */}
+                                        <div className="relative w-full aspect-square mb-4">
+                                            {product.images?.[0]?.url && (
+                                                <Image
+                                                    src={product.images[0].url}
+                                                    alt={t?.name || product.slug}
+                                                    fill
+                                                    className="object-contain p-2"
+                                                />
+                                            )}
                                         </div>
-                                    )}
-                                </button>
 
-                                {idx < allProducts.length - 1 && (
-                                    <span className="text-gray-300 dark:text-gray-600 font-light text-3xl mx-4">+</span>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {/* Bundle Summary & Action */}
-                <div className="flex-1 flex flex-col gap-5 border-s border-gray-200 dark:border-gray-700 ps-8">
-                    {/* Checkbox List */}
-                    <div className="space-y-3">
-                        {allProducts.map((product) => {
-                            const isSelected = selectedIds.includes(product.id);
-                            const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en;
-                            const isMain = product.id === mainProduct.id;
-
-                            return (
-                                <label key={product.id} className={`flex items-center gap-3 p-2 rounded-lg transition-all cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 ${isMain ? 'cursor-default' : ''}`}>
-                                    <input
-                                        type="checkbox"
-                                        checked={isSelected}
-                                        onChange={() => toggleProduct(product.id)}
-                                        disabled={isMain}
-                                        className="w-5 h-5 rounded text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 cursor-pointer disabled:cursor-default"
-                                    />
-                                    <div className="flex-1">
-                                        <span className={`block font-medium ${!isSelected ? 'text-gray-400 line-through' : 'text-gray-800 dark:text-gray-200'}`}>
-                                            {t?.name}
-                                        </span>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-blue-600 dark:text-blue-400 font-bold">
-                                                {product.price.toLocaleString()} {isArabic ? 'ج.م' : 'EGP'}
-                                            </span>
+                                        {/* Product Info */}
+                                        <div className="text-center">
+                                            <p className={`text-sm font-medium mb-2 line-clamp-2 h-10 ${!isSelected ? 'text-gray-400 line-through' : 'text-gray-800 dark:text-gray-200'}`}>
+                                                {t?.name}
+                                            </p>
+                                            <div className="flex items-center justify-center gap-2 flex-wrap">
+                                                <span className={`font-bold text-lg ${isSelected ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
+                                                    {product.price.toLocaleString()}
+                                                </span>
+                                                <span className="text-sm text-gray-500">
+                                                    {isArabic ? 'ج.م' : 'EGP'}
+                                                </span>
+                                            </div>
                                             {product.originalPrice && product.originalPrice > product.price && (
-                                                <span className="text-gray-400 text-sm line-through">
+                                                <span className="text-gray-400 text-xs line-through">
                                                     {product.originalPrice.toLocaleString()} {isArabic ? 'ج.م' : 'EGP'}
                                                 </span>
                                             )}
                                         </div>
+
+                                        {/* Checkbox in corner */}
+                                        <div className={`absolute top-3 ${isArabic ? 'left-3' : 'right-3'} w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all
+                                            ${isSelected
+                                                ? 'bg-green-500 border-green-500 text-white'
+                                                : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800'
+                                            }`}
+                                        >
+                                            {isSelected && (
+                                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            )}
+                                        </div>
                                     </div>
-                                </label>
-                            );
-                        })}
-                    </div>
+                                </button>
 
-                    {/* Total & Button */}
-                    <div className="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
-                        <div className="flex items-center justify-between">
-                            <span className="text-gray-500 dark:text-gray-400">
-                                {isArabic ? `إجمالي سعر الباقة (${selectedProducts.length} منتجات):` : `Total price for ${selectedProducts.length} items:`}
-                            </span>
-                            {savings > 0 && (
-                                <span className="text-sm font-semibold text-green-600 bg-green-50 dark:bg-green-900/30 px-3 py-1 rounded-full">
-                                    {isArabic ? `وفرت ${savings.toLocaleString()} ج.م` : `Save ${savings.toLocaleString()} EGP`}
-                                </span>
-                            )}
+                                {/* Plus Sign */}
+                                {idx < allProducts.length - 1 && (
+                                    <span className="text-gray-300 dark:text-gray-600 font-light text-4xl mx-5">+</span>
+                                )}
+                            </div>
+                        );
+                    })}
+
+                    {/* Equals and Total */}
+                    <div className="flex items-center">
+                        <span className="text-gray-300 dark:text-gray-600 font-light text-4xl mx-5">=</span>
+
+                        {/* Total Card */}
+                        <div className="w-56 rounded-2xl border-2 border-yellow-400 bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-5 shadow-xl shadow-yellow-100 dark:shadow-yellow-900/10">
+                            <div className="text-center mb-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                                    {isArabic ? `إجمالي ${selectedProducts.length} منتجات` : `Total for ${selectedProducts.length} items`}
+                                </p>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                                    {totalBundlePrice.toLocaleString()}
+                                    <span className="text-base font-medium text-gray-500 ms-1">{isArabic ? 'ج.م' : 'EGP'}</span>
+                                </div>
+                                {savings > 0 && (
+                                    <span className="inline-block mt-2 text-sm font-semibold text-green-600 bg-green-100 dark:bg-green-900/40 px-3 py-1 rounded-full">
+                                        {isArabic ? `وفرت ${savings.toLocaleString()} ج.م` : `Save ${savings.toLocaleString()} EGP`}
+                                    </span>
+                                )}
+                            </div>
+
+                            <button
+                                onClick={handleAddBundle}
+                                disabled={selectedProducts.length === 0}
+                                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-95 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isArabic ? 'إضافة الكل للسلة' : 'Add All to Cart'}
+                            </button>
                         </div>
-
-                        <div className="text-3xl font-bold text-gray-900 dark:text-white">
-                            {totalBundlePrice.toLocaleString()} <span className="text-lg font-medium text-gray-500">{isArabic ? 'ج.م' : 'EGP'}</span>
-                        </div>
-
-                        <button
-                            onClick={handleAddBundle}
-                            disabled={selectedProducts.length === 0}
-                            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-yellow-200 dark:shadow-yellow-900/30 transition-all transform hover:scale-[1.02] active:scale-95 text-base disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {isArabic ? 'إضافة الكل للسلة' : 'Add All to Cart'}
-                        </button>
                     </div>
                 </div>
             </div>
