@@ -25,16 +25,22 @@ export default function Header() {
     // Function to get localized href
     const getLocalizedHref = (path: string) => {
         const cleanPath = path.startsWith('/') ? path : `/${path}`;
-        return `/${locale}${cleanPath}`;
+        return locale === 'ar' ? cleanPath : `/${locale}${cleanPath}`;
     };
 
     // Language switcher - proper path replacement
     const switchLocale = locale === 'ar' ? 'en' : 'ar';
     const getSwitchPath = () => {
-        if (!pathname) return `/${switchLocale}`;
-        // Remove current locale prefix and add new one
-        const pathWithoutLocale = pathname.replace(/^\/(ar|en)/, '');
-        return `/${switchLocale}${pathWithoutLocale}`;
+        if (!pathname) return switchLocale === 'ar' ? '/' : '/en';
+
+        // Remove current locale prefix 
+        const pathWithoutLocale = pathname.replace(/^\/(ar|en)(\/|$)/, '/');
+        const cleanPath = pathWithoutLocale === '/' ? '' : pathWithoutLocale;
+
+        if (switchLocale === 'ar') {
+            return cleanPath || '/';
+        }
+        return `/en${cleanPath}`;
     };
 
     // Categories with proper grouping

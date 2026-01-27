@@ -51,7 +51,10 @@ export default function ProductPageClient({ product, locale, brand, category }: 
     const [quantity, setQuantity] = useState(1);
     const [selectedImage, setSelectedImage] = useState(0);
 
-    const getLocalizedHref = (path: string) => `/${locale}${path.startsWith('/') ? path : `/${path}`}`;
+    const getLocalizedHref = (path: string) => {
+        const cleanPath = path.startsWith('/') ? path : `/${path}`;
+        return locale === 'ar' ? cleanPath : `/${locale}${cleanPath}`;
+    };
 
     const currentTranslation = product.translations?.[locale as 'ar' | 'en'] || product.translations?.en;
     const productName = currentTranslation?.name || product.slug;

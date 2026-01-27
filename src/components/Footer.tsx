@@ -13,7 +13,7 @@ export default function Footer() {
     // Function to get localized href
     const getLocalizedHref = (path: string) => {
         if (locale === 'ar') {
-            return path.startsWith('/ar') ? path : `/ar${path}`;
+            return path.startsWith('/') ? path : `/${path}`;
         }
         return path.startsWith('/en') ? path : `/en${path}`;
     };
