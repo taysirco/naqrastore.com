@@ -74,38 +74,38 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-16 pb-16" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
-      <section className="relative min-h-[700px] flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900 overflow-hidden">
+      <section className="relative min-h-[500px] md:min-h-[700px] flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/50 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-200/50 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-48 md:w-96 h-48 md:h-96 bg-blue-200/50 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-red-200/50 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <span className="inline-block px-4 py-2 bg-blue-100/50 backdrop-blur-sm rounded-full text-sm font-medium mb-6 text-blue-800 border border-blue-100">
+          <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-blue-100/50 backdrop-blur-sm rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6 text-blue-800 border border-blue-100">
             🇪🇬 {isRTL ? 'الوكيل المعتمد في مصر' : 'Authorized Dealer in Egypt'}
           </span>
 
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight text-gray-900">
             <span className="block">{isRTL ? 'اكسسوارات موبايل' : 'Mobile Accessories'}</span>
             <span className="block bg-gradient-to-r from-blue-600 to-red-600 bg-clip-text text-transparent">
               Anker & Joyroom
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl lg:text-2xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
             {isRTL
               ? 'منتجات أصلية 100% بضمان رسمي. باور بانك، سماعات، شواحن وكابلات.'
               : '100% Original products with official warranty. Power banks, earbuds, chargers & cables.'}
           </p>
 
           {/* Hero Products */}
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-10">
             {heroProducts.map((product, idx) => (
               <Link
                 key={idx}
                 href={product.href}
-                className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all flex items-center gap-2 shadow-sm border border-gray-100 text-gray-800"
+                className="px-3 py-2 md:px-6 md:py-3 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all flex items-center gap-1 md:gap-2 shadow-sm border border-gray-100 text-gray-800 text-xs md:text-base"
               >
                 <span className="text-xs bg-yellow-400 text-black px-2 py-0.5 rounded-full font-bold">{product.badge}</span>
                 <span>{product.name}</span>
@@ -138,17 +138,17 @@ export default function Home() {
             <Link
               key={idx}
               href={cat.href}
-              className="group relative p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all text-center"
+              className="group relative p-4 md:p-6 rounded-xl md:rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all text-center"
             >
               {cat.badge && (
                 <span className="absolute -top-2 -right-2 px-2 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
                   {cat.badge}
                 </span>
               )}
-              <div className={`text-4xl mb-3 w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center`}>
+              <div className={`text-2xl md:text-4xl mb-2 md:mb-3 w-12 h-12 md:w-16 md:h-16 mx-auto rounded-xl md:rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center`}>
                 {cat.icon}
               </div>
-              <h3 className="font-bold mb-1">{cat.title}</h3>
+              <h3 className="font-bold text-sm md:text-base mb-1">{cat.title}</h3>
               <span className={`text-sm ${cat.brand === 'Anker' ? 'text-blue-600' : 'text-red-600'}`}>
                 {cat.brand}
               </span>
@@ -192,9 +192,9 @@ export default function Home() {
 
       {/* Trust Badges */}
       <section className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900">
-            <div className="text-3xl mb-2">✅</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 text-center">
+          <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gray-50 dark:bg-gray-900">
+            <div className="text-2xl md:text-3xl mb-1 md:mb-2">✅</div>
             <h4 className="font-bold">{isRTL ? 'منتجات أصلية' : 'Original Products'}</h4>
             <p className="text-sm text-gray-500">{isRTL ? 'ضمان 100%' : '100% Guarantee'}</p>
           </div>

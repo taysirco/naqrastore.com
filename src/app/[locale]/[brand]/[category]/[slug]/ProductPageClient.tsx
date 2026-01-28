@@ -113,8 +113,8 @@ export default function ProductPageClient({ product, relatedProducts = [], local
         <div className="min-h-screen bg-gray-50 dark:bg-gray-950" dir={isRTL ? 'rtl' : 'ltr'}>
             {/* Breadcrumb */}
             <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-                <div className="container mx-auto px-4 py-3">
-                    <nav className="text-sm text-gray-500 flex flex-wrap items-center gap-1">
+                <div className="container mx-auto px-4 py-2 md:py-3">
+                    <nav className="text-xs md:text-sm text-gray-500 flex flex-wrap items-center gap-1 overflow-hidden">
                         <Link href={getLocalizedHref('/')} className="hover:text-blue-600 transition-colors">
                             {tCommon('home')}
                         </Link>
@@ -127,7 +127,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                             {translatedCategory}
                         </Link>
                         <span className="mx-1">/</span>
-                        <span className="text-gray-900 dark:text-white font-medium truncate max-w-[200px]">
+                        <span className="text-gray-900 dark:text-white font-medium truncate max-w-[120px] md:max-w-[200px]">
                             {productName}
                         </span>
                     </nav>
@@ -135,8 +135,8 @@ export default function ProductPageClient({ product, relatedProducts = [], local
             </div>
 
             {/* Product Section */}
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid lg:grid-cols-2 gap-12">
+            <div className="container mx-auto px-4 py-4 md:py-8">
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
                     {/* Product Images */}
                     <div className="space-y-4">
                         {/* Main Image */}
@@ -231,28 +231,28 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                             {productName}
                         </h1>
 
                         {/* Short Description */}
                         {productShortDesc && (
-                            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <p className="text-sm md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                                 {productShortDesc}
                             </p>
                         )}
 
                         {/* Price */}
-                        <div className="flex flex-wrap items-end gap-3 py-4 border-y border-gray-100 dark:border-gray-800">
-                            <span className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                        <div className="flex flex-wrap items-end gap-2 md:gap-3 py-3 md:py-4 border-y border-gray-100 dark:border-gray-800">
+                            <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
                                 {product.price.toLocaleString()}
                             </span>
-                            <span className="text-xl text-gray-500 mb-1">
+                            <span className="text-base md:text-xl text-gray-500 mb-0.5 md:mb-1">
                                 {tCommon('egp')}
                             </span>
                             {product.originalPrice && (
                                 <>
-                                    <span className="text-xl text-gray-400 line-through mb-1">
+                                    <span className="text-base md:text-xl text-gray-400 line-through mb-0.5 md:mb-1">
                                         {product.originalPrice.toLocaleString()}
                                     </span>
                                     <span className="px-2 py-0.5 bg-green-100 text-green-700 text-sm font-bold rounded">
@@ -318,33 +318,33 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                         </div>
 
                         {/* Trust Badges */}
-                        <div className="grid grid-cols-2 gap-4 pt-6">
-                            <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800">
-                                <span className="text-2xl">✅</span>
+                        <div className="grid grid-cols-2 gap-2 md:gap-4 pt-4 md:pt-6">
+                            <div className="flex items-center gap-2 md:gap-3 p-2 md:p-4 bg-white dark:bg-gray-900 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-800">
+                                <span className="text-lg md:text-2xl">✅</span>
                                 <div>
-                                    <div className="font-bold text-sm">{isRTL ? 'منتج أصلي' : 'Original Product'}</div>
-                                    <div className="text-xs text-gray-500">{isRTL ? 'ضمان 100%' : '100% Guaranteed'}</div>
+                                    <div className="font-bold text-xs md:text-sm">{isRTL ? 'منتج أصلي' : 'Original Product'}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500">{isRTL ? 'ضمان 100%' : '100% Guaranteed'}</div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800">
-                                <span className="text-2xl">🛡️</span>
+                            <div className="flex items-center gap-2 md:gap-3 p-2 md:p-4 bg-white dark:bg-gray-900 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-800">
+                                <span className="text-lg md:text-2xl">🛡️</span>
                                 <div>
-                                    <div className="font-bold text-sm">{isRTL ? 'ضمان رسمي' : 'Official Warranty'}</div>
-                                    <div className="text-xs text-gray-500">{isRTL ? '18 شهر' : '18 Months'}</div>
+                                    <div className="font-bold text-xs md:text-sm">{isRTL ? 'ضمان رسمي' : 'Official Warranty'}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500">{isRTL ? '18 شهر' : '18 Months'}</div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800">
-                                <span className="text-2xl">🚚</span>
+                            <div className="flex items-center gap-2 md:gap-3 p-2 md:p-4 bg-white dark:bg-gray-900 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-800">
+                                <span className="text-lg md:text-2xl">🚚</span>
                                 <div>
-                                    <div className="font-bold text-sm">{isRTL ? 'شحن سريع' : 'Fast Shipping'}</div>
-                                    <div className="text-xs text-gray-500">{isRTL ? '2-3 أيام' : '2-3 Days'}</div>
+                                    <div className="font-bold text-xs md:text-sm">{isRTL ? 'شحن سريع' : 'Fast Shipping'}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500">{isRTL ? '2-3 أيام' : '2-3 Days'}</div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800">
-                                <span className="text-2xl">💵</span>
+                            <div className="flex items-center gap-2 md:gap-3 p-2 md:p-4 bg-white dark:bg-gray-900 rounded-lg md:rounded-xl border border-gray-100 dark:border-gray-800">
+                                <span className="text-lg md:text-2xl">💵</span>
                                 <div>
-                                    <div className="font-bold text-sm">{isRTL ? 'الدفع عند الاستلام' : 'Cash on Delivery'}</div>
-                                    <div className="text-xs text-gray-500">{isRTL ? 'بدون مقدم' : 'No Prepayment'}</div>
+                                    <div className="font-bold text-xs md:text-sm">{isRTL ? 'الدفع عند الاستلام' : 'Cash on Delivery'}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500">{isRTL ? 'بدون مقدم' : 'No Prepayment'}</div>
                                 </div>
                             </div>
                         </div>

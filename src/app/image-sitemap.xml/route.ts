@@ -1,0 +1,118 @@
+import { NextResponse } from 'next/server';
+import { adminDb } from '@/lib/firebase-admin';
+import { staticProducts } from '@/lib/static-products';
+
+const baseUrl = 'https://cairovolt.com';
+
+interface ProductImage {
+    url: string;
+    alt?: string;
+    altAr?: string;
+}
+
+interface Product {
+    slug: string;
+    brand: string;
+    categorySlug: string;
+    images?: ProductImage[];
+    translations?: {
+        en?: { name?: string };
+        ar?: { name?: string };
+    };
+}
+
+export async function GET() {
+    const products: Product[] = [];
+
+    // Get static products
+    staticProducts.forEach(product => {
+        products.push({
+            slug: product.slug,
+            brand: product.brand,
+            categorySlug: product.categorySlug,
+            images: product.images,
+            translations: product.translations,
+        });
+    });
+
+    // Get Firebase products
+    if (adminDb) {
+        try {
+            const snapshot = await adminDb.collection('products').get();
+            snapshot.docs.forEach(doc => {
+                const data = doc.data() as Product;
+                products.push({
+                    slug: data.slug,
+                    brand: data.brand,
+                    categorySlug: data.categorySlug,
+                    images: data.images,
+                    translations: data.translations,
+                });
+            });
+        } catch (error) {
+            console.error('Error fetching products for image sitemap:', error);
+        }
+    }
+
+    // Build XML
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+`;
+
+    for (const product of products) {
+        if (!product.images || product.images.length === 0) continue;
+
+        const brandLower = product.brand.toLowerCase();
+        const productUrl = `${baseUrl}/${brandLower}/${product.categorySlug}/${product.slug}`;
+
+        xml += `  <url>
+    <loc>${productUrl}</loc>
+`;
+
+        for (const image of product.images) {
+            const imageUrl = image.url.startsWith('http')
+                ? image.url
+                : `${baseUrl}${image.url}`;
+
+            // Arabic caption with geo
+            const captionAr = image.altAr
+                ? `${image.altAr} - توصيل سريع لجميع محافظات مصر`
+                : `${product.translations?.ar?.name || product.slug} اصلي في مصر`;
+
+            // English title with geo
+            const titleEn = image.alt
+                ? `${image.alt} - Egypt Original`
+                : `${product.translations?.en?.name || product.slug} Original Egypt`;
+
+            xml += `    <image:image>
+      <image:loc>${imageUrl}</image:loc>
+      <image:caption>${escapeXml(captionAr)}</image:caption>
+      <image:geo_location>Cairo, Egypt</image:geo_location>
+      <image:title>${escapeXml(titleEn)}</image:title>
+    </image:image>
+`;
+        }
+
+        xml += `  </url>
+`;
+    }
+
+    xml += `</urlset>`;
+
+    return new NextResponse(xml, {
+        headers: {
+            'Content-Type': 'application/xml',
+            'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+        },
+    });
+}
+
+function escapeXml(text: string): string {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+}

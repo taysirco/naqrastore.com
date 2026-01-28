@@ -59,12 +59,12 @@ export default async function AnkerHubPage({ params }: Props) {
     return (
         <div className="min-h-screen" dir={isRTL ? 'rtl' : 'ltr'}>
             {/* Hero */}
-            <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20">
+            <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-12 md:py-20">
                 <div className="container mx-auto px-4 text-center">
-                    <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
-                        🏆 {isRTL ? 'العلامة التجارية #1 عالمياً في الشحن' : "World's #1 Charging Brand"}
+                    <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6">
+                        🏆 {isRTL ? 'العلامة التجارية #1 عالمياً' : "World's #1 Charging Brand"}
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                    <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6">
                         Anker Egypt
                     </h1>
                     <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -86,18 +86,18 @@ export default async function AnkerHubPage({ params }: Props) {
                     {isRTL ? 'منتجات Anker' : 'Anker Products'}
                 </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                     {categories.map((cat, idx) => (
                         <Link
                             key={idx}
                             href={cat.href}
-                            className="group p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-2xl hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-y-1 transition-all"
+                            className="group p-4 md:p-8 rounded-xl md:rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-2xl hover:border-blue-200 dark:hover:border-blue-800 hover:-translate-y-1 transition-all"
                         >
-                            <div className="text-5xl mb-4">{cat.icon}</div>
-                            <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                            <div className="text-3xl md:text-5xl mb-2 md:mb-4">{cat.icon}</div>
+                            <h3 className="text-sm md:text-2xl font-bold mb-1 md:mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 {cat.title}
                             </h3>
-                            <p className="text-gray-500 mb-4">{cat.description}</p>
+                            <p className="text-gray-500 text-xs md:text-base mb-2 md:mb-4 hidden md:block">{cat.description}</p>
                             <div className="flex items-center justify-between">
                                 <span className="text-xs text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
                                     {cat.volume}

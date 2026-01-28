@@ -73,7 +73,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
     const allProducts = [mainProduct, ...relatedProducts];
 
     return (
-        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-4 sm:p-6 my-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-4 sm:p-6 my-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg relative z-10 overflow-hidden">
             {/* Header */}
             <h3 className="text-lg sm:text-xl font-bold mb-5 text-gray-900 dark:text-white text-center sm:text-start">
                 {isArabic ? 'غالباً ما يتم شراؤها معاً' : 'Frequently Bought Together'}
@@ -227,8 +227,8 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
 
             {/* Desktop Layout - Professional Grid */}
             <div className="hidden lg:block">
-                {/* Products Row with Plus Signs */}
-                <div className="flex items-stretch justify-center gap-4 mb-8">
+                {/* Products Row with Plus Signs - now scrollable if needed */}
+                <div className="flex items-stretch justify-start gap-4 mb-8 overflow-x-auto pb-2">
                     {allProducts.map((product, idx) => {
                         const isSelected = selectedIds.includes(product.id);
                         const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en;

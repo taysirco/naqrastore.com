@@ -62,6 +62,7 @@ export interface Product {
     status: 'active' | 'draft' | 'archived';
     stock: number;
     lowStockThreshold?: number;
+    videoUrl?: string;
     translations: {
         en: ProductTranslation;
         ar: ProductTranslation;
@@ -103,9 +104,10 @@ export interface ProductFormData {
     keywords?: string;
     focusKeyword?: string;
     canonical?: string;
-    // Images
+    // Media
     images?: ProductImage[];
     imageUrl?: string;
+    videoUrl?: string;
 }
 
 // ============================================

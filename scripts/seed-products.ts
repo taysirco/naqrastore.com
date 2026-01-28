@@ -113,8 +113,13 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_motion_1", url: "/products/anker/anker-soundcore-motion-plus/1.webp", alt: "Anker Soundcore Motion+ Bluetooth Speaker", order: 0, isPrimary: true },
-            { id: "img_motion_2", url: "/products/anker/anker-soundcore-motion-plus/2.webp", alt: "مكبر صوت انكر موشن بلس", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-1.webp", alt: "anker soundcore motion plus Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-2.webp", alt: "anker soundcore motion plus اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-3.webp", alt: "anker soundcore motion plus - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-4.webp", alt: "anker soundcore motion plus اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-5.webp", alt: "anker soundcore motion plus - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-6.webp", alt: "anker soundcore motion plus اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-soundcore-motion-plus/anker-anker-soundcore-motion-plus-egypt-cairo-7.webp", alt: "anker soundcore motion plus - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -175,7 +180,10 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_flare2_1", url: "/products/anker/anker-soundcore-flare-2/1.webp", alt: "Anker Soundcore Flare 2 Bluetooth Speaker", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-soundcore-flare-2/anker-anker-soundcore-flare-2-egypt-cairo-1.webp", alt: "anker soundcore flare 2 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-soundcore-flare-2/anker-anker-soundcore-flare-2-egypt-cairo-2.webp", alt: "anker soundcore flare 2 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-soundcore-flare-2/anker-anker-soundcore-flare-2-egypt-cairo-3.webp", alt: "anker soundcore flare 2 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-soundcore-flare-2/anker-anker-soundcore-flare-2-egypt-cairo-4.webp", alt: "anker soundcore flare 2 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false }
         ],
         translations: {
             en: {
@@ -238,8 +246,14 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_737_1", url: "/products/anker/anker-737-powerbank/1.webp", alt: "Anker 737 Power Bank (PowerCore 24K)", order: 0, isPrimary: true },
-            { id: "img_737_2", url: "/products/anker/anker-737-powerbank/2.webp", alt: "باور بانك انكر 737 شاشة رقمية", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-1.webp", alt: "anker 737 powerbank Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-2.webp", alt: "anker 737 powerbank اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-3.webp", alt: "anker 737 powerbank - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-4.webp", alt: "anker 737 powerbank اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-5.webp", alt: "anker 737 powerbank - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-6.webp", alt: "anker 737 powerbank اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-7.webp", alt: "anker 737 powerbank - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/anker/anker-737-powerbank/anker-anker-737-powerbank-egypt-cairo-8.webp", alt: "anker 737 powerbank اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false }
         ],
         relatedProducts: ["anker-312-charger-25w", "anker-765-cable-usb-c"],
         translations: {
@@ -301,8 +315,13 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_622_1", url: "/products/anker/anker-622-maggo/1.webp", alt: "Anker 622 Magnetic Battery MagGo", order: 0, isPrimary: true },
-            { id: "img_622_2", url: "/products/anker/anker-622-maggo/2.webp", alt: "انكر ماج جو 622", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-1.webp", alt: "anker 622 maggo Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-2.webp", alt: "anker 622 maggo اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-3.webp", alt: "anker 622 maggo - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-4.webp", alt: "anker 622 maggo اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-5.webp", alt: "anker 622 maggo - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-6.webp", alt: "anker 622 maggo اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-622-maggo/anker-anker-622-maggo-egypt-cairo-7.webp", alt: "anker 622 maggo - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -363,7 +382,16 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_521_1", url: "/products/anker/anker-521-powerhouse/1.webp", alt: "Anker 521 Portable Power Station", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-1.webp", alt: "anker 521 powerhouse Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-10.webp", alt: "anker 521 powerhouse اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-2.webp", alt: "anker 521 powerhouse - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-3.webp", alt: "anker 521 powerhouse اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-4.webp", alt: "anker 521 powerhouse - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-5.webp", alt: "anker 521 powerhouse اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-6.webp", alt: "anker 521 powerhouse - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-7.webp", alt: "anker 521 powerhouse اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false },
+            { id: "img_9", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-8.webp", alt: "anker 521 powerhouse - Original Product Cairo Delivery", order: 8, isPrimary: false },
+            { id: "img_10", url: "/products/anker/anker-521-powerhouse/anker-anker-521-powerhouse-egypt-cairo-9.webp", alt: "anker 521 powerhouse اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 9, isPrimary: false }
         ],
         relatedProducts: ["anker-soundcore-motion-plus", "anker-765-cable-usb-c"],
         translations: {
@@ -425,8 +453,13 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_1", url: "/products/anker/anker-powercore-10000/anker-powercore-10000-black-1.webp", alt: "Anker PowerCore 10000mAh باور بانك انكر", order: 0, isPrimary: true },
-            { id: "img_2", url: "/products/anker/anker-powercore-10000/anker-powercore-10000-black-2.webp", alt: "باور بانك انكر 10000 امبير", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-1.webp", alt: "anker powercore 10000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-2.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-3.webp", alt: "anker powercore 10000 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-4.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-5.webp", alt: "anker powercore 10000 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-6.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-7.webp", alt: "anker powercore 10000 - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -488,7 +521,22 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_3", url: "/products/anker/anker-powercore-20000/anker-powercore-20000-1.webp", alt: "Anker PowerCore 20000mAh باور بانك انكر 20000", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-1.webp", alt: "anker powercore 20000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-10.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-11.webp", alt: "anker powercore 20000 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-12.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-13.webp", alt: "anker powercore 20000 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-14.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-15.webp", alt: "anker powercore 20000 - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-16.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false },
+            { id: "img_9", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-2.webp", alt: "anker powercore 20000 - Original Product Cairo Delivery", order: 8, isPrimary: false },
+            { id: "img_10", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-3.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 9, isPrimary: false },
+            { id: "img_11", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-4.webp", alt: "anker powercore 20000 - Best Price in Egypt", order: 10, isPrimary: false },
+            { id: "img_12", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-5.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 11, isPrimary: false },
+            { id: "img_13", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-6.webp", alt: "anker powercore 20000 - Official Distributor Cairo", order: 12, isPrimary: false },
+            { id: "img_14", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-7.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 13, isPrimary: false },
+            { id: "img_15", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-8.webp", alt: "anker powercore 20000 - 2 Year Warranty Egypt", order: 14, isPrimary: false },
+            { id: "img_16", url: "/products/anker/anker-powercore-20000/anker-anker-powercore-20000-egypt-cairo-9.webp", alt: "anker powercore 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 15, isPrimary: false }
         ],
         translations: {
             en: {
@@ -550,7 +598,14 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_4", url: "/products/anker/anker-powercore-26800/anker-powercore-26800-1.webp", alt: "Anker PowerCore 26800mAh باور بانك انكر 26800", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-1.webp", alt: "anker powercore 26800 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-2.webp", alt: "anker powercore 26800 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-3.webp", alt: "anker powercore 26800 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-4.webp", alt: "anker powercore 26800 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-5.webp", alt: "anker powercore 26800 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-6.webp", alt: "anker powercore 26800 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-7.webp", alt: "anker powercore 26800 - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/anker/anker-powercore-26800/anker-anker-powercore-26800-egypt-cairo-8.webp", alt: "anker powercore 26800 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false }
         ],
         translations: {
             en: {
@@ -614,7 +669,12 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_5", url: "/products/anker/anker-powerport-20w/anker-powerport-20w-1.webp", alt: "شاحن انكر 20 واط للايفون", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-1.webp", alt: "anker powerport 20w Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-2.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-3.webp", alt: "anker powerport 20w - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-4.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-5.webp", alt: "anker powerport 20w - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-6.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -676,7 +736,12 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_6", url: "/products/anker/anker-powerport-25w/anker-powerport-25w-1.webp", alt: "شاحن انكر 25 واط للايفون وسامسونج", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-1.webp", alt: "anker powerport 25w Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-2.webp", alt: "anker powerport 25w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-3.webp", alt: "anker powerport 25w - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-4.webp", alt: "anker powerport 25w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-5.webp", alt: "anker powerport 25w - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powerport-25w/anker-anker-powerport-25w-egypt-cairo-6.webp", alt: "anker powerport 25w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -737,7 +802,13 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_7", url: "/products/anker/anker-nano-45w/anker-powerport-45w-1.webp", alt: "شاحن انكر 45 واط فائق السرعة", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-1.webp", alt: "anker nano 45w Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-2.webp", alt: "anker nano 45w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-3.webp", alt: "anker nano 45w - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-4.webp", alt: "anker nano 45w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-5.webp", alt: "anker nano 45w - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-6.webp", alt: "anker nano 45w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-nano-45w/anker-anker-nano-45w-egypt-cairo-7.webp", alt: "anker nano 45w - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -800,7 +871,12 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_8", url: "/products/anker/anker-powerline-usb-c-lightning/anker-powerline-usb-c-lightning-1.webp", alt: "كابل انكر USB-C to Lightning للايفون", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-1.webp", alt: "anker powerline usb c lightning Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-2.webp", alt: "anker powerline usb c lightning اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-3.webp", alt: "anker powerline usb c lightning - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-4.webp", alt: "anker powerline usb c lightning اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-5.webp", alt: "anker powerline usb c lightning - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powerline-usb-c-lightning/anker-anker-powerline-usb-c-lightning-egypt-cairo-6.webp", alt: "anker powerline usb c lightning اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -863,7 +939,13 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_9", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-powerline-usb-c-usb-c-1.webp", alt: "كابل انكر USB-C to USB-C", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-1.webp", alt: "anker powerline usb c usb c Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-2.webp", alt: "anker powerline usb c usb c اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-3.webp", alt: "anker powerline usb c usb c - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-4.webp", alt: "anker powerline usb c usb c اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-5.webp", alt: "anker powerline usb c usb c - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-6.webp", alt: "anker powerline usb c usb c اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-powerline-usb-c-usb-c/anker-anker-powerline-usb-c-usb-c-egypt-cairo-7.webp", alt: "anker powerline usb c usb c - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -926,7 +1008,12 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_10", url: "/products/anker/anker-car-charger-dual-usb/anker-car-charger-dual-1.webp", alt: "شاحن سيارة انكر بمنفذين USB", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-1.webp", alt: "anker car charger dual usb Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-2.webp", alt: "anker car charger dual usb اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-3.webp", alt: "anker car charger dual usb - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-4.webp", alt: "anker car charger dual usb اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-5.webp", alt: "anker car charger dual usb - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-car-charger-dual-usb/anker-anker-car-charger-dual-usb-egypt-cairo-6.webp", alt: "anker car charger dual usb اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -989,7 +1076,12 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_11", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-powerbank-10000-1.webp", alt: "باور بانك جوي روم 10000 مللي امبير", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-1.webp", alt: "joyroom power bank 10000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-2.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-3.webp", alt: "joyroom power bank 10000 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-4.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-5.webp", alt: "joyroom power bank 10000 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-6.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1050,7 +1142,16 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_12", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-powerbank-20000-1.webp", alt: "باور بانك جوي روم 20000 مللي امبير", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-1.webp", alt: "joyroom power bank 20000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-10.webp", alt: "joyroom power bank 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-2.webp", alt: "joyroom power bank 20000 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-3.webp", alt: "joyroom power bank 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-4.webp", alt: "joyroom power bank 20000 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-5.webp", alt: "joyroom power bank 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-6.webp", alt: "joyroom power bank 20000 - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-7.webp", alt: "joyroom power bank 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false },
+            { id: "img_9", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-8.webp", alt: "joyroom power bank 20000 - Original Product Cairo Delivery", order: 8, isPrimary: false },
+            { id: "img_10", url: "/products/joyroom/joyroom-power-bank-20000/joyroom-joyroom-power-bank-20000-egypt-cairo-9.webp", alt: "joyroom power bank 20000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 9, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1114,8 +1215,15 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_13", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-t03s-pro-1.webp", alt: "سماعة جوي روم T03S Pro ايربودز", order: 0, isPrimary: true },
-            { id: "img_14", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-t03s-pro-2.webp", alt: "ايربودز جوي روم برو", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-1.webp", alt: "joyroom t03s pro earbuds Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-2.webp", alt: "joyroom t03s pro earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-3.webp", alt: "joyroom t03s pro earbuds - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-4.webp", alt: "joyroom t03s pro earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-5.webp", alt: "joyroom t03s pro earbuds - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-6.webp", alt: "joyroom t03s pro earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-7.webp", alt: "joyroom t03s pro earbuds - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-8.webp", alt: "joyroom t03s pro earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false },
+            { id: "img_9", url: "/products/joyroom/joyroom-t03s-pro-earbuds/joyroom-joyroom-t03s-pro-earbuds-egypt-cairo-9.webp", alt: "joyroom t03s pro earbuds - Original Product Cairo Delivery", order: 8, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1176,7 +1284,16 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_15", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-jr-t03-1.webp", alt: "سماعة جوي روم JR-T03 ايربودز", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-1.webp", alt: "joyroom jr t03 wireless earbuds Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-10.webp", alt: "joyroom jr t03 wireless earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-2.webp", alt: "joyroom jr t03 wireless earbuds - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-3.webp", alt: "joyroom jr t03 wireless earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-4.webp", alt: "joyroom jr t03 wireless earbuds - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-5.webp", alt: "joyroom jr t03 wireless earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-6.webp", alt: "joyroom jr t03 wireless earbuds - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-7.webp", alt: "joyroom jr t03 wireless earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false },
+            { id: "img_9", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-8.webp", alt: "joyroom jr t03 wireless earbuds - Original Product Cairo Delivery", order: 8, isPrimary: false },
+            { id: "img_10", url: "/products/joyroom/joyroom-jr-t03-wireless-earbuds/joyroom-joyroom-jr-t03-wireless-earbuds-egypt-cairo-9.webp", alt: "joyroom jr t03 wireless earbuds اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 9, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1239,7 +1356,13 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_16", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-charger-20w-1.webp", alt: "شاحن جوي روم 20 واط للايفون", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-1.webp", alt: "joyroom 20w usb c charger Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-2.webp", alt: "joyroom 20w usb c charger اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-3.webp", alt: "joyroom 20w usb c charger - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-4.webp", alt: "joyroom 20w usb c charger اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-5.webp", alt: "joyroom 20w usb c charger - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-6.webp", alt: "joyroom 20w usb c charger اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-20w-usb-c-charger/joyroom-joyroom-20w-usb-c-charger-egypt-cairo-7.webp", alt: "joyroom 20w usb c charger - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1303,7 +1426,14 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_17", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-cable-lightning-1.webp", alt: "كابل جوي روم للايفون USB-C to Lightning", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-1.webp", alt: "joyroom usb c lightning cable Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-2.webp", alt: "joyroom usb c lightning cable اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-3.webp", alt: "joyroom usb c lightning cable - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-4.webp", alt: "joyroom usb c lightning cable اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-5.webp", alt: "joyroom usb c lightning cable - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-6.webp", alt: "joyroom usb c lightning cable اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-7.webp", alt: "joyroom usb c lightning cable - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/joyroom/joyroom-usb-c-lightning-cable/joyroom-joyroom-usb-c-lightning-cable-egypt-cairo-8.webp", alt: "joyroom usb c lightning cable اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1366,8 +1496,12 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_p2i_1", url: "/products/anker/anker-soundcore-life-p2i/1.webp", alt: "Anker Soundcore Life P2i Wireless Earbuds", order: 0, isPrimary: true },
-            { id: "img_p2i_2", url: "/products/anker/anker-soundcore-life-p2i/2.webp", alt: "سماعات انكر ساوند كور لايف P2i", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-1.webp", alt: "anker soundcore life p2i Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-2.webp", alt: "anker soundcore life p2i اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-3.webp", alt: "anker soundcore life p2i - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-4.webp", alt: "anker soundcore life p2i اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-5.webp", alt: "anker soundcore life p2i - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-soundcore-life-p2i/anker-anker-soundcore-life-p2i-egypt-cairo-6.webp", alt: "anker soundcore life p2i اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1430,8 +1564,13 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_ft3_1", url: "/products/joyroom/joyroom-ft3-smartwatch/1.webp", alt: "Joyroom JR-FT3 Smart Watch", order: 0, isPrimary: true },
-            { id: "img_ft3_2", url: "/products/joyroom/joyroom-ft3-smartwatch/2.webp", alt: "ساعة جوي روم JR-FT3 الذكية", order: 1, isPrimary: false }
+            { id: "img_1", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-1.webp", alt: "joyroom ft3 smartwatch Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-2.webp", alt: "joyroom ft3 smartwatch اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-3.webp", alt: "joyroom ft3 smartwatch - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-4.webp", alt: "joyroom ft3 smartwatch اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-5.webp", alt: "joyroom ft3 smartwatch - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-6.webp", alt: "joyroom ft3 smartwatch اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-ft3-smartwatch/joyroom-joyroom-ft3-smartwatch-egypt-cairo-7.webp", alt: "joyroom ft3 smartwatch - 2 Year Warranty Egypt", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
@@ -1494,7 +1633,14 @@ export const products = [
         featured: false,
         status: "active",
         images: [
-            { id: "img_zs290_1", url: "/products/joyroom/joyroom-car-mount-zs290/1.webp", alt: "Joyroom Magnetic Car Phone Mount", order: 0, isPrimary: true }
+            { id: "img_1", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-1.webp", alt: "joyroom car mount zs290 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-2.webp", alt: "joyroom car mount zs290 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-3.webp", alt: "joyroom car mount zs290 - Best Price in Egypt", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-4.webp", alt: "joyroom car mount zs290 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-5.webp", alt: "joyroom car mount zs290 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-6.webp", alt: "joyroom car mount zs290 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-7.webp", alt: "joyroom car mount zs290 - 2 Year Warranty Egypt", order: 6, isPrimary: false },
+            { id: "img_8", url: "/products/joyroom/joyroom-car-mount-zs290/joyroom-joyroom-car-mount-zs290-egypt-cairo-8.webp", alt: "joyroom car mount zs290 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 7, isPrimary: false }
         ],
         translations: {
             en: {

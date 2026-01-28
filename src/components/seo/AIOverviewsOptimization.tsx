@@ -326,7 +326,7 @@ export function QuickSummary({ product, locale }: QuickSummaryProps) {
     const warrantyMonths = product.brand === 'Anker' ? 18 : 12;
 
     return (
-        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 mb-6 border-s-4 border-blue-500">
+        <div className="hidden md:block bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 mb-6 border-s-4 border-blue-500">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 <strong>{t.name}</strong> - {t.shortDescription}.
                 {isArabic

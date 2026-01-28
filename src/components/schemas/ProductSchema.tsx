@@ -10,6 +10,7 @@ interface ProductSchemaProps {
         price: number;
         originalPrice?: number;
         stock: number;
+        videoUrl?: string;
         images: Array<{ url: string; alt: string }>;
         translations: {
             en: { name: string; description: string };
@@ -24,6 +25,16 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
     const t = product.translations[locale as 'en' | 'ar'] || product.translations.en;
     const isArabic = locale === 'ar';
 
+    // Generate Video Schema if videoUrl exists
+    const videoSchema = product.videoUrl ? {
+        "@type": "VideoObject",
+        "name": t.name,
+        "description": t.description,
+        "thumbnailUrl": product.images[0]?.url ? `${baseUrl}${product.images[0].url}` : "",
+        "uploadDate": new Date().toISOString(), // In real app, should use product creation date
+        "contentUrl": product.videoUrl
+    } : null;
+
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'Product',
@@ -35,6 +46,25 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
             name: product.brand,
         },
         image: product.images.map(img => `${baseUrl}${img.url}`),
+        // Add subjectOf property for VideoObject
+        ...(videoSchema && { "subjectOf": videoSchema }),
+        // Geo SEO: Area Served
+        areaServed: {
+            '@type': 'Country',
+            name: 'Egypt',
+            alternateName: 'مصر',
+        },
+        // Geo SEO: Available At
+        availableAtOrFrom: {
+            '@type': 'Place',
+            name: isArabic ? 'كايرو فولت - مصر' : 'CairoVolt Egypt',
+            address: {
+                '@type': 'PostalAddress',
+                addressCountry: 'EG',
+                addressRegion: isArabic ? 'القاهرة' : 'Cairo Governorate',
+                addressLocality: isArabic ? 'القاهرة' : 'Cairo',
+            },
+        },
         offers: {
             '@type': 'Offer',
             url: `${baseUrl}/${locale}/${product.brand.toLowerCase()}/${product.slug}`,
@@ -45,6 +75,13 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
                 ? 'https://schema.org/InStock'
                 : 'https://schema.org/OutOfStock',
             itemCondition: 'https://schema.org/NewCondition',
+            // Geo SEO: Eligible Region
+            eligibleRegion: [
+                { '@type': 'Country', name: 'Egypt' },
+                { '@type': 'AdministrativeArea', name: 'Cairo' },
+                { '@type': 'AdministrativeArea', name: 'Giza' },
+                { '@type': 'AdministrativeArea', name: 'Alexandria' },
+            ],
             seller: {
                 '@type': 'Organization',
                 name: isArabic ? 'كايرو فولت' : 'Cairo Volt',

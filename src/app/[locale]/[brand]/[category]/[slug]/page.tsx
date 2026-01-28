@@ -74,16 +74,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         openGraph: {
             title: t.metaTitle || t.name,
             description: t.metaDesc || t.shortDescription,
-            images: product.images?.[0]?.url ? [{ url: product.images[0].url }] : [],
+            siteName: isArabic ? 'كايرو فولت - مصر' : 'CairoVolt Egypt',
+            images: product.images?.[0]?.url ? [{
+                url: product.images[0].url,
+                alt: isArabic
+                    ? `${t.name} اصلي في مصر - توصيل سريع القاهرة والجيزة`
+                    : `${t.name} Original Egypt - Fast Cairo Delivery`,
+                width: 1200,
+                height: 630,
+            }] : [],
             locale: isArabic ? 'ar_EG' : 'en_US',
             type: 'website',
+            countryName: 'Egypt',
         },
         alternates: {
             languages: {
                 'ar': `/ar/${brand}/${category}/${slug}`,
                 'en': `/en/${brand}/${category}/${slug}`,
             }
-        }
+        },
+        // Geo Meta Tags
+        other: {
+            'geo.region': 'EG',
+            'geo.placename': isArabic ? 'القاهرة، مصر' : 'Cairo, Egypt',
+            'geo.position': '30.0444;31.2357',
+            'ICBM': '30.0444, 31.2357',
+        },
     };
 }
 
