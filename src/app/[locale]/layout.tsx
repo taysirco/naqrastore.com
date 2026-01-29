@@ -77,9 +77,9 @@ export default async function RootLayout({
         <OrganizationSchema locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden">
               <Header />
-              <main className="flex-grow">
+              <main className="flex-grow w-full max-w-full overflow-x-hidden">
                 {children}
               </main>
               <CartDrawer locale={locale} />

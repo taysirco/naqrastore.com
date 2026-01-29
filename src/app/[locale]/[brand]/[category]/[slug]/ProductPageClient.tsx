@@ -135,7 +135,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
             </div>
 
             {/* Product Section */}
-            <div className="container mx-auto px-4 py-4 md:py-8">
+            <div className="container mx-auto px-4 py-4 md:py-8 max-w-full">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 max-w-full overflow-hidden">
                     {/* Product Images */}
                     <div className="space-y-4">
@@ -190,7 +190,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                     </div>
 
                     {/* Product Info */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 max-w-full overflow-hidden">
 
                         {/* AI Quick Summary - New Addition */}
                         <QuickSummary
