@@ -89,13 +89,13 @@ export default function Header() {
                 </div>
 
                 {/* Main Header */}
-                <div className="container mx-auto px-4 h-14 md:h-16 flex items-center justify-between">
+                <div className="container mx-auto px-4 h-16 md:h-18 flex items-center justify-between">
                     {/* Logo */}
                     <Link
                         href={getLocalizedHref('/')}
                         className="flex items-center gap-2"
                     >
-                        <div className="h-10 md:h-14 w-auto flex items-center">
+                        <div className="h-12 md:h-16 w-auto flex items-center">
                             <img
                                 src="/cairovolt_logo.png"
                                 alt="Cairo Volt"
@@ -348,7 +348,7 @@ export default function Header() {
             </div>
 
             {/* Spacer for fixed header */}
-            <div className="h-14 md:h-[calc(4rem+28px)]"></div>
+            <div className="h-16 md:h-[calc(4.5rem+28px)]"></div>
         </>
     );
 }
