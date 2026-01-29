@@ -200,7 +200,7 @@ export default async function ProductPage({ params }: Props) {
 
     // Use smart algorithm to get related products (always returns products)
     const relatedProducts = staticProduct
-        ? getSmartRelatedProducts(staticProduct, 2).map(p => ({ id: `static_${p.slug}`, ...p } as Product))
+        ? getSmartRelatedProducts(staticProduct, 8).map(p => ({ id: `static_${p.slug}`, ...p } as Product))
         : [];
 
     return (

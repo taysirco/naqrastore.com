@@ -95,11 +95,12 @@ export default function Header() {
                         href={getLocalizedHref('/')}
                         className="flex items-center gap-2"
                     >
-                        <div className="h-12 md:h-16 w-auto flex items-center">
+                        <div className="flex items-center" style={{ height: '64px' }}>
                             <img
                                 src="/cairovolt_logo.png"
                                 alt="Cairo Volt"
-                                className="h-full w-auto object-contain"
+                                style={{ height: '64px', width: 'auto', maxWidth: '200px' }}
+                                className="object-contain"
                             />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
@@ -201,9 +202,9 @@ export default function Header() {
                     </nav>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1 sm:gap-3">
                         {/* Search Button */}
-                        <button className="p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors">
+                        <button className="p-2 sm:p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors touch-target">
                             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -212,7 +213,7 @@ export default function Header() {
                         {/* Mobile Language Switcher */}
                         <Link
                             href={getSwitchPath()}
-                            className="lg:hidden p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors text-sm font-bold"
+                            className="lg:hidden p-2 sm:p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors text-sm font-bold touch-target"
                         >
                             {locale === 'ar' ? 'EN' : 'ع'}
                         </Link>
@@ -233,7 +234,7 @@ export default function Header() {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="lg:hidden p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+                            className="lg:hidden p-2 sm:p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors touch-target"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 {mobileMenuOpen ? (

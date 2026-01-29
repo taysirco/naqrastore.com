@@ -19,19 +19,20 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-16 pb-8" dir={isRTL ? 'rtl' : 'ltr'}>
+        <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-10 md:pt-16 pb-8" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
                     {/* About Section */}
-                    <div>
-                        <div className="h-16 md:h-20 w-auto mb-4">
+                    <div className="col-span-2 md:col-span-1">
+                        <div className="mb-3 md:mb-4">
                             <img
                                 src="/cairovolt_logo.png"
                                 alt={isRTL ? 'كايرو فولت' : 'Cairo Volt'}
-                                className="h-full w-auto object-contain"
+                                style={{ height: '64px', width: 'auto', maxWidth: '200px' }}
+                                className="object-contain"
                             />
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm leading-relaxed">
                             {t('aboutDescription')}
                         </p>
                     </div>

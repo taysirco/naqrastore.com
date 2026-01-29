@@ -326,12 +326,12 @@ export function QuickSummary({ product, locale }: QuickSummaryProps) {
     const warrantyMonths = product.brand === 'Anker' ? 18 : 12;
 
     return (
-        <div className="hidden md:block bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 mb-6 border-s-4 border-blue-500">
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                <strong>{t.name}</strong> - {t.shortDescription}.
+        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-3 md:p-4 mb-4 md:mb-6 border-s-4 border-blue-500">
+            <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                <strong>{t.name}</strong> - <span className="hidden sm:inline">{t.shortDescription}.</span>
                 {isArabic
-                    ? ` السعر: ${product.price} جنيه مصري | ضمان ${warrantyMonths} شهر | شحن مجاني للطلبات فوق 500 جنيه.`
-                    : ` Price: ${product.price} EGP | ${warrantyMonths}-month warranty | Free shipping for orders over 500 EGP.`
+                    ? ` السعر: ${product.price} جنيه | ضمان ${warrantyMonths} شهر`
+                    : ` Price: ${product.price} EGP | ${warrantyMonths}-month warranty`
                 }
             </p>
         </div>

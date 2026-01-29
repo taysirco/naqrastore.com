@@ -79,11 +79,18 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                 {isArabic ? 'غالباً ما يتم شراؤها معاً' : 'Frequently Bought Together'}
             </h3>
 
-            {/* Mobile Layout: Clean 2-column grid */}
-            <div className="block lg:hidden" style={{ width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
-                {/* Product Grid - 2 columns on mobile for better fit */}
-                <div className="grid grid-cols-2 gap-3 mb-4" style={{ width: '100%' }}>
-                    {allProducts.slice(0, 4).map((product) => {
+            {/* Mobile Layout: Horizontal Scroll Cards */}
+            <div className="block lg:hidden w-full overflow-hidden">
+                {/* Scrollable Product Cards */}
+                <div
+                    className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory scrollbar-hide -mx-2 px-2"
+                    style={{
+                        scrollbarWidth: 'none',
+                        msOverflowStyle: 'none',
+                        WebkitOverflowScrolling: 'touch'
+                    }}
+                >
+                    {allProducts.slice(0, 4).map((product, idx) => {
                         const isSelected = selectedIds.includes(product.id);
                         const isMain = product.id === mainProduct.id;
                         const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en;
@@ -93,71 +100,102 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                                 key={product.id}
                                 onClick={() => toggleProduct(product.id)}
                                 disabled={isMain}
-                                className={`relative w-full rounded-xl border-2 p-2 bg-white dark:bg-gray-800 transition-all duration-300 
+                                className={`relative flex-shrink-0 w-[160px] rounded-2xl border-2 p-3 bg-white dark:bg-gray-800 transition-all duration-300 snap-center
                                     ${isSelected
-                                        ? 'border-green-500 shadow-md'
-                                        : 'border-gray-200 dark:border-gray-700 opacity-50'
+                                        ? 'border-green-500 shadow-lg shadow-green-500/20'
+                                        : 'border-gray-200 dark:border-gray-700 opacity-60'
                                     }
                                     ${!isMain ? 'active:scale-95 cursor-pointer' : 'cursor-default'}`}
-                                style={{ minWidth: 0 }}
                             >
-                                {/* Product Image */}
-                                <div className="relative w-full aspect-square mb-2">
+                                {/* Selection Badge */}
+                                <div className={`absolute top-2 ${isArabic ? 'left-2' : 'right-2'} w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold transition-all z-10
+                                    ${isSelected
+                                        ? 'bg-green-500 text-white shadow-md'
+                                        : 'bg-gray-200 dark:bg-gray-600 text-gray-400'
+                                    }`}
+                                >
+                                    {isSelected ? '✓' : ''}
+                                </div>
+
+                                {/* Main Product Badge */}
+                                {isMain && (
+                                    <div className={`absolute top-2 ${isArabic ? 'right-2' : 'left-2'} px-2 py-0.5 bg-blue-500 text-white text-[10px] font-bold rounded-full z-10`}>
+                                        {isArabic ? 'رئيسي' : 'Main'}
+                                    </div>
+                                )}
+
+                                {/* Product Image - Larger */}
+                                <div className="relative w-full aspect-square mb-3 bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden">
                                     {product.images?.[0]?.url && (
                                         <Image
                                             src={product.images[0].url}
                                             alt={t?.name || product.slug}
                                             fill
-                                            className="object-contain p-1"
+                                            className="object-contain p-2"
                                         />
                                     )}
                                 </div>
-                                {/* Product Name - truncated */}
-                                <p className={`text-xs font-medium truncate ${isSelected ? 'text-gray-800 dark:text-gray-200' : 'text-gray-400 line-through'}`}>
+
+                                {/* Product Name - 2 lines */}
+                                <p className={`text-sm font-medium leading-tight mb-2 line-clamp-2 h-10 text-start ${isSelected ? 'text-gray-800 dark:text-gray-200' : 'text-gray-400 line-through'}`}>
                                     {t?.name}
                                 </p>
-                                {/* Price */}
-                                <p className={`text-sm font-bold ${isSelected ? 'text-blue-600' : 'text-gray-400'}`}>
-                                    {product.price.toLocaleString()} {isArabic ? 'ج.م' : 'EGP'}
-                                </p>
-                                {/* Selection indicator */}
-                                <div className={`absolute top-1 ${isArabic ? 'left-1' : 'right-1'} w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold transition-all
-                                    ${isSelected
-                                        ? 'bg-green-500 text-white'
-                                        : 'bg-gray-300 text-gray-500'
-                                    }`}
-                                >
-                                    {isSelected ? '✓' : ''}
+
+                                {/* Price - Larger */}
+                                <div className={`text-start ${isSelected ? 'text-blue-600 dark:text-blue-400' : 'text-gray-400'}`}>
+                                    <span className="text-lg font-bold">{product.price.toLocaleString()}</span>
+                                    <span className="text-xs ms-1">{isArabic ? 'ج.م' : 'EGP'}</span>
                                 </div>
                             </button>
                         );
                     })}
                 </div>
 
-                {/* Total & CTA */}
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-800" style={{ width: '100%' }}>
-                    <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
-                            {isArabic ? `${selectedProducts.length} منتجات` : `${selectedProducts.length} items`}
-                        </span>
+                {/* Scroll Indicator Dots */}
+                <div className="flex justify-center gap-1.5 mb-4">
+                    {allProducts.slice(0, 4).map((_, idx) => (
+                        <div
+                            key={idx}
+                            className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"
+                        />
+                    ))}
+                </div>
+
+                {/* Total & CTA - More Prominent */}
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-2xl p-5 border-2 border-yellow-300 dark:border-yellow-700 shadow-lg">
+                    {/* Summary Row */}
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl">🛒</span>
+                            <span className="text-base font-semibold text-gray-700 dark:text-gray-300">
+                                {isArabic ? `${selectedProducts.length} منتجات` : `${selectedProducts.length} items`}
+                            </span>
+                        </div>
                         {savings > 0 && (
-                            <span className="text-xs font-semibold text-green-600 bg-green-100 dark:bg-green-900/40 px-2 py-1 rounded-full">
-                                {isArabic ? `وفر ${savings.toLocaleString()}` : `Save ${savings.toLocaleString()}`}
+                            <span className="text-sm font-bold text-green-600 bg-green-100 dark:bg-green-900/50 px-3 py-1.5 rounded-full animate-pulse">
+                                {isArabic ? `وفر ${savings.toLocaleString()} ج.م` : `Save ${savings.toLocaleString()} EGP`}
                             </span>
                         )}
                     </div>
-                    <div className="text-center mb-3">
-                        <span className="text-2xl font-bold text-gray-900 dark:text-white">
+
+                    {/* Total Price - Much Larger */}
+                    <div className="text-center mb-4 py-3 bg-white/50 dark:bg-gray-800/50 rounded-xl">
+                        <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                            {isArabic ? 'الإجمالي' : 'Total'}
+                        </div>
+                        <span className="text-4xl font-black text-gray-900 dark:text-white">
                             {totalBundlePrice.toLocaleString()}
                         </span>
-                        <span className="text-sm text-gray-500 mr-1">{isArabic ? 'ج.م' : 'EGP'}</span>
+                        <span className="text-lg text-gray-500 ms-2">{isArabic ? 'ج.م' : 'EGP'}</span>
                     </div>
+
+                    {/* CTA Button - Full Width & Larger */}
                     <button
                         onClick={handleAddBundle}
                         disabled={selectedProducts.length === 0}
-                        className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 rounded-xl shadow-lg transition-all active:scale-95 text-sm disabled:opacity-50"
-                        style={{ width: '100%', maxWidth: '100%' }}
+                        className="w-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 hover:from-yellow-500 hover:via-yellow-600 hover:to-orange-600 text-black font-black py-4 rounded-xl shadow-xl shadow-yellow-500/30 transition-all active:scale-[0.98] text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
+                        <span className="text-xl">🛍️</span>
                         {isArabic ? 'إضافة الكل للسلة' : 'Add All to Cart'}
                     </button>
                 </div>
