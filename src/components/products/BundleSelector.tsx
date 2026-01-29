@@ -73,7 +73,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
     const allProducts = [mainProduct, ...relatedProducts];
 
     return (
-        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-4 sm:p-6 my-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg relative z-10 overflow-hidden max-w-full">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-3 sm:p-6 my-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg relative z-10 overflow-hidden w-full max-w-full box-border">
             {/* Header */}
             <h3 className="text-lg sm:text-xl font-bold mb-5 text-gray-900 dark:text-white text-center sm:text-start">
                 {isArabic ? 'غالباً ما يتم شراؤها معاً' : 'Frequently Bought Together'}
@@ -82,7 +82,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
             {/* Mobile Layout: Stacked Cards */}
             <div className="block lg:hidden">
                 {/* Product Grid - 3 columns on mobile with larger images */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-3 gap-2 mb-6 w-full">
                     {allProducts.map((product, idx) => {
                         const isSelected = selectedIds.includes(product.id);
                         const isMain = product.id === mainProduct.id;
@@ -199,8 +199,8 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                 </div>
 
                 {/* Total & CTA - Sticky Bottom Style */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-center justify-between mb-3">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-3 shadow-lg border border-gray-100 dark:border-gray-700 w-full max-w-full">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span className="text-sm text-gray-500 dark:text-gray-400">
                             {isArabic ? `إجمالي سعر الباقة (${selectedProducts.length} منتجات):` : `Total for ${selectedProducts.length} items:`}
                         </span>
@@ -210,14 +210,14 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                             </span>
                         )}
                     </div>
-                    <div className="flex items-center justify-between gap-4">
-                        <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div className="flex flex-col gap-3 w-full">
+                        <div className="text-2xl font-bold text-gray-900 dark:text-white text-center">
                             {totalBundlePrice.toLocaleString()} <span className="text-base font-medium text-gray-500">{isArabic ? 'ج.م' : 'EGP'}</span>
                         </div>
                         <button
                             onClick={handleAddBundle}
                             disabled={selectedProducts.length === 0}
-                            className="flex-1 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-xl shadow-md shadow-yellow-200 dark:shadow-yellow-900/30 transition-all transform active:scale-95 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-xl shadow-md shadow-yellow-200 dark:shadow-yellow-900/30 transition-all transform active:scale-95 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {isArabic ? 'إضافة الكل للسلة' : 'Add All to Cart'}
                         </button>
