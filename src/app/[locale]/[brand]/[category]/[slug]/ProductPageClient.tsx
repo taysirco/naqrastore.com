@@ -140,7 +140,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                     {/* Product Images */}
                     <div className="space-y-4">
                         {/* Main Image */}
-                        <div className="relative aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg">
+                        <div className="relative aspect-[4/3] md:aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg">
                             {discount > 0 && (
                                 <span className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'} px-3 py-1.5 bg-red-500 text-white text-sm font-bold rounded-full z-10 shadow-lg`}>
                                     -{discount}%
@@ -168,7 +168,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
 
                         {/* Thumbnail Images */}
                         {images.length > 1 && (
-                            <div className="flex gap-3 overflow-x-auto pb-2">
+                            <div className="flex gap-3 overflow-x-auto pb-20 lg:pb-2">
                                 {images.map((img, idx) => (
                                     <button
                                         key={idx}
@@ -505,7 +505,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
             </div>
             {/* Mobile Sticky Action Bar */}
             <div
-                className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40 transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'
+                className={`lg:hidden fixed bottom-0 left-0 right-0 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-40 transition-transform duration-300 ${showStickyBar ? 'translate-y-0' : 'translate-y-full'
                     }`}
             >
                 <div className="flex gap-3">

@@ -15,10 +15,11 @@ export async function GET(req: NextRequest) {
     const search = url.searchParams.get('search');
     const limit = parseInt(url.searchParams.get('limit') || '50');
     const page = parseInt(url.searchParams.get('page') || '1');
-    const useStatic = url.searchParams.get('static') === 'true';
+    const useFirebase = url.searchParams.get('firebase') === 'true';
 
-    // Use static data when Firebase is not configured
-    if (!adminDb || useStatic) {
+    // Default to static data (has correct SEO image paths)
+    // Only use Firebase when explicitly requested with ?firebase=true
+    if (!useFirebase || !adminDb) {
         let products = [...staticProducts];
 
         // Apply filters

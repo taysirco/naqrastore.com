@@ -217,7 +217,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                         <button
                             onClick={handleAddBundle}
                             disabled={selectedProducts.length === 0}
-                            className="flex-1 max-w-[200px] bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-xl shadow-md shadow-yellow-200 dark:shadow-yellow-900/30 transition-all transform active:scale-95 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex-1 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-xl shadow-md shadow-yellow-200 dark:shadow-yellow-900/30 transition-all transform active:scale-95 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {isArabic ? 'إضافة الكل للسلة' : 'Add All to Cart'}
                         </button>

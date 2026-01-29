@@ -116,10 +116,10 @@ export default function CategoryTemplate({
     return (
         <div className="min-h-screen" dir={isRTL ? 'rtl' : 'ltr'}>
             {/* Hero Section */}
-            <section className={`bg-gradient-to-br ${brandColorClass} text-white py-16`}>
+            <section className={`bg-gradient-to-br ${brandColorClass} text-white py-8 md:py-16`}>
                 <div className="container mx-auto px-4">
                     {/* Breadcrumb */}
-                    <nav className="text-sm text-white/70 mb-6">
+                    <nav className="text-xs sm:text-sm text-white/70 mb-4 md:mb-6 px-1">
                         <Link href={`/${locale === 'ar' ? 'ar' : 'en'}`} className="hover:text-white">
                             {tCommon('home')}
                         </Link>
@@ -131,10 +131,10 @@ export default function CategoryTemplate({
                         <span className="text-white font-medium">{translatedCategory}</span>
                     </nav>
 
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">{content.title}</h1>
-                    <p className="text-xl text-white/90 mb-6">{content.subtitle}</p>
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4">{content.title}</h1>
+                    <p className="text-base md:text-xl text-white/90 mb-4 md:mb-6">{content.subtitle}</p>
 
-                    <div className="flex items-center gap-4 text-sm">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm">
                         <span className="bg-white/20 px-4 py-2 rounded-full">
                             ✓ {locale === 'ar' ? 'ضمان أصلي' : 'Official Warranty'}
                         </span>
@@ -191,11 +191,15 @@ export default function CategoryTemplate({
                             className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
                         >
                             {/* Product Image */}
-                            <div className={`h-32 md:h-48 bg-gradient-to-br ${brandColorClass} opacity-10 relative`}>
+                            <div className="h-32 md:h-48 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
                                 {product.image ? (
-                                    <img src={product.image} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-2 md:p-4" />
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="absolute inset-0 w-full h-full object-contain p-2 md:p-4"
+                                    />
                                 ) : (
-                                    <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                                         <span className={`text-4xl md:text-6xl font-bold bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
                                             {brand.charAt(0)}
                                         </span>

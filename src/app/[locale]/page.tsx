@@ -141,7 +141,7 @@ export default function Home() {
               className="group relative p-4 md:p-6 rounded-xl md:rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all text-center"
             >
               {cat.badge && (
-                <span className="absolute -top-2 -right-2 px-2 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
+                <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 px-2 py-0.5 md:py-1 bg-yellow-400 text-black text-[10px] md:text-xs font-bold rounded-full">
                   {cat.badge}
                 </span>
               )}
@@ -198,17 +198,17 @@ export default function Home() {
             <h4 className="font-bold">{isRTL ? 'منتجات أصلية' : 'Original Products'}</h4>
             <p className="text-sm text-gray-500">{isRTL ? 'ضمان 100%' : '100% Guarantee'}</p>
           </div>
-          <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900">
+          <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gray-50 dark:bg-gray-900">
             <div className="text-3xl mb-2">🚚</div>
             <h4 className="font-bold">{isRTL ? 'شحن سريع' : 'Fast Shipping'}</h4>
             <p className="text-sm text-gray-500">{isRTL ? 'لجميع المحافظات' : 'All Governorates'}</p>
           </div>
-          <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900">
+          <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gray-50 dark:bg-gray-900">
             <div className="text-3xl mb-2">💵</div>
             <h4 className="font-bold">{isRTL ? 'الدفع عند الاستلام' : 'Cash on Delivery'}</h4>
             <p className="text-sm text-gray-500">{isRTL ? 'بدون مقدم' : 'No Prepayment'}</p>
           </div>
-          <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900">
+          <div className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gray-50 dark:bg-gray-900">
             <div className="text-3xl mb-2">🛡️</div>
             <h4 className="font-bold">{isRTL ? 'ضمان رسمي' : 'Official Warranty'}</h4>
             <p className="text-sm text-gray-500">{isRTL ? 'استبدال فوري' : 'Instant Replacement'}</p>
