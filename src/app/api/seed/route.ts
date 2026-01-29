@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { adminDb } from '@/lib/firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
-import { products, categories } from '../../../../scripts/seed-products';
+import { products, categories } from '@/data/seed-products';
 
 export async function POST(req: NextRequest) {
     if (!adminDb) {

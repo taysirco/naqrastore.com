@@ -1,7 +1,7 @@
 // Static products data for display when Firebase is not configured
 // This can be used as fallback or for development
 
-import { products, categories } from '../../scripts/seed-products';
+import { products, categories } from '@/data/seed-products';
 
 export interface StaticProduct {
     slug: string;

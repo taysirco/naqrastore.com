@@ -1,50 +1,61 @@
-import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://yourdomain.com';
+import { MetadataRoute } from 'next';
+import { brandData } from '@/data/brand-data';
+import { categoryData } from '@/data/category-seo';
+
+const baseUrl = 'https://cairovolt.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const routes = [
+    const routes: MetadataRoute.Sitemap = [
         // Home
-        { url: baseUrl, priority: 1.0 },
-        { url: `${baseUrl}/en`, priority: 1.0 },
-
-        // Anker Pages
-        { url: `${baseUrl}/anker`, priority: 0.9 },
-        { url: `${baseUrl}/en/anker`, priority: 0.9 },
-        { url: `${baseUrl}/anker/power-banks`, priority: 0.9 },
-        { url: `${baseUrl}/en/anker/power-banks`, priority: 0.9 },
-        { url: `${baseUrl}/anker/audio`, priority: 0.8 },
-        { url: `${baseUrl}/en/anker/audio`, priority: 0.8 },
-        { url: `${baseUrl}/anker/wall-chargers`, priority: 0.9 },
-        { url: `${baseUrl}/en/anker/wall-chargers`, priority: 0.9 },
-        { url: `${baseUrl}/anker/cables`, priority: 0.7 },
-        { url: `${baseUrl}/en/anker/cables`, priority: 0.7 },
-        { url: `${baseUrl}/anker/car-chargers`, priority: 0.6 },
-        { url: `${baseUrl}/en/anker/car-chargers`, priority: 0.6 },
-
-        // Joyroom Pages
-        { url: `${baseUrl}/joyroom`, priority: 0.9 },
-        { url: `${baseUrl}/en/joyroom`, priority: 0.9 },
-        { url: `${baseUrl}/joyroom/audio`, priority: 1.0 }, // Hero Product T03s
-        { url: `${baseUrl}/en/joyroom/audio`, priority: 1.0 },
-        { url: `${baseUrl}/joyroom/power-banks`, priority: 0.8 },
-        { url: `${baseUrl}/en/joyroom/power-banks`, priority: 0.8 },
-        { url: `${baseUrl}/joyroom/wall-chargers`, priority: 0.6 },
-        { url: `${baseUrl}/en/joyroom/wall-chargers`, priority: 0.6 },
-        { url: `${baseUrl}/joyroom/cables`, priority: 0.5 },
-        { url: `${baseUrl}/en/joyroom/cables`, priority: 0.5 },
-        { url: `${baseUrl}/joyroom/car-accessories`, priority: 0.5 },
-        { url: `${baseUrl}/en/joyroom/car-accessories`, priority: 0.5 },
+        { url: baseUrl, priority: 1.0, changeFrequency: 'weekly', lastModified: new Date() },
+        { url: `${baseUrl}/en`, priority: 1.0, changeFrequency: 'weekly', lastModified: new Date() },
 
         // Checkout
-        { url: `${baseUrl}/checkout`, priority: 0.7 },
-        { url: `${baseUrl}/en/checkout`, priority: 0.7 },
+        { url: `${baseUrl}/checkout`, priority: 0.7, changeFrequency: 'monthly', lastModified: new Date() },
+        { url: `${baseUrl}/en/checkout`, priority: 0.7, changeFrequency: 'monthly', lastModified: new Date() },
+
+        // Static Pages
+        { url: `${baseUrl}/about`, priority: 0.5, changeFrequency: 'monthly', lastModified: new Date() },
+        { url: `${baseUrl}/en/about`, priority: 0.5, changeFrequency: 'monthly', lastModified: new Date() },
+        { url: `${baseUrl}/contact`, priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
+        { url: `${baseUrl}/en/contact`, priority: 0.6, changeFrequency: 'monthly', lastModified: new Date() },
     ];
 
-    return routes.map((route) => ({
-        url: route.url,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route.priority,
-    }));
+    // Dynamic Brand Pages
+    Object.keys(brandData).forEach(brandId => {
+        routes.push({
+            url: `${baseUrl}/${brandId}`,
+            priority: 0.9,
+            changeFrequency: 'weekly',
+            lastModified: new Date(),
+        });
+        routes.push({
+            url: `${baseUrl}/en/${brandId}`,
+            priority: 0.9,
+            changeFrequency: 'weekly',
+            lastModified: new Date(),
+        });
+    });
+
+    // Dynamic Category Pages
+    Object.keys(categoryData).forEach(brandId => {
+        const brandCategories = categoryData[brandId];
+        Object.keys(brandCategories).forEach(catSlug => {
+            routes.push({
+                url: `${baseUrl}/${brandId}/${catSlug}`,
+                priority: 0.8,
+                changeFrequency: 'weekly',
+                lastModified: new Date(),
+            });
+            routes.push({
+                url: `${baseUrl}/en/${brandId}/${catSlug}`,
+                priority: 0.8,
+                changeFrequency: 'weekly',
+                lastModified: new Date(),
+            });
+        });
+    });
+
+    return routes;
 }
