@@ -1,6 +1,5 @@
-'use client';
-
-import Script from 'next/script';
+// Server Component - Schemas must be SSR for Google to crawl them
+// DO NOT add 'use client' here!
 
 interface ProductSchemaProps {
     product: {
@@ -178,8 +177,7 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
     }
 
     return (
-        <Script
-            id="product-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -217,8 +215,7 @@ export function OrganizationSchema({ locale }: { locale: string }) {
     };
 
     return (
-        <Script
-            id="organization-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -241,8 +238,7 @@ export function FAQSchema({ faqs, locale }: { faqs: Array<{ question: string; an
     };
 
     return (
-        <Script
-            id="faq-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -266,8 +262,7 @@ export function BreadcrumbSchema({ items, locale }: {
     };
 
     return (
-        <Script
-            id="breadcrumb-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />

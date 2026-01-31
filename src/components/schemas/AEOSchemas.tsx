@@ -1,6 +1,5 @@
-'use client';
-
-import Script from 'next/script';
+// Server Component - Schemas must be SSR for Google to crawl them
+// DO NOT add 'use client' here!
 
 // ============================================
 // SPEAKABLE SCHEMA - Voice Search Optimization
@@ -44,8 +43,7 @@ export function SpeakableSchema({
     };
 
     return (
-        <Script
-            id="speakable-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -140,8 +138,7 @@ export function HowToSchema({
     }
 
     return (
-        <Script
-            id="howto-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -228,8 +225,7 @@ export function ArticleSchema({
     };
 
     return (
-        <Script
-            id="article-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -357,8 +353,7 @@ export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
     };
 
     return (
-        <Script
-            id="local-business-schema"
+        <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
