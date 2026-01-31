@@ -76,7 +76,7 @@ export default function Header() {
                         </div>
                         <div className="flex items-center gap-4">
                             <a href="tel:+201063374834" className="hover:underline">
-                                📞 +20 100 000 0000
+                                📞 01063374834
                             </a>
                             <Link
                                 href={getSwitchPath()}
