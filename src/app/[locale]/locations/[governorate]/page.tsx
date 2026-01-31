@@ -216,6 +216,70 @@ export default async function GovernoratePage({ params }: PageProps) {
                     </div>
                 </section>
 
+                {/* Brand Sections for SEO */}
+                <section className="py-12 container mx-auto px-4">
+                    <h2 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+                        {isArabic ? `تسوق أشهر الماركات في ${govName}` : `Shop Top Brands in ${govName}`}
+                    </h2>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {/* Anker Brand */}
+                        <Link
+                            href={`/${locale}/anker`}
+                            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white hover:shadow-2xl transition-all"
+                        >
+                            <div className="relative z-10">
+                                <h3 className="text-2xl font-bold mb-2">Anker</h3>
+                                <p className="text-blue-100 mb-4 text-sm">
+                                    {isArabic
+                                        ? `اشترِ منتجات أنكر الأصلية في ${govName} - باور بانك، شواحن، كابلات بضمان رسمي 18 شهر.`
+                                        : `Buy original Anker products in ${govName} - power banks, chargers, cables with 18-month warranty.`}
+                                </p>
+                                <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm group-hover:bg-white/30 transition-colors">
+                                    {isArabic ? 'تصفح المنتجات' : 'Browse Products'} →
+                                </span>
+                            </div>
+                            <div className="absolute -bottom-8 -right-8 text-[120px] font-bold text-white/10">A</div>
+                        </Link>
+
+                        {/* Joyroom Brand */}
+                        <Link
+                            href={`/${locale}/joyroom`}
+                            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hover:shadow-2xl transition-all"
+                        >
+                            <div className="relative z-10">
+                                <h3 className="text-2xl font-bold mb-2">Joyroom</h3>
+                                <p className="text-red-100 mb-4 text-sm">
+                                    {isArabic
+                                        ? `تسوق منتجات جوي روم في ${govName} - سماعات T03s، باور بانك، إكسسوارات بأسعار مناسبة.`
+                                        : `Shop Joyroom products in ${govName} - T03s earbuds, power banks, accessories at great prices.`}
+                                </p>
+                                <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm group-hover:bg-white/30 transition-colors">
+                                    {isArabic ? 'تصفح المنتجات' : 'Browse Products'} →
+                                </span>
+                            </div>
+                            <div className="absolute -bottom-8 -right-8 text-[120px] font-bold text-white/10">J</div>
+                        </Link>
+                    </div>
+                </section>
+
+                {/* SEO Content for Governorate */}
+                <section className="py-12 bg-gray-50 dark:bg-gray-900">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+                                {isArabic
+                                    ? `كايرو فولت - الموزع المعتمد في ${govName}`
+                                    : `CairoVolt - Authorized Dealer in ${govName}`}
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                {isArabic
+                                    ? `كايرو فولت هو الموزع المعتمد لمنتجات أنكر وجوي روم الأصلية في ${govName} وجميع محافظات مصر. نوفر لك أفضل إكسسوارات الموبايل الأصلية مع ضمان رسمي يصل إلى 18 شهر. التوصيل متاح إلى ${govName} خلال ${gov.deliveryDays} أيام مع إمكانية الدفع عند الاستلام بدون أي مقدم.`
+                                    : `CairoVolt is the authorized distributor for original Anker and Joyroom products in ${govName} and all Egyptian governorates. We provide the best original mobile accessories with official warranty up to 18 months. Delivery to ${govName} is available within ${gov.deliveryDays} days with cash on delivery option - no prepayment required.`}
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Other Governorates */}
                 <section className="py-12 bg-gray-50 dark:bg-gray-900">
                     <div className="container mx-auto px-4">
