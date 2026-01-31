@@ -90,22 +90,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
     });
 
-    // Governorate Location Pages (GEO SEO)
-    governorates.forEach(gov => {
-        routes.push({
-            url: `${baseUrl}/locations/${gov.slug}`,
-            priority: 0.6,
-            changeFrequency: 'monthly',
-            lastModified: new Date(),
-        });
-        routes.push({
-            url: `${baseUrl}/en/locations/${gov.slug}`,
-            priority: 0.6,
-            changeFrequency: 'monthly',
-            lastModified: new Date(),
-        });
-    });
+    // Governorate Location Pages - REMOVED from sitemap (noindexed - duplicate content)
+    // These pages don't generate traffic and cause content duplication
 
     return routes;
 }
-

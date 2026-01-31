@@ -36,6 +36,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: isArabic ? gov.seo.titleAr : gov.seo.titleEn,
         description: isArabic ? gov.seo.descriptionAr : gov.seo.descriptionEn,
+        // NoIndex - These pages cause duplicate content and don't generate traffic
+        robots: {
+            index: false,
+            follow: false,
+            googleBot: {
+                index: false,
+                follow: false,
+            },
+        },
         alternates: {
             canonical: `https://cairovolt.com/${locale}/locations/${gov.slug}`,
             languages: {
