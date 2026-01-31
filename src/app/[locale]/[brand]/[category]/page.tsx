@@ -17,11 +17,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!data) return {};
 
     const meta = locale === 'ar' ? data.metadata.ar : data.metadata.en;
+    const path = `${brandKey}/${categoryKey}`;
 
     return {
         title: meta.title,
         description: meta.description,
         keywords: meta.keywords,
+        alternates: {
+            canonical: `https://cairovolt.com/${locale}/${path}`,
+            languages: {
+                'ar': `https://cairovolt.com/ar/${path}`,
+                'en': `https://cairovolt.com/en/${path}`,
+            },
+        },
         openGraph: meta.openGraph ? { ...meta.openGraph, locale: locale === 'ar' ? 'ar_EG' : 'en_US' } : undefined,
     };
 }

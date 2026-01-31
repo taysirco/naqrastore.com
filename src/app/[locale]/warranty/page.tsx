@@ -12,6 +12,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: t('metaTitle'),
         description: t('metaDescription'),
+        alternates: {
+            canonical: `https://cairovolt.com/${locale}/warranty`,
+            languages: {
+                'ar': 'https://cairovolt.com/ar/warranty',
+                'en': 'https://cairovolt.com/en/warranty',
+            },
+        },
+        robots: {
+            index: true,
+            follow: false,
+        },
     };
 }
 

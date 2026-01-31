@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 
-export default function ContactPage() {
+export default function ContactPageClient() {
     const locale = useLocale();
     const t = useTranslations('Footer');
     const tCommon = useTranslations('Common');

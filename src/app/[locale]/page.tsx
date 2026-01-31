@@ -11,8 +11,19 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
+  const baseMetadata = {
+    alternates: {
+      canonical: `https://cairovolt.com/${locale}`,
+      languages: {
+        'ar': 'https://cairovolt.com/ar',
+        'en': 'https://cairovolt.com/en',
+      },
+    },
+  };
+
   if (locale === 'en') {
     return {
+      ...baseMetadata,
       title: 'Mobile Accessories Egypt | Anker & Joyroom - Best Prices 2024',
       description: 'Shop original mobile accessories in Egypt. Anker power banks, chargers, cables. Joyroom T03s earbuds. 100% authentic with official warranty. Fast shipping.',
       keywords: 'mobile accessories, anker egypt, joyroom, power bank, earbuds, anker charger, joyroom t03s',
@@ -26,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Arabic (default)
   return {
+    ...baseMetadata,
     title: 'اكسسوارات موبايل مصر | Anker Egypt & Joyroom - أفضل الأسعار',
     description: 'متجر اكسسوارات موبايل في مصر. Anker Egypt، Joyroom أصلي. باور بانك، سماعات، شواحن، كابلات. أفضل أسعار وضمان رسمي. 💯 منتجات أصلية.',
     keywords: 'اكسسوارات موبايل, انكر مصر, جوي روم, باور بانك, سماعات, شاحن انكر, شاحن ايفون اصلي, joyroom t03s',

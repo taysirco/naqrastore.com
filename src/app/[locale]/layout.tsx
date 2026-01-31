@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://cairovolt.com',
+    // Each page sets its own canonical in generateMetadata
     languages: {
       'ar': 'https://cairovolt.com/ar',
       'en': 'https://cairovolt.com/en',
