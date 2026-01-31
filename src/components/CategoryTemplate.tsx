@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import { CategorySeoData, FAQItem, BuyingGuideSection, TrustSignal } from '@/data/category-seo';
 import { BreadcrumbSchema } from './schemas/ProductSchema';
 import { HowToSchema, ItemListSchema } from './schemas/AEOSchemas';
+import RelatedLinks from './seo/RelatedLinks';
 
 const CategoryComparisonTable = dynamic(() => import('./seo/AIOverviewsOptimization').then(mod => mod.CategoryComparisonTable), {
     loading: () => <div className="animate-pulse h-64 bg-gray-100 dark:bg-gray-800 rounded-xl mb-12"></div>
@@ -379,6 +380,14 @@ export default function CategoryTemplate({
                         </div>
                     </div>
                 </div>
+
+                {/* Related Categories - Internal Linking */}
+                <RelatedLinks
+                    currentUrl={`/${brand.toLowerCase()}/${categorySlug}`}
+                    locale={locale}
+                    variant="card"
+                    maxLinks={4}
+                />
 
                 {/* CTA Section */}
                 <div className={`mt-16 p-8 rounded-2xl bg-gradient-to-r ${brandColorClass} text-white text-center`}>

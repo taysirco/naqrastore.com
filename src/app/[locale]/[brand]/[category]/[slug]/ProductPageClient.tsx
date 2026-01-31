@@ -7,6 +7,7 @@ import { QuickSummary, ProductComparisonTable, ExpertOpinion, ProductFAQ } from 
 import { useCart } from '@/context/CartContext';
 import BundleSelector from '@/components/products/BundleSelector';
 import RelatedProducts from '@/components/products/RelatedProducts';
+import RelatedLinks from '@/components/seo/RelatedLinks';
 
 interface Product {
     id: string; // Add id
@@ -507,6 +508,14 @@ export default function ProductPageClient({ product, relatedProducts = [], local
             {/* Related Products Section */}
             <div className="container mx-auto px-4 pb-8">
                 <RelatedProducts products={relatedProducts} locale={locale} />
+
+                {/* Related Categories - Internal Linking */}
+                <RelatedLinks
+                    currentUrl={`/${brand}/${category}`}
+                    locale={locale}
+                    variant="pill"
+                    maxLinks={4}
+                />
             </div>
 
             {/* Mobile Sticky Action Bar */}
