@@ -320,6 +320,13 @@ export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
                     itemOffered: {
                         '@type': 'Product',
                         name: isArabic ? 'باور بانك أنكر' : 'Anker Power Banks',
+                        offers: {
+                            '@type': 'AggregateOffer',
+                            priceCurrency: 'EGP',
+                            lowPrice: 450,
+                            highPrice: 2500,
+                            offerCount: 15,
+                        },
                     },
                     areaServed: {
                         '@type': 'Country',
@@ -331,6 +338,13 @@ export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
                     itemOffered: {
                         '@type': 'Product',
                         name: isArabic ? 'سماعات جوي روم' : 'Joyroom Earbuds',
+                        offers: {
+                            '@type': 'AggregateOffer',
+                            priceCurrency: 'EGP',
+                            lowPrice: 280,
+                            highPrice: 850,
+                            offerCount: 8,
+                        },
                     },
                     areaServed: {
                         '@type': 'Country',
