@@ -162,8 +162,8 @@ export const brandData: Record<string, BrandData> = {
             items: [
                 { icon: '💰', title: { en: 'Budget King', ar: 'ملك التوفير' }, description: { en: 'Flagship features at 1/4 price', ar: 'مواصفات الفلاجشيب بربع الثمن' } },
                 { icon: '✨', title: { en: 'Premium Design', ar: 'تصميم بريميوم' }, description: { en: 'Looks and feels expensive', ar: 'شكل وملمس غالي' } },
-                { icon: '�️', title: { en: 'Golden Code', ar: 'الكود الذهبي' }, description: { en: 'Anti-Fake verification system', ar: 'نظام حماية من التقليد' } },
-                { icon: '�', title: { en: 'The T03s Legacy', ar: 'إرث T03s' }, description: { en: 'Most trusted earbuds in Egypt', ar: 'السماعة الأكثر ثقة في مصر' } },
+                { icon: '🛡️', title: { en: 'Golden Code', ar: 'الكود الذهبي' }, description: { en: 'Anti-Fake verification system', ar: 'نظام حماية من التقليد' } },
+                { icon: '🎧', title: { en: 'The T03s Legacy', ar: 'إرث T03s' }, description: { en: 'Most trusted earbuds in Egypt', ar: 'السماعة الأكثر ثقة في مصر' } },
             ]
         },
         metadata: {
