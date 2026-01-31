@@ -1,0 +1,86 @@
+# CairoVolt robots.txt - AI-Era E-Commerce Optimized
+# Last Updated: 2026-01-31
+
+# Default: Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /checkout
+
+# Google Bots (Standard + AI)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# OpenAI / ChatGPT Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft / Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Apple AI (Applebot for Siri/Spotlight)
+User-agent: Applebot
+Allow: /
+
+# You.com AI
+User-agent: YouBot
+Allow: /
+
+# Common Search Crawlers
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Crawl Delay for AI Bots (prevent server overload)
+User-agent: GPTBot
+Crawl-delay: 1
+
+User-agent: ClaudeBot
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://cairovolt.com/sitemap.xml

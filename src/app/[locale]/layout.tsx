@@ -10,6 +10,7 @@ import { routing } from '@/i18n/routing';
 import { OrganizationSchema } from '@/components/schemas/ProductSchema';
 import { LocalBusinessSchema } from '@/components/schemas/AEOSchemas';
 import { CartProvider } from '@/context/CartContext';
+import AITrafficTracker from '@/components/seo/AITrafficTracker';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,6 +84,8 @@ export default async function RootLayout({
       >
         <OrganizationSchema locale={locale} />
         <LocalBusinessSchema locale={locale} />
+        {/* AI Traffic Tracking - Monitors referrals from AI Answer Engines */}
+        <AITrafficTracker />
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
             <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden">

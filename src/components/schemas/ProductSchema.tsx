@@ -10,6 +10,10 @@ interface ProductSchemaProps {
         originalPrice?: number;
         stock: number;
         videoUrl?: string;
+        // GS1 Web Vocabulary fields for AI product identification
+        gtin?: string;      // Global Trade Item Number (EAN-13)
+        gtin13?: string;    // Alias for GTIN
+        mpn?: string;       // Manufacturer Part Number
         images: Array<{ url: string; alt: string }>;
         translations: {
             en: { name: string; description: string };
@@ -24,14 +28,25 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
     const t = product.translations[locale as 'en' | 'ar'] || product.translations.en;
     const isArabic = locale === 'ar';
 
-    // Generate Video Schema if videoUrl exists
+    // Generate Video Schema if videoUrl exists - Enhanced for AI Answer Engines
     const videoSchema = product.videoUrl ? {
         "@type": "VideoObject",
         "name": t.name,
         "description": t.description,
         "thumbnailUrl": product.images[0]?.url ? `${baseUrl}${product.images[0].url}` : "",
         "uploadDate": new Date().toISOString(), // In real app, should use product creation date
-        "contentUrl": product.videoUrl
+        "contentUrl": product.videoUrl,
+        "embedUrl": product.videoUrl, // For embedded player support
+        "duration": "PT2M", // ISO 8601 duration - default 2 minutes
+        "inLanguage": isArabic ? "ar-EG" : "en-US",
+        "publisher": {
+            "@type": "Organization",
+            "name": isArabic ? "كايرو فولت" : "Cairo Volt",
+            "logo": {
+                "@type": "ImageObject",
+                "url": `${baseUrl}/logo.png`
+            }
+        }
     } : null;
 
     const schema = {
@@ -40,6 +55,10 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
         name: t.name,
         description: t.description,
         sku: product.sku,
+        // GS1 Web Vocabulary - Global Product Identification
+        ...(product.gtin && { gtin13: product.gtin }),
+        ...(product.gtin13 && { gtin13: product.gtin13 }),
+        ...(product.mpn && { mpn: product.mpn }),
         brand: {
             '@type': 'Brand',
             name: product.brand,

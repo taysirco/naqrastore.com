@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useRef } from 'react';
 import { QuickSummary, ProductComparisonTable, ExpertOpinion, ProductFAQ } from '@/components/seo/AIOverviewsOptimization';
+import { AEOSummaryBlock } from '@/components/seo/AEOSummaryBlock';
 import { useCart } from '@/context/CartContext';
 import BundleSelector from '@/components/products/BundleSelector';
 import RelatedProducts from '@/components/products/RelatedProducts';
@@ -134,6 +135,19 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                         </span>
                     </nav>
                 </div>
+            </div>
+
+            {/* AEO Summary Block - Answer-First Content for AI/Voice Search */}
+            <div className="container mx-auto px-4 pt-4">
+                <AEOSummaryBlock
+                    productName={productName}
+                    brand={product.brand}
+                    category={translatedCategory}
+                    price={product.price}
+                    locale={locale}
+                    variant="product"
+                    shortDescription={productShortDesc}
+                />
             </div>
 
             {/* Product Section */}

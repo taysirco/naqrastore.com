@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { brandData } from '@/data/brand-data';
 import { ArticleSchema } from '@/components/schemas/AEOSchemas';
 import { FAQSchema, BreadcrumbSchema } from '@/components/schemas/ProductSchema';
+import { BrandAEOBlock } from '@/components/seo/AEOSummaryBlock';
 
 type Props = {
     params: Promise<{ locale: string; brand: string }>;
@@ -113,6 +114,17 @@ export default async function BrandHubPage({ params }: Props) {
                     </div>
                 </div>
             )}
+
+            {/* Brand AEO Block - Answer-First Content for AI/Voice Search */}
+            <div className="container mx-auto px-4 py-4 relative z-20">
+                <BrandAEOBlock
+                    brandName={data.hero.title}
+                    brandDescription={isRTL ? data.hero.description.ar : data.hero.description.en}
+                    categoryCount={data.categories.length}
+                    totalProducts={data.categories.length * 10} // Estimated products per category
+                    locale={locale}
+                />
+            </div>
 
             {/* Categories Grid (App Style) */}
             <section className="container mx-auto px-4 py-20 -mt-10 relative z-20">

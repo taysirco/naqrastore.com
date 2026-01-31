@@ -9,6 +9,7 @@ import { CategorySeoData, FAQItem, BuyingGuideSection, TrustSignal } from '@/dat
 import { BreadcrumbSchema } from './schemas/ProductSchema';
 import { HowToSchema, ItemListSchema } from './schemas/AEOSchemas';
 import RelatedLinks from './seo/RelatedLinks';
+import { CategoryAEOBlock } from './seo/AEOSummaryBlock';
 
 const CategoryComparisonTable = dynamic(() => import('./seo/AIOverviewsOptimization').then(mod => mod.CategoryComparisonTable), {
     loading: () => <div className="animate-pulse h-64 bg-gray-100 dark:bg-gray-800 rounded-xl mb-12"></div>
@@ -218,6 +219,21 @@ export default function CategoryTemplate({
                     )}
                 </div>
             </section>
+
+            {/* Category AEO Block - Answer-First Content for AI/Voice Search */}
+            <div className="container mx-auto px-4 py-4">
+                <CategoryAEOBlock
+                    categoryName={translatedCategory}
+                    categoryNameAr={tCat(categoryKey)}
+                    brand={translatedBrand}
+                    productCount={displayProducts.length}
+                    priceRange={{
+                        min: Math.min(...displayProducts.map(p => p.price)),
+                        max: Math.max(...displayProducts.map(p => p.price))
+                    }}
+                    locale={locale}
+                />
+            </div>
 
             {/* Content Section */}
             <section className="container mx-auto px-4 py-12">

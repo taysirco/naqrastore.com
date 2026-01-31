@@ -14,6 +14,12 @@ export interface StaticProduct {
     stock: number;
     featured: boolean;
     status: string;
+    // GS1 Web Vocabulary fields for AI/E-Commerce optimization
+    gtin?: string;      // Global Trade Item Number (EAN-13 barcode)
+    mpn?: string;       // Manufacturer Part Number
+    gtin13?: string;    // Alias for GTIN (EAN-13 format)
+    // Video support
+    videoUrl?: string;  // Product video URL for VideoObject schema
     images: Array<{
         id: string;
         url: string;
