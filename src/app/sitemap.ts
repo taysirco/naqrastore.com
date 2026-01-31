@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next';
 import { brandData } from '@/data/brand-data';
 import { categoryData } from '@/data/category-seo';
 import { staticProducts } from '@/lib/static-products';
+import { governorates } from '@/data/governorates';
 
 const baseUrl = 'https://cairovolt.com';
 
@@ -72,13 +73,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
     });
 
-    // Dynamic Product Pages (The Fix)
+    // Dynamic Product Pages
     staticProducts.forEach(product => {
         const brandSlug = product.brand.toLowerCase();
         routes.push({
             url: `${baseUrl}/${brandSlug}/${product.categorySlug}/${product.slug}`,
-            priority: 0.9, // High priority for products
-            changeFrequency: 'daily', // Inventory changes
+            priority: 0.9,
+            changeFrequency: 'daily',
             lastModified: new Date(),
         });
         routes.push({
@@ -89,5 +90,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
     });
 
+    // Governorate Location Pages (GEO SEO)
+    governorates.forEach(gov => {
+        routes.push({
+            url: `${baseUrl}/locations/${gov.slug}`,
+            priority: 0.6,
+            changeFrequency: 'monthly',
+            lastModified: new Date(),
+        });
+        routes.push({
+            url: `${baseUrl}/en/locations/${gov.slug}`,
+            priority: 0.6,
+            changeFrequency: 'monthly',
+            lastModified: new Date(),
+        });
+    });
+
     return routes;
 }
+
