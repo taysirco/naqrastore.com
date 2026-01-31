@@ -75,7 +75,7 @@ export default function Header() {
                             <span>🚚 {isRTL ? 'شحن سريع لجميع المحافظات' : 'Fast Shipping Nationwide'}</span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <a href="tel:+201000000000" className="hover:underline">
+                            <a href="tel:+201063374834" className="hover:underline">
                                 📞 +20 100 000 0000
                             </a>
                             <Link
@@ -220,7 +220,7 @@ export default function Header() {
 
                         {/* WhatsApp Button */}
                         <a
-                            href="https://wa.me/201000000000"
+                            href="https://wa.me/201063374834"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden md:flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-xl transition-colors"
@@ -337,7 +337,7 @@ export default function Header() {
                             {/* Contact */}
                             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                                 <a
-                                    href="https://wa.me/201000000000"
+                                    href="https://wa.me/201063374834"
                                     className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white font-medium rounded-xl"
                                 >
                                     📱 {isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}

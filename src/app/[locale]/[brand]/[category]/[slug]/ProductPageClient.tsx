@@ -309,7 +309,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
 
                         {/* WhatsApp Order */}
                         <a
-                            href={`https://wa.me/201000000000?text=${encodeURIComponent(
+                            href={`https://wa.me/201063374834?text=${encodeURIComponent(
                                 isRTL
                                     ? `مرحباً، أريد طلب:\n📦 ${productName}\n💰 السعر: ${product.price} جنيه\n🔢 الكمية: ${quantity}`
                                     : `Hi, I want to order:\n📦 ${productName}\n💰 Price: ${product.price} EGP\n🔢 Quantity: ${quantity}`
@@ -555,7 +555,7 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                         {tProduct('addToCart')}
                     </button>
                     <a
-                        href={`https://wa.me/201000000000?text=${encodeURIComponent(
+                        href={`https://wa.me/201063374834?text=${encodeURIComponent(
                             isRTL
                                 ? `مرحباً، أريد طلب: ${productName}`
                                 : `Hi, I want to order: ${productName}`

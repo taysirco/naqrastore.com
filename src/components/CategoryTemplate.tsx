@@ -416,7 +416,7 @@ export default function CategoryTemplate({
                             : 'Contact us on WhatsApp for the best deals'}
                     </p>
                     <a
-                        href="https://wa.me/201000000000"
+                        href="https://wa.me/201063374834"
                         className="inline-block px-8 py-3 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors"
                     >
                         {locale === 'ar' ? 'تواصل معنا' : 'Contact Us'}

@@ -37,7 +37,7 @@ export default function ContactPageClient() {
                 <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     {/* WhatsApp */}
                     <a
-                        href="https://wa.me/201000000000"
+                        href="https://wa.me/201063374834"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all text-center"
@@ -58,7 +58,7 @@ export default function ContactPageClient() {
 
                     {/* Phone */}
                     <a
-                        href="tel:+201000000000"
+                        href="tel:+201063374834"
                         className="group p-8 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all text-center"
                     >
                         <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-500 flex items-center justify-center text-white text-3xl">
@@ -141,7 +141,7 @@ export default function ContactPageClient() {
                             : 'Contact us now via WhatsApp and we\'ll respond immediately'}
                     </p>
                     <a
-                        href="https://wa.me/201000000000"
+                        href="https://wa.me/201063374834"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block px-8 py-3 bg-white text-green-600 font-bold rounded-full hover:bg-gray-100 transition-colors"
