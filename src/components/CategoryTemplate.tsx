@@ -3,7 +3,15 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { CategoryComparisonTable, ExpertOpinion } from './seo/AIOverviewsOptimization';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const CategoryComparisonTable = dynamic(() => import('./seo/AIOverviewsOptimization').then(mod => mod.CategoryComparisonTable), {
+    loading: () => <div className="animate-pulse h-64 bg-gray-100 dark:bg-gray-800 rounded-xl mb-12"></div>
+});
+const ExpertOpinion = dynamic(() => import('./seo/AIOverviewsOptimization').then(mod => mod.ExpertOpinion), {
+    loading: () => <div className="animate-pulse h-48 bg-gray-100 dark:bg-gray-800 rounded-xl mb-12"></div>
+});
 
 interface Product {
     id: string;
@@ -193,10 +201,12 @@ export default function CategoryTemplate({
                             {/* Product Image */}
                             <div className="h-32 md:h-48 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
                                 {product.image ? (
-                                    <img
+                                    <Image
                                         src={product.image}
                                         alt={product.name}
-                                        className="absolute inset-0 w-full h-full object-contain p-2 md:p-4"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                        className="object-contain p-2 md:p-4 hover:scale-105 transition-transform duration-300"
                                     />
                                 ) : (
                                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">

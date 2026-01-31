@@ -131,6 +131,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                                             src={product.images[0].url}
                                             alt={t?.name || product.slug}
                                             fill
+                                            sizes="(max-width: 768px) 160px, 200px"
                                             className="object-contain p-2"
                                         />
                                     )}
@@ -233,6 +234,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                                                     src={product.images[0].url}
                                                     alt={t?.name || product.slug}
                                                     fill
+                                                    sizes="(max-width: 768px) 160px, 200px"
                                                     className="object-contain p-2"
                                                 />
                                             )}
