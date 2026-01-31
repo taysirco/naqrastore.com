@@ -75,12 +75,45 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
                 ? 'https://schema.org/InStock'
                 : 'https://schema.org/OutOfStock',
             itemCondition: 'https://schema.org/NewCondition',
-            // Geo SEO: Eligible Region
+            // Geo SEO: Eligible Region - All Egyptian Governorates
             eligibleRegion: [
-                { '@type': 'Country', name: 'Egypt' },
-                { '@type': 'AdministrativeArea', name: 'Cairo' },
-                { '@type': 'AdministrativeArea', name: 'Giza' },
-                { '@type': 'AdministrativeArea', name: 'Alexandria' },
+                {
+                    '@type': 'Country',
+                    name: 'Egypt',
+                    sameAs: 'https://en.wikipedia.org/wiki/Egypt'
+                },
+                // Major Urban Governorates
+                { '@type': 'AdministrativeArea', name: 'Cairo Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Giza Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Alexandria Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Qalyubia Governorate' },
+                // Delta Governorates
+                { '@type': 'AdministrativeArea', name: 'Dakahlia Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Sharqia Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Gharbia Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Monufia Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Beheira Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Kafr El Sheikh Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Damietta Governorate' },
+                // Canal Governorates
+                { '@type': 'AdministrativeArea', name: 'Port Said Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Ismailia Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Suez Governorate' },
+                // Upper Egypt Governorates
+                { '@type': 'AdministrativeArea', name: 'Fayoum Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Beni Suef Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Minya Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Asyut Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Sohag Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Qena Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Luxor Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Aswan Governorate' },
+                // Coastal & Desert Governorates
+                { '@type': 'AdministrativeArea', name: 'Red Sea Governorate' },
+                { '@type': 'AdministrativeArea', name: 'North Sinai Governorate' },
+                { '@type': 'AdministrativeArea', name: 'South Sinai Governorate' },
+                { '@type': 'AdministrativeArea', name: 'Matrouh Governorate' },
+                { '@type': 'AdministrativeArea', name: 'New Valley Governorate' },
             ],
             seller: {
                 '@type': 'Organization',

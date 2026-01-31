@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { brandData } from '@/data/brand-data';
+import { ArticleSchema } from '@/components/schemas/AEOSchemas';
+import { FAQSchema, BreadcrumbSchema } from '@/components/schemas/ProductSchema';
 
 type Props = {
     params: Promise<{ locale: string; brand: string }>;
@@ -39,78 +41,108 @@ export default async function BrandHubPage({ params }: Props) {
     };
 
     return (
-        <div className="min-h-screen" dir={isRTL ? 'rtl' : 'ltr'}>
-            {/* Hero */}
-            <section className={`bg-gradient-to-br ${data.hero.bgGradient} text-white py-12 md:py-20`}>
-                <div className="container mx-auto px-4 text-center">
-                    <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6">
-                        {isRTL ? data.hero.badge.ar : data.hero.badge.en}
-                    </span>
-                    <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6">
+        <div className="min-h-screen bg-gray-50 dark:bg-black" dir={isRTL ? 'rtl' : 'ltr'}>
+            {/* Hero Section 2.0 */}
+            <section className={`relative overflow-hidden py-20 md:py-32`}>
+                {/* Dynamic Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${data.hero.bgGradient} opacity-90`}></div>
+                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-20"></div>
+
+                {/* Content */}
+                <div className="container relative z-10 mx-auto px-4 text-center">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-2xl animate-fade-in-up">
+                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <span className="text-white text-sm md:text-base font-bold tracking-wide">
+                            {isRTL ? data.hero.badge.ar : data.hero.badge.en}
+                        </span>
+                    </div>
+
+                    {/* Title */}
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 mb-6 tracking-tight drop-shadow-sm">
                         {data.hero.title}
                     </h1>
-                    <p className={`text-xl mb-8 max-w-2xl mx-auto ${brand === 'joyroom' ? 'text-red-100' : 'text-blue-100'}`}>
+
+                    {/* Description */}
+                    <p className={`text-lg md:text-2xl font-light mb-10 max-w-3xl mx-auto leading-relaxed ${brand === 'joyroom' ? 'text-red-50' : 'text-blue-50'
+                        }`}>
                         {isRTL ? data.hero.description.ar : data.hero.description.en}
                     </p>
 
-                    {/* Hero Product Highlight (Optional) */}
+                    {/* Hero Product - Pulsing CTA */}
                     {data.hero.heroProduct && (
-                        <div className="inline-block p-4 bg-white/10 backdrop-blur-sm rounded-2xl mb-8">
-                            <span className="text-yellow-300 font-bold">
-                                {isRTL ? data.hero.heroProduct.label.ar : data.hero.heroProduct.label.en}
-                            </span>
+                        <div className="mb-12 animate-bounce-slow">
                             <Link
                                 href={getLocalizedHref(data.hero.heroProduct.link.href)}
-                                className={`${isRTL ? 'mr-2' : 'ml-2'} text-white font-bold hover:underline`}
+                                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold shadow-2xl hover:scale-105 transition-transform duration-300 group"
                             >
-                                {isRTL ? data.hero.heroProduct.link.text.ar : data.hero.heroProduct.link.text.en}
+                                <span className={`text-xl ${brand === 'joyroom' ? 'text-red-600' : 'text-blue-600'}`}>⭐</span>
+                                <span>{isRTL ? data.hero.heroProduct.link.text.ar : data.hero.heroProduct.link.text.en}</span>
+                                <span className={`${isRTL ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'} transition-transform`}>
+                                    {isRTL ? '←' : '→'}
+                                </span>
                             </Link>
                         </div>
                     )}
 
-                    <div className="flex flex-wrap justify-center gap-4">
+                    {/* Features Grid */}
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-6">
                         {data.hero.features.map((feature, idx) => (
-                            <span key={idx} className="px-4 py-2 bg-white/20 rounded-full text-sm">
-                                ✓ {isRTL ? feature.ar : feature.en}
-                            </span>
+                            <div key={idx} className="flex items-center gap-2 px-5 py-2.5 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10 text-white/90 text-sm md:text-base font-medium">
+                                <span className="text-green-400">✓</span>
+                                {isRTL ? feature.ar : feature.en}
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Categories */}
-            <section className="container mx-auto px-4 py-16">
-                <h2 className="text-3xl font-bold mb-12 text-center">
-                    {isRTL ? `منتجات ${data.hero.title.split(' ')[0]}` : `${data.hero.title.split(' ')[0]} Products`}
-                </h2>
+            {/* Verification Banner (Joyroom Only) */}
+            {brand === 'joyroom' && (
+                <div className="bg-yellow-400 text-black py-3 overflow-hidden">
+                    <div className="container mx-auto px-4 flex items-center justify-center gap-2 text-center font-bold text-sm md:text-base animate-pulse">
+                        ⚠️ {isRTL ? 'تنبيه: تأكد دائماً من وجود "الكود الذهبي" لضمان المنتج الأصلي.' : 'Alert: Always verify the "Golden Code" to ensure authenticity.'}
+                    </div>
+                </div>
+            )}
 
-                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            {/* Categories Grid (App Style) */}
+            <section className="container mx-auto px-4 py-20 -mt-10 relative z-20">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     {data.categories.map((cat, idx) => (
                         <Link
                             key={idx}
                             href={getLocalizedHref(cat.href)}
-                            className={`group relative p-4 md:p-8 rounded-xl md:rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:shadow-2xl hover:-translate-y-1 transition-all ${brand === 'joyroom' ? 'hover:border-red-200 dark:hover:border-red-800' : 'hover:border-blue-200 dark:hover:border-blue-800'
-                                }`}
+                            className={`group relative p-6 md:p-10 rounded-3xl bg-white dark:bg-gray-900 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-800 overflowing-hidden
+                                ${brand === 'joyroom' ? 'hover:border-red-500/30' : 'hover:border-blue-500/30'}`}
                         >
+                            {/* Floating Badge */}
                             {cat.badge && (
-                                <span className={`absolute -top-2 md:-top-3 ${isRTL ? 'right-2 md:right-4' : 'left-2 md:left-4'} px-2 md:px-3 py-0.5 md:py-1 bg-yellow-400 text-black text-[10px] md:text-xs font-bold rounded-full`}>
+                                <span className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'} px-3 py-1 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black text-xs font-bold rounded-full shadow-lg z-10`}>
                                     {isRTL ? cat.badge.ar : cat.badge.en}
                                 </span>
                             )}
-                            <div className="text-3xl md:text-5xl mb-2 md:mb-4">{cat.icon}</div>
-                            <h3 className={`text-sm md:text-2xl font-bold mb-1 md:mb-2 transition-colors line-clamp-2 ${brand === 'joyroom' ? 'group-hover:text-red-600' : 'group-hover:text-blue-600'
-                                }`}>
+
+                            {/* Icon */}
+                            <div className="text-4xl md:text-6xl mb-4 md:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                                {cat.icon}
+                            </div>
+
+                            {/* Text Content */}
+                            <h3 className={`text-lg md:text-2xl font-black mb-2 ${brand === 'joyroom' ? 'group-hover:text-red-600' : 'group-hover:text-blue-600'}`}>
                                 {isRTL ? cat.title.ar : cat.title.en}
                             </h3>
-                            <p className="text-gray-500 text-xs md:text-base mb-2 md:mb-4 hidden md:block">
+                            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 font-medium mb-4">
                                 {isRTL ? cat.description.ar : cat.description.en}
                             </p>
-                            <div className="flex items-center justify-between">
-                                <span className="text-xs text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+
+                            {/* Action Row */}
+                            <div className="flex items-center justify-between mt-4 md:mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                                <span className="flex items-center gap-1 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                                    <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                     {isRTL ? cat.volume.ar : cat.volume.en}
                                 </span>
-                                <span className={`font-bold transition-transform ${isRTL ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'} ${brand === 'joyroom' ? 'text-red-600' : 'text-blue-600'
-                                    }`}>
+                                <span className={`w-8 h-8 rounded-full flex items-center justify-center bg-gray-50 dark:bg-gray-800 group-hover:bg-white group-hover:shadow-md transition-all ${brand === 'joyroom' ? 'text-red-600' : 'text-blue-600'}`}>
                                     {isRTL ? '←' : '→'}
                                 </span>
                             </div>
@@ -119,23 +151,119 @@ export default async function BrandHubPage({ params }: Props) {
                 </div>
             </section>
 
-            {/* Why Section */}
-            <section className="bg-gray-50 dark:bg-gray-900/50 py-16">
+            {/* The Trust Vault (Why Section) */}
+            <section className="py-20 bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-900">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-12 text-center">
-                        {isRTL ? data.whySection.title.ar : data.whySection.title.en}
-                    </h2>
-                    <div className="grid md:grid-cols-4 gap-8 text-center">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black mb-4 dark:text-white">
+                            {isRTL ? data.whySection.title.ar : data.whySection.title.en}
+                        </h2>
+                        <div className={`h-1.5 w-24 mx-auto rounded-full ${brand === 'joyroom' ? 'bg-red-600' : 'bg-blue-600'}`}></div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {data.whySection.items.map((item, idx) => (
-                            <div key={idx}>
-                                <div className="text-4xl mb-4">{item.icon}</div>
-                                <h4 className="font-bold mb-2">{isRTL ? item.title.ar : item.title.en}</h4>
-                                <p className="text-sm text-gray-500">{isRTL ? item.description.ar : item.description.en}</p>
+                            <div key={idx} className="p-8 rounded-3xl bg-gray-50 dark:bg-gray-900 text-center hover:bg-white dark:hover:bg-gray-800 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-200 dark:hover:border-gray-700 group">
+                                <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg">
+                                    {item.icon}
+                                </div>
+                                <h4 className="text-xl font-bold mb-3 dark:text-white">
+                                    {isRTL ? item.title.ar : item.title.en}
+                                </h4>
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+                                    {isRTL ? item.description.ar : item.description.en}
+                                </p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+
+            {/* SEO Article Section (The Meat) */}
+            {data.seoArticle && (
+                <section className="py-20 bg-white dark:bg-black border-t border-gray-100 dark:border-gray-900">
+                    <div className="container mx-auto px-4 max-w-4xl">
+                        <div className="prose prose-lg dark:prose-invert mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+                                {isRTL ? data.seoArticle.ar.title : data.seoArticle.en.title}
+                            </h2>
+                            {(isRTL ? data.seoArticle.ar.sections : data.seoArticle.en.sections).map((section, idx) => (
+                                <div key={idx} className="mb-10">
+                                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                        <span className={`w-1 h-8 rounded-full ${brand === 'joyroom' ? 'bg-red-500' : 'bg-blue-500'}`}></span>
+                                        {section.heading}
+                                    </h3>
+                                    <div className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg bg-gray-50 dark:bg-gray-900/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-800">
+                                        <div dangerouslySetInnerHTML={{ __html: section.content.replace(/\*\*(.*?)\*\*/g, '<strong class="text-black dark:text-white">$1</strong>') }} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* FAQ Section (Accordion) */}
+            {data.faq && (
+                <section className="py-20 bg-gray-50 dark:bg-gray-950">
+                    <div className="container mx-auto px-4 max-w-3xl">
+                        <h2 className="text-3xl font-bold mb-12 text-center">
+                            {isRTL ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+                        </h2>
+                        <div className="space-y-4">
+                            {(isRTL ? data.faq.ar : data.faq.en).map((item, idx) => (
+                                <details key={idx} className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 open:shadow-lg transition-all duration-300">
+                                    <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                                        <span className="font-bold text-lg dark:text-white">{item.question}</span>
+                                        <span className="transform group-open:rotate-180 transition-transform duration-300 text-gray-400">
+                                            ▼
+                                        </span>
+                                    </summary>
+                                    <div className="px-6 pb-6 text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-50 dark:border-gray-800 pt-4">
+                                        {item.answer}
+                                    </div>
+                                </details>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Structured Data Schema Components */}
+            <BreadcrumbSchema
+                items={[
+                    { name: isRTL ? 'الرئيسية' : 'Home', url: `https://cairovolt.com/${locale}` },
+                    { name: data.hero.title, url: `https://cairovolt.com/${locale}/${brand}` },
+                ]}
+                locale={locale}
+            />
+
+            {/* Article Schema for SEO Content */}
+            {data.seoArticle && (
+                <ArticleSchema
+                    headline={isRTL ? data.seoArticle.ar.title : data.seoArticle.en.title}
+                    description={isRTL ? data.metadata.ar.description : data.metadata.en.description}
+                    url={`https://cairovolt.com/${locale}/${brand}`}
+                    locale={locale}
+                    articleType="Article"
+                    sections={(isRTL ? data.seoArticle.ar.sections : data.seoArticle.en.sections).map((s: { heading: string; content: string }) => ({
+                        heading: s.heading,
+                        content: s.content
+                    }))}
+                />
+            )}
+
+            {/* FAQ Schema for Rich Snippets */}
+            {data.faq && (
+                <FAQSchema
+                    faqs={(isRTL ? data.faq.ar : data.faq.en).map(item => ({
+                        question: item.question,
+                        answer: item.answer
+                    }))}
+                    locale={locale}
+                />
+            )}
         </div>
     );
 }
+

@@ -5,6 +5,9 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { CategorySeoData, FAQItem, BuyingGuideSection, TrustSignal } from '@/data/category-seo';
+import { BreadcrumbSchema } from './schemas/ProductSchema';
+import { HowToSchema, ItemListSchema } from './schemas/AEOSchemas';
 
 const CategoryComparisonTable = dynamic(() => import('./seo/AIOverviewsOptimization').then(mod => mod.CategoryComparisonTable), {
     loading: () => <div className="animate-pulse h-64 bg-gray-100 dark:bg-gray-800 rounded-xl mb-12"></div>
@@ -27,24 +30,12 @@ interface Product {
     };
 }
 
-interface LocalizedContent {
-    title: string;
-    subtitle: string;
-    description: string;
-    products: { name: string; price: number; badge?: string }[];
-}
-
-interface SEOContent {
-    ar: LocalizedContent;
-    en: LocalizedContent;
-}
-
 interface CategoryTemplateProps {
     brand: 'Anker' | 'Joyroom';
     brandColor: 'blue' | 'red';
     category: string;
     categorySlug: string;
-    seoContent: SEOContent;
+    seoContent: CategorySeoData['seoContent'];
 }
 
 // Category slug to translation key mapping
@@ -58,6 +49,28 @@ const categoryKeyMap: Record<string, string> = {
     'car-holders': 'carHolders',
     'other': 'other',
 };
+
+function FAQSchema({ faqs }: { faqs: FAQItem[] }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
 
 export default function CategoryTemplate({
     brand,
@@ -100,6 +113,10 @@ export default function CategoryTemplate({
         ? 'from-blue-600 to-blue-400'
         : 'from-red-600 to-red-400';
 
+    const bgLightClass = brandColor === 'blue'
+        ? 'bg-blue-50 dark:bg-blue-900/10'
+        : 'bg-red-50 dark:bg-red-900/10';
+
     const badgeColorClass = brandColor === 'blue'
         ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
         : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300';
@@ -121,8 +138,49 @@ export default function CategoryTemplate({
         }))
         : content.products.map((p, idx) => ({ ...p, id: String(idx), slug: '', image: undefined as string | undefined, originalPrice: undefined as number | undefined }));
 
+    const breadcrumbs = [
+        { name: tCommon('home'), url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}` },
+        { name: translatedBrand, url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}/${brand.toLowerCase()}` },
+        { name: translatedCategory, url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}/${brand.toLowerCase()}/${categorySlug}` }
+    ];
+
     return (
         <div className="min-h-screen" dir={isRTL ? 'rtl' : 'ltr'}>
+            {content.faq && <FAQSchema faqs={content.faq} />}
+            <BreadcrumbSchema items={breadcrumbs} locale={locale} />
+
+            {/* HowTo Schema for Buying Guide - AEO Optimization */}
+            {content.buyingGuide && (
+                <HowToSchema
+                    title={locale === 'ar'
+                        ? `كيفية اختيار ${translatedCategory} ${translatedBrand}`
+                        : `How to Choose ${translatedBrand} ${translatedCategory}`}
+                    description={content.subtitle}
+                    steps={content.buyingGuide.map((section: BuyingGuideSection) => ({
+                        name: section.title,
+                        text: section.content,
+                    }))}
+                    locale={locale}
+                />
+            )}
+
+            {/* ItemList Schema for Product Listings */}
+            {displayProducts.length > 0 && (
+                <ItemListSchema
+                    listName={content.title}
+                    items={displayProducts.map((p, idx) => ({
+                        name: p.name,
+                        url: p.slug
+                            ? `https://cairovolt.com/${locale}/${brand.toLowerCase()}/${categorySlug}/${p.slug}`
+                            : `https://cairovolt.com/${locale}/${brand.toLowerCase()}/${categorySlug}`,
+                        image: p.image || '/placeholder.png',
+                        price: p.price,
+                        position: idx + 1,
+                    }))}
+                    locale={locale}
+                />
+            )}
+
             {/* Hero Section */}
             <section className={`bg-gradient-to-br ${brandColorClass} text-white py-8 md:py-16`}>
                 <div className="container mx-auto px-4">
@@ -142,14 +200,21 @@ export default function CategoryTemplate({
                     <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4">{content.title}</h1>
                     <p className="text-base md:text-xl text-white/90 mb-4 md:mb-6">{content.subtitle}</p>
 
-                    <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm">
-                        <span className="bg-white/20 px-4 py-2 rounded-full">
-                            ✓ {locale === 'ar' ? 'ضمان أصلي' : 'Official Warranty'}
-                        </span>
-                        <span className="bg-white/20 px-4 py-2 rounded-full">
-                            ✓ {locale === 'ar' ? 'شحن سريع' : 'Fast Shipping'}
-                        </span>
-                    </div>
+                    {/* Trust Signals (Hero) */}
+                    {content.trustSignals && (
+                        <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-6">
+                            {content.trustSignals.map((signal, idx) => (
+                                <div key={idx} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
+                                    <span className="text-yellow-300">
+                                        {signal.type === 'originality' && '🛡️'}
+                                        {signal.type === 'warranty' && '✨'}
+                                        {signal.type === 'expert_verified' && '👨\u200d💻'}
+                                    </span>
+                                    <span className="text-xs md:text-sm font-medium text-white">{signal.text}</span>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
@@ -163,90 +228,156 @@ export default function CategoryTemplate({
                     locale={locale}
                 />
 
-                {/* SEO Description */}
-                <div className="max-w-4xl mb-12 prose prose-lg dark:prose-invert">
-                    <div
-                        className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line"
-                        dangerouslySetInnerHTML={{
-                            __html: content.description
-                                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900 dark:text-white">$1</strong>')
-                                .replace(/- /g, '• ')
-                        }}
-                    />
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    {/* Main Content Column */}
+                    <div className="lg:col-span-8">
+                        {/* SEO Description */}
+                        <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
+                            <div
+                                className="text-gray-600 dark:text-gray-400 leading-relaxed whitespace-pre-line"
+                                dangerouslySetInnerHTML={{
+                                    __html: content.description
+                                        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-gray-900 dark:text-white">$1</strong>')
+                                        .replace(/- /g, '• ')
+                                }}
+                            />
+                        </div>
 
-                {/* AI Overviews: Comparison Table */}
-                <CategoryComparisonTable
-                    products={content.products}
-                    categoryName={translatedCategory}
-                    locale={locale}
-                />
-
-                {/* Products Grid */}
-                <h2 className="text-2xl font-bold mb-8">
-                    {locale === 'ar' ? 'المنتجات المتوفرة' : 'Available Products'}
-                    {loading && <span className="text-sm font-normal text-gray-500 ml-2">Loading...</span>}
-                </h2>
-
-                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
-                    {displayProducts.map((product, idx) => (
-                        <Link
-                            key={product.id || idx}
-                            href={product.slug
-                                ? `/${locale}/${brand.toLowerCase()}/${categorySlug}/${product.slug}`
-                                : '#'
-                            }
-                            className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-                        >
-                            {/* Product Image */}
-                            <div className="h-32 md:h-48 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
-                                {product.image ? (
-                                    <Image
-                                        src={product.image}
-                                        alt={product.name}
-                                        fill
-                                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                                        className="object-contain p-2 md:p-4 hover:scale-105 transition-transform duration-300"
-                                    />
-                                ) : (
-                                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
-                                        <span className={`text-4xl md:text-6xl font-bold bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
-                                            {brand.charAt(0)}
-                                        </span>
-                                    </div>
-                                )}
-                                {product.badge && (
-                                    <span className={`absolute top-2 right-2 md:top-4 md:${isRTL ? 'right-4' : 'left-4'} px-2 py-0.5 md:px-3 md:py-1 text-[10px] md:text-xs font-bold rounded-full ${badgeColorClass}`}>
-                                        {product.badge}
-                                    </span>
-                                )}
-                            </div>
-
-                            {/* Product Info */}
-                            <div className="p-3 md:p-6">
-                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
-                                    {brand}
-                                </span>
-                                <h3 className="text-sm md:text-lg font-bold mt-1 md:mt-2 mb-2 md:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 min-h-[2.5em]">
-                                    {product.name}
-                                </h3>
-
-                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                                    <div>
-                                        <span className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white">
-                                            {product.price}
-                                        </span>
-                                        <span className="text-xs md:text-sm text-gray-500 mr-1">
-                                            {locale === 'ar' ? 'جنيه' : 'EGP'}
-                                        </span>
-                                    </div>
-                                    <span className={`px-3 py-1.5 md:px-4 md:py-2 ${buttonColorClass} text-white text-xs md:text-sm font-bold rounded-lg transition-colors text-center w-full md:w-auto`}>
-                                        {locale === 'ar' ? 'التفاصيل' : 'Details'}
-                                    </span>
+                        {/* Buying Guide (New) */}
+                        {content.buyingGuide && (
+                            <div className="mb-12">
+                                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                    <span className="text-2xl">📚</span>
+                                    {locale === 'ar' ? 'دليل الشراء الذكي' : 'Smart Buying Guide'}
+                                </h2>
+                                <div className="space-y-6">
+                                    {content.buyingGuide.map((section, idx) => (
+                                        <div key={idx} className={`${bgLightClass} rounded-2xl p-6 border border-gray-100 dark:border-gray-800`}>
+                                            <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white">
+                                                {section.title}
+                                            </h3>
+                                            <div className="prose prose-sm dark:prose-invert max-w-none">
+                                                <div
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: section.content
+                                                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                                            .replace(/- /g, '<br/>• ')
+                                                            .replace(/\n\d+\./g, '<br/>$&')
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        </Link>
-                    ))}
+                        )}
+
+                        {/* AI Overviews: Comparison Table */}
+                        <CategoryComparisonTable
+                            products={content.products}
+                            categoryName={translatedCategory}
+                            locale={locale}
+                        />
+
+                        {/* FAQ Section (New) */}
+                        {content.faq && (
+                            <div className="mt-12 mb-12">
+                                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                    <span className="text-2xl">🤔</span>
+                                    {locale === 'ar' ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+                                </h2>
+                                <div className="space-y-4">
+                                    {content.faq.map((item, idx) => (
+                                        <details key={idx} className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+                                            <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                                <span className="font-medium text-gray-900 dark:text-white pr-4">{item.question}</span>
+                                                <span className="transform group-open:rotate-180 transition-transform text-gray-400">▼</span>
+                                            </summary>
+                                            <div className="px-4 pb-4 pt-2 text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800">
+                                                {item.answer}
+                                            </div>
+                                        </details>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Sidebar / Products Column */}
+                    <div className="lg:col-span-4">
+                        <div className="sticky top-24">
+                            <h2 className="text-xl font-bold mb-6">
+                                {locale === 'ar' ? 'أفضل المنتجات' : 'Top Products'}
+                                {loading && <span className="text-sm font-normal text-gray-500 ml-2">...</span>}
+                            </h2>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                                {displayProducts.map((product, idx) => (
+                                    <Link
+                                        key={product.id || idx}
+                                        href={product.slug
+                                            ? `/${locale}/${brand.toLowerCase()}/${categorySlug}/${product.slug}`
+                                            : '#'
+                                        }
+                                        className="flex gap-4 group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-3 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
+                                    >
+                                        {/* Product Image */}
+                                        <div className="w-20 h-20 bg-gray-50 dark:bg-gray-800 rounded-lg relative overflow-hidden flex-shrink-0">
+                                            {product.image ? (
+                                                <Image
+                                                    src={product.image}
+                                                    alt={product.name}
+                                                    fill
+                                                    sizes="80px"
+                                                    className="object-contain p-1 group-hover:scale-105 transition-transform"
+                                                />
+                                            ) : (
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <span className={`text-xl font-bold bg-gradient-to-r ${brandColorClass} bg-clip-text text-transparent`}>
+                                                        {brand.charAt(0)}
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Product Info */}
+                                        <div className="flex-1 flex flex-col justify-between py-1">
+                                            <div>
+                                                {product.badge && (
+                                                    <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 ${badgeColorClass}`}>
+                                                        {product.badge}
+                                                    </span>
+                                                )}
+                                                <h3 className="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors">
+                                                    {product.name}
+                                                </h3>
+                                            </div>
+                                            <div className="flex items-center justify-between mt-2">
+                                                <div className="text-sm font-bold text-gray-900 dark:text-white">
+                                                    {product.price} <span className="text-[10px] text-gray-500 font-normal">{locale === 'ar' ? 'ج.م' : 'EGP'}</span>
+                                                </div>
+                                                <span className={`w-6 h-6 rounded-full flex items-center justify-center ${brandColorClass} text-white shadow-sm`}>
+                                                    →
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+
+                            {/* Trust Box (Desktop) */}
+                            <div className={`mt-8 p-6 rounded-2xl ${bgLightClass} border border-gray-100 dark:border-gray-800 hidden lg:block`}>
+                                <h3 className="font-bold mb-4 flex items-center gap-2">
+                                    <span>🛡️</span> {locale === 'ar' ? 'ضمان كايرو فولت' : 'CairoVolt Promise'}
+                                </h3>
+                                <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                                    <li className="flex items-center gap-2">✓ {locale === 'ar' ? 'منتجات أصلية 100%' : '100% Original'}</li>
+                                    <li className="flex items-center gap-2">✓ {locale === 'ar' ? 'ضمان الوكيل الرسمي' : 'Official Warranty'}</li>
+                                    <li className="flex items-center gap-2">✓ {locale === 'ar' ? 'استرجاع خلال 14 يوم' : '14 Days Return'}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* CTA Section */}

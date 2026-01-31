@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { OrganizationSchema } from '@/components/schemas/ProductSchema';
+import { LocalBusinessSchema } from '@/components/schemas/AEOSchemas';
 import { CartProvider } from '@/context/CartContext';
 
 const geistSans = Geist({
@@ -75,6 +76,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
         <OrganizationSchema locale={locale} />
+        <LocalBusinessSchema locale={locale} />
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
             <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden">

@@ -1,0 +1,523 @@
+'use client';
+
+import Script from 'next/script';
+
+// ============================================
+// SPEAKABLE SCHEMA - Voice Search Optimization
+// ============================================
+
+interface SpeakableProps {
+    pageUrl: string;
+    speakableSelectors?: string[];
+    headline: string;
+    description: string;
+    locale: string;
+}
+
+/**
+ * SpeakableSchema enables voice search optimization for Google Assistant/Alexa
+ * Use on pages with content that should be read aloud by voice assistants
+ */
+export function SpeakableSchema({
+    pageUrl,
+    speakableSelectors = ['.speakable-content', 'h1', '.product-description'],
+    headline,
+    description,
+    locale
+}: SpeakableProps) {
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        '@id': pageUrl,
+        name: headline,
+        description: description,
+        inLanguage: locale === 'ar' ? 'ar-EG' : 'en-US',
+        speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: speakableSelectors,
+        },
+        isPartOf: {
+            '@type': 'WebSite',
+            name: locale === 'ar' ? 'كايرو فولت' : 'Cairo Volt',
+            url: 'https://cairovolt.com',
+        },
+    };
+
+    return (
+        <Script
+            id="speakable-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// ============================================
+// HOWTO SCHEMA - For Buying Guides
+// ============================================
+
+interface HowToStep {
+    name: string;
+    text: string;
+    image?: string;
+    url?: string;
+}
+
+interface HowToProps {
+    title: string;
+    description: string;
+    steps: HowToStep[];
+    totalTime?: string; // ISO 8601 duration format (e.g., "PT30M" for 30 minutes)
+    estimatedCost?: {
+        currency: string;
+        value: string;
+    };
+    supplies?: Array<{ name: string }>;
+    tools?: Array<{ name: string }>;
+    image?: string;
+    locale: string;
+}
+
+/**
+ * HowToSchema for buying guides and tutorials
+ * Enables rich snippets with step-by-step instructions
+ */
+export function HowToSchema({
+    title,
+    description,
+    steps,
+    totalTime,
+    estimatedCost,
+    supplies,
+    tools,
+    image,
+    locale
+}: HowToProps) {
+    const schema: Record<string, unknown> = {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: title,
+        description: description,
+        inLanguage: locale === 'ar' ? 'ar-EG' : 'en-US',
+        step: steps.map((step, index) => ({
+            '@type': 'HowToStep',
+            position: index + 1,
+            name: step.name,
+            text: step.text,
+            ...(step.image && { image: step.image }),
+            ...(step.url && { url: step.url }),
+        })),
+    };
+
+    if (totalTime) {
+        schema.totalTime = totalTime;
+    }
+
+    if (estimatedCost) {
+        schema.estimatedCost = {
+            '@type': 'MonetaryAmount',
+            currency: estimatedCost.currency,
+            value: estimatedCost.value,
+        };
+    }
+
+    if (supplies && supplies.length > 0) {
+        schema.supply = supplies.map(s => ({
+            '@type': 'HowToSupply',
+            name: s.name,
+        }));
+    }
+
+    if (tools && tools.length > 0) {
+        schema.tool = tools.map(t => ({
+            '@type': 'HowToTool',
+            name: t.name,
+        }));
+    }
+
+    if (image) {
+        schema.image = image;
+    }
+
+    return (
+        <Script
+            id="howto-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// ============================================
+// ARTICLE SCHEMA - For SEO Content Sections
+// ============================================
+
+interface ArticleSection {
+    heading: string;
+    content: string;
+}
+
+interface ArticleProps {
+    headline: string;
+    description: string;
+    sections?: ArticleSection[];
+    datePublished?: string;
+    dateModified?: string;
+    url: string;
+    image?: string;
+    locale: string;
+    articleType?: 'Article' | 'BlogPosting' | 'NewsArticle' | 'TechArticle';
+}
+
+/**
+ * ArticleSchema for SEO content in brand/category pages
+ * Helps establish E-E-A-T and enables rich snippets
+ */
+export function ArticleSchema({
+    headline,
+    description,
+    sections,
+    datePublished,
+    dateModified,
+    url,
+    image,
+    locale,
+    articleType = 'Article'
+}: ArticleProps) {
+    const now = new Date().toISOString();
+
+    // Combine sections into article body for structured content
+    const articleBody = sections
+        ?.map(s => `${s.heading}\n${s.content}`)
+        .join('\n\n') || description;
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': articleType,
+        headline: headline,
+        description: description,
+        articleBody: articleBody,
+        inLanguage: locale === 'ar' ? 'ar-EG' : 'en-US',
+        datePublished: datePublished || now,
+        dateModified: dateModified || now,
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': url,
+        },
+        author: {
+            '@type': 'Organization',
+            name: locale === 'ar' ? 'كايرو فولت' : 'Cairo Volt',
+            url: 'https://cairovolt.com',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: locale === 'ar' ? 'كايرو فولت' : 'Cairo Volt',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://cairovolt.com/logo.png',
+                width: 200,
+                height: 60,
+            },
+        },
+        ...(image && {
+            image: {
+                '@type': 'ImageObject',
+                url: image,
+            },
+        }),
+    };
+
+    return (
+        <Script
+            id="article-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// ============================================
+// LOCAL BUSINESS SCHEMA - GEO SEO for Egypt
+// ============================================
+
+interface LocalBusinessProps {
+    locale: string;
+}
+
+/**
+ * LocalBusinessSchema for Egypt-targeted GEO SEO
+ * Includes all major Egyptian governorates in service area
+ */
+export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
+    const isArabic = locale === 'ar';
+
+    // All 27 Egyptian Governorates
+    const egyptianGovernorates = [
+        { en: 'Cairo Governorate', ar: 'محافظة القاهرة' },
+        { en: 'Giza Governorate', ar: 'محافظة الجيزة' },
+        { en: 'Alexandria Governorate', ar: 'محافظة الإسكندرية' },
+        { en: 'Dakahlia Governorate', ar: 'محافظة الدقهلية' },
+        { en: 'Sharqia Governorate', ar: 'محافظة الشرقية' },
+        { en: 'Gharbia Governorate', ar: 'محافظة الغربية' },
+        { en: 'Monufia Governorate', ar: 'محافظة المنوفية' },
+        { en: 'Qalyubia Governorate', ar: 'محافظة القليوبية' },
+        { en: 'Beheira Governorate', ar: 'محافظة البحيرة' },
+        { en: 'Kafr El Sheikh', ar: 'محافظة كفر الشيخ' },
+        { en: 'Damietta Governorate', ar: 'محافظة دمياط' },
+        { en: 'Port Said Governorate', ar: 'محافظة بورسعيد' },
+        { en: 'Ismailia Governorate', ar: 'محافظة الإسماعيلية' },
+        { en: 'Suez Governorate', ar: 'محافظة السويس' },
+        { en: 'Fayoum Governorate', ar: 'محافظة الفيوم' },
+        { en: 'Beni Suef Governorate', ar: 'محافظة بني سويف' },
+        { en: 'Minya Governorate', ar: 'محافظة المنيا' },
+        { en: 'Asyut Governorate', ar: 'محافظة أسيوط' },
+        { en: 'Sohag Governorate', ar: 'محافظة سوهاج' },
+        { en: 'Qena Governorate', ar: 'محافظة قنا' },
+        { en: 'Luxor Governorate', ar: 'محافظة الأقصر' },
+        { en: 'Aswan Governorate', ar: 'محافظة أسوان' },
+        { en: 'Red Sea Governorate', ar: 'محافظة البحر الأحمر' },
+        { en: 'North Sinai', ar: 'محافظة شمال سيناء' },
+        { en: 'South Sinai', ar: 'محافظة جنوب سيناء' },
+        { en: 'Matrouh Governorate', ar: 'محافظة مطروح' },
+        { en: 'New Valley Governorate', ar: 'محافظة الوادي الجديد' },
+    ];
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'Store',
+        '@id': 'https://cairovolt.com/#organization',
+        name: isArabic ? 'كايرو فولت' : 'Cairo Volt',
+        alternateName: isArabic ? 'Cairo Volt' : 'كايرو فولت',
+        description: isArabic
+            ? 'الموزع المعتمد لمنتجات أنكر وجوي روم في مصر. باور بانك، شواحن، سماعات، كابلات بأفضل الأسعار مع ضمان رسمي.'
+            : 'Authorized dealer for Anker and Joyroom products in Egypt. Power banks, chargers, earbuds, cables at best prices with official warranty.',
+        url: 'https://cairovolt.com',
+        logo: 'https://cairovolt.com/logo.png',
+        image: 'https://cairovolt.com/cairovolt_logo.png',
+        telephone: '+20-XXX-XXX-XXXX', // Replace with actual phone
+        email: 'info@cairovolt.com',
+        currenciesAccepted: 'EGP',
+        paymentAccepted: ['Cash on Delivery', 'الدفع عند الاستلام'],
+        priceRange: '$$',
+        address: {
+            '@type': 'PostalAddress',
+            addressCountry: 'EG',
+            addressRegion: isArabic ? 'القاهرة' : 'Cairo',
+            addressLocality: isArabic ? 'القاهرة' : 'Cairo',
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 30.0444,
+            longitude: 31.2357,
+        },
+        areaServed: egyptianGovernorates.map(gov => ({
+            '@type': 'AdministrativeArea',
+            name: isArabic ? gov.ar : gov.en,
+        })),
+        // Shipping availability across Egypt
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: isArabic ? 'منتجات كايرو فولت' : 'Cairo Volt Products',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Product',
+                        name: isArabic ? 'باور بانك أنكر' : 'Anker Power Banks',
+                    },
+                    areaServed: {
+                        '@type': 'Country',
+                        name: 'Egypt',
+                    },
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Product',
+                        name: isArabic ? 'سماعات جوي روم' : 'Joyroom Earbuds',
+                    },
+                    areaServed: {
+                        '@type': 'Country',
+                        name: 'Egypt',
+                    },
+                },
+            ],
+        },
+        sameAs: [
+            'https://facebook.com/cairovolt',
+            'https://instagram.com/cairovolt',
+        ],
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            reviewCount: '1250',
+            bestRating: '5',
+            worstRating: '1',
+        },
+    };
+
+    return (
+        <Script
+            id="local-business-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// ============================================
+// ITEMLIST SCHEMA - For Category/Collection Pages
+// ============================================
+
+interface ItemListProduct {
+    name: string;
+    url: string;
+    image: string;
+    price: number;
+    position: number;
+}
+
+interface ItemListProps {
+    listName: string;
+    items: ItemListProduct[];
+    locale: string;
+}
+
+// ItemList Schema for product listings in category pages
+export function ItemListSchema({ listName, items, locale }: ItemListProps) {
+    const isArabic = locale === 'ar';
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: listName,
+        numberOfItems: items.length,
+        itemListOrder: 'https://schema.org/ItemListOrderDescending',
+        itemListElement: items.map((item) => ({
+            '@type': 'ListItem',
+            position: item.position,
+            item: {
+                '@type': 'Product',
+                name: item.name,
+                url: item.url,
+                image: item.image,
+                offers: {
+                    '@type': 'Offer',
+                    price: item.price,
+                    priceCurrency: 'EGP',
+                    availability: 'https://schema.org/InStock',
+                    itemCondition: 'https://schema.org/NewCondition',
+                },
+            },
+        })),
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// WebSite Schema for homepage - enables Google Sitelinks Search Box
+interface WebSiteSchemaProps {
+    locale: string;
+    baseUrl?: string;
+}
+
+export function WebSiteSchema({ locale, baseUrl = 'https://cairovolt.com' }: WebSiteSchemaProps) {
+    const isArabic = locale === 'ar';
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${baseUrl}/#website`,
+        name: isArabic ? 'كايرو فولت - اكسسوارات موبايل مصر' : 'CairoVolt - Mobile Accessories Egypt',
+        alternateName: isArabic ? 'Cairo Volt Egypt' : 'كايرو فولت مصر',
+        url: baseUrl,
+        inLanguage: isArabic ? 'ar-EG' : 'en-US',
+        description: isArabic
+            ? 'متجر إكسسوارات الموبايل الأصلية في مصر - Anker و Joyroom بضمان رسمي'
+            : 'Original mobile accessories store in Egypt - Anker & Joyroom with official warranty',
+        publisher: {
+            '@id': `${baseUrl}/#organization`,
+        },
+        // SearchAction for Google Sitelinks Search Box
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: {
+                '@type': 'EntryPoint',
+                urlTemplate: `${baseUrl}/${locale}/search?q={search_term_string}`,
+            },
+            'query-input': 'required name=search_term_string',
+        },
+        // Geographic targeting
+        about: {
+            '@type': 'Country',
+            name: 'Egypt',
+            sameAs: 'https://en.wikipedia.org/wiki/Egypt',
+        },
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+// CollectionPage Schema for homepage category/brand listings
+interface CollectionPageSchemaProps {
+    locale: string;
+    collections: Array<{
+        name: string;
+        url: string;
+        description?: string;
+    }>;
+}
+
+export function CollectionPageSchema({ locale, collections }: CollectionPageSchemaProps) {
+    const isArabic = locale === 'ar';
+    const baseUrl = 'https://cairovolt.com';
+
+    const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': `${baseUrl}/${locale}/#collectionpage`,
+        name: isArabic ? 'إكسسوارات الموبايل - Anker و Joyroom مصر' : 'Mobile Accessories - Anker & Joyroom Egypt',
+        description: isArabic
+            ? 'تسوق أفضل إكسسوارات الموبايل الأصلية في مصر. باور بانك، شواحن، سماعات، كابلات من Anker و Joyroom.'
+            : 'Shop the best original mobile accessories in Egypt. Power banks, chargers, earbuds, cables from Anker & Joyroom.',
+        url: `${baseUrl}/${locale}`,
+        inLanguage: isArabic ? 'ar-EG' : 'en-US',
+        isPartOf: {
+            '@id': `${baseUrl}/#website`,
+        },
+        about: {
+            '@type': 'Thing',
+            name: isArabic ? 'إكسسوارات الموبايل' : 'Mobile Accessories',
+        },
+        mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: collections.map((collection, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                item: {
+                    '@type': 'CollectionPage',
+                    name: collection.name,
+                    url: collection.url,
+                    description: collection.description,
+                },
+            })),
+        },
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}

@@ -103,89 +103,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-function ProductSchema({ product, locale }: { product: Product; locale: string }) {
-    const isArabic = locale === 'ar';
-    const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en || {};
-    const imageUrl = product.images?.[0]?.url || '';
+import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
+import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
 
-    const schema = {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": t.name,
-        "description": t.description || t.shortDescription,
-        "image": imageUrl,
-        "brand": {
-            "@type": "Brand",
-            "name": product.brand
-        },
-        "sku": product.sku,
-        "offers": {
-            "@type": "Offer",
-            "price": product.price,
-            "priceCurrency": "EGP",
-            "availability": (product.stock || 0) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "Mobile Accessories Egypt"
-            }
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "150"
-        }
-    };
-
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-    );
-}
-
-function BreadcrumbSchema({ product, locale, category }: { product: Product; locale: string; category: string }) {
-    const isArabic = locale === 'ar';
-    const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en || {};
-    const brandLower = product.brand.toLowerCase();
-
-    const schema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": isArabic ? "الرئيسية" : "Home",
-                "item": `/${locale}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": product.brand,
-                "item": `/${locale}/${brandLower}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": category.replace('-', ' '),
-                "item": `/${locale}/${brandLower}/${category}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "name": t.name
-            }
-        ]
-    };
-
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-    );
-}
+// Removed local ProductSchema and BreadcrumbSchema functions to use global robust component
 
 export default async function ProductPage({ params }: Props) {
     const { locale, brand, category, slug } = await params;
@@ -203,10 +124,53 @@ export default async function ProductPage({ params }: Props) {
         ? getSmartRelatedProducts(staticProduct, 8).map(p => ({ id: `static_${p.slug}`, ...p } as Product))
         : [];
 
+    const productName = product.translations?.[locale as 'ar' | 'en']?.name || product.translations?.en?.name || '';
+    const productDescription = product.translations?.[locale as 'ar' | 'en']?.description || product.translations?.en?.description || '';
+    const isArabic = locale === 'ar';
+
     return (
         <>
-            <ProductSchema product={product} locale={locale} />
-            <BreadcrumbSchema product={product} locale={locale} category={category} />
+            <ProductSchema
+                product={{
+                    ...product,
+                    sku: product.sku || product.id,
+                    stock: product.stock || 0,
+                    translations: {
+                        en: {
+                            name: product.translations?.en?.name || '',
+                            description: product.translations?.en?.description || ''
+                        },
+                        ar: {
+                            name: product.translations?.ar?.name || '',
+                            description: product.translations?.ar?.description || ''
+                        }
+                    },
+                    images: product.images?.map(img => ({ url: img.url, alt: img.alt || '' })) || []
+                }}
+                locale={locale}
+            />
+
+            {/* BreadcrumbSchema for navigation */}
+            <BreadcrumbSchema
+                items={[
+                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com/${locale}` },
+                    { name: brand.charAt(0).toUpperCase() + brand.slice(1), url: `https://cairovolt.com/${locale}/${brand}` },
+                    { name: category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), url: `https://cairovolt.com/${locale}/${brand}/${category}` },
+                    { name: productName, url: `https://cairovolt.com/${locale}/${brand}/${category}/${slug}` },
+                ]}
+                locale={locale}
+            />
+
+            {/* SpeakableSchema for voice search */}
+            <SpeakableSchema
+                pageUrl={`https://cairovolt.com/${locale}/${brand}/${category}/${slug}`}
+                speakableSelectors={['h1', '.product-description', '.product-features']}
+                headline={productName}
+                description={productDescription.substring(0, 200)}
+                locale={locale}
+            />
+
+            {/* Breadcrumb Schema provided via Breadcrumb component or separate global if needed */}
             <ProductPageClient
                 product={product}
                 relatedProducts={relatedProducts}
@@ -217,3 +181,4 @@ export default async function ProductPage({ params }: Props) {
         </>
     );
 }
+
