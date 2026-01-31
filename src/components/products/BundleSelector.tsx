@@ -29,17 +29,20 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
     const { addToCart } = useCart();
     const isArabic = locale === 'ar';
 
+    // Limit to 2 related products for cleaner bundle (main + 2 = 3 total)
+    const limitedRelatedProducts = relatedProducts.slice(0, 2);
+
     // State to track selected products in the bundle (initially all selected)
     const [selectedIds, setSelectedIds] = useState<string[]>([
         mainProduct.id,
-        ...relatedProducts.map(p => p.id)
+        ...limitedRelatedProducts.map(p => p.id)
     ]);
 
     // Derived state for selected products objects
     const selectedProducts = useMemo(() => {
-        const all = [mainProduct, ...relatedProducts];
+        const all = [mainProduct, ...limitedRelatedProducts];
         return all.filter(p => selectedIds.includes(p.id));
-    }, [mainProduct, relatedProducts, selectedIds]);
+    }, [mainProduct, limitedRelatedProducts, selectedIds]);
 
     // Calculate totals
     const totalBundlePrice = selectedProducts.reduce((sum, p) => sum + p.price, 0);
@@ -70,7 +73,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
 
     if (relatedProducts.length === 0) return null;
 
-    const allProducts = [mainProduct, ...relatedProducts];
+    const allProducts = [mainProduct, ...limitedRelatedProducts];
 
     return (
         <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-4 my-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg relative z-10 w-full" style={{ maxWidth: '100%', overflow: 'hidden', boxSizing: 'border-box' }}>
@@ -90,7 +93,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
                         WebkitOverflowScrolling: 'touch'
                     }}
                 >
-                    {allProducts.slice(0, 4).map((product, idx) => {
+                    {allProducts.map((product, idx) => {
                         const isSelected = selectedIds.includes(product.id);
                         const isMain = product.id === mainProduct.id;
                         const t = product.translations?.[isArabic ? 'ar' : 'en'] || product.translations?.en;
@@ -154,7 +157,7 @@ export default function BundleSelector({ mainProduct, relatedProducts, locale }:
 
                 {/* Scroll Indicator Dots */}
                 <div className="flex justify-center gap-1.5 mb-4">
-                    {allProducts.slice(0, 4).map((_, idx) => (
+                    {allProducts.map((_, idx) => (
                         <div
                             key={idx}
                             className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600"
