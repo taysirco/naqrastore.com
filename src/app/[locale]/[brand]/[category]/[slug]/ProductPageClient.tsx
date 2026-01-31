@@ -156,7 +156,25 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                     {/* Product Images */}
                     <div className="space-y-4">
                         {/* Main Image */}
-                        <div className="relative aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg">
+                        <div
+                            className="relative aspect-square bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-lg"
+                            onTouchStart={(e) => {
+                                const touch = e.touches[0];
+                                (e.currentTarget as HTMLDivElement).dataset.touchStartX = touch.clientX.toString();
+                            }}
+                            onTouchEnd={(e) => {
+                                const touchStartX = parseFloat((e.currentTarget as HTMLDivElement).dataset.touchStartX || '0');
+                                const touchEndX = e.changedTouches[0].clientX;
+                                const diff = touchStartX - touchEndX;
+                                if (Math.abs(diff) > 50) {
+                                    if (diff > 0 && selectedImage < images.length - 1) {
+                                        setSelectedImage(selectedImage + 1);
+                                    } else if (diff < 0 && selectedImage > 0) {
+                                        setSelectedImage(selectedImage - 1);
+                                    }
+                                }
+                            }}
+                        >
                             {discount > 0 && (
                                 <span className={`absolute top-4 ${isRTL ? 'right-4' : 'left-4'} px-3 py-1.5 bg-red-500 text-white text-sm font-bold rounded-full z-10 shadow-lg`}>
                                     -{discount}%
@@ -167,6 +185,38 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                                     ⭐ {isRTL ? 'مميز' : 'Featured'}
                                 </span>
                             )}
+
+                            {/* Navigation Arrows */}
+                            {images.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={() => setSelectedImage(selectedImage > 0 ? selectedImage - 1 : images.length - 1)}
+                                        className={`absolute ${isRTL ? 'right-2' : 'left-2'} top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white dark:hover:bg-gray-700 transition-all hover:scale-110`}
+                                        aria-label={isRTL ? 'الصورة السابقة' : 'Previous image'}
+                                    >
+                                        <svg className={`w-5 h-5 text-gray-700 dark:text-white ${isRTL ? '' : 'rotate-180'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        onClick={() => setSelectedImage(selectedImage < images.length - 1 ? selectedImage + 1 : 0)}
+                                        className={`absolute ${isRTL ? 'left-2' : 'right-2'} top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-lg flex items-center justify-center hover:bg-white dark:hover:bg-gray-700 transition-all hover:scale-110`}
+                                        aria-label={isRTL ? 'الصورة التالية' : 'Next image'}
+                                    >
+                                        <svg className={`w-5 h-5 text-gray-700 dark:text-white ${isRTL ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </>
+                            )}
+
+                            {/* Image Counter */}
+                            {images.length > 1 && (
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-3 py-1 bg-black/60 text-white text-sm rounded-full">
+                                    {selectedImage + 1} / {images.length}
+                                </div>
+                            )}
+
                             <div className="w-full h-full flex items-center justify-center p-8">
                                 {primaryImage ? (
                                     <img
