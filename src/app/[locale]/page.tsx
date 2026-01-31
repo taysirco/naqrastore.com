@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (locale === 'en') {
     return {
       ...baseMetadata,
-      title: 'Mobile Accessories Egypt | Anker & Joyroom - Best Prices 2024',
+      title: 'Mobile Accessories Egypt | Anker & Joyroom - Best Prices 2026',
       description: 'Shop original mobile accessories in Egypt. Anker power banks, chargers, cables. Joyroom T03s earbuds. 100% authentic with official warranty. Fast shipping.',
       keywords: 'mobile accessories, anker egypt, joyroom, power bank, earbuds, anker charger, joyroom t03s',
       openGraph: {

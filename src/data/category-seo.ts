@@ -58,7 +58,7 @@ export const categoryData: Record<string, Record<string, CategorySeoData>> = {
                     keywords: 'anker power bank, anker power bank 20000mah, anker powercore, anker prime power bank, anker 737 power bank, power bank egypt',
                 },
                 ar: {
-                    title: 'باور بانك انكر | Anker Power Bank Egypt - أفضل أسعار 2024',
+                    title: 'باور بانك انكر | Anker Power Bank Egypt - أفضل أسعار 2026',
                     description: 'تسوق باور بانك انكر الأصلي في مصر. باور بانك انكر 20000 و 10000 مللي أمبير بأفضل الأسعار. شحن سريع وضمان أصلي.',
                     keywords: 'باور بانك انكر, باور بانك انكر 20000, باور بانك انكر 10000, سعر باور بانك انكر, انكر باور بانك, باور بانك, افضل باور بانك',
                 }
@@ -842,7 +842,7 @@ Many fakes exist. To ensure you buy the original:
                     keywords: 'joyroom power bank, joyroom power bank 10000, joyroom power bank 20000, power bank egypt',
                 },
                 ar: {
-                    title: 'باور بانك جوي روم | Joyroom Power Bank Egypt - أسعار 2024',
+                    title: 'باور بانك جوي روم | Joyroom Power Bank Egypt - أسعار 2026',
                     description: 'تسوق باور بانك جوي روم الأصلي في مصر. باور بانك جوي روم 20000 و 10000 مللي أمبير بأفضل الأسعار. باور بانك جيروم.',
                     keywords: 'باور بانك جوي روم 10000, باور بانك جوي روم 20000, باور بانك جيروم, سعر باور بانك joyroom, joyroom power bank',
                 }
