@@ -13,9 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: baseUrl, priority: 1.0, changeFrequency: 'weekly', lastModified: new Date() },
         { url: `${baseUrl}/en`, priority: 1.0, changeFrequency: 'weekly', lastModified: new Date() },
 
-        // Checkout
-        { url: `${baseUrl}/checkout`, priority: 0.7, changeFrequency: 'monthly', lastModified: new Date() },
-        { url: `${baseUrl}/en/checkout`, priority: 0.7, changeFrequency: 'monthly', lastModified: new Date() },
+        // Checkout - REMOVED (noindexed transactional page)
 
         // Static Pages - About & Contact
         { url: `${baseUrl}/about`, priority: 0.5, changeFrequency: 'monthly', lastModified: new Date() },
