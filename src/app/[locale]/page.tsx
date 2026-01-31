@@ -249,6 +249,128 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* SEO Content Section - About Store */}
+        <section className="container mx-auto px-4">
+          <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+              {isRTL ? 'كايرو فولت - متجر إكسسوارات الموبايل الأصلية في مصر' : 'Cairo Volt - Original Mobile Accessories Store in Egypt'}
+            </h2>
+            <div className="prose prose-lg dark:prose-invert max-w-4xl mx-auto text-gray-600 dark:text-gray-400">
+              {isRTL ? (
+                <>
+                  <p>
+                    مرحباً بك في <strong>كايرو فولت</strong>، الوجهة الأولى لإكسسوارات الموبايل الأصلية في مصر. نحن الموزع المعتمد لأكبر العلامات التجارية العالمية:
+                    <strong> Anker</strong> العلامة الأولى عالمياً في تقنيات الشحن، و<strong>Joyroom</strong> الرائدة في إكسسوارات الموبايل عالية الجودة بأسعار مناسبة.
+                  </p>
+                  <p>
+                    نقدم مجموعة واسعة من المنتجات تشمل: <strong>باور بانك أنكر</strong> بسعات مختلفة من 5000 إلى 26800 mAh،
+                    <strong> شواحن سريعة</strong> تدعم تقنيات GaN و PD و QC3.0، <strong>كابلات شحن</strong> أصلية معتمدة MFi لأجهزة iPhone و iPad،
+                    <strong> سماعات Joyroom T03s</strong> الأكثر مبيعاً في مصر، و<strong>سماعات Soundcore</strong> من Anker بجودة صوت استثنائية.
+                  </p>
+                  <p>
+                    ما يميز كايرو فولت هو التزامنا بتقديم منتجات أصلية 100% مع <strong>ضمان رسمي</strong> يصل إلى 18 شهر على منتجات Anker و12 شهر على منتجات Joyroom.
+                    نوفر خدمة <strong>الشحن لجميع محافظات مصر</strong> مع إمكانية <strong>الدفع عند الاستلام</strong> بدون أي مقدم.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    Welcome to <strong>Cairo Volt</strong>, Egypt&apos;s premier destination for original mobile accessories. We are the authorized distributor for world-leading brands:
+                    <strong> Anker</strong>, the world&apos;s #1 charging technology brand, and <strong>Joyroom</strong>, a leader in premium mobile accessories at affordable prices.
+                  </p>
+                  <p>
+                    We offer a wide range of products including: <strong>Anker power banks</strong> with capacities from 5,000 to 26,800 mAh,
+                    <strong> fast chargers</strong> supporting GaN, PD, and QC3.0 technologies, <strong>MFi-certified charging cables</strong> for iPhone and iPad devices,
+                    <strong> Joyroom T03s earbuds</strong> - Egypt&apos;s best-selling earbuds, and <strong>Soundcore speakers</strong> from Anker with exceptional audio quality.
+                  </p>
+                  <p>
+                    What sets Cairo Volt apart is our commitment to providing 100% original products with <strong>official warranty</strong> up to 18 months for Anker and 12 months for Joyroom products.
+                    We offer <strong>shipping to all Egyptian governorates</strong> with <strong>cash on delivery</strong> option - no prepayment required.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Products Overview */}
+        <section className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6 md:p-8">
+              <h3 className="text-xl font-bold mb-4 text-blue-800 dark:text-blue-300">
+                {isRTL ? 'منتجات Anker الأصلية' : 'Original Anker Products'}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                {isRTL
+                  ? 'أنكر هي العلامة التجارية رقم 1 عالمياً في مجال الشحن، تخدم أكثر من 200 مليون مستخدم حول العالم. نوفر لك في كايرو فولت مجموعة كاملة من منتجات أنكر تشمل: باور بانك PowerCore بسعات متنوعة، شواحن حائط Nano و Prime بتقنية GaN المتطورة، كابلات PowerLine معتمدة MFi للآيفون، وشواحن سيارة PowerDrive. جميع المنتجات أصلية 100% مع ضمان رسمي 18 شهر.'
+                  : "Anker is the world's #1 charging brand, serving over 200 million users globally. At Cairo Volt, we offer the complete Anker range including: PowerCore power banks in various capacities, Nano and Prime wall chargers with advanced GaN technology, MFi-certified PowerLine cables for iPhone, and PowerDrive car chargers. All products are 100% original with 18-month official warranty."}
+              </p>
+            </div>
+            <div className="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 md:p-8">
+              <h3 className="text-xl font-bold mb-4 text-red-800 dark:text-red-300">
+                {isRTL ? 'منتجات Joyroom الأصلية' : 'Original Joyroom Products'}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                {isRTL
+                  ? 'جوي روم هي علامة تجارية رائدة تقدم إكسسوارات موبايل عالية الجودة بأسعار مناسبة للجميع. سماعات Joyroom T03s هي الأكثر مبيعاً في مصر بفضل جودة الصوت الممتازة والبطارية طويلة العمر. نوفر أيضاً باور بانك جوي روم، كابلات شحن سريع، حوامل جوال للسيارة، وساعات ذكية. جميع المنتجات أصلية بضمان 12 شهر.'
+                  : "Joyroom is a leading brand offering premium mobile accessories at prices accessible to everyone. Joyroom T03s earbuds are Egypt's best-selling earbuds thanks to their excellent sound quality and long battery life. We also offer Joyroom power banks, fast charging cables, car phone holders, and smart watches. All products are original with 12-month warranty."}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Why Choose Us */}
+        <section className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-3xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              {isRTL ? 'لماذا تختار كايرو فولت؟' : 'Why Choose Cairo Volt?'}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-4xl mb-4">🏆</div>
+                <h4 className="font-bold mb-2">{isRTL ? 'الوكيل المعتمد' : 'Authorized Dealer'}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {isRTL
+                    ? 'نحن الموزع المعتمد الرسمي لـ Anker و Joyroom في مصر. كل منتج نبيعه أصلي 100% ومضمون.'
+                    : 'We are the official authorized distributor for Anker and Joyroom in Egypt. Every product we sell is 100% original and guaranteed.'}
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-4">📦</div>
+                <h4 className="font-bold mb-2">{isRTL ? 'شحن لكل مصر' : 'Nationwide Shipping'}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {isRTL
+                    ? 'نوصل طلباتك إلى جميع محافظات مصر: القاهرة، الجيزة، الإسكندرية، المنصورة، طنطا، أسيوط، الأقصر وأسوان وجميع المحافظات الأخرى.'
+                    : 'We deliver to all Egyptian governorates: Cairo, Giza, Alexandria, Mansoura, Tanta, Assiut, Luxor, Aswan, and all other regions.'}
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-4">💬</div>
+                <h4 className="font-bold mb-2">{isRTL ? 'دعم واتساب' : 'WhatsApp Support'}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {isRTL
+                    ? 'فريق دعم العملاء متاح على مدار الساعة عبر واتساب للإجابة على استفساراتك ومساعدتك في اختيار المنتج المناسب.'
+                    : 'Our customer support team is available around the clock via WhatsApp to answer your questions and help you choose the right product.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Geographic Coverage */}
+        <section className="container mx-auto px-4">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-xl md:text-2xl font-bold mb-4">
+              {isRTL ? 'نوصل لكل مصر' : 'We Deliver Across Egypt'}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+              {isRTL
+                ? 'كايرو فولت يوفر خدمة الشحن السريع لجميع محافظات مصر. سواء كنت في القاهرة الكبرى (القاهرة، الجيزة، القليوبية)، الدلتا (الإسكندرية، الدقهلية، الغربية، الشرقية، المنوفية، كفر الشيخ، البحيرة، دمياط)، الصعيد (أسيوط، سوهاج، قنا، الأقصر، أسوان، المنيا، بني سويف)، أو القناة والساحل (السويس، الإسماعيلية، بورسعيد، البحر الأحمر، مطروح، شمال وجنوب سيناء) - نوصلك منتجات أصلية بضمان رسمي.'
+                : "Cairo Volt provides fast shipping to all Egyptian governorates. Whether you're in Greater Cairo (Cairo, Giza, Qalyubia), the Delta (Alexandria, Dakahlia, Gharbia, Sharqia, Monufia, Kafr El Sheikh, Beheira, Damietta), Upper Egypt (Assiut, Sohag, Qena, Luxor, Aswan, Minya, Beni Suef), or Canal and Coast regions (Suez, Ismailia, Port Said, Red Sea, Matrouh, North and South Sinai) - we deliver original products with official warranty."}
+            </p>
+          </div>
+        </section>
       </div>
     </>
   );
