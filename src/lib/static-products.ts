@@ -2,6 +2,7 @@
 // This can be used as fallback or for development
 
 import { products, categories } from '@/data/seed-products';
+import { topicalMap, getInternalLinksForPage, getRelatedEntities } from '@/data/topical-map';
 
 export interface StaticProduct {
     slug: string;
@@ -63,6 +64,81 @@ export interface StaticCategory {
 // Export typed products and categories
 export const staticProducts = products as StaticProduct[];
 export const staticCategories = categories as StaticCategory[];
+
+/**
+ * Get products based on topical map semantic relationships
+ * Uses internal links and related entities from the topical map
+ */
+export function getTopicallyRelatedProducts(
+    product: StaticProduct,
+    maxProducts: number = 4
+): StaticProduct[] {
+    const brandSlug = product.brand.toLowerCase();
+    const categorySlug = product.categorySlug;
+    const pageUrl = `/${brandSlug}/${categorySlug}`;
+
+    // Get internal links from topical map (semantically related categories)
+    const internalLinks = getInternalLinksForPage(pageUrl);
+
+    // Get related entities for semantic matching
+    const relatedEntities = getRelatedEntities(brandSlug, categorySlug);
+
+    const scoredProducts: Array<{ product: StaticProduct; score: number }> = [];
+
+    for (const p of staticProducts) {
+        if (p.slug === product.slug || p.status !== 'active') continue;
+
+        let score = 0;
+        const pBrand = p.brand.toLowerCase();
+        const pUrl = `/${pBrand}/${p.categorySlug}`;
+
+        // High score if category is in topical map's internal links
+        if (internalLinks.some(link => link.includes(p.categorySlug))) {
+            score += 40;
+        }
+
+        // Same brand bonus (topical relevance)
+        if (pBrand === brandSlug) {
+            score += 25;
+        }
+
+        // Check if product matches related entities (semantic matching)
+        const productKeywords = p.translations.en.name.toLowerCase() + ' ' +
+            p.translations.en.description.toLowerCase() +
+            (p.translations.en.features?.join(' ') || '');
+
+        for (const entity of relatedEntities) {
+            if (productKeywords.includes(entity.toLowerCase())) {
+                score += 15; // Semantic entity match
+            }
+        }
+
+        // Cross-brand related products from topical map
+        if (internalLinks.includes(pUrl)) {
+            score += 35;
+        }
+
+        // Featured products get a small bonus
+        if (p.featured) {
+            score += 8;
+        }
+
+        // Price range bonus (bundle-friendly)
+        const priceDiff = Math.abs(p.price - product.price);
+        if (priceDiff < product.price * 0.7) {
+            score += 5;
+        }
+
+        if (score > 0) {
+            scoredProducts.push({ product: p, score });
+        }
+    }
+
+    // Sort by score descending
+    scoredProducts.sort((a, b) => b.score - a.score);
+
+    return scoredProducts.slice(0, maxProducts).map(sp => sp.product);
+}
 
 // Helper functions
 export function getProductBySlug(slug: string): StaticProduct | undefined {

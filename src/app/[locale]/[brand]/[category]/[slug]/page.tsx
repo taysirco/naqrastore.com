@@ -21,8 +21,8 @@ interface Product {
     featured?: boolean;
     images?: Array<{ url: string; alt?: string; isPrimary?: boolean }>;
     translations?: {
-        en?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string };
-        ar?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string };
+        en?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string; faqs?: Array<{ question: string; answer: string }> };
+        ar?: { name?: string; description?: string; shortDescription?: string; features?: string[]; metaTitle?: string; metaDesc?: string; faqs?: Array<{ question: string; answer: string }> };
     };
     seo?: { keywords?: string; focusKeyword?: string; canonical?: string };
 }
@@ -169,6 +169,17 @@ export default async function ProductPage({ params }: Props) {
                 description={productDescription.substring(0, 200)}
                 locale={locale}
             />
+
+            {/* Product-Specific FAQSchema */}
+            {(() => {
+                const productFaqs = product.translations?.[isArabic ? 'ar' : 'en']?.faqs;
+                return productFaqs && productFaqs.length > 0 ? (
+                    <FAQSchema
+                        faqs={productFaqs}
+                        locale={locale}
+                    />
+                ) : null;
+            })()}
 
             {/* Breadcrumb Schema provided via Breadcrumb component or separate global if needed */}
             <ProductPageClient
