@@ -51,16 +51,15 @@ export default function CheckoutPage() {
     const router = useRouter();
     const { items: cartItems, totalAmount, clearCart } = useCart();
     const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false);
     const [phone, setPhone] = useState('');
     const [whatsapp, setWhatsapp] = useState('');
 
     // Redirect if cart is empty
     useEffect(() => {
-        if (!loading && !success && cartItems.length === 0) {
+        if (!loading && cartItems.length === 0) {
             router.push('/');
         }
-    }, [cartItems, loading, success, router]);
+    }, [cartItems, loading, router]);
 
     // Handle phone input - convert Arabic to English
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,32 +97,43 @@ export default function CheckoutPage() {
 
             if (!res.ok) throw new Error('Failed to place order');
 
-            setSuccess(true);
+            const result = await res.json();
+
+            // Prepare order data for confirmation page
+            const city = formData.get('city') as string;
+            const confirmData = {
+                orderId: result.orderId || `CV-${Date.now().toString(36).toUpperCase()}`,
+                customerName: formData.get('customerName') as string,
+                phone: phone,
+                whatsapp: whatsapp || phone,
+                address: formData.get('address') as string,
+                city: city,
+                cityLabel: GOVERNORATES.find(g => g.value === city)?.label || city,
+                items: cartItems,
+                subtotal: totalAmount,
+                shipping: totalAmount >= 500 ? 0 : 40,
+                total: totalAmount >= 500 ? totalAmount : totalAmount + 40,
+                orderDate: new Date().toLocaleDateString('ar-EG', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                }),
+            };
+
+            // Store in sessionStorage for confirm page
+            sessionStorage.setItem('lastOrder', JSON.stringify(confirmData));
+
             clearCart();
+
+            // Redirect to confirmation page
+            router.push('/confirm');
         } catch (error) {
             alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
         } finally {
             setLoading(false);
         }
-    }
-
-    if (success) {
-        return (
-            <div className="container mx-auto px-4 py-16 text-center">
-                <div className="bg-green-50 p-8 rounded-2xl max-w-md mx-auto">
-                    <div className="text-5xl mb-4">✅</div>
-                    <h1 className="text-2xl font-bold text-green-700 mb-2">تم استلام طلبك بنجاح!</h1>
-                    <p className="text-gray-600">سنتواصل معك قريباً لتأكيد الطلب.</p>
-                    <p className="text-sm text-gray-400 mt-4">💵 الدفع عند الاستلام</p>
-                    <button
-                        onClick={() => router.push('/')}
-                        className="mt-6 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                    >
-                        العودة للرئيسية
-                    </button>
-                </div>
-            </div>
-        );
     }
 
     return (
