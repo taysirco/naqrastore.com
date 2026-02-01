@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { adminDb } from '@/lib/firebase-admin';
-import { getProductBySlug, StaticProduct, getSmartRelatedProducts } from '@/lib/static-products';
+import { getFirestore } from '@/lib/firebase-admin';
+import { getProductBySlug, getSmartRelatedProducts } from '@/lib/static-products';
 import ProductPageClient from './ProductPageClient';
+import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
+import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
+import { generateProductReviews, calculateAggregateRating } from '@/data/product-reviews';
 
 type Props = {
     params: Promise<{ locale: string; brand: string; category: string; slug: string }>;
@@ -38,10 +40,11 @@ async function getProduct(slug: string): Promise<Product | null> {
     }
 
     // Then try Firebase
-    if (!adminDb) return null;
-
     try {
-        const snapshot = await adminDb.collection('products')
+        const db = await getFirestore();
+        if (!db) return null;
+
+        const snapshot = await db.collection('products')
             .where('slug', '==', slug)
             .limit(1)
             .get();
@@ -49,13 +52,14 @@ async function getProduct(slug: string): Promise<Product | null> {
         if (snapshot.empty) return null;
 
         return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as Product;
-    } catch {
+    } catch (error) {
+        console.warn(`Failed to fetch product ${slug} from Firebase`, error);
         return null;
     }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { locale, slug, brand, category } = await params;
+    const { locale, brand, category, slug } = await params;
     const product = await getProduct(slug);
 
     if (!product) {
@@ -103,12 +107,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
     };
 }
-
-import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
-import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
-import { generateProductReviews, calculateAggregateRating } from '@/data/product-reviews';
-
-// Removed local ProductSchema and BreadcrumbSchema functions to use global robust component
 
 export default async function ProductPage({ params }: Props) {
     const { locale, brand, category, slug } = await params;
@@ -193,7 +191,6 @@ export default async function ProductPage({ params }: Props) {
                 ) : null;
             })()}
 
-            {/* Breadcrumb Schema provided via Breadcrumb component or separate global if needed */}
             <ProductPageClient
                 product={product}
                 relatedProducts={relatedProducts}
@@ -204,4 +201,3 @@ export default async function ProductPage({ params }: Props) {
         </>
     );
 }
-

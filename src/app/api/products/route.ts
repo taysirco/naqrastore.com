@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
-import { FieldValue } from 'firebase-admin/firestore';
-import { staticProducts, getProductsByBrand, getProductsByCategory } from '@/lib/static-products';
+import { getFirestore } from '@/lib/firebase-admin';
+import { FieldValue, Query } from 'firebase-admin/firestore';
+import { staticProducts } from '@/lib/static-products';
 
 // ============================================
 // GET - List all products with pagination & filtering
@@ -17,9 +17,18 @@ export async function GET(req: NextRequest) {
     const page = parseInt(url.searchParams.get('page') || '1');
     const useFirebase = url.searchParams.get('firebase') === 'true';
 
-    // Default to static data (has correct SEO image paths)
-    // Only use Firebase when explicitly requested with ?firebase=true
-    if (!useFirebase || !adminDb) {
+    // Default to static data if not requested optionally, BUT we want Firebase as primary now?
+    // The previous logic was: "Only use Firebase when explicitly requested".
+    // I should preserve that logic unless the USER wants the site to run off Firebase.
+    // The issue "503 error preventing order processing" implies orders use Firebase.
+    // Products might be hybrid. Let's keep the existing logic:
+    // "Only use Firebase when explicitly requested with ?firebase=true"
+    // Wait, if I change `if (!useFirebase || !adminDb)` to `if (!useFirebase) return static`, 
+    // it simplifies things. But wait, `adminDb` check was there to fallback if not connected.
+    // Now `getFirestore()` throws.
+
+    // I will check useFirebase flag. If false, return static.
+    if (!useFirebase) {
         let products = [...staticProducts];
 
         // Apply filters
@@ -60,8 +69,10 @@ export async function GET(req: NextRequest) {
         });
     }
 
+    // Firebase Path
     try {
-        let query: FirebaseFirestore.Query = adminDb.collection('products');
+        const db = await getFirestore();
+        let query: Query = db.collection('products');
 
         // Apply filters
         if (brand) {
@@ -127,9 +138,7 @@ export async function GET(req: NextRequest) {
 // ============================================
 
 export async function POST(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const data = await req.json();
@@ -140,7 +149,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Check slug uniqueness
-        const existingSlug = await adminDb.collection('products')
+        const existingSlug = await db.collection('products')
             .where('slug', '==', data.slug)
             .get();
 
@@ -226,7 +235,7 @@ export async function POST(req: NextRequest) {
             updatedAt: FieldValue.serverTimestamp(),
         };
 
-        const docRef = await adminDb.collection('products').add(productData);
+        const docRef = await db.collection('products').add(productData);
 
         return NextResponse.json({
             success: true,
@@ -244,9 +253,7 @@ export async function POST(req: NextRequest) {
 // ============================================
 
 export async function DELETE(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const { ids } = await req.json();
@@ -255,10 +262,10 @@ export async function DELETE(req: NextRequest) {
             return NextResponse.json({ error: 'No product IDs provided' }, { status: 400 });
         }
 
-        const batch = adminDb.batch();
+        const batch = db.batch();
 
         for (const id of ids) {
-            const docRef = adminDb.collection('products').doc(id);
+            const docRef = db.collection('products').doc(id);
             batch.delete(docRef);
         }
 

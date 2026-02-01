@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
+import { getFirestore } from '@/lib/firebase-admin';
 import { staticProducts } from '@/lib/static-products';
 
 const baseUrl = 'https://cairovolt.com';
@@ -36,9 +36,10 @@ export async function GET() {
     });
 
     // Get Firebase products
-    if (adminDb) {
-        try {
-            const snapshot = await adminDb.collection('products').get();
+    try {
+        const db = await getFirestore();
+        if (db) {
+            const snapshot = await db.collection('products').get();
             snapshot.docs.forEach(doc => {
                 const data = doc.data() as Product;
                 products.push({
@@ -49,9 +50,10 @@ export async function GET() {
                     translations: data.translations,
                 });
             });
-        } catch (error) {
-            console.error('Error fetching products for image sitemap:', error);
         }
+    } catch (error) {
+        console.warn('Firebase not available for image sitemap, using static only:', error);
+        // Continue with static products only
     }
 
     // Build XML

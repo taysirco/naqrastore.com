@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
+import { getFirestore } from '@/lib/firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { appendOrderToSheet } from '@/lib/google-sheets';
 
 export async function POST(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const data = await req.json();
@@ -35,7 +33,7 @@ export async function POST(req: NextRequest) {
             updatedAt: FieldValue.serverTimestamp(),
         };
 
-        const docRef = await adminDb.collection('orders').add(orderData);
+        const docRef = await db.collection('orders').add(orderData);
 
         // Sync with Google Sheets (Fire and await to ensure completion in serverless)
         try {
@@ -60,12 +58,10 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET() {
-    if (!adminDb) {
-        return NextResponse.json([]);
-    }
+    const db = await getFirestore();
 
     try {
-        const snapshot = await adminDb.collection('orders').orderBy('createdAt', 'desc').get();
+        const snapshot = await db.collection('orders').orderBy('createdAt', 'desc').get();
         const orders = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()

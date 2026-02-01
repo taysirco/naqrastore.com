@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
+import { getFirestore } from '@/lib/firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { staticCategories, staticProducts } from '@/lib/static-products';
 
@@ -8,19 +8,10 @@ import { staticCategories, staticProducts } from '@/lib/static-products';
 // ============================================
 
 export async function GET() {
-    // Use static data when Firebase is not configured
-    if (!adminDb) {
-        // Add product counts to categories
-        const categoriesWithCounts = staticCategories.map(cat => ({
-            id: `static_${cat.slug}`,
-            ...cat,
-            productCount: staticProducts.filter(p => p.categorySlug === cat.slug).length
-        }));
-        return NextResponse.json(categoriesWithCounts);
-    }
+    const db = await getFirestore();
 
     try {
-        const snapshot = await adminDb.collection('categories')
+        const snapshot = await db.collection('categories')
             .orderBy('order', 'asc')
             .get();
 
@@ -32,6 +23,7 @@ export async function GET() {
         return NextResponse.json(categories);
     } catch (error) {
         console.error('Error fetching categories:', error);
+        // Fallback to static data on error is optional, but let's stick to error reporting or empty
         return NextResponse.json({ error: 'Failed to fetch categories' }, { status: 500 });
     }
 }
@@ -41,9 +33,7 @@ export async function GET() {
 // ============================================
 
 export async function POST(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const data = await req.json();
@@ -53,7 +43,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Check slug uniqueness
-        const existingSlug = await adminDb.collection('categories')
+        const existingSlug = await db.collection('categories')
             .where('slug', '==', data.slug)
             .get();
 
@@ -62,7 +52,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Get max order
-        const maxOrderSnapshot = await adminDb.collection('categories')
+        const maxOrderSnapshot = await db.collection('categories')
             .orderBy('order', 'desc')
             .limit(1)
             .get();
@@ -99,7 +89,7 @@ export async function POST(req: NextRequest) {
             updatedAt: FieldValue.serverTimestamp(),
         };
 
-        const docRef = await adminDb.collection('categories').add(categoryData);
+        const docRef = await db.collection('categories').add(categoryData);
 
         return NextResponse.json({
             success: true,
@@ -117,9 +107,7 @@ export async function POST(req: NextRequest) {
 // ============================================
 
 export async function DELETE(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const { ids } = await req.json();
@@ -128,10 +116,10 @@ export async function DELETE(req: NextRequest) {
             return NextResponse.json({ error: 'No category IDs provided' }, { status: 400 });
         }
 
-        const batch = adminDb.batch();
+        const batch = db.batch();
 
         for (const id of ids) {
-            const docRef = adminDb.collection('categories').doc(id);
+            const docRef = db.collection('categories').doc(id);
             batch.delete(docRef);
         }
 

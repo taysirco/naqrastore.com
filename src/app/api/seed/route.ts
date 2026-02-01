@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
+import { getFirestore } from '@/lib/firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 import { products, categories } from '@/data/seed-products';
 
 export async function POST(req: NextRequest) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const url = new URL(req.url);
@@ -21,7 +19,7 @@ export async function POST(req: NextRequest) {
         for (const category of categories) {
             try {
                 // Check if category already exists
-                const existing = await adminDb.collection('categories')
+                const existing = await db.collection('categories')
                     .where('slug', '==', category.slug)
                     .limit(1)
                     .get();
@@ -30,10 +28,10 @@ export async function POST(req: NextRequest) {
                     if (!existing.empty && force) {
                         // Delete existing
                         const docId = existing.docs[0].id;
-                        await adminDb.collection('categories').doc(docId).delete();
+                        await db.collection('categories').doc(docId).delete();
                     }
 
-                    await adminDb.collection('categories').add({
+                    await db.collection('categories').add({
                         ...category,
                         createdAt: FieldValue.serverTimestamp(),
                         updatedAt: FieldValue.serverTimestamp(),
@@ -55,7 +53,7 @@ export async function POST(req: NextRequest) {
         for (const product of products) {
             try {
                 // Check if product already exists
-                const existing = await adminDb.collection('products')
+                const existing = await db.collection('products')
                     .where('slug', '==', product.slug)
                     .limit(1)
                     .get();
@@ -64,10 +62,10 @@ export async function POST(req: NextRequest) {
                     if (!existing.empty && force) {
                         // Delete existing
                         const docId = existing.docs[0].id;
-                        await adminDb.collection('products').doc(docId).delete();
+                        await db.collection('products').doc(docId).delete();
                     }
 
-                    await adminDb.collection('products').add({
+                    await db.collection('products').add({
                         ...product,
                         createdAt: FieldValue.serverTimestamp(),
                         updatedAt: FieldValue.serverTimestamp(),
@@ -89,7 +87,7 @@ export async function POST(req: NextRequest) {
         const categorySlugs = [...new Set(products.map(p => p.categorySlug))];
         for (const slug of categorySlugs) {
             const count = products.filter(p => p.categorySlug === slug).length;
-            const catQuery = await adminDb.collection('categories')
+            const catQuery = await db.collection('categories')
                 .where('slug', '==', slug)
                 .limit(1)
                 .get();

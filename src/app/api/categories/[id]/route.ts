@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { adminDb } from '@/lib/firebase-admin';
+import { getFirestore } from '@/lib/firebase-admin';
 import { FieldValue } from 'firebase-admin/firestore';
 
 // ============================================
@@ -10,13 +10,11 @@ export async function GET(
     req: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const { id } = await params;
-        const doc = await adminDb.collection('categories').doc(id).get();
+        const doc = await db.collection('categories').doc(id).get();
 
         if (!doc.exists) {
             return NextResponse.json({ error: 'Category not found' }, { status: 404 });
@@ -37,14 +35,12 @@ export async function PUT(
     req: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const { id } = await params;
         const data = await req.json();
-        const docRef = adminDb.collection('categories').doc(id);
+        const docRef = db.collection('categories').doc(id);
         const doc = await docRef.get();
 
         if (!doc.exists) {
@@ -53,7 +49,7 @@ export async function PUT(
 
         // Check slug uniqueness if changed
         if (data.slug) {
-            const existingSlug = await adminDb.collection('categories')
+            const existingSlug = await db.collection('categories')
                 .where('slug', '==', data.slug)
                 .get();
 
@@ -118,13 +114,11 @@ export async function DELETE(
     req: NextRequest,
     { params }: { params: Promise<{ id: string }> }
 ) {
-    if (!adminDb) {
-        return NextResponse.json({ error: 'Firebase not configured' }, { status: 503 });
-    }
+    const db = await getFirestore();
 
     try {
         const { id } = await params;
-        const docRef = adminDb.collection('categories').doc(id);
+        const docRef = db.collection('categories').doc(id);
         const doc = await docRef.get();
 
         if (!doc.exists) {
