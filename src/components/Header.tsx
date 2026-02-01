@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { useCart } from '@/context/CartContext';
 
 export default function Header() {
     const locale = useLocale();
@@ -14,6 +15,7 @@ export default function Header() {
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { totalItems, setIsOpen } = useCart();
 
     // Handle scroll effect
     useEffect(() => {
@@ -208,6 +210,22 @@ export default function Header() {
                             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
+                        </button>
+
+                        {/* Cart Button */}
+                        <button
+                            onClick={() => setIsOpen(true)}
+                            className="relative p-2 sm:p-2.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors touch-target group"
+                            aria-label={isRTL ? 'سلة المشتريات' : 'Shopping Cart'}
+                        >
+                            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            {totalItems > 0 && (
+                                <span className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-gray-900">
+                                    {totalItems > 9 ? '9+' : totalItems}
+                                </span>
+                            )}
                         </button>
 
                         {/* Mobile Language Switcher */}
