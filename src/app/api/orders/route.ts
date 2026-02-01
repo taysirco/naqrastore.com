@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
             whatsapp: data.whatsapp || data.phone,
             address: data.address,
             city: data.city,
-            cityLabel: data.cityLabel, // If passed from frontend
+            cityLabel: data.cityLabel || null, // Firestore doesn't accept undefined
             items: data.items,
             totalAmount: data.totalAmount,
             status: 'pending',
