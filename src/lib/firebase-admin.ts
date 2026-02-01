@@ -11,7 +11,7 @@ let adminAuth: Auth | null = null;
 // Use individual environment variables for cleaner configuration
 const projectId = process.env.FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const privateKey = process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : undefined;
 const databaseId = process.env.FIREBASE_DATABASE_ID || '(default)';
 
 if (projectId && clientEmail && privateKey) {

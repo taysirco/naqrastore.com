@@ -17,7 +17,7 @@ function getAuth() {
     try {
         serviceAccountAuth = new JWT({
             email: GOOGLE_CLIENT_EMAIL,
-            key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            key: GOOGLE_PRIVATE_KEY ? GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : '',
             scopes: ['https://www.googleapis.com/auth/spreadsheets'],
         });
         return serviceAccountAuth;
