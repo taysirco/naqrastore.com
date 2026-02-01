@@ -37,7 +37,9 @@ export async function GET() {
     let directSecretCheck: any = { status: 'skipped' };
     try {
         const client = new SecretManagerServiceClient();
-        const secretName = `projects/${vars.FIREBASE_PROJECT_ID}/secrets/firebase_client_email/versions/latest`;
+        // vars.FIREBASE_PROJECT_ID is boolean, we need the string key
+        const projectIdRaw = process.env.FIREBASE_PROJECT_ID || 'gadgets-b0bdb';
+        const secretName = `projects/${projectIdRaw}/secrets/firebase_client_email/versions/latest`;
 
         try {
             // Just try to access the metadata/value
