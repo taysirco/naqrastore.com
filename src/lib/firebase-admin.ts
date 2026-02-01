@@ -34,8 +34,13 @@ if (projectId && clientEmail && privateKey) {
         adminStorage = getStorage(adminApp);
         adminAuth = getAuth(adminApp);
     } catch (error) {
-        console.warn('Firebase Admin SDK not initialized:', error);
+        console.error('Firebase Admin SDK initialization failed:', error);
     }
+} else {
+    console.warn('Firebase Admin SDK skpped: Missing environment variables');
+    if (!projectId) console.warn('- Missing FIREBASE_PROJECT_ID');
+    if (!clientEmail) console.warn('- Missing FIREBASE_CLIENT_EMAIL');
+    if (!privateKey) console.warn('- Missing FIREBASE_PRIVATE_KEY');
 }
 
 export { adminDb, adminStorage, adminAuth };
