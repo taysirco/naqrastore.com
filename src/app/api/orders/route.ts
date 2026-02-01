@@ -60,9 +60,13 @@ export async function POST(req: NextRequest) {
             orderId: orderId, // Return the readable ID
             message: 'Order placed successfully'
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error creating order:', error);
-        return NextResponse.json({ error: 'Failed to create order' }, { status: 500 });
+        return NextResponse.json({
+            error: 'Failed to create order',
+            details: error.message,
+            code: error.code
+        }, { status: 500 });
     }
 }
 
