@@ -130,10 +130,11 @@ export default function CheckoutPage() {
             // Store in sessionStorage for confirm page
             sessionStorage.setItem('lastOrder', JSON.stringify(confirmData));
 
-            clearCart();
-
-            // Redirect to confirmation page
+            // Redirect FIRST, then clear cart (to avoid useEffect redirect to /)
             router.push('/confirm');
+
+            // Clear cart after initiating redirect
+            setTimeout(() => clearCart(), 100);
         } catch (error) {
             alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
         } finally {
