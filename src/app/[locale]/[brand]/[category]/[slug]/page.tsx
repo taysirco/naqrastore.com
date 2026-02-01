@@ -106,6 +106,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
 import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
+import { generateProductReviews, calculateAggregateRating } from '@/data/product-reviews';
 
 // Removed local ProductSchema and BreadcrumbSchema functions to use global robust component
 
@@ -129,6 +130,15 @@ export default async function ProductPage({ params }: Props) {
     const productDescription = product.translations?.[locale as 'ar' | 'en']?.description || product.translations?.en?.description || '';
     const isArabic = locale === 'ar';
 
+    // Generate unique reviews for this product
+    const productReviews = generateProductReviews(
+        slug,
+        category,
+        product.price,
+        product.featured || false
+    );
+    const aggregateRating = calculateAggregateRating(productReviews);
+
     return (
         <>
             <ProductSchema
@@ -149,6 +159,7 @@ export default async function ProductPage({ params }: Props) {
                     images: product.images?.map(img => ({ url: img.url, alt: img.alt || '' })) || []
                 }}
                 locale={locale}
+                aggregateRating={aggregateRating}
             />
 
             {/* BreadcrumbSchema for navigation */}

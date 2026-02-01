@@ -357,13 +357,9 @@ export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
             'https://facebook.com/cairovolt',
             'https://instagram.com/cairovolt',
         ],
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '1250',
-            bestRating: '5',
-            worstRating: '1',
-        },
+        // NOTE: aggregateRating removed - Store ratings should come from 
+        // Google Business Profile, not be hardcoded. Adding fake ratings
+        // here is considered Schema Spam by Google.
     };
 
     return (

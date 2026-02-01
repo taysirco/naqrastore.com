@@ -22,9 +22,16 @@ interface ProductSchemaProps {
     };
     locale: string;
     baseUrl?: string;
+    // Dynamic reviews - IMPORTANT: Only include real reviews, no fake ratings
+    aggregateRating?: {
+        ratingValue: string;
+        reviewCount: string;
+        bestRating: string;
+        worstRating: string;
+    } | null;
 }
 
-export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.com' }: ProductSchemaProps) {
+export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.com', aggregateRating }: ProductSchemaProps) {
     const t = product.translations[locale as 'en' | 'ar'] || product.translations.en;
     const isArabic = locale === 'ar';
 
@@ -88,7 +95,7 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
             url: `${baseUrl}/${locale}/${product.brand.toLowerCase()}/${product.slug}`,
             priceCurrency: 'EGP',
             price: product.price,
-            priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+            priceValidUntil: '2026-03-31', // Fixed date - update quarterly to prevent cache inconsistencies
             availability: product.stock > 0
                 ? 'https://schema.org/InStock'
                 : 'https://schema.org/OutOfStock',
@@ -175,14 +182,17 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
                 returnFees: 'https://schema.org/FreeReturn',
             },
         },
-        // Aggregate Rating (placeholder - can be dynamic later)
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '127',
-            bestRating: '5',
-            worstRating: '1',
-        },
+        // Dynamic Aggregate Rating - ONLY included if real reviews exist
+        // This prevents Schema Spam penalties from Google
+        ...(aggregateRating && {
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: aggregateRating.ratingValue,
+                reviewCount: aggregateRating.reviewCount,
+                bestRating: aggregateRating.bestRating,
+                worstRating: aggregateRating.worstRating,
+            },
+        }),
     };
 
     // Add price drop info if there's a discount
