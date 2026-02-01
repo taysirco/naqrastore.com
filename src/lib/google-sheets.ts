@@ -1,26 +1,43 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 
-// Sheet Config
-const SHEET_ID = process.env.GOOGLE_SHEET_ID!;
-const GOOGLE_CLIENT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL!;
-const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY!.replace(/\\n/g, '\n');
+// Sheet Config & Auth (Lazy Init)
+let serviceAccountAuth: JWT | null = null;
 
-// Initialize Auth
-const serviceAccountAuth = new JWT({
-    email: GOOGLE_CLIENT_EMAIL,
-    key: GOOGLE_PRIVATE_KEY,
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-});
+function getAuth() {
+    if (serviceAccountAuth) return serviceAccountAuth;
+
+    const GOOGLE_CLIENT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+    const GOOGLE_PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY;
+
+    if (!GOOGLE_CLIENT_EMAIL || !GOOGLE_PRIVATE_KEY) {
+        return null;
+    }
+
+    try {
+        serviceAccountAuth = new JWT({
+            email: GOOGLE_CLIENT_EMAIL,
+            key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+            scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+        });
+        return serviceAccountAuth;
+    } catch (error) {
+        console.error('Google Auth Init Failed:', error);
+        return null;
+    }
+}
 
 export async function appendOrderToSheet(orderData: any) {
-    if (!SHEET_ID || !GOOGLE_CLIENT_EMAIL || !GOOGLE_PRIVATE_KEY) {
-        console.error('Google Sheets credentials missing');
+    const SHEET_ID = process.env.GOOGLE_SHEET_ID;
+    const auth = getAuth();
+
+    if (!SHEET_ID || !auth) {
+        console.error('Google Sheets credentials missing or invalid');
         return;
     }
 
     try {
-        const doc = new GoogleSpreadsheet(SHEET_ID, serviceAccountAuth);
+        const doc = new GoogleSpreadsheet(SHEET_ID, auth);
         await doc.loadInfo();
 
         const sheet = doc.sheetsByIndex[0]; // Assume first sheet
