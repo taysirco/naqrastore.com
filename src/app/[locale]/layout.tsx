@@ -99,6 +99,29 @@ export default async function RootLayout({
             </div>
           </CartProvider>
         </NextIntlClientProvider>
+        {/* Statcounter Analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var sc_project=13202580; 
+              var sc_invisible=1; 
+              var sc_security="83195b7d"; 
+            `
+          }}
+        />
+        <script src="https://www.statcounter.com/counter/counter.js" async />
+        <noscript>
+          <div className="statcounter">
+            <a title="real time web analytics" href="https://statcounter.com/" target="_blank">
+              <img
+                className="statcounter"
+                src="https://c.statcounter.com/13202580/0/83195b7d/1/"
+                alt="real time web analytics"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </a>
+          </div>
+        </noscript>
       </body>
     </html>
   );
