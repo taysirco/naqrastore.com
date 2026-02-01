@@ -78,14 +78,19 @@ export default function CheckoutPage() {
         setLoading(true);
 
         const formData = new FormData(event.currentTarget);
+
+        const shipping = totalAmount >= 500 ? 0 : 40;
+        const finalTotal = totalAmount + shipping;
+
         const orderData = {
             customerName: formData.get('customerName'),
             phone: phone,
-            whatsapp: whatsapp || phone, // Use phone if WhatsApp not provided
+            whatsapp: whatsapp || phone,
             address: formData.get('address'),
             city: formData.get('city'),
             items: cartItems,
-            totalAmount,
+            totalAmount: finalTotal, // Send final total including shipping
+            subtotal: totalAmount, // Keep track of subtotal
         };
 
         try {
