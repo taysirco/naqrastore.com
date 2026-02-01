@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleAuth } from 'google-auth-library';
+import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
 
 export async function GET() {
     const vars = {
@@ -32,7 +33,34 @@ export async function GET() {
         currentIdentity = `Error: ${error.message}`;
     }
 
-    return NextResponse.json({ ...vars, currentIdentity });
+    // Direct Secret Manager Check
+    let directSecretCheck: any = { status: 'skipped' };
+    try {
+        const client = new SecretManagerServiceClient();
+        const secretName = `projects/${vars.FIREBASE_PROJECT_ID}/secrets/firebase_client_email/versions/latest`;
+
+        try {
+            // Just try to access the metadata/value
+            const [version] = await client.accessSecretVersion({ name: secretName });
+            directSecretCheck = {
+                status: 'success',
+                payloadExists: !!version.payload?.data,
+                name: version.name
+            };
+        } catch (accessError: any) {
+            directSecretCheck = {
+                status: 'failed',
+                error: accessError.message,
+                code: accessError.code,
+                notes: 'This confirms permission/API issue'
+            };
+        }
+
+    } catch (clientError: any) {
+        directSecretCheck = { status: 'client_init_failed', error: clientError.message };
+    }
+
+    return NextResponse.json({ ...vars, currentIdentity, directSecretCheck });
 }
 
 export const dynamic = 'force-dynamic';
