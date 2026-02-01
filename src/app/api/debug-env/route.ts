@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { GoogleAuth } from 'google-auth-library';
 import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
+import { getFirestore } from '@/lib/firebase-admin';
 
 export async function GET() {
     const vars = {
@@ -62,7 +63,16 @@ export async function GET() {
         directSecretCheck = { status: 'client_init_failed', error: clientError.message };
     }
 
-    return NextResponse.json({ ...vars, currentIdentity, directSecretCheck });
+    // Full Firestore Init Check
+    let firestoreCheck: any = { status: 'pending' };
+    try {
+        const db = await getFirestore();
+        firestoreCheck = { status: 'success', instance: !!db };
+    } catch (fsError: any) {
+        firestoreCheck = { status: 'failed', error: fsError.message, stack: fsError.stack };
+    }
+
+    return NextResponse.json({ ...vars, currentIdentity, directSecretCheck, firestoreCheck });
 }
 
 export const dynamic = 'force-dynamic';

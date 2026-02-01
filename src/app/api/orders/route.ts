@@ -4,7 +4,16 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { appendOrderToSheet } from '@/lib/google-sheets';
 
 export async function POST(req: NextRequest) {
-    const db = await getFirestore();
+    let db;
+    try {
+        db = await getFirestore();
+    } catch (initError: any) {
+        console.error('Firestore init failed in orders route:', initError);
+        return NextResponse.json({
+            error: 'Service Unavailable: Database initialization failed',
+            details: initError.message
+        }, { status: 503 });
+    }
 
     try {
         const data = await req.json();
