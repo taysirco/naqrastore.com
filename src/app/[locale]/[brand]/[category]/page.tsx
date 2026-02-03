@@ -52,6 +52,7 @@ export default async function DynamicCategoryPage({ params }: Props) {
             category={data.categoryName}
             categorySlug={categoryKey}
             seoContent={data.seoContent}
+            soundcoreData={data.soundcoreData}
         />
     );
 }
