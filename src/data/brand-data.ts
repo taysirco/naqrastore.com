@@ -167,14 +167,20 @@ export const brandData: Record<string, BrandData> = {
         },
         faq: {
             ar: [
-                { question: 'كيف يمكنني التأكد أن منتج انكر أصلي؟', answer: 'تأكد دائماً من وجود "العلامة المائية الثلاثية" الخاصة بالوكيل على العلبة، وقم بمسح QR Code الموجود على العبوة للتحقق عبر الموقع الرسمي.' },
-                { question: 'ما هو عنوان مركز صيانة انكر في مصر؟', answer: 'يمكنك استبدال أي منتج به عيب صناعة فوراً من خلال شبكة موزعينا المعتمدين أو التواصل معنا مباشرة عبر صفحة "اتصل بنا".' },
-                { question: 'هل شواحن انكر آمنة للايفون؟', answer: 'نعم، انكر شريك معتمد لشركة أبل (MFi Certified) وتستخدم نفس "تشيبات" الشحن الأصلية لضمان سلامة البطارية 100%.' }
+                { question: 'كيف أتأكد أن منتج انكر أصلي 100%؟', answer: 'ابحث دائماً عن "العلامة المائية الثلاثية" (Hologram) الخاصة بالوكيل على العلبة. يمكنك أيضاً مسح QR Code الموجود للتحقق عبر موقع انكر الرسمي. نحن في Cairo Volt نضمن لك منتجات أصلية 100% مع ضمان استبدال فوري.' },
+                { question: 'ما الفرق بين ضمان أنكر في Cairo Volt وأمازون/نون؟', answer: 'في المتاجر العامة (Marketplaces)، الضمان يعتمد على البائع وقد يكون 14 يوماً فقط. أما في Cairo Volt، بصفتنا موزع معتمد، نقدم "ضمان الوكيل الرسمي" لمدة 18 شهراً. إذا حدث أي عيب صناعة، نستبدل المنتج بجديد فوراً، وليس صيانة.' },
+                { question: 'ما هو الفرق بين تقنية PowerIQ و PD (Power Delivery)؟', answer: 'تقنية **PD** هي معيار عالمي للشحن السريع (للآيفون واللابتوب). أما **PowerIQ** فهي تقنية حصرية لـ Anker تتعرف بذكاء على نوع جهازك (سواء سامسونج، آيفون، أو سماعة) وتعطيه أقصى سرعة آمنة له. شواحن Anker الجديدة تدمج الاثنين معاً!' },
+                { question: 'هل شواحن انكر تضر ببطارية الايفون (Battery Health)؟', answer: 'على العكس تماماً! شواحن انكر تأتي بتقنية **ActiveShield 2.0** التي تراقب الحرارة 3 مليون مرة يومياً لتمنع السخونة التي تضر البطارية. كما أنها حاصلة على شهادة MFi من آبل، مما يعني أنها آمنة تماماً مثل الشاحن الأصلي وأحياناً أفضل تبريداً.' },
+                { question: 'أيهما أفضل: Anker أم Joyroom؟', answer: 'إذا كنت تبحث عن "أعلى أداء وتكنولوجيا في العالم" وتدفع مقابل الاستدامة، فـ **Anker** هي الأفضل (استثمار طويل الأمد). أما إذا كنت تريد "أفضل قيمة مقابل سعر" ومواصفات ممتازة بميزانية اقتصادية، فـ **Joyroom** هي الخيار الذكي. كلاهما أصلي ومضمون لدينا.' },
+                { question: 'أين يوجد مركز صيانة انكر المعتمد في مصر؟', answer: 'لا داعي للبحث عن "مركز صيانة"! سياسة الضمان لدينا هي "الاستبدال الفوري". إذا واجهت مشكلة خلال 18 شهراً، تواصل معنا عبر واتساب وسنقوم باستبدال المنتج لك من خلال فروعنا أو الشحن.' }
             ],
             en: [
-                { question: 'How to verify my Anker product is original?', answer: 'Always check for the official distributor hologram security sticker on the box. You can also verify the serial number on the Anker official website.' },
-                { question: 'Where is the Anker Service Center in Egypt?', answer: 'We offer an "Instant Exchange" warranty policy through our authorized dealer network. No need for long repairs; if it’s a manufacturing defect, it gets replaced.' },
-                { question: 'Are Anker chargers MFi Certified?', answer: 'Yes, Anker lightning cables and chargers are fully MFi Certified by Apple, ensuring zero error messages and perfect battery health safety.' }
+                { question: 'How can I be 100% sure the Anker product is original?', answer: 'Always look for the official distributor\'s Hologram sticker on the box. You can also scan the QR Code verification label. At Cairo Volt, we guarantee 100% authentic products with a direct replacement warranty.' },
+                { question: 'What is the difference between warranty at Cairo Volt vs Amazon/Noon?', answer: 'On marketplaces, warranty depends on the individual seller and is often just 14 days return. At Cairo Volt, as an authorized distributor, we offer the official "18-Month Agent Warranty". If there is a defect, we replace it instantly with a new one—no repairs.' },
+                { question: 'What is the difference between PowerIQ and PD (Power Delivery)?', answer: '**PD** is a universal fast-charging standard (common for iPhone/Laptops). **PowerIQ** is Anker\'s proprietary AI technology that intelligently identifies your device (Samsung, iPhone, or Earbuds) and delivers the safest max speed. New Anker chargers combine both!' },
+                { question: 'Do Anker chargers damage iPhone Battery Health?', answer: 'Quite the opposite! Anker chargers feature **ActiveShield 2.0** technology which monitors temperature 3 million times/day to prevent heat that damages batteries. They are also MFi Certified, making them just as safe (often cooler running) than original Apple chargers.' },
+                { question: 'Which is better: Anker or Joyroom?', answer: 'If you want "World Class Performance" and long-term durability, **Anker** is the G.O.A.T investment. If you want "Best Value for Money" and great features on a budget, **Joyroom** is the smart choice. Both are 100% original and guaranteed at Cairo Volt.' },
+                { question: 'Where is the authorized Anker Service Center in Egypt?', answer: 'No need to search for a repair center! Our policy is "Instant Replacement". If you face any issue within 18 months, contact us via WhatsApp and we will replace the unit securely.' }
             ]
         }
     },
