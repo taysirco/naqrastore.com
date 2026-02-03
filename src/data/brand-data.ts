@@ -41,20 +41,6 @@ export interface BrandData {
         title: { en: string; ar: string };
         description: { en: string; ar: string };
     }>;
-    // NEW: Soundcore Audio Section for "ankersoundcore" keyword SEO
-    soundcoreSection?: {
-        title: { en: string; ar: string };
-        tagline: { en: string; ar: string };
-        history: { en: string; ar: string };
-        achievements: Array<{ icon: string; stat: { en: string; ar: string }; label: { en: string; ar: string } }>;
-        technologies: Array<{ name: string; icon: string; description: { en: string; ar: string } }>;
-        useCases: Array<{ icon: string; title: { en: string; ar: string }; description: { en: string; ar: string } }>;
-        trustBadges: Array<{ icon: string; title: { en: string; ar: string }; description: { en: string; ar: string } }>;
-        faq: {
-            en: Array<{ question: string; answer: string }>;
-            ar: Array<{ question: string; answer: string }>;
-        };
-    };
     metadata: {
         en: { title: string; description: string; keywords: string; openGraph?: any };
         ar: { title: string; description: string; keywords: string; openGraph?: any };
@@ -139,66 +125,6 @@ export const brandData: Record<string, BrandData> = {
             { icon: '⭐', title: { en: '5000+ Happy Customers', ar: '+5000 عميل سعيد' }, description: { en: 'Verified purchases', ar: 'مشتريات موثقة' } },
             { icon: '📞', title: { en: 'WhatsApp Support', ar: 'دعم واتساب' }, description: { en: '24/7 assistance', ar: 'مساعدة على مدار الساعة' } }
         ],
-        // NEW: Soundcore Section for "ankersoundcore" SEO
-        soundcoreSection: {
-            title: {
-                en: 'Soundcore by Anker: World\'s Leading Wireless Audio Brand',
-                ar: 'ساوند كور من انكر: العلامة الأولى عالمياً في السماعات اللاسلكية'
-            },
-            tagline: {
-                en: 'Hear It. Feel It.',
-                ar: 'اسمعها. عيشها.'
-            },
-            history: {
-                en: 'Soundcore was launched in 2016 as Anker\'s dedicated audio brand, bringing the same commitment to quality and innovation that made Anker #1 in charging. Today, Soundcore has served over 100 million users worldwide with award-winning earbuds and speakers. The brand\'s philosophy is simple: deliver premium audio experiences at accessible prices. From the budget-friendly R50i to the flagship Liberty 4, every Soundcore product is engineered with precision and backed by the Anker quality guarantee.',
-                ar: 'أُطلقت ساوند كور في عام 2016 كعلامة الصوت المتخصصة من انكر، حاملةً نفس الالتزام بالجودة والابتكار الذي جعل انكر الأولى في الشحن. اليوم، خدمت ساوند كور أكثر من 100 مليون مستخدم حول العالم بسماعات ومكبرات صوت حائزة على جوائز. فلسفة العلامة بسيطة: تقديم تجارب صوتية ممتازة بأسعار معقولة. من R50i الاقتصادية إلى Liberty 4 الرائدة، كل منتج ساوند كور مُصمم بدقة ومدعوم بضمان جودة انكر.'
-            },
-            achievements: [
-                { icon: '🎧', stat: { en: '100M+', ar: '+100 مليون' }, label: { en: 'Users Worldwide', ar: 'مستخدم حول العالم' } },
-                { icon: '⭐', stat: { en: '4.8/5', ar: '4.8/5' }, label: { en: 'Average Rating', ar: 'متوسط التقييم' } },
-                { icon: '🏆', stat: { en: '#1', ar: 'رقم 1' }, label: { en: 'Budget Earbuds Brand', ar: 'ماركة سماعات اقتصادية' } },
-                { icon: '📱', stat: { en: '10M+', ar: '+10 مليون' }, label: { en: 'App Downloads', ar: 'تحميل للتطبيق' } },
-                { icon: '🎵', stat: { en: '2016', ar: '2016' }, label: { en: 'Year Launched', ar: 'سنة الإطلاق' } },
-                { icon: '🌍', stat: { en: '50+', ar: '+50' }, label: { en: 'Countries', ar: 'دولة' } }
-            ],
-            technologies: [
-                { name: 'Hi-Res Audio', icon: '🎵', description: { en: 'LDAC & aptX HD support for lossless audio quality up to 990kbps. Certified by Japan Audio Society for true audiophile experience.', ar: 'دعم LDAC و aptX HD لجودة صوت بدون فقدان حتى 990kbps. معتمدة من جمعية الصوت اليابانية لتجربة صوتية حقيقية.' } },
-                { name: 'ANC (Active Noise Cancelling)', icon: '🔇', description: { en: 'Advanced noise cancellation that blocks up to 98% of ambient noise. Perfect for commutes, flights, and focused work.', ar: 'عزل ضوضاء متقدم يحجب حتى 98% من الأصوات المحيطة. مثالي للمواصلات والسفر والتركيز.' } },
-                { name: 'HearID', icon: '🧠', description: { en: 'AI-powered personalized audio profile. The Soundcore app analyzes your hearing and creates a custom EQ just for your ears.', ar: 'ملف صوتي شخصي بالذكاء الاصطناعي. تطبيق ساوند كور يحلل سمعك وينشئ EQ مخصص لأذنيك.' } },
-                { name: '360° BassUp', icon: '🔊', description: { en: 'Proprietary bass enhancement technology for speakers. Delivers powerful, room-filling sound in all directions.', ar: 'تقنية تعزيز الباس الحصرية للسبيكرات. تقدم صوتاً قوياً يملأ الغرفة من كل الاتجاهات.' } },
-                { name: 'LDAC Codec', icon: '📡', description: { en: 'Sony\'s premium wireless audio codec supported by Soundcore. Transmits 3x more data than standard Bluetooth for studio-quality sound.', ar: 'كودك الصوت اللاسلكي المتميز من سوني مدعوم في ساوند كور. ينقل 3 أضعاف البيانات لجودة صوت الاستوديو.' } }
-            ],
-            useCases: [
-                { icon: '🏃', title: { en: 'Sports & Fitness', ar: 'رياضة ولياقة' }, description: { en: 'Sweat-proof IPX5 earbuds with secure fit. Beat your workout with bass that moves you.', ar: 'سماعات مقاومة للعرق IPX5 بتثبيت آمن. تغلب على تمرينك بباس يحركك.' } },
-                { icon: '✈️', title: { en: 'Commute & Travel', ar: 'مواصلات وسفر' }, description: { en: 'ANC earbuds that turn chaos into calm. Block out the world and enjoy your music.', ar: 'سماعات ANC تحول الفوضى لهدوء. احجب العالم واستمتع بموسيقاك.' } },
-                { icon: '🏠', title: { en: 'Home & Living', ar: 'منزل ومعيشة' }, description: { en: 'Speakers that fill every corner. From Motion+ Hi-Res to Flare 2 party lights.', ar: 'سبيكرات تملأ كل ركن. من Motion+ عالي الدقة لـ Flare 2 بإضاءة الحفلات.' } },
-                { icon: '🎉', title: { en: 'Outdoor & Party', ar: 'حفلات ورحلات' }, description: { en: 'Waterproof speakers with 360° sound. IPX7 rated for pool parties and beach days.', ar: 'سبيكرات مقاومة للماء بصوت 360 درجة. تصنيف IPX7 لحفلات المسبح والشاطئ.' } }
-            ],
-            trustBadges: [
-                { icon: '🎵', title: { en: 'Hi-Res Certified', ar: 'صوت Hi-Res معتمد' }, description: { en: 'Japan Audio Society', ar: 'جمعية الصوت اليابانية' } },
-                { icon: '🛡️', title: { en: '12-Month Warranty', ar: 'ضمان 12 شهر' }, description: { en: 'Instant replacement', ar: 'استبدال فوري' } },
-                { icon: '📱', title: { en: 'Soundcore App', ar: 'تطبيق Soundcore' }, description: { en: 'Free EQ & Updates', ar: 'EQ مجاني وتحديثات' } },
-                { icon: '📲', title: { en: 'iOS/Android', ar: 'iOS/Android' }, description: { en: 'Full compatibility', ar: 'توافق كامل' } },
-                { icon: '⭐', title: { en: '4.8/5 Rating', ar: 'تقييم 4.8/5' }, description: { en: 'Global average', ar: 'متوسط عالمي' } },
-                { icon: '🌍', title: { en: 'World\'s Leading', ar: 'الأولى عالمياً' }, description: { en: 'Wireless audio brand', ar: 'في السماعات اللاسلكية' } }
-            ],
-            faq: {
-                ar: [
-                    { question: 'ما الفرق بين سماعات Soundcore R50i و P20i و Liberty 4؟', answer: '**R50i** (868 ج.م): الخيار الاقتصادي مع جودة صوت ممتازة وبطارية 10 ساعات. **P20i** (868 ج.م): نفس السعر لكن بتصميم مختلف وألوان أكثر. **Liberty 4** (الأعلى): تأتي بـ ANC، Hi-Res Audio، وHearID للصوت الشخصي. اختر R50i للميزانية، Liberty 4 للتجربة الكاملة.' },
-                    { question: 'هل سماعات Soundcore تدعم عزل الضوضاء ANC؟', answer: 'ليس كل الموديلات! **R50i و P20i** لا تحتوي ANC (لكن تعزل الضوضاء بشكل سلبي). أما **Liberty 4 و P40i** فتأتي بـ ANC نشط يحجب 98% من الضوضاء. إذا كنت تستخدم المواصلات كثيراً، ANC يستحق الفرق.' },
-                    { question: 'كيف أعرف أن سماعة Soundcore أصلية وليست تقليد؟', answer: 'الطريقة الأضمن: حمّل **تطبيق Soundcore** من App Store أو Google Play وحاول ربط السماعة. إذا لم يتعرف التطبيق عليها = مقلدة 100%. المنتجات الأصلية تظهر فوراً وتتيح لك تحديث firmware وتخصيص EQ.' },
-                    { question: 'أيهما أفضل: سماعات Soundcore أم AirPods؟', answer: 'يعتمد على احتياجك! **AirPods** ممتازة لمستخدمي آيفون وتكامل مع Apple. **Soundcore** تقدم نفس الجودة (أحياناً أفضل في الباس) بنصف السعر أو أقل، مع Hi-Res Audio وتطبيق تخصيص قوي. للميزانية الذكية، Soundcore هي الخيار.' },
-                    { question: 'هل تطبيق Soundcore متاح بالعربي؟', answer: 'التطبيق حالياً بالإنجليزية فقط، لكنه سهل الاستخدام جداً. يتيح لك: تخصيص EQ (الصوت)، تفعيل HearID (ملف صوتي شخصي)، تحديث firmware السماعة، وتتبع السماعة إذا ضاعت. متاح مجاناً على iOS و Android.' }
-                ],
-                en: [
-                    { question: 'What is the difference between Soundcore R50i, P20i, and Liberty 4?', answer: '**R50i** (EGP 868): Budget-friendly with excellent sound and 10-hour battery. **P20i** (EGP 868): Same price, different design with more colors. **Liberty 4** (Flagship): Features ANC, Hi-Res Audio, and personalized HearID. Choose R50i for budget, Liberty 4 for the full experience.' },
-                    { question: 'Do Soundcore earbuds support ANC (Active Noise Cancelling)?', answer: 'Not all models! **R50i & P20i** don\'t have ANC (but provide passive isolation). **Liberty 4 & P40i** come with active ANC that blocks 98% of noise. If you commute frequently, ANC is worth the upgrade.' },
-                    { question: 'How can I verify if my Soundcore earbuds are genuine?', answer: 'The safest method: Download the **Soundcore App** from App Store or Google Play and try to pair your earbuds. If the app doesn\'t recognize them = 100% fake. Genuine products appear instantly and allow firmware updates and EQ customization.' },
-                    { question: 'Which is better: Soundcore or AirPods?', answer: 'Depends on your needs! **AirPods** are excellent for iPhone users and Apple ecosystem. **Soundcore** offers the same quality (sometimes better bass) at half the price or less, with Hi-Res Audio and a powerful customization app. For smart budgets, Soundcore wins.' },
-                    { question: 'Is the Soundcore app available in Arabic?', answer: 'The app is currently English-only but very user-friendly. It lets you: customize EQ (sound), activate HearID (personal audio profile), update earbuds firmware, and track lost earbuds. Available free on iOS & Android.' }
-                ]
-            }
-        },
         metadata: {
             en: {
                 title: 'Anker Egypt Official | #1 Charging Brand | Power Banks & Soundcore',
