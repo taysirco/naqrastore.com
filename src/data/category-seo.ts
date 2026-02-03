@@ -120,10 +120,10 @@ export const categoryData: Record<string, Record<string, CategorySeoData>> = {
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerCore 20000mAh (iPhone 17 Ready)', price: 1200, badge: 'الأكثر طلباً' },
-                        { name: 'Anker Nano 10000mAh', price: 750, badge: 'حجم صغير' },
-                        { name: 'Anker Prime 27650mAh (250W)', price: 4500, badge: 'لأجهزة M5' },
-                        { name: 'Anker 737 Power Bank', price: 3200, badge: 'Premium' },
+                        { name: 'Anker PowerCore 20000mAh (iPhone 17 Ready)', price: 1054, badge: 'الأكثر طلباً' },
+                        { name: 'Anker Nano 10000mAh', price: 1358, badge: 'حجم صغير' },
+                        { name: 'Anker Prime 27650mAh (250W)', price: 3799, badge: 'لأجهزة M5' },
+                        { name: 'Anker 737 Power Bank', price: 4274, badge: 'Premium' },
                     ]
                 },
                 en: {
@@ -183,10 +183,10 @@ export const categoryData: Record<string, Record<string, CategorySeoData>> = {
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerCore 20000mAh (iPhone 17)', price: 1200, badge: 'Best Seller' },
-                        { name: 'Anker Nano 10000mAh', price: 750, badge: 'Compact' },
-                        { name: 'Anker Prime 27650mAh (250W)', price: 4500, badge: 'For M5 Chips' },
-                        { name: 'Anker 737 Power Bank', price: 3200, badge: 'Flagship' },
+                        { name: 'Anker PowerCore 20000mAh (iPhone 17)', price: 1054, badge: 'Best Seller' },
+                        { name: 'Anker Nano 10000mAh', price: 1358, badge: 'Compact' },
+                        { name: 'Anker Prime 27650mAh (250W)', price: 3799, badge: 'For M5 Chips' },
+                        { name: 'Anker 737 Power Bank', price: 4274, badge: 'Flagship' },
                     ]
                 }
             }
@@ -250,10 +250,10 @@ export const categoryData: Record<string, Record<string, CategorySeoData>> = {
                         }
                     ],
                     products: [
-                        { name: 'Anker Nano 30W (iPhone 17)', price: 550, badge: 'خيار 2026' },
-                        { name: 'Anker 45W Ultra (Samsung S26)', price: 850, badge: 'شحن فائق' },
-                        { name: 'Anker Prime 65W GaN', price: 1200, badge: 'للابتوب M5' },
-                        { name: 'Anker 100W Desktop', price: 2500, badge: 'محطة شحن' },
+                        { name: 'Anker Nano 30W (iPhone 17)', price: 759, badge: 'خيار 2026' },
+                        { name: 'Anker 45W Ultra (Samsung S26)', price: 759, badge: 'شحن فائق' },
+                        { name: 'Anker Prime 65W GaN', price: 759, badge: 'للابتوب M5' },
+                        { name: 'Anker 100W Desktop', price: 759, badge: 'محطة شحن' },
                     ]
                 },
                 en: {
@@ -298,10 +298,10 @@ Anker's latest generation technology provides:
                         }
                     ],
                     products: [
-                        { name: 'Anker Nano 30W (iPhone 17)', price: 550, badge: '2026 Choice' },
-                        { name: 'Anker 45W Ultra (Samsung S26)', price: 850, badge: 'Super Fast' },
-                        { name: 'Anker Prime 65W GaN', price: 1200, badge: 'For M5' },
-                        { name: 'Anker 100W Desktop', price: 2500, badge: 'Desk Station' },
+                        { name: 'Anker Nano 30W (iPhone 17)', price: 759, badge: '2026 Choice' },
+                        { name: 'Anker 45W Ultra (Samsung S26)', price: 759, badge: 'Super Fast' },
+                        { name: 'Anker Prime 65W GaN', price: 759, badge: 'For M5' },
+                        { name: 'Anker 100W Desktop', price: 759, badge: 'Desk Station' },
                     ]
                 }
             }
@@ -369,9 +369,9 @@ Anker's latest generation technology provides:
                         }
                     ],
                     products: [
-                        { name: 'Anker Soundcore R50i', price: 600, badge: 'اقتصادي ناجح' },
-                        { name: 'Anker Soundcore P20i', price: 500, badge: 'Best Value' },
-                        { name: 'Anker Liberty 4', price: 2500, badge: 'Premium ANC' },
+                        { name: 'Anker Soundcore R50i', price: 868, badge: 'اقتصادي ناجح' },
+                        { name: 'Anker Soundcore P20i', price: 868, badge: 'Best Value' },
+                        { name: 'Anker Liberty 4', price: 868, badge: 'Premium ANC' },
                     ]
                 },
                 en: {
@@ -420,9 +420,9 @@ The App allows you to: Customize EQ, Enable Game Mode, Update Firmware, and Find
                         }
                     ],
                     products: [
-                        { name: 'Anker Soundcore R50i', price: 600, badge: 'Budget King' },
-                        { name: 'Anker Soundcore P20i', price: 500, badge: 'Best Value' },
-                        { name: 'Anker Liberty 4', price: 2500, badge: 'Premium ANC' },
+                        { name: 'Anker Soundcore R50i', price: 868, badge: 'Budget King' },
+                        { name: 'Anker Soundcore P20i', price: 868, badge: 'Best Value' },
+                        { name: 'Anker Liberty 4', price: 868, badge: 'Premium ANC' },
                     ]
                 }
             }
@@ -484,9 +484,9 @@ The App allows you to: Customize EQ, Enable Game Mode, Update Firmware, and Find
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerLine Select+ (Braided)', price: 650, badge: 'الأقوى' },
-                        { name: 'Anker PowerLine II (USB-C to Lightning)', price: 550, badge: 'شحن سريع' },
-                        { name: 'Anker 322 Cable (USB-C to USB-C)', price: 350, badge: 'اقتصادي' },
+                        { name: 'Anker PowerLine Select+ (Braided)', price: 508, badge: 'الأقوى' },
+                        { name: 'Anker PowerLine II (USB-C to Lightning)', price: 508, badge: 'شحن سريع' },
+                        { name: 'Anker 322 Cable (USB-C to USB-C)', price: 309, badge: 'اقتصادي' },
                     ]
                 },
                 en: {
@@ -529,9 +529,9 @@ Absolutely. Our USB-C to Lightning and USB-C to USB-C cables fully support PD pr
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerLine Select+ (Braided)', price: 650, badge: 'Durable' },
-                        { name: 'Anker PowerLine II (USB-C to Lightning)', price: 550, badge: 'Fast Charge' },
-                        { name: 'Anker 322 Cable (USB-C to USB-C)', price: 350, badge: 'Value' },
+                        { name: 'Anker PowerLine Select+ (Braided)', price: 508, badge: 'Durable' },
+                        { name: 'Anker PowerLine II (USB-C to Lightning)', price: 508, badge: 'Fast Charge' },
+                        { name: 'Anker 322 Cable (USB-C to USB-C)', price: 309, badge: 'Value' },
                     ]
                 }
             }
@@ -592,9 +592,9 @@ Absolutely. Our USB-C to Lightning and USB-C to USB-C cables fully support PD pr
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerDrive Speed+ 2', price: 850, badge: 'PD سريع' },
-                        { name: 'Anker 323 Car Charger (52W)', price: 950, badge: 'الأقوى' },
-                        { name: 'Anker Mini Alloys', price: 450, badge: 'معدني' },
+                        { name: 'Anker PowerDrive Speed+ 2', price: 656, badge: 'PD سريع' },
+                        { name: 'Anker 323 Car Charger (52W)', price: 656, badge: 'الأقوى' },
+                        { name: 'Anker Mini Alloys', price: 656, badge: 'معدني' },
                     ]
                 },
                 en: {
@@ -636,9 +636,9 @@ No. Anker chargers draw negligible power when the car is off, ensuring your car 
                         }
                     ],
                     products: [
-                        { name: 'Anker PowerDrive Speed+ 2', price: 850, badge: 'PD Fast' },
-                        { name: 'Anker 323 Car Charger (52W)', price: 950, badge: 'Powerful' },
-                        { name: 'Anker Mini Alloys', price: 450, badge: 'Metallic' },
+                        { name: 'Anker PowerDrive Speed+ 2', price: 656, badge: 'PD Fast' },
+                        { name: 'Anker 323 Car Charger (52W)', price: 656, badge: 'Powerful' },
+                        { name: 'Anker Mini Alloys', price: 656, badge: 'Metallic' },
                     ]
                 }
             }
@@ -680,8 +680,8 @@ No. Anker chargers draw negligible power when the car is off, ensuring your car 
 - **Soundcore Flare 2** - سماعة الحفلات مع إضاءة LED متفاعلة
     `,
                     products: [
-                        { name: 'Soundcore Motion+', price: 4500, badge: 'صوت Hi-Res' },
-                        { name: 'Soundcore Flare 2', price: 2900, badge: 'إضاءة LED' },
+                        { name: 'Soundcore Motion+', price: 2849, badge: 'صوت Hi-Res' },
+                        { name: 'Soundcore Flare 2', price: 3419, badge: 'إضاءة LED' },
                     ]
                 },
                 en: {
@@ -704,8 +704,8 @@ Discover the original **Anker Soundcore Speakers** in Egypt - exceptional audio 
 - **Soundcore Flare 2** - Party speaker with reactive LED lights
     `,
                     products: [
-                        { name: 'Soundcore Motion+', price: 4500, badge: 'Hi-Res Audio' },
-                        { name: 'Soundcore Flare 2', price: 2900, badge: 'LED Lights' },
+                        { name: 'Soundcore Motion+', price: 2849, badge: 'Hi-Res Audio' },
+                        { name: 'Soundcore Flare 2', price: 3419, badge: 'LED Lights' },
                     ]
                 }
             }
@@ -774,9 +774,9 @@ Discover the original **Anker Soundcore Speakers** in Egypt - exceptional audio 
                         }
                     ],
                     products: [
-                        { name: 'Joyroom T03s', price: 350, badge: '⭐ المنتج النجم' },
-                        { name: 'JR-T03s Pro', price: 450, badge: 'الموديل البرو' },
-                        { name: 'Joyroom T03s Plus', price: 400, badge: 'بطارية أطول' },
+                        { name: 'Joyroom T03s', price: 664, badge: '⭐ المنتج النجم' },
+                        { name: 'JR-T03s Pro', price: 774, badge: 'الموديل البرو' },
+                        { name: 'Joyroom T03s Plus', price: 664, badge: 'بطارية أطول' },
                     ]
                 },
                 en: {
@@ -824,9 +824,9 @@ Many fakes exist. To ensure you buy the original:
                         }
                     ],
                     products: [
-                        { name: 'Joyroom T03s', price: 350, badge: '⭐ Hero Product' },
-                        { name: 'JR-T03s Pro', price: 450, badge: 'Pro Model' },
-                        { name: 'Joyroom T03s Plus', price: 400, badge: 'Extended Battery' },
+                        { name: 'Joyroom T03s', price: 664, badge: '⭐ Hero Product' },
+                        { name: 'JR-T03s Pro', price: 774, badge: 'Pro Model' },
+                        { name: 'Joyroom T03s Plus', price: 664, badge: 'Extended Battery' },
                     ]
                 }
             }
@@ -895,9 +895,9 @@ Many fakes exist. To ensure you buy the original:
                         }
                     ],
                     products: [
-                        { name: 'Joyroom 10000mAh Slim 22.5W', price: 850, badge: 'الأكثر مبيعاً' },
-                        { name: 'Joyroom 20000mAh Pro 22.5W', price: 1200, badge: 'وحش الطاقة' },
-                        { name: 'Joyroom MagSafe 10000mAh', price: 1500, badge: 'لاسلكي' },
+                        { name: 'Joyroom 10000mAh Slim 22.5W', price: 1624, badge: 'الأكثر مبيعاً' },
+                        { name: 'Joyroom 20000mAh Pro 22.5W', price: 997, badge: 'وحش الطاقة' },
+                        { name: 'Joyroom MagSafe 10000mAh', price: 850, badge: 'لاسلكي' },
                     ]
                 },
                 en: {
@@ -947,9 +947,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom 10000mAh Slim 22.5W', price: 850, badge: 'Best Seller' },
-                        { name: 'Joyroom 20000mAh Pro 22.5W', price: 1200, badge: 'Power Beast' },
-                        { name: 'Joyroom MagSafe 10000mAh', price: 1500, badge: 'Wireless' },
+                        { name: 'Joyroom 10000mAh Slim 22.5W', price: 1624, badge: 'Best Seller' },
+                        { name: 'Joyroom 20000mAh Pro 22.5W', price: 997, badge: 'Power Beast' },
+                        { name: 'Joyroom MagSafe 10000mAh', price: 850, badge: 'Wireless' },
                     ]
                 }
             }
@@ -1008,9 +1008,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom 20W PD Charger', price: 299, badge: 'اقتصادي' },
-                        { name: 'Joyroom 35W GaN Dual', price: 550, badge: 'الأسرع' },
-                        { name: 'Joyroom 65W Laptop Charger', price: 950, badge: 'للابتوب' },
+                        { name: 'Joyroom 20W PD Charger', price: 236, badge: 'اقتصادي' },
+                        { name: 'Joyroom 35W GaN Dual', price: 342, badge: 'الأسرع' },
+                        { name: 'Joyroom 65W Laptop Charger', price: 280, badge: 'للابتوب' },
                     ]
                 },
                 en: {
@@ -1050,9 +1050,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom 20W PD Charger', price: 299, badge: 'Value' },
-                        { name: 'Joyroom 35W GaN Dual', price: 550, badge: 'Fastest' },
-                        { name: 'Joyroom 65W Laptop Charger', price: 950, badge: 'Laptop-Ready' },
+                        { name: 'Joyroom 20W PD Charger', price: 236, badge: 'Value' },
+                        { name: 'Joyroom 35W GaN Dual', price: 342, badge: 'Fastest' },
+                        { name: 'Joyroom 65W Laptop Charger', price: 280, badge: 'Laptop-Ready' },
                     ]
                 }
             }
@@ -1118,9 +1118,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom Light Speed (Auto-Stop)', price: 150, badge: 'يحمي البطارية' },
-                        { name: 'Joyroom 100W Type-C', price: 250, badge: 'للابتوب' },
-                        { name: 'Joyroom 3-in-1 Braided', price: 200, badge: 'عملي' },
+                        { name: 'Joyroom Light Speed (Auto-Stop)', price: 118, badge: 'يحمي البطارية' },
+                        { name: 'Joyroom 100W Type-C', price: 123, badge: 'للابتوب' },
+                        { name: 'Joyroom 3-in-1 Braided', price: 237, badge: 'عملي' },
                     ]
                 },
                 en: {
@@ -1161,9 +1161,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom Light Speed (Auto-Stop)', price: 150, badge: 'Battery Saver' },
-                        { name: 'Joyroom 100W Type-C', price: 250, badge: 'Laptop Ready' },
-                        { name: 'Joyroom 3-in-1 Braided', price: 200, badge: 'Multi-Use' },
+                        { name: 'Joyroom Light Speed (Auto-Stop)', price: 118, badge: 'Battery Saver' },
+                        { name: 'Joyroom 100W Type-C', price: 123, badge: 'Laptop Ready' },
+                        { name: 'Joyroom 3-in-1 Braided', price: 237, badge: 'Multi-Use' },
                     ]
                 }
             }
@@ -1196,9 +1196,9 @@ Fake Joyroom banks are common (often filled with sand!).
       - **حامل موبايل للسيارة** - Car Holder
     `,
                     products: [
-                        { name: 'Joyroom Car Charger', price: 150, badge: 'شحن سريع' },
-                        { name: 'Joyroom Car Holder', price: 120, badge: 'مغناطيسي' },
-                        { name: 'Joyroom Dashboard Mount', price: 100, badge: 'مثبت' },
+                        { name: 'Joyroom Car Charger', price: 513, badge: 'شحن سريع' },
+                        { name: 'Joyroom Car Holder', price: 169, badge: 'مغناطيسي' },
+                        { name: 'Joyroom Dashboard Mount', price: 169, badge: 'مثبت' },
                     ]
                 },
                 en: {
@@ -1212,9 +1212,9 @@ Fake Joyroom banks are common (often filled with sand!).
       - **Car Phone Holder** - Magnetic mount
     `,
                     products: [
-                        { name: 'Joyroom Car Charger', price: 150, badge: 'Fast Charge' },
-                        { name: 'Joyroom Car Holder', price: 120, badge: 'Magnetic' },
-                        { name: 'Joyroom Dashboard Mount', price: 100, badge: 'Dashboard' },
+                        { name: 'Joyroom Car Charger', price: 513, badge: 'Fast Charge' },
+                        { name: 'Joyroom Car Holder', price: 169, badge: 'Magnetic' },
+                        { name: 'Joyroom Dashboard Mount', price: 169, badge: 'Dashboard' },
                     ]
                 }
             }
@@ -1279,9 +1279,9 @@ Fake Joyroom banks are common (often filled with sand!).
                         }
                     ],
                     products: [
-                        { name: 'Joyroom JR-ZS290 (Magnetic)', price: 350, badge: 'الأكثر مبيعاً' },
-                        { name: 'Joyroom Auto-Clamping (Solar)', price: 650, badge: 'يعمل بالطاقة الشمسية' },
-                        { name: 'Joyroom Dashboard 360', price: 300, badge: 'للتابلوه' },
+                        { name: 'Joyroom JR-ZS290 (Magnetic)', price: 2550, badge: 'الأكثر مبيعاً' },
+                        { name: 'Joyroom Auto-Clamping (Solar)', price: 2550, badge: 'يعمل بالطاقة الشمسية' },
+                        { name: 'Joyroom Dashboard 360', price: 169, badge: 'للتابلوه' },
                     ]
                 },
                 en: {
@@ -1327,9 +1327,9 @@ Absolutely not. The N52 magnetic field is closed and shielded, specifically desi
                         }
                     ],
                     products: [
-                        { name: 'Joyroom JR-ZS290 (Magnetic)', price: 350, badge: 'Best Seller' },
-                        { name: 'Joyroom Auto-Clamping (Solar)', price: 650, badge: 'Solar Powered' },
-                        { name: 'Joyroom Dashboard 360', price: 300, badge: 'Dashboard' },
+                        { name: 'Joyroom JR-ZS290 (Magnetic)', price: 2550, badge: 'Best Seller' },
+                        { name: 'Joyroom Auto-Clamping (Solar)', price: 2550, badge: 'Solar Powered' },
+                        { name: 'Joyroom Dashboard 360', price: 169, badge: 'Dashboard' },
                     ]
                 }
             }
@@ -1394,9 +1394,9 @@ Absolutely not. The N52 magnetic field is closed and shielded, specifically desi
                         }
                     ],
                     products: [
-                        { name: 'Joyroom FT3 Pro (Calling)', price: 1850, badge: 'الأكثر مبيعاً' },
-                        { name: 'Joyroom FT5 Smart Watch', price: 1950, badge: 'شاشة كبيرة' },
-                        { name: 'Joyroom FC2 Classic', price: 1600, badge: 'كلاسيك' },
+                        { name: 'Joyroom FT3 Pro (Calling)', price: 1092, badge: 'الأكثر مبيعاً' },
+                        { name: 'Joyroom FT5 Smart Watch', price: 1092, badge: 'شاشة كبيرة' },
+                        { name: 'Joyroom FC2 Classic', price: 1092, badge: 'كلاسيك' },
                     ]
                 },
                 en: {
@@ -1442,9 +1442,9 @@ Joyroom watches provide excellent estimation for fitness tracking (Steps, Calori
                         }
                     ],
                     products: [
-                        { name: 'Joyroom FT3 Pro (Calling)', price: 1850, badge: 'Best Seller' },
-                        { name: 'Joyroom FT5 Smart Watch', price: 1950, badge: 'Big Screen' },
-                        { name: 'Joyroom FC2 Classic', price: 1600, badge: 'Classic' },
+                        { name: 'Joyroom FT3 Pro (Calling)', price: 1092, badge: 'Best Seller' },
+                        { name: 'Joyroom FT5 Smart Watch', price: 1092, badge: 'Big Screen' },
+                        { name: 'Joyroom FC2 Classic', price: 1092, badge: 'Classic' },
                     ]
                 }
             }
