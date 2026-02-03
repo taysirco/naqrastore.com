@@ -221,6 +221,40 @@ export const brandData: Record<string, BrandData> = {
                 { icon: '🎧', title: { en: 'The T03s Legacy', ar: 'إرث T03s' }, description: { en: 'Most trusted earbuds in Egypt', ar: 'السماعة الأكثر ثقة في مصر' } },
             ]
         },
+        // NEW: About Section for Joyroom SEO
+        aboutSection: {
+            title: {
+                en: 'Joyroom: Smart Technology at Smart Prices Since 2009',
+                ar: 'جوي روم: تكنولوجيا ذكية بأسعار ذكية منذ 2009'
+            },
+            history: {
+                en: 'Founded in 2009 in Shenzhen, China, Joyroom has grown from a small electronics manufacturer to one of the world\'s most trusted consumer electronics brands. With a mission to make quality technology accessible to everyone, Joyroom designs products that deliver 90% of flagship features at 25% of the price. Today, Joyroom is sold in over 100 countries, with the legendary T03s earbuds becoming Egypt\'s best-selling AirPods alternative. From power banks with Grade A+ cells to braided cables with 10,000+ bend lifespan, every Joyroom product undergoes rigorous quality testing.',
+                ar: 'تأسست جوي روم عام 2009 في شينزين بالصين، ونمت من مصنع إلكترونيات صغير لتصبح واحدة من أكثر العلامات التجارية موثوقية في العالم. مهمتها جعل التكنولوجيا الجيدة في متناول الجميع، فتصمم منتجات تقدم 90% من مواصفات الفلاجشيب بـ 25% من السعر. اليوم تُباع جوي روم في أكثر من 100 دولة، وأصبحت سماعات T03s الأسطورية البديل الأول للايربودز في مصر. من الباور بانك بخلايا Grade A+ للكابلات المجدولة بعمر 10,000+ ثنية، كل منتج يخضع لاختبارات صارمة.'
+            },
+            achievements: [
+                { icon: '🌍', stat: { en: '100+', ar: '+100' }, label: { en: 'Countries', ar: 'دولة' } },
+                { icon: '⭐', stat: { en: '4.7/5', ar: '4.7/5' }, label: { en: 'Average Rating', ar: 'متوسط التقييم' } },
+                { icon: '📦', stat: { en: '50M+', ar: '+50 مليون' }, label: { en: 'Units Sold', ar: 'وحدة مباعة' } },
+                { icon: '🎧', stat: { en: '#1', ar: 'رقم 1' }, label: { en: 'Budget Earbuds', ar: 'سماعات اقتصادية' } },
+                { icon: '🏭', stat: { en: '2009', ar: '2009' }, label: { en: 'Year Founded', ar: 'سنة التأسيس' } },
+                { icon: '🔋', stat: { en: 'Grade A+', ar: 'Grade A+' }, label: { en: 'Battery Cells', ar: 'خلايا بطارية' } }
+            ],
+            technologies: [
+                { name: 'Golden Code Verification', description: { en: 'Every Joyroom product has a unique scratch-off QR code on the box. Scan it to verify authenticity instantly on the official website. No more worrying about fakes!', ar: 'كل منتج جوي روم له كود QR فريد على العلبة. امسحه للتحقق فوراً من الموقع الرسمي. لا مزيد من القلق بشأن المقلد!' } },
+                { name: 'Smart IC Protection', description: { en: 'Intelligent charging circuit that prevents overcharging, overheating, and short circuits. Your expensive phone is always safe with Joyroom chargers.', ar: 'دائرة شحن ذكية تمنع الشحن الزائد والسخونة والماس الكهربائي. موبايلك الغالي دائماً آمن مع شواحن جوي روم.' } },
+                { name: 'Grade A+ Li-Polymer Cells', description: { en: 'Power banks use premium lithium-polymer cells (not lithium-ion) for safer operation, longer lifespan, and zero swelling risk. Same cells used in premium brands.', ar: 'الباور بانك يستخدم خلايا ليثيوم بوليمر ممتازة (ليس ليثيوم أيون) لتشغيل أكثر أماناً وعمر أطول وصفر خطر انتفاخ. نفس الخلايا في الماركات الـ premium.' } },
+                { name: 'Braided Durability Tech', description: { en: 'Cables feature double-braided nylon shielding and reinforced stress points. Tested to withstand 10,000+ bends without breaking. Outlasts regular cables 5x.', ar: 'الكابلات مغطاة بنايلون مجدول مزدوج ونقاط توتر معززة. مختبرة لتحمل 10,000+ ثنية بدون كسر. تعيش 5 أضعاف الكابل العادي.' } }
+            ]
+        },
+        // NEW: Trust Badges for Joyroom
+        trustBadges: [
+            { icon: '🔐', title: { en: 'Golden Code', ar: 'الكود الذهبي' }, description: { en: 'Anti-fake verified', ar: 'ضد التقليد' } },
+            { icon: '🛡️', title: { en: '12-Month Warranty', ar: 'ضمان 12 شهر' }, description: { en: 'Direct replacement', ar: 'استبدال مباشر' } },
+            { icon: '🔋', title: { en: 'Grade A+ Cells', ar: 'خلايا A+' }, description: { en: 'Safe batteries', ar: 'بطاريات آمنة' } },
+            { icon: '💰', title: { en: 'Best Value', ar: 'أفضل قيمة' }, description: { en: '90% features, 25% price', ar: '90% مواصفات، 25% سعر' } },
+            { icon: '📱', title: { en: 'Universal', ar: 'عالمي' }, description: { en: 'iOS + Android', ar: 'ايفون + اندرويد' } },
+            { icon: '📞', title: { en: 'WhatsApp Support', ar: 'دعم واتساب' }, description: { en: '24/7 help', ar: 'مساعدة 24/7' } }
+        ],
         metadata: {
             en: {
                 title: 'Joyroom Egypt | The Budget King | T03s & Power Banks',
@@ -263,14 +297,18 @@ export const brandData: Record<string, BrandData> = {
         },
         faq: {
             ar: [
-                { question: 'ما هو الكود الذهبي؟', answer: 'هو ستيكر موجود على ظهر كل علبة جوي روم أصلية. قم بكشط الطبقة الفضية سيظهر لك كود QR، امسحه وسيوجهك للموقع الرسمي للتأكد أن المنتج أصلي وليس مقلداً.' },
-                { question: 'هل سماعات جوي روم تعمل على الاندرويد؟', answer: 'نعم، تعمل بكفاءة تامة (صوت ومايك) على جميع هواتف الاندرويد والايفون واللابتوب.' },
-                { question: 'ما هي مدة ضمان جوي روم؟', answer: 'نقدم ضمان استبدال لمدة 12 شهراً ضد عيوب الصناعة على جميع المنتجات الموثقة.' }
+                { question: 'ما هو الكود الذهبي وكيف أتأكد أن المنتج أصلي؟', answer: 'الكود الذهبي هو نظام تحقق حصري لجوي روم. كل علبة أصلية تحتوي على ستيكر فضي على الظهر. اكشط الطبقة الفضية → امسح الـ QR Code → سيأخذك للموقع الرسمي ويؤكد أصالة المنتج. إذا لم يظهر التأكيد = المنتج مقلد! اشترِ فقط من موزعين معتمدين.' },
+                { question: 'هل سماعات T03s أفضل من AirPods؟', answer: 'تعتمد على احتياجك! T03s تقدم 90% من تجربة AirPods (اقتران فوري، صوت نقي، عزل ضوضاء) بـ 25% فقط من السعر. الفرق الأساسي: AirPods أفضل في التكامل مع آيفون وجودة المايك. لكن للصوت والموسيقى، T03s منافس قوي جداً وخيار ذكي ماديًا.' },
+                { question: 'هل باور بانك جوي روم آمن على الموبايل؟', answer: 'نعم 100%! جوي روم تستخدم خلايا Lithium-Polymer Grade A+ (ليس Lithium-Ion العادية) وهي أكثر أماناً: لا انتفاخ، لا سخونة زائدة، عمر أطول. بالإضافة لتقنية Smart IC التي توقف الشحن تلقائياً عند الامتلاء. آمنة تماماً على ايفون وسامسونج الغاليين.' },
+                { question: 'أيهما أفضل: جوي روم أم انكر؟', answer: 'انكر = الأفضل أداءً والأغلى (استثمار طويل المدى). جوي روم = أفضل قيمة مقابل سعر (ميزانية ذكية). إذا ميزانيتك مفتوحة اختر انكر. إذا تريد وفر واستفيد بمواصفات ممتازة اختر جوي روم. كلاهما أصلي ومضمون من Cairo Volt.' },
+                { question: 'ما مدة ضمان جوي روم وماذا يشمل؟', answer: 'ضمان 12 شهر استبدال فوري (ليس صيانة!) ضد عيوب الصناعة. يشمل: تلف مفاجئ، خلل في الصوت/الشحن، مشاكل البطارية. لا يشمل: الكسر الفيزيائي، دخول الماء، سوء الاستخدام. تواصل واتساب وسنستبدل المنتج فوراً.' }
             ],
             en: [
-                { question: 'What is the Golden Code?', answer: 'It is a security sticker on the back of every original Joyroom box. Scratch it to reveal a QR code, scan it, and it will confirm authenticity on our official website.' },
-                { question: 'Do T03s earbuds work on Android?', answer: 'Yes, they are fully compatible (Audio & Mic) with Android, iOS, and Window/Mac laptops.' },
-                { question: 'What is the warranty period?', answer: 'We offer a 12-month direct replacement warranty against manufacturing defects for verified original products.' }
+                { question: 'What is the Golden Code and how do I verify authenticity?', answer: 'The Golden Code is Joyroom\'s exclusive verification system. Every original box has a silver sticker on the back. Scratch the silver layer → Scan the QR Code → It takes you to the official website confirming authenticity. If no confirmation = fake product! Buy only from authorized dealers.' },
+                { question: 'Are T03s earbuds better than AirPods?', answer: 'Depends on your needs! T03s deliver 90% of the AirPods experience (instant pairing, clear sound, noise isolation) at only 25% of the price. Main difference: AirPods are better at iPhone integration and mic quality. But for music listening, T03s are a strong competitor and a financially smart choice.' },
+                { question: 'Is Joyroom power bank safe for my phone?', answer: 'Yes, 100%! Joyroom uses Grade A+ Lithium-Polymer cells (not regular Lithium-Ion) which are safer: no swelling, no overheating, longer lifespan. Plus Smart IC technology that auto-stops charging when full. Completely safe for expensive iPhones and Samsung phones.' },
+                { question: 'Which is better: Joyroom or Anker?', answer: 'Anker = Best performance, higher price (long-term investment). Joyroom = Best value for money (smart budget). If budget is not a concern, choose Anker. If you want savings with excellent specs, choose Joyroom. Both are genuine and warranted from Cairo Volt.' },
+                { question: 'What does Joyroom warranty cover?', answer: '12-month instant replacement warranty (not repair!) against manufacturing defects. Covers: sudden failure, audio/charging issues, battery problems. Does not cover: physical damage, water damage, misuse. Contact WhatsApp and we\'ll replace the product immediately.' }
             ]
         }
     }
