@@ -126,6 +126,85 @@ export default async function BrandHubPage({ params }: Props) {
                 />
             </div>
 
+            {/* NEW: Trust Badges Banner */}
+            {data.trustBadges && (
+                <section className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-6 border-y border-gray-100 dark:border-gray-700">
+                    <div className="container mx-auto px-4">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                            {data.trustBadges.map((badge, idx) => (
+                                <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors">
+                                    <span className="text-2xl md:text-3xl mb-2">{badge.icon}</span>
+                                    <span className="font-bold text-sm text-gray-900 dark:text-white">
+                                        {isRTL ? badge.title.ar : badge.title.en}
+                                    </span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                                        {isRTL ? badge.description.ar : badge.description.en}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* NEW: About Section with History & Achievements */}
+            {data.aboutSection && (
+                <section className="py-16 bg-white dark:bg-gray-950">
+                    <div className="container mx-auto px-4">
+                        {/* Section Title */}
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-black mb-4 dark:text-white">
+                                {isRTL ? data.aboutSection.title.ar : data.aboutSection.title.en}
+                            </h2>
+                            <div className={`h-1.5 w-24 mx-auto rounded-full ${brand === 'joyroom' ? 'bg-red-600' : 'bg-blue-600'}`}></div>
+                        </div>
+
+                        {/* History */}
+                        <div className="max-w-4xl mx-auto mb-12">
+                            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-3xl border border-blue-100 dark:border-gray-700">
+                                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                    {isRTL ? data.aboutSection.history.ar : data.aboutSection.history.en}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Achievements Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+                            {data.aboutSection.achievements.map((achievement, idx) => (
+                                <div key={idx} className="text-center p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-800">
+                                    <span className="text-3xl mb-2 block">{achievement.icon}</span>
+                                    <span className="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400 block mb-1">
+                                        {isRTL ? achievement.stat.ar : achievement.stat.en}
+                                    </span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                                        {isRTL ? achievement.label.ar : achievement.label.en}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Technologies */}
+                        <div className="max-w-5xl mx-auto">
+                            <h3 className="text-2xl font-bold text-center mb-8 dark:text-white">
+                                {isRTL ? 'التقنيات الحصرية' : 'Exclusive Technologies'}
+                            </h3>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {data.aboutSection.technologies.map((tech, idx) => (
+                                    <div key={idx} className="p-5 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors">
+                                        <h4 className="font-bold text-lg mb-2 text-blue-600 dark:text-blue-400">
+                                            {tech.name}
+                                        </h4>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            {isRTL ? tech.description.ar : tech.description.en}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Categories Grid (App Style) */}
             <section className="container mx-auto px-4 py-20 -mt-10 relative z-20">
                 <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">

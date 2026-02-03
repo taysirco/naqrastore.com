@@ -28,6 +28,19 @@ export interface BrandData {
             description: { en: string; ar: string };
         }>;
     };
+    // NEW: About Section for SEO
+    aboutSection?: {
+        title: { en: string; ar: string };
+        history: { en: string; ar: string };
+        achievements: Array<{ icon: string; stat: { en: string; ar: string }; label: { en: string; ar: string } }>;
+        technologies: Array<{ name: string; description: { en: string; ar: string } }>;
+    };
+    // NEW: Trust Badges for Social Proof
+    trustBadges?: Array<{
+        icon: string;
+        title: { en: string; ar: string };
+        description: { en: string; ar: string };
+    }>;
     metadata: {
         en: { title: string; description: string; keywords: string; openGraph?: any };
         ar: { title: string; description: string; keywords: string; openGraph?: any };
@@ -41,6 +54,7 @@ export interface BrandData {
         ar: Array<{ question: string; answer: string }>;
     };
 }
+
 
 export const brandData: Record<string, BrandData> = {
     anker: {
@@ -76,6 +90,41 @@ export const brandData: Record<string, BrandData> = {
                 { icon: '🤝', title: { en: 'Local Warranty', ar: 'ضمان محلي حقيقي' }, description: { en: '18 Months Instant Exchange', ar: 'استبدال فوري لمدة 18 شهر' } },
             ]
         },
+        // NEW: Comprehensive About Section for SEO
+        aboutSection: {
+            title: {
+                en: 'About Anker: The World\'s #1 Mobile Charging Brand',
+                ar: 'عن انكر: العلامة التجارية الأولى عالمياً في شحن الهواتف'
+            },
+            history: {
+                en: 'Founded in 2011 by former Google engineer Steven Yang in Shenzhen, China, Anker Innovations began with a mission to make charging smarter, faster, and safer. What started as a small online battery replacement company quickly evolved into the world\'s leading mobile charging brand. Today, Anker powers over 200 million devices worldwide and operates in 100+ countries. The company\'s commitment to R&D excellence has resulted in groundbreaking technologies like GaNPrime™, PowerIQ, and ActiveShield™ that have redefined the charging industry.',
+                ar: 'تأسست انكر عام 2011 على يد مهندس جوجل السابق ستيفن يانج في شنزن بالصين، وبدأت برسالة واضحة: جعل الشحن أذكى وأسرع وأكثر أماناً. ما بدأ كشركة صغيرة لبطاريات الاستبدال تحول بسرعة إلى العلامة التجارية الرائدة عالمياً في شحن الهواتف. اليوم، انكر تشحن أكثر من 200 مليون جهاز حول العالم وتعمل في أكثر من 100 دولة. التزام الشركة بالتميز البحثي أنتج تقنيات ثورية مثل GaNPrime™ و PowerIQ و ActiveShield™ التي أعادت تعريف صناعة الشحن.'
+            },
+            achievements: [
+                { icon: '🏆', stat: { en: '200M+', ar: '+200 مليون' }, label: { en: 'Devices Powered Globally', ar: 'جهاز يعمل بشحن انكر' } },
+                { icon: '🌍', stat: { en: '100+', ar: '+100' }, label: { en: 'Countries & Markets', ar: 'دولة وسوق عالمي' } },
+                { icon: '⭐', stat: { en: '4.8/5', ar: '4.8/5' }, label: { en: 'Average Customer Rating', ar: 'متوسط تقييم العملاء' } },
+                { icon: '🔬', stat: { en: '1000+', ar: '+1000' }, label: { en: 'Patents & Innovations', ar: 'براءة اختراع وابتكار' } },
+                { icon: '📅', stat: { en: '2011', ar: '2011' }, label: { en: 'Year Founded', ar: 'سنة التأسيس' } },
+                { icon: '🏅', stat: { en: '#1', ar: 'رقم 1' }, label: { en: 'Amazon Charging Brand Since 2015', ar: 'ماركة الشحن الأولى على أمازون' } }
+            ],
+            technologies: [
+                { name: 'GaNPrime™', description: { en: 'Gallium Nitride technology that makes chargers 50% smaller yet 3x more powerful. Charges laptops and phones simultaneously.', ar: 'تقنية نيتريد الجاليوم التي تجعل الشواحن أصغر بـ 50% مع قوة أكبر 3 مرات. تشحن اللابتوب والهاتف معاً.' } },
+                { name: 'PowerIQ 4.0', description: { en: 'AI-powered intelligent charging that detects your device type and delivers optimal power (PD 3.1, QC 4+, PPS).', ar: 'شحن ذكي بالذكاء الاصطناعي يتعرف على نوع جهازك ويوصل الطاقة المثالية (PD 3.1, QC 4+, PPS).' } },
+                { name: 'ActiveShield™ 2.0', description: { en: 'Monitors temperature 3 million times per day to prevent overheating and protect your device\'s battery health.', ar: 'يراقب درجة الحرارة 3 مليون مرة يومياً لمنع السخونة الزائدة وحماية صحة بطارية جهازك.' } },
+                { name: 'PowerLine III Flow', description: { en: 'Ultra-durable cables with 25,000 bend lifespan and liquid silicone feel. No tangling, ever.', ar: 'كابلات فائقة المتانة تتحمل 25,000 ثني بملمس السيليكون السائل. لا تتشابك أبداً.' } },
+                { name: 'MagSafe Compatible', description: { en: 'Full ecosystem of magnetic wireless chargers and power banks for iPhone 12-17 series.', ar: 'منظومة كاملة من الشواحن اللاسلكية المغناطيسية وباور بانك لسلسلة آيفون 12-17.' } }
+            ]
+        },
+        // NEW: Trust Badges for Social Proof
+        trustBadges: [
+            { icon: '✓', title: { en: '100% Original Products', ar: 'منتجات أصلية 100%' }, description: { en: 'Verified by Anker Egypt', ar: 'موثقة من انكر مصر' } },
+            { icon: '🛡️', title: { en: '18-Month Warranty', ar: 'ضمان 18 شهر' }, description: { en: 'Instant replacement', ar: 'استبدال فوري' } },
+            { icon: '💰', title: { en: 'Best Price Guarantee', ar: 'ضمان أقل سعر' }, description: { en: 'vs Amazon & Noon', ar: 'مقارنة بأمازون ونون' } },
+            { icon: '🚚', title: { en: 'Fast Egypt Delivery', ar: 'توصيل سريع لمصر' }, description: { en: '24-48 hours', ar: '24-48 ساعة' } },
+            { icon: '⭐', title: { en: '5000+ Happy Customers', ar: '+5000 عميل سعيد' }, description: { en: 'Verified purchases', ar: 'مشتريات موثقة' } },
+            { icon: '📞', title: { en: 'WhatsApp Support', ar: 'دعم واتساب' }, description: { en: '24/7 assistance', ar: 'مساعدة على مدار الساعة' } }
+        ],
         metadata: {
             en: {
                 title: 'Anker Egypt Official | #1 Charging Brand | Power Banks & Soundcore',
