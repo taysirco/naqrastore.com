@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { CategorySeoData, FAQItem, BuyingGuideSection, TrustSignal, SoundcoreData } from '@/data/category-seo';
+import { CategorySeoData, FAQItem, BuyingGuideSection, TrustSignal, SoundcoreData, PowerBankData } from '@/data/category-seo';
 import { BreadcrumbSchema } from './schemas/ProductSchema';
 import { HowToSchema, ItemListSchema } from './schemas/AEOSchemas';
 import RelatedLinks from './seo/RelatedLinks';
@@ -39,6 +39,7 @@ interface CategoryTemplateProps {
     categorySlug: string;
     seoContent: CategorySeoData['seoContent'];
     soundcoreData?: SoundcoreData;
+    powerBankData?: PowerBankData;
 }
 
 // Category slug to translation key mapping
@@ -81,7 +82,8 @@ export default function CategoryTemplate({
     category,
     categorySlug,
     seoContent,
-    soundcoreData
+    soundcoreData,
+    powerBankData
 }: CategoryTemplateProps) {
     const locale = useLocale();
     const tCat = useTranslations('Categories');
@@ -331,6 +333,127 @@ export default function CategoryTemplate({
                                         <summary className="flex items-center justify-between p-5 cursor-pointer list-none font-bold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                                             {item.question}
                                             <span className="text-purple-500 group-open:rotate-180 transition-transform">▼</span>
+                                        </summary>
+                                        <div className="px-5 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            {item.answer}
+                                        </div>
+                                    </details>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* NEW: PowerBank Section for "باور بانك انكر" SEO - Only renders for power-banks category */}
+            {powerBankData && (
+                <section className="py-16 bg-gradient-to-b from-blue-50 to-cyan-50 dark:from-gray-900 dark:to-gray-950">
+                    <div className="container mx-auto px-4">
+                        {/* Section Title & Tagline */}
+                        <div className="text-center mb-12">
+                            <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-bold mb-4">
+                                🔋 {isRTL ? powerBankData.tagline.ar : powerBankData.tagline.en}
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-black mb-4 dark:text-white">
+                                {isRTL ? powerBankData.title.ar : powerBankData.title.en}
+                            </h2>
+                            <div className="h-1.5 w-24 mx-auto rounded-full bg-gradient-to-r from-blue-600 to-cyan-600"></div>
+                        </div>
+
+                        {/* History */}
+                        <div className="max-w-4xl mx-auto mb-12">
+                            <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl border border-blue-100 dark:border-gray-700 shadow-lg">
+                                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                    {isRTL ? powerBankData.history.ar : powerBankData.history.en}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Achievements Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+                            {powerBankData.achievements.map((achievement, idx) => (
+                                <div key={idx} className="text-center p-6 bg-white dark:bg-gray-900 rounded-2xl hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-800">
+                                    <span className="text-3xl mb-2 block">{achievement.icon}</span>
+                                    <span className="text-2xl md:text-3xl font-black text-blue-600 dark:text-blue-400 block mb-1">
+                                        {isRTL ? achievement.stat.ar : achievement.stat.en}
+                                    </span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                                        {isRTL ? achievement.label.ar : achievement.label.en}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Charging Technologies */}
+                        <div className="max-w-5xl mx-auto mb-12">
+                            <h3 className="text-2xl font-bold text-center mb-8 dark:text-white">
+                                {isRTL ? 'تقنيات الشحن الحصرية' : 'Exclusive Charging Technologies'}
+                            </h3>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {powerBankData.technologies.map((tech, idx) => (
+                                    <div key={idx} className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-colors shadow-sm">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <span className="text-2xl">{tech.icon}</span>
+                                            <h4 className="font-bold text-lg text-blue-600 dark:text-blue-400">
+                                                {tech.name}
+                                            </h4>
+                                        </div>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            {isRTL ? tech.description.ar : tech.description.en}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Use Cases */}
+                        <div className="max-w-4xl mx-auto mb-12">
+                            <h3 className="text-2xl font-bold text-center mb-8 dark:text-white">
+                                {isRTL ? 'طاقة لكل لحظة' : 'Power for Every Moment'}
+                            </h3>
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {powerBankData.useCases.map((useCase, idx) => (
+                                    <div key={idx} className="text-center p-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-lg transition-all">
+                                        <span className="text-4xl mb-3 block">{useCase.icon}</span>
+                                        <h4 className="font-bold text-gray-900 dark:text-white mb-2">
+                                            {isRTL ? useCase.title.ar : useCase.title.en}
+                                        </h4>
+                                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                                            {isRTL ? useCase.description.ar : useCase.description.en}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* PowerBank Trust Badges */}
+                        <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-800 mb-12">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                                {powerBankData.trustBadges.map((badge, idx) => (
+                                    <div key={idx} className="flex flex-col items-center text-center p-3">
+                                        <span className="text-2xl md:text-3xl mb-2">{badge.icon}</span>
+                                        <span className="font-bold text-sm text-gray-900 dark:text-white">
+                                            {isRTL ? badge.title.ar : badge.title.en}
+                                        </span>
+                                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                                            {isRTL ? badge.description.ar : badge.description.en}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* PowerBank FAQs */}
+                        <div className="max-w-4xl mx-auto">
+                            <h3 className="text-2xl font-bold text-center mb-8 dark:text-white">
+                                {isRTL ? 'أسئلة شائعة عن باور بانك انكر' : 'Anker Power Bank FAQ'}
+                            </h3>
+                            <div className="space-y-4">
+                                {(isRTL ? powerBankData.faq.ar : powerBankData.faq.en).map((item, idx) => (
+                                    <details key={idx} className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                                        <summary className="flex items-center justify-between p-5 cursor-pointer list-none font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                            {item.question}
+                                            <span className="text-blue-500 group-open:rotate-180 transition-transform">▼</span>
                                         </summary>
                                         <div className="px-5 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed">
                                             {item.answer}
