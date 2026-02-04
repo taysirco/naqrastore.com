@@ -1026,48 +1026,75 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_1", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-1.webp", alt: "joyroom power bank 10000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
-            { id: "img_2", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-2.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
-            { id: "img_3", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-3.webp", alt: "joyroom power bank 10000 - Best Price in Egypt", order: 2, isPrimary: false },
-            { id: "img_4", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-4.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
-            { id: "img_5", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-5.webp", alt: "joyroom power bank 10000 - Official Distributor Cairo", order: 4, isPrimary: false },
-            { id: "img_6", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-6.webp", alt: "joyroom power bank 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
+            { id: "img_1", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-1.webp", alt: "باور بانك جوي روم 10000 الأصلي مصر 2026 - شحن سريع iPhone 17", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-2.webp", alt: "شاحن متنقل جوي روم 10000 مللي أمبير - توصيل القاهرة - ضمان 12 شهر", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-3.webp", alt: "باور بانك جوي روم نحيف 10000 - أفضل سعر في مصر فبراير 2026", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-4.webp", alt: "Joyroom 10000mAh Power Bank Original Egypt 2026 - Quick Charge 3.0", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-5.webp", alt: "Joyroom Slim Power Bank 10000 - Official Distributor Cairo", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/joyroom/joyroom-power-bank-10000/joyroom-joyroom-power-bank-10000-egypt-cairo-6.webp", alt: "باور بانك جوي روم 10000 - أرخص من انكر 40% - ضمان رسمي مصر", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
-                name: "Joyroom 10000mAh Slim Power Bank",
-                shortDescription: "Ultra-slim 10000mAh power bank with dual output",
-                description: "The Joyroom 10000mAh power bank is perfect for charging iPhone 17 twice on the go. Ultra-slim design with dual output ports and Quick Charge support.",
-                features: ["10000mAh capacity (2x iPhone 17)", "Ultra-slim design", "Dual USB output", "Quick Charge 3.0 support", "LED display"],
-                metaTitle: "Joyroom 10000mAh Slim Power Bank | Best Price Egypt",
-                metaDesc: "Buy Joyroom 10000mAh slim power bank in Egypt. Dual USB output, quick charge, LED display. Best price with warranty.",
+                name: "Joyroom 10000mAh Slim Power Bank - 2x iPhone 17 Charges",
+                shortDescription: "Ultra-slim 10000mAh power bank with Quick Charge 3.0 | Dual USB output | LED display | 40% cheaper than Anker",
+                description: "The Joyroom 10000mAh power bank charges iPhone 17 twice with Quick Charge 3.0 support. Ultra-slim design with dual USB output and LED display. Available in Egypt for EGP 1,624 with 12-month warranty and next-day Cairo delivery.\n\nWhy choose Joyroom 10000? It's 40% cheaper than Anker with the same 10000mAh capacity. Features Quick Charge 3.0 for 4x faster charging, dual USB output to charge phone + earbuds simultaneously, and LED display showing exact battery percentage. Perfect for daily use and travel with its ultra-slim 14mm profile.",
+                features: [
+                    "10000mAh Capacity → 2x iPhone 17 charges or 1.5x Samsung S26",
+                    "Quick Charge 3.0 → 4x faster than standard chargers",
+                    "Ultra-slim 14mm design → Fits easily in pocket or small bag",
+                    "Dual USB Output → Charge phone + earbuds simultaneously",
+                    "LED Display → Shows exact battery percentage",
+                    "37Wh Capacity → Allowed on all flights (TSA limit is 100Wh)",
+                    "12-month warranty → Full support in Egypt"
+                ],
+                metaTitle: "Joyroom 10000mAh Power Bank Egypt | EGP 1624 | 2x iPhone 17 Charges 2026",
+                metaDesc: "Buy original Joyroom 10000mAh power bank in Egypt. Charges iPhone 17 twice. ✅ 12-month warranty ✅ Next-day Cairo delivery ✅ 40% cheaper than Anker",
                 faqs: [
-                    { question: "Is it slim enough for pockets?", answer: "Yes, it features an ultra-slim profile designed specifically for portability and ease of carrying in pockets." },
-                    { question: "Does it support fast charging?", answer: "It supports Quick Charge 3.0 via USB-A ports, delivering faster charging than standard power banks." },
-                    { question: "Does it come with a cable?", answer: "Yes, it includes a short Micro-USB charging cable for recharging the power bank." },
-                    { question: "How many times does it charge iPhone 17?", answer: "It charges iPhone 17 about 2 times, or Samsung S26 about 1.5 times. Perfect for a day trip." },
-                    { question: "Is it allowed on planes?", answer: "Yes! At 37Wh, it's well under the 100Wh TSA limit. You can carry it in your hand luggage." },
-                    { question: "What's the warranty?", answer: "Joyroom provides 12-month warranty in Egypt with full support and replacement." }
+                    { question: "What is the price of Joyroom 10000mAh in Egypt?", answer: "Joyroom 10000mAh power bank price is EGP 1,624 at Cairo Volt. Includes 12-month warranty and fast delivery to Cairo and Giza." },
+                    { question: "How many times does Joyroom 10000 charge iPhone 17?", answer: "It charges iPhone 17 twice or Samsung S26 about 1.5 times. Perfect for a day trip or short travel." },
+                    { question: "Does Joyroom 10000 support fast charging?", answer: "Yes, it supports Quick Charge 3.0 via USB-A ports. Charges your phone 4x faster than standard chargers." },
+                    { question: "What is the difference between Joyroom and Anker 10000?", answer: "Joyroom is 40% cheaper with same capacity. Anker offers faster USB-C PD charging. Joyroom is the excellent budget choice." },
+                    { question: "Is Joyroom power bank original?", answer: "Yes, Cairo Volt products are 100% original with Golden Code verification and 12-month official warranty." },
+                    { question: "Is Joyroom 10000 allowed on airplanes?", answer: "Yes! At 37Wh, it's well under the 100Wh TSA/IATA limit. You can carry it safely in hand luggage." },
+                    { question: "Does it come with a charging cable?", answer: "Yes, includes a short Micro-USB cable to recharge the power bank. We recommend USB-C cable for your phone." },
+                    { question: "How long to recharge Joyroom 10000?", answer: "With 18W charger: 3-4 hours. With standard 5W: 6-8 hours. Fast charger recommended." },
+                    { question: "What is the warranty for Joyroom in Egypt?", answer: "12-month warranty from Cairo Volt covering manufacturing defects with instant replacement." },
+                    { question: "Where to buy original Joyroom 10000 in Egypt?", answer: "Buy from Cairo Volt—authorized distributor. Fast Cairo delivery, 12-month warranty, cash on delivery." }
                 ]
             },
             ar: {
-                name: "باور بانك جوي روم 10000 مللي امبير نحيف",
-                shortDescription: "باور بانك جوي روم نحيف 10000 مللي امبير بمخرجين",
-                description: "باور بانك جوي روم 10000 مثالي لشحن ايفون 17 مرتين أثناء التنقل. تصميم نحيف للغاية مع مخرجين ودعم للشحن السريع.",
-                features: ["سعة 10000 مللي أمبير (×2 ايفون 17)", "تصميم نحيف للغاية", "مخرجين USB", "دعم Quick Charge 3.0", "شاشة LED"],
-                metaTitle: "باور بانك جوي روم 10000 مللي امبير | أفضل سعر مصر",
-                metaDesc: "اشتري باور بانك جوي روم 10000 مللي أمبير نحيف في مصر. مخرجين USB، شحن سريع، شاشة LED. أفضل سعر مع ضمان.",
+                name: "باور بانك جوي روم 10000 مللي أمبير - شحنتين ايفون 17",
+                shortDescription: "باور بانك جوي روم نحيف 10000 مللي أمبير | Quick Charge 3.0 | مخرجين USB | أرخص من انكر 40%",
+                description: "باور بانك جوي روم 10000 هو شاحن متنقل يوفر شحنتين كاملتين لـ iPhone 17 بتقنية Quick Charge 3.0. يتميز بتصميم نحيف ومخرجين USB وشاشة LED لعرض نسبة البطارية. متوفر في مصر بسعر 1,624 جنيه مع ضمان 12 شهر وتوصيل سريع.\n\nلماذا تختار جوي روم 10000؟ أرخص من انكر بـ 40% مع نفس السعة 10000 مللي أمبير. يدعم Quick Charge 3.0 للشحن أسرع 4 مرات، ومخرجين USB لشحن الهاتف والسماعة معاً، وشاشة LED تعرض نسبة البطارية بدقة. مثالي للاستخدام اليومي والسفر بتصميمه النحيف 14 مم.",
+                features: [
+                    "سعة 10000 مللي أمبير → شحنتين للايفون 17 أو 1.5 مرة للسامسونج S26",
+                    "Quick Charge 3.0 → شحن أسرع 4 مرات من الشواحن العادية",
+                    "تصميم نحيف 14 مم → يسهل حمله في الجيب أو الحقيبة الصغيرة",
+                    "مخرجين USB → اشحن الهاتف والسماعة في نفس الوقت",
+                    "شاشة LED → تعرض نسبة البطارية المتبقية بدقة",
+                    "سعة 37Wh → مسموح على جميع الطائرات (الحد 100Wh)",
+                    "ضمان 12 شهر → دعم كامل في مصر"
+                ],
+                metaTitle: "باور بانك جوي روم 10000 | سعر 1624 جنيه مصر 2026 | شحن سريع",
+                metaDesc: "اشتري باور بانك جوي روم 10000 مللي أمبير الأصلي في مصر. يشحن iPhone 17 مرتين. ✅ ضمان 12 شهر ✅ توصيل القاهرة يوم واحد ✅ أرخص من Anker بـ 40%",
                 faqs: [
-                    { question: "هل هو نحيف للجيب؟", answer: "نعم، تصميم نحيف جداً لسهولة الحمل في الجيب." },
-                    { question: "هل يدعم الشحن السريع؟", answer: "نعم، يدعم Quick Charge 3.0 عبر USB-A لشحن أسرع من البطاريات العادية." },
-                    { question: "هل يأتي مع كابل؟", answer: "نعم، يشمل كابل Micro-USB قصير لإعادة شحن الباور بانك." },
-                    { question: "كم مرة يشحن ايفون 17؟", answer: "يشحن ايفون 17 حوالي مرتين، أو سامسونج S26 حوالي 1.5 مرة. مثالي لرحلة يومية." },
-                    { question: "هل مسموح به في الطائرات؟", answer: "نعم! سعته 37 واط/ساعة أقل من 100 واط/ساعة المسموح. يمكنك حمله بأمان." },
-                    { question: "ما الضمان؟", answer: "جوي روم توفر ضمان 12 شهر في مصر مع دعم كامل واستبدال." }
+                    { question: "كم سعر باور بانك جوي روم 10000 في مصر؟", answer: "سعر باور بانك جوي روم 10000 في مصر هو 1,624 جنيه من Cairo Volt. يشمل ضمان 12 شهر وتوصيل سريع للقاهرة والجيزة." },
+                    { question: "كم مرة يشحن جوي روم 10000 الايفون 17؟", answer: "يشحن iPhone 17 مرتين كاملتين، أو Samsung S26 حوالي 1.5 مرة. مثالي لرحلة يومية أو سفر قصير." },
+                    { question: "هل باور بانك جوي روم 10000 يدعم الشحن السريع؟", answer: "نعم، يدعم Quick Charge 3.0 عبر منافذ USB-A. يشحن هاتفك أسرع 4 مرات من الشواحن العادية." },
+                    { question: "ما الفرق بين جوي روم وانكر 10000؟", answer: "جوي روم أرخص بـ 40% مع نفس السعة. انكر يوفر شحن USB-C PD أسرع. جوي روم خيار اقتصادي ممتاز." },
+                    { question: "هل باور بانك جوي روم أصلي؟", answer: "نعم، منتجات Cairo Volt أصلية 100% مع كود التحقق الذهبي (Golden Code) وضمان 12 شهر رسمي." },
+                    { question: "هل باور بانك جوي روم 10000 مسموح في الطائرة؟", answer: "نعم! سعته 37 واط/ساعة أقل بكثير من حد TSA/IATA (100Wh). يمكنك حمله بأمان في حقيبة اليد." },
+                    { question: "هل يأتي مع كابل شحن؟", answer: "نعم، يشمل كابل Micro-USB قصير لشحن الباور بانك نفسه. ننصح بكابل USB-C لشحن هاتفك." },
+                    { question: "كم وقت شحن باور بانك جوي روم 10000؟", answer: "بشاحن 18 واط: 3-4 ساعات. بشاحن 5 واط عادي: 6-8 ساعات. ننصح بشاحن سريع لتوفير الوقت." },
+                    { question: "ما ضمان باور بانك جوي روم في مصر؟", answer: "ضمان 12 شهر من Cairo Volt يغطي عيوب الصناعة مع استبدال فوري." },
+                    { question: "أين أشتري باور بانك جوي روم 10000 الأصلي؟", answer: "اشتري من Cairo Volt - موزع معتمد. توصيل سريع للقاهرة، ضمان 12 شهر، دفع عند الاستلام." }
                 ]
             }
         },
-        seo: { keywords: "باور بانك جوي روم, باور بانك جوي روم 10000, joyroom power bank", focusKeyword: "باور بانك جوي روم 10000" }
+        seo: {
+            keywords: "باور بانك جوي روم 10000, باور بانك جوي روم, joyroom power bank, سعر باور بانك joyroom 10000, باور بانك joyroom 10000, باور بانك joyroom, power bank joyroom 10000, joyroom باور بانك, سعر باور بانك جوي روم ١٠٠٠٠, شاحن متنقل جوي روم, باور بانك جوي روم الأصلي, أفضل باور بانك رخيص مصر, باور بانك 10000 شحن سريع, joyroom 10000mah egypt, joyroom power bank price egypt",
+            focusKeyword: "باور بانك جوي روم 10000"
+        }
     },
     {
         slug: "joyroom-power-bank-20000",
