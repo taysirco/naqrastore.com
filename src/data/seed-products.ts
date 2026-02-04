@@ -393,51 +393,83 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_1", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-1.webp", alt: "anker powercore 10000 Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
-            { id: "img_2", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-2.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
-            { id: "img_3", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-3.webp", alt: "anker powercore 10000 - Best Price in Egypt", order: 2, isPrimary: false },
-            { id: "img_4", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-4.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
-            { id: "img_5", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-5.webp", alt: "anker powercore 10000 - Official Distributor Cairo", order: 4, isPrimary: false },
-            { id: "img_6", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-6.webp", alt: "anker powercore 10000 اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false },
-            { id: "img_7", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-7.webp", alt: "anker powercore 10000 - 2 Year Warranty Egypt", order: 6, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-1.webp", alt: "باور بانك انكر 10000 مللي أمبير الأصلي مصر 2026 - شحن سريع iPhone 17 Pro Max", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-2.webp", alt: "Anker PowerCore 10000mAh Power Bank Original Egypt - Fast Delivery Cairo", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-3.webp", alt: "باور بانك انكر 10000 - شحنتين ايفون 17 - ضمان 18 شهر مصر", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-4.webp", alt: "Anker 10000mAh PowerIQ Technology - Best Price Egypt 2026", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-5.webp", alt: "باور بانك 10000 مللي أمبير - مسموح الطائرة TSA - توصيل سريع القاهرة", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-6.webp", alt: "Anker PowerCore 10000 Official Distributor Egypt - 18 Month Warranty", order: 5, isPrimary: false },
+            { id: "img_7", url: "/products/anker/anker-powercore-10000/anker-anker-powercore-10000-egypt-cairo-7.webp", alt: "شاحن متنقل انكر 10000 - أفضل سعر في مصر 2026", order: 6, isPrimary: false }
         ],
         translations: {
             en: {
-                name: "Anker PowerCore 10000mAh Portable Charger",
-                shortDescription: "Ultra-compact 10000mAh power bank with high-speed charging",
-                description: "The Anker PowerCore 10000 is one of the world's smallest and lightest 10000mAh portable chargers. The high-speed charging ensures your devices power up quickly, while the compact design fits easily in your pocket or bag.",
-                features: ["Ultra-compact design - fits in your palm", "10000mAh capacity - charges iPhone 17 approx 2 times", "High-speed charging with PowerIQ technology", "MultiProtect safety system", "18-month warranty"],
-                metaTitle: "Anker PowerCore 10000mAh Power Bank | Best Price in Egypt",
-                metaDesc: "Buy Anker PowerCore 10000mAh portable charger in Egypt. Ultra-compact design, fast charging, 18-month warranty. Free delivery available.",
+                name: "Anker PowerCore 10000mAh Power Bank",
+                shortDescription: "Ultra-compact 10000mAh power bank - 2 full iPhone 17 charges | 22.5W fast charging | Only 180g",
+                description: "The Anker 10000mAh power bank is a portable charger that provides 2 full charges for iPhone 17 Pro Max or Samsung S26 Ultra. It supports 22.5W fast charging via USB-C, charging your phone from 0% to 50% in just 30 minutes. Available in Egypt starting from EGP 1,358 with 18-month warranty and fast delivery.\n\nWhy choose Anker PowerCore 10000? It's one of the world's smallest and lightest 10000mAh portable chargers. The high-speed PowerIQ 4.0 technology ensures your devices power up quickly, while the ultra-compact design (smaller than your palm) fits easily in your pocket or bag. Perfect for daily use, travel, and emergencies.",
+                features: [
+                    "22.5W USB-C Fast Charge → iPhone 17 from 0% to 50% in 30 minutes",
+                    "10000mAh Capacity → 2 full charges = a full day without worry",
+                    "USB-C + USB-A Ports → Charge 2 devices simultaneously (iPhone + AirPods)",
+                    "Only 180g Weight → Lighter than iPhone 17 Pro = perfect for pocket and travel",
+                    "PowerIQ 4.0 Technology → Detects your device and delivers max speed safely",
+                    "37Wh Capacity → Allowed on all flights (TSA/IATA limit is 100Wh)",
+                    "MultiProtect 10-Layer Safety → Complete protection for your devices",
+                    "18-Month Official Warranty → Full support and instant replacement in Egypt"
+                ],
+                metaTitle: "Anker 10000mAh Power Bank | Fast Charge iPhone 17 & S26 2026 | Best Price Egypt",
+                metaDesc: "Buy original Anker 10000mAh power bank. 2 full iPhone 17 charges. From EGP 1,358. ✅ 18-month warranty ✅ Next-day Cairo delivery ✅ Cash on delivery",
                 faqs: [
-                    { question: "How small is it really?", answer: "It is incredibly compact, roughly the size of a credit card (but thicker), easily fitting into any pocket." },
-                    { question: "Does it support fast charging?", answer: "It uses Anker's PowerIQ technology to deliver the fastest possible charge up to 2.4A, but does not support Qualcomm Quick Charge." },
-                    { question: "How many times does it charge iPhone?", answer: "It charges an iPhone 17 about 2 times, or a Samsung Galaxy S26 about 1.5 times." },
-                    { question: "Is it allowed on planes?", answer: "Yes! At 37Wh, it's well under the 100Wh TSA limit. You can carry it in your hand luggage without any issues." },
-                    { question: "How does it compare to cheap 10000mAh power banks?", answer: "Unlike cheap brands, Anker uses premium cells that maintain capacity over time. After 500 charges, it still holds 80%+ capacity vs 50% for cheap ones." },
-                    { question: "What's the warranty in Egypt?", answer: "Anker provides 18-month warranty in Egypt with full support and replacement for manufacturing defects." }
+                    { question: "What is the price of Anker 10000mAh power bank in Egypt?", answer: "Anker 10000mAh power bank price is EGP 1,358 at Cairo Volt. Includes 18-month warranty from authorized dealer and fast Cairo/Giza delivery." },
+                    { question: "Does Anker 10000 charge iPhone 17 Pro Max?", answer: "Yes, it charges iPhone 17 Pro Max 2 full times. With 22.5W fast charging, reaches 0% to 50% in just 30 minutes." },
+                    { question: "Does Anker 10000 work with Samsung S26?", answer: "Yes, 100% compatible with Samsung S26 Ultra. Supports fast charging and provides 1.8 full charges." },
+                    { question: "How many times does 10000mAh charge a phone?", answer: "Modern phones (iPhone 17, S26) get 2 full charges. Mid-range phones (4000mAh) get about 2.5 charges." },
+                    { question: "Is Anker 10000 original in Egypt?", answer: "Yes, all Cairo Volt products are 100% genuine with verification code on Anker official website and 18-month local warranty." },
+                    { question: "Can I take Anker 10000 on airplane?", answer: "Yes! 10000mAh (37Wh) is allowed on all flights. TSA/IATA limit is 100Wh. Carry in hand luggage." },
+                    { question: "What is the best cable for Anker 10000?", answer: "Anker USB-C to USB-C cable ensures maximum 22.5W charging speed. Available with 15% bundle discount." },
+                    { question: "How long to recharge Anker 10000 itself?", answer: "With 20W charger: 3-4 hours. With standard 5W: 8-10 hours. We recommend Anker 20W or higher." },
+                    { question: "What is the difference between Anker 10000 and 20000?", answer: "10000: Lighter (180g), 2 charges, ideal for daily pocket carry. 20000: Heavier (356g), 4 charges, for long trips." },
+                    { question: "How long is delivery in Egypt?", answer: "Cairo & Giza: 1 day. Alexandria: 2-3 days. Other governorates: 3-5 days. Cash on delivery available." },
+                    { question: "Does Anker 10000 support wireless charging?", answer: "PowerCore 10000 is wired only. For wireless charging, choose the MagGo magnetic model." }
                 ]
             },
             ar: {
-                name: "Anker PowerCore باور بانك انكر 10000 مللي امبير",
-                shortDescription: "باور بانك انكر صغير الحجم بسعة 10000 مللي امبير مع شحن سريع",
-                description: "باور بانك انكر PowerCore 10000 هو أحد أصغر وأخف شواحن الطاقة المحمولة بسعة 10000 مللي أمبير في العالم. يضمن الشحن عالي السرعة شحن أجهزتك بسرعة، بينما يتيح التصميم المدمج حمله بسهولة في جيبك أو حقيبتك.",
-                features: ["تصميم صغير جداً - يناسب كف اليد", "سعة 10000 مللي أمبير - يشحن الايفون 2.5 مرة", "شحن سريع بتقنية PowerIQ", "نظام حماية MultiProtect", "ضمان 18 شهر"],
-                metaTitle: "باور بانك انكر 10000 مللي امبير | أفضل سعر في مصر",
-                metaDesc: "اشتري باور بانك انكر 10000 مللي أمبير في مصر. تصميم صغير، شحن سريع، ضمان 18 شهر. شحن مجاني متاح.",
+                name: "باور بانك انكر 10000 مللي أمبير | Anker PowerCore",
+                shortDescription: "باور بانك انكر صغير الحجم - شحنتين كاملتين لايفون 17 | شحن سريع 22.5 واط | وزن 180 جرام فقط",
+                description: "باور بانك انكر 10000 مللي أمبير هو شاحن متنقل يوفر شحنتين كاملتين لهواتف iPhone 17 Pro Max أو Samsung S26 Ultra. يدعم الشحن السريع 22.5 واط عبر USB-C، ويشحن هاتفك من 0% لـ 50% في 30 دقيقة فقط. متوفر في مصر بسعر يبدأ من 1,358 جنيه مع ضمان 18 شهر وتوصيل سريع.\n\nلماذا تختار Anker PowerCore 10000؟ هو أحد أصغر وأخف شواحن الطاقة المحمولة بسعة 10000 مللي أمبير في العالم. تقنية PowerIQ 4.0 تضمن شحن أجهزتك بأقصى سرعة، والتصميم المدمج (أصغر من كف يدك) يتيح حمله بسهولة في جيبك أو حقيبتك. مثالي للاستخدام اليومي والسفر والطوارئ.",
+                features: [
+                    "22.5 واط USB-C شحن سريع → ايفون 17 من 0% لـ 50% في 30 دقيقة",
+                    "سعة 10000 مللي أمبير → شحنتين كاملتين = يوم كامل بدون قلق",
+                    "منفذين USB-C + USB-A → اشحن جهازين في نفس الوقت (ايفون + AirPods)",
+                    "وزن 180 جرام فقط → أخف من ايفون 17 برو = مثالي للجيب والسفر",
+                    "تقنية PowerIQ 4.0 → يتعرف على جهازك ويعطيه أقصى سرعة بأمان",
+                    "سعة 37 واط/ساعة → مسموح على جميع الطائرات (الحد 100Wh)",
+                    "حماية MultiProtect 10 طبقات → حماية كاملة لأجهزتك",
+                    "ضمان رسمي 18 شهر → دعم كامل واستبدال فوري في مصر"
+                ],
+                metaTitle: "باور بانك انكر 10000 | شحن سريع ايفون 17 و S26 2026 | أفضل سعر مصر",
+                metaDesc: "اشتري باور بانك انكر 10000 مللي أمبير الأصلي. يشحن ايفون 17 مرتين. سعر 1,358 جنيه. ✅ ضمان 18 شهر ✅ توصيل سريع ✅ دفع عند الاستلام",
                 faqs: [
-                    { question: "ما مدى صغر حجمه؟", answer: "صغير جداً، بحجم بطاقة ائتمان تقريباً (لكن أسمك)، يناسب أي جيب بسهولة." },
-                    { question: "هل يدعم الشحن السريع؟", answer: "يستخدم تقنية PowerIQ لأسرع شحن حتى 2.4 أمبير، لكن لا يدعم Quick Charge." },
-                    { question: "كم مرة يشحن الايفون؟", answer: "يشحن ايفون 17 حوالي مرتين، أو سامسونج S26 حوالي 1.5 مرة." },
-                    { question: "هل مسموح به في الطائرات؟", answer: "نعم! سعته 37 واط/ساعة أقل بكثير من 100 واط/ساعة المسموح. يمكنك حمله بأمان." },
-                    { question: "كيف يقارن مع الماركات الرخيصة؟", answer: "انكر يستخدم خلايا ممتازة تحافظ على السعة. بعد 500 شحنة، يحتفظ بـ 80%+ مقابل 50% للماركات الرخيصة." },
-                    { question: "ما الضمان في مصر؟", answer: "انكر توفر ضمان 18 شهر في مصر مع دعم كامل واستبدال لعيوب الصناعة." }
+                    { question: "كم سعر باور بانك انكر 10000 في مصر؟", answer: "سعر باور بانك انكر 10000 هو 1,358 جنيه في Cairo Volt. يشمل ضمان 18 شهر من الوكيل المعتمد وتوصيل سريع للقاهرة والجيزة." },
+                    { question: "هل باور بانك انكر 10000 يشحن ايفون 17 برو ماكس؟", answer: "نعم، يشحن ايفون 17 برو ماكس شحنتين كاملتين. بالشحن السريع 22.5 واط، يصل من 0% لـ 50% في 30 دقيقة." },
+                    { question: "هل باور بانك انكر 10000 يعمل مع سامسونج S26?", answer: "نعم، متوافق 100% مع سامسونج S26 الترا. يدعم الشحن السريع ويوفر 1.8 شحنة كاملة." },
+                    { question: "كم مرة يشحن باور بانك 10000 الموبايل؟", answer: "الهواتف الحديثة (ايفون 17، S26) تحصل على شحنتين. الهواتف المتوسطة (4000mAh) تحصل على 2.5 شحنة." },
+                    { question: "هل باور بانك انكر 10000 أصلي في مصر؟", answer: "نعم، جميع منتجات Cairo Volt أصلية 100% مع كود تحقق على موقع انكر الرسمي وضمان 18 شهر." },
+                    { question: "هل يمكن أخذ باور بانك انكر 10000 على الطائرة؟", answer: "نعم! سعة 10000mAh (37Wh) مسموحة على جميع الطائرات. الحد 100Wh. احمله في حقيبة اليد." },
+                    { question: "ما أفضل كابل لباور بانك انكر 10000؟", answer: "كابل USB-C to USB-C من انكر يضمن أقصى سرعة 22.5 واط. متوفر مع خصم 15% عند الشراء معاً." },
+                    { question: "كم وقت شحن باور بانك انكر 10000 نفسه؟", answer: "بشاحن 20 واط: 3-4 ساعات. بشاحن 5 واط عادي: 8-10 ساعات. ننصح بشاحن 20 واط أو أعلى." },
+                    { question: "ما الفرق بين انكر 10000 و 20000؟", answer: "10000: أخف (180 جم)، شحنتين، مثالي للجيب اليومي. 20000: أثقل (356 جم)، 4 شحنات، للرحلات الطويلة." },
+                    { question: "كم مدة توصيل باور بانك انكر في مصر؟", answer: "القاهرة والجيزة: يوم واحد. الإسكندرية: 2-3 أيام. باقي المحافظات: 3-5 أيام. دفع عند الاستلام متاح." },
+                    { question: "هل يدعم باور بانك انكر 10000 الشحن اللاسلكي؟", answer: "موديل PowerCore 10000 العادي سلكي فقط. للشحن اللاسلكي، اختر موديل MagGo المغناطيسي." }
                 ]
             }
         },
-        seo: { keywords: "باور بانك انكر, باور بانك انكر 10000, انكر باور بانك, anker power bank", focusKeyword: "باور بانك انكر 10000" },
-        relatedProducts: ["anker-powerport-20w", "anker-powerline-usb-c-lightning"]
+        seo: {
+            keywords: "باور بانك انكر 10000, سعر باور بانك انكر 10000, باور بنك انكر 10000, انكر 10000 مللي امبير, anker power bank 10000mah, anker powercore 10000, باور بانك 10000, شاحن متنقل انكر, anker 10000 egypt price, باور بانك انكر مصر",
+            focusKeyword: "باور بانك انكر 10000"
+        },
+        relatedProducts: ["anker-powerport-20w", "anker-powerline-usb-c-lightning", "anker-powerline-usb-c-usb-c"]
     },
+
     {
         slug: "anker-powercore-20000",
         sku: "ANK-PB-20K",
@@ -469,38 +501,67 @@ export const products = [
         translations: {
             en: {
                 name: "Anker PowerCore 20000mAh Portable Charger",
-                shortDescription: "High-capacity 20000mAh power bank with dual USB ports",
-                description: "The Anker PowerCore 20000 delivers massive charging capacity in a portable design. With dual USB ports, you can charge two devices simultaneously. Charges iPhone 17 about 4 times.",
-                features: ["20000mAh ultra-high capacity", "Dual USB ports charging", "PowerIQ and VoltageBoost", "Charges iPhone 17 about 4x", "24-month warranty"],
-                metaTitle: "Anker PowerCore 20000mAh Power Bank | Free Delivery Egypt",
-                metaDesc: "Buy Anker PowerCore 20000mAh portable charger. Dual USB ports, ultra-high capacity, 24-month warranty. Best price in Egypt.",
+                shortDescription: "High-capacity 20000mAh power bank with dual USB ports - charges iPhone 4 times",
+                description: "The Anker PowerCore 20000mAh delivers massive charging capacity in a portable, travel-friendly design. With dual USB-A ports and PowerIQ technology, you can charge two devices simultaneously at optimal speed. Perfect for travelers, students, and professionals who need reliable power on the go. Charges iPhone 17/16/15 about 4 times or Samsung Galaxy S26/S25 about 3 times. Airplane-safe at 72Wh capacity.",
+                features: [
+                    "20000mAh ultra-high capacity (72Wh) - airline approved",
+                    "Dual USB-A ports for simultaneous charging",
+                    "PowerIQ + VoltageBoost for optimal charging speed",
+                    "Charges iPhone 17 about 4x, Samsung S26 about 3x",
+                    "MultiProtect safety system with 10-layer protection",
+                    "Compact portable design weighing only 356g",
+                    "LED power indicator shows remaining charge",
+                    "24-month warranty - double industry standard"
+                ],
+                metaTitle: "Anker 20000mAh Power Bank Egypt | Best Price 2026 | Free Delivery",
+                metaDesc: "Buy Anker PowerCore 20000mAh in Egypt for EGP 1,054. Charges iPhone 4x, dual USB ports, 24-month warranty. Free delivery Cairo & Giza. 100% original.",
                 faqs: [
-                    { question: "Can I charge 2 devices at once?", answer: "Yes, it has 2 USB-A ports allowing you to charge two devices simultaneously efficiently." },
-                    { question: "How long to recharge this power bank?", answer: "It takes about 10 hours to fully recharge using a 2A wall charger (standard 1A chargers take 20 hours)." },
-                    { question: "Is it allowed on planes?", answer: "Yes, 20,000mAh is equivalent to 72Wh, which is well below the airline limit of 100Wh." },
-                    { question: "How many times does it charge iPhone 17?", answer: "It charges iPhone 17 about 4 times from 0% to 100%, or Samsung S26 about 3 times." },
-                    { question: "Should I get 10000mAh or 20000mAh?", answer: "10000mAh is pocket-sized for daily carry. 20000mAh is better for trips, heavy users, or charging multiple devices." },
-                    { question: "What's the warranty in Egypt?", answer: "Anker provides 24-month warranty for PowerCore 20000 in Egypt - double the industry standard!" }
+                    { question: "What is the price of Anker 20000mAh power bank in Egypt?", answer: "The Anker PowerCore 20000mAh price in Egypt is EGP 1,054 at Cairo Volt. This includes 24-month warranty and free delivery to Cairo and Giza. It's the best price for an original Anker power bank in Egypt." },
+                    { question: "How many times does Anker 20000mAh charge iPhone?", answer: "Anker 20000mAh charges iPhone 17/16/15 approximately 4 full times from 0% to 100%. For Samsung Galaxy S26/S25, it provides about 3 full charges. iPad mini gets about 2.5 charges." },
+                    { question: "Can I charge 2 devices at once with Anker 20000?", answer: "Yes, the Anker PowerCore 20000 has 2 USB-A ports allowing simultaneous charging of two devices. PowerIQ technology intelligently distributes power to optimize charging speed for each device." },
+                    { question: "How long does it take to recharge Anker 20000mAh?", answer: "It takes about 10 hours to fully recharge using a 2A wall charger. With a standard 1A charger, it takes approximately 20 hours. For faster recharging, use an Anker PowerPort 20W or higher." },
+                    { question: "Is Anker 20000mAh allowed on airplanes?", answer: "Yes! The Anker 20000mAh (72Wh) is TSA/IATA approved for air travel. It's well below the 100Wh limit. You must carry it in hand luggage, not checked baggage." },
+                    { question: "Should I buy 10000mAh or 20000mAh Anker power bank?", answer: "Choose 10000mAh for daily pocket carry (lighter at 180g, 2 iPhone charges). Choose 20000mAh for travel, heavy usage, or multiple devices (4 iPhone charges, 356g). The price difference is minimal for double the capacity." },
+                    { question: "What is the warranty for Anker 20000 in Egypt?", answer: "Cairo Volt provides 24-month warranty for Anker PowerCore 20000 in Egypt - double the industry standard! Warranty covers manufacturing defects and battery issues. We offer instant replacement." },
+                    { question: "Does Anker 20000mAh support fast charging?", answer: "The PowerCore 20000 supports PowerIQ and VoltageBoost for optimized charging up to 2.4A per port. For USB-C PD fast charging, consider Anker 737 (140W) or Anker Prime (200W) models." },
+                    { question: "How to identify original Anker 20000 vs fake?", answer: "Original Anker comes with: 1) QR verification code on box, 2) 24-month warranty card, 3) High-quality Anker logo embossing, 4) Proper weight (356g). Cairo Volt guarantees 100% authentic products." },
+                    { question: "Where to buy original Anker 20000mAh in Egypt?", answer: "Buy original Anker 20000mAh from Cairo Volt - authorized distributor in Egypt. We offer free delivery to Cairo & Giza, cash on delivery, and 24-month warranty. All products are 100% genuine with verification." }
                 ]
             },
             ar: {
-                name: "Anker PowerCore باور بانك انكر 20000 مللي امبير",
-                shortDescription: "باور بانك انكر بسعة كبيرة 20000 مللي امبير مع منفذين USB",
-                description: "باور بانك انكر 20000 يوفر سعة شحن ضخمة في تصميم محمول. مع منفذين USB، يمكنك شحن جهازين في نفس الوقت بسرعة عالية. يشحن ايفون 17 حوالي 4 مرات.",
-                features: ["سعة 20000 مللي أمبير فائقة", "منفذين USB للشحن المتزامن", "تقنية PowerIQ و VoltageBoost", "يشحن ايفون 17 حوالي 4 مرات", "ضمان 24 شهر"],
-                metaTitle: "باور بانك انكر 20000 مللي امبير | توصيل مجاني مصر",
-                metaDesc: "اشتري باور بانك انكر 20000 مللي أمبير. منفذين USB، سعة فائقة، ضمان 24 شهر. أفضل سعر في مصر.",
+                name: "باور بانك انكر 20000 مللي امبير Anker PowerCore",
+                shortDescription: "باور بانك انكر بسعة كبيرة 20000 مللي امبير - يشحن الايفون 4 مرات كاملة",
+                description: "باور بانك انكر 20000 مللي أمبير يوفر سعة شحن ضخمة في تصميم محمول مناسب للسفر. مع منفذين USB-A وتقنية PowerIQ، يمكنك شحن جهازين في نفس الوقت بأقصى سرعة. مثالي للمسافرين والطلاب ورجال الأعمال. يشحن ايفون 17/16/15 حوالي 4 مرات أو سامسونج S26/S25 حوالي 3 مرات. آمن للطائرة بسعة 72 واط/ساعة.",
+                features: [
+                    "سعة 20000 مللي أمبير فائقة (72 واط/ساعة) - مسموح في الطائرة",
+                    "منفذين USB-A للشحن المتزامن",
+                    "تقنية PowerIQ + VoltageBoost للشحن الأمثل",
+                    "يشحن ايفون 17 حوالي 4 مرات، سامسونج S26 حوالي 3 مرات",
+                    "نظام حماية MultiProtect بـ 10 طبقات",
+                    "تصميم محمول بوزن 356 جرام فقط",
+                    "مؤشر LED يوضح نسبة الشحن المتبقي",
+                    "ضمان 24 شهر - ضعف المعيار"
+                ],
+                metaTitle: "باور بانك انكر 20000 | سعر باور بانك انكر 20000 مصر 2026",
+                metaDesc: "اشتري باور بانك انكر 20000 مللي أمبير الأصلي في مصر بسعر 1,054 جنيه. يشحن الايفون 4 مرات، ضمان 24 شهر، توصيل مجاني القاهرة والجيزة.",
                 faqs: [
-                    { question: "هل يمكنني شحن جهازين معاً؟", answer: "نعم، لديه منفذين USB-A لشحن جهازين بكفاءة في نفس الوقت." },
-                    { question: "كم يستغرق شحن الباور بانك؟", answer: "حوالي 10 ساعات بشاحن 2 أمبير. الشواحن العادية 1 أمبير تستغرق 20 ساعة." },
-                    { question: "هل مسموح به في الطائرة؟", answer: "نعم، 20,000 مللي أمبير = 72 واط/ساعة، أقل من حد 100 واط/ساعة المسموح." },
-                    { question: "كم مرة يشحن ايفون 17؟", answer: "يشحن ايفون 17 حوالي 4 مرات من 0% إلى 100%، أو سامسونج S26 حوالي 3 مرات." },
-                    { question: "هل أختار 10000 أم 20000؟", answer: "10000 صغير للحمل اليومي. 20000 أفضل للسفر والمستخدمين الكثيفين وشحن أجهزة متعددة." },
-                    { question: "ما الضمان في مصر؟", answer: "انكر توفر ضمان 24 شهر لـ PowerCore 20000 في مصر - ضعف المعيار!" }
+                    { question: "كم سعر باور بانك انكر 20000 في مصر؟", answer: "سعر باور بانك انكر 20000 مللي أمبير في مصر هو 1,054 جنيه مصري من Cairo Volt. السعر يشمل ضمان 24 شهر وتوصيل مجاني للقاهرة والجيزة. هذا أفضل سعر للمنتج الأصلي في مصر." },
+                    { question: "كم مرة يشحن باور بانك انكر 20000 الايفون؟", answer: "باور بانك انكر 20000 يشحن ايفون 17/16/15 حوالي 4 مرات كاملة من 0% إلى 100%. بالنسبة لسامسونج S26/S25، يشحنه حوالي 3 مرات. ايباد ميني يشحن حوالي 2.5 مرة." },
+                    { question: "هل يمكنني شحن جهازين معاً بباور بانك انكر 20000؟", answer: "نعم، باور بانك انكر 20000 لديه منفذين USB-A لشحن جهازين في نفس الوقت. تقنية PowerIQ توزع الطاقة بذكاء لتحسين سرعة الشحن لكل جهاز." },
+                    { question: "كم يستغرق شحن باور بانك انكر 20000؟", answer: "يستغرق شحن باور بانك انكر 20000 حوالي 10 ساعات بشاحن 2 أمبير. مع شاحن 1 أمبير العادي، يستغرق حوالي 20 ساعة. للشحن الأسرع، استخدم شاحن انكر 20 واط أو أعلى." },
+                    { question: "هل باور بانك انكر 20000 مسموح في الطائرة؟", answer: "نعم! باور بانك انكر 20000 (72 واط/ساعة) معتمد للسفر بالطائرة حسب قوانين TSA/IATA. السعة أقل من حد 100 واط/ساعة المسموح. يجب حمله في حقيبة اليد وليس الأمتعة المسجلة." },
+                    { question: "هل أختار 10000 أم 20000 مللي أمبير؟", answer: "اختر 10000 للحمل اليومي في الجيب (أخف بوزن 180 جرام، شحنتين للايفون). اختر 20000 للسفر والاستخدام المكثف (4 شحنات للايفون، 356 جرام). فرق السعر بسيط مقابل ضعف السعة." },
+                    { question: "ما ضمان باور بانك انكر 20000 في مصر؟", answer: "Cairo Volt توفر ضمان 24 شهر لباور بانك انكر 20000 في مصر - ضعف المعيار! الضمان يغطي عيوب الصناعة ومشاكل البطارية. نوفر استبدال فوري." },
+                    { question: "هل باور بانك انكر 20000 يدعم الشحن السريع؟", answer: "باور بانك انكر 20000 يدعم PowerIQ و VoltageBoost للشحن المحسن حتى 2.4 أمبير لكل منفذ. للشحن السريع USB-C PD، راجع موديل انكر 737 (140 واط) أو انكر Prime (200 واط)." },
+                    { question: "كيف أفرق بين انكر 20000 الأصلي والتقليد؟", answer: "انكر الأصلي يأتي مع: 1) كود QR للتحقق على العلبة، 2) كارت ضمان 24 شهر، 3) شعار انكر مطبوع بجودة عالية، 4) وزن صحيح (356 جرام). Cairo Volt تضمن منتجات أصلية 100%." },
+                    { question: "أين أشتري باور بانك انكر 20000 الأصلي في مصر؟", answer: "اشتري باور بانك انكر 20000 الأصلي من Cairo Volt - الموزع المعتمد في مصر. نوفر توصيل مجاني للقاهرة والجيزة، دفع عند الاستلام، وضمان 24 شهر. جميع المنتجات أصلية 100% مع كود تحقق." }
                 ]
             }
         },
-        seo: { keywords: "باور بانك انكر 20000, سعر باور بانك انكر 20000, anker power bank 20000", focusKeyword: "باور بانك انكر 20000" },
+        seo: {
+            keywords: "باور بانك انكر 20000, سعر باور بانك انكر 20000, anker power bank 20000mah, باور بانك 20000 مللي امبير, شاحن متنقل انكر, anker 20000 egypt, باور بانك انكر مصر, anker powercore 20000 price egypt",
+            focusKeyword: "باور بانك انكر 20000"
+        },
         relatedProducts: ["anker-powerport-20w", "anker-powerline-usb-c-usb-c"]
     },
     {
@@ -579,48 +640,75 @@ export const products = [
         featured: true,
         status: "active",
         images: [
-            { id: "img_1", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-1.webp", alt: "anker powerport 20w Original Egypt - Fast Cairo Delivery", order: 0, isPrimary: true },
-            { id: "img_2", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-2.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 1, isPrimary: false },
-            { id: "img_3", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-3.webp", alt: "anker powerport 20w - Best Price in Egypt", order: 2, isPrimary: false },
-            { id: "img_4", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-4.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 3, isPrimary: false },
-            { id: "img_5", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-5.webp", alt: "anker powerport 20w - Official Distributor Cairo", order: 4, isPrimary: false },
-            { id: "img_6", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-6.webp", alt: "anker powerport 20w اصلي في مصر - توصيل سريع القاهرة والجيزة", order: 5, isPrimary: false }
+            { id: "img_1", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-1.webp", alt: "شاحن انكر 20 وات الأصلي مصر 2026 - USB-C شحن سريع iPhone 17", order: 0, isPrimary: true },
+            { id: "img_2", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-2.webp", alt: "راس شاحن انكر 20 واط - توصيل القاهرة والجيزة - ضمان 18 شهر", order: 1, isPrimary: false },
+            { id: "img_3", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-3.webp", alt: "شاحن انكر USB-C ٢٠ وات - أفضل سعر في مصر فبراير 2026", order: 2, isPrimary: false },
+            { id: "img_4", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-4.webp", alt: "Anker 20W USB-C Charger Original Egypt 2026 - iPhone 17 Fast Charging", order: 3, isPrimary: false },
+            { id: "img_5", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-5.webp", alt: "Anker PowerPort 20W - Official Distributor Cairo - 18 Month Warranty", order: 4, isPrimary: false },
+            { id: "img_6", url: "/products/anker/anker-powerport-20w/anker-anker-powerport-20w-egypt-cairo-6.webp", alt: "شاحن انكر ايفون 20 وات - ضمان رسمي - توصيل سريع مصر", order: 5, isPrimary: false }
         ],
         translations: {
             en: {
-                name: "Anker PowerPort III 20W USB-C Charger",
-                shortDescription: "Ultra-compact 20W fast charger for iPhone 17/16/15",
-                description: "The Anker PowerPort III 20W delivers fast, efficient charging for iPhone 15, 14, 13, and other USB-C devices. Compact design perfect for travel.",
-                features: ["20W fast charging output (Standard)", "USB-C Power Delivery", "Ultra-compact foldable plug", "MultiProtect safety system", "Works with iPhone 17/16/15"],
-                metaTitle: "Anker 20W USB-C Fast Charger for iPhone | Egypt",
-                metaDesc: "Buy Anker 20W USB-C fast charger for iPhone in Egypt. Ultra-compact, fast charging, best price with warranty.",
+                name: "Anker 20W USB-C Fast Charger for iPhone 17",
+                shortDescription: "20W USB-C PD charger - charges iPhone 17 from 0% to 50% in 30 minutes | 3x faster than 5W",
+                description: "The Anker 20W charger is a USB-C wall adapter that fast-charges iPhone 17 from 0% to 50% in just 30 minutes—3x faster than the standard 5W charger. Available in Egypt for EGP 379 with 18-month warranty and next-day Cairo delivery.\n\nWhy choose Anker 20W? This ultra-compact charger (only 4cm) features Power Delivery 3.0, MultiProtect 10-layer safety system, and works with all USB-C devices including iPhone 17/16/15, Samsung S26/S25, iPad, and AirPods Pro. Perfect for travel with its compact design that's smaller than a matchbox.",
+                features: [
+                    "20W USB-C PD → iPhone 17 from 0% to 50% in 30 minutes",
+                    "Power Delivery 3.0 → Compatible with iPhone 17/16/15 & Samsung S26/S25",
+                    "Ultra-compact 4cm design → Smaller than a matchbox, perfect for travel",
+                    "MultiProtect 10-layer safety → Complete protection against overheating",
+                    "UK-style plug → Fits all Egyptian outlets directly",
+                    "18-month warranty → Double the industry standard in Egypt"
+                ],
+                metaTitle: "Anker 20W USB-C Charger Egypt | EGP 379 | Fast iPhone 17 Charging 2026",
+                metaDesc: "Buy original Anker 20W charger in Egypt for EGP 379. Charges iPhone 17 from 0% to 50% in 30 min. ✅ 18-month warranty ✅ Next-day Cairo delivery ✅ Cash on delivery",
                 faqs: [
-                    { question: "Does it fast charge iPhone 17?", answer: "It provides standard fast charging (20W) for iPhone 17. For maximum speed (27W+), we recommend a 30W charger." },
-                    { question: "Is it safe for the battery?", answer: "Yes, Anker's MultiProtect safety system ensures complete protection against overheating and overcharging." },
-                    { question: "Are the prongs foldable?", answer: "No, this specific model (PowerPort III 20W) has fixed UK-style prongs suitable for Egyptian sockets." },
-                    { question: "Does it work with Samsung S26?", answer: "Yes! It provides 20W charging for Samsung S26, though Samsung's max input is 25W so you get nearly full speed." },
-                    { question: "Should I get 20W or 25W charger?", answer: "20W is perfect for iPhone. For Samsung S26 users, 25W extracts the full potential. Both charge most phones at max speed." },
-                    { question: "What's the warranty in Egypt?", answer: "Anker provides 18-month warranty in Egypt with full support and replacement for manufacturing defects." }
+                    { question: "What is the price of Anker 20W charger in Egypt?", answer: "Anker 20W charger price in Egypt is EGP 379 at Cairo Volt. Includes 18-month warranty and fast delivery to Cairo and Giza." },
+                    { question: "Does Anker 20W fast charge iPhone 17?", answer: "Yes, it charges iPhone 17 from 0% to 50% in just 30 minutes—3x faster than the standard 5W charger." },
+                    { question: "Does Anker 20W work with Samsung S26?", answer: "Yes, 100% compatible. Provides 20W charging for S26. For maximum speed (25W), choose Anker 25W charger." },
+                    { question: "What is the difference between Anker 20W and 25W?", answer: "20W is ideal for iPhone (max speed). 25W is better for Samsung S26 to utilize Super Fast Charging." },
+                    { question: "Is Anker 20W safe for battery?", answer: "Yes, MultiProtect system provides 10-layer protection: from overheating, short circuit, and overcharging." },
+                    { question: "Does Anker 20W come with cable?", answer: "No, charger only without cable. We recommend Anker USB-C to Lightning cable for full speed." },
+                    { question: "How to identify original vs fake Anker charger?", answer: "Original comes with: QR verification code, precise Anker logo, 18-month warranty card. Cairo Volt is authorized distributor." },
+                    { question: "What is the warranty for Anker 20W in Egypt?", answer: "18-month warranty from Cairo Volt—double the standard. Covers manufacturing defects with instant replacement." },
+                    { question: "Does Anker 20W support iPad?", answer: "Yes, charges iPad mini and iPad Air. For faster iPad Pro charging, we recommend 30W or higher." },
+                    { question: "How long is delivery for Anker charger in Egypt?", answer: "Cairo & Giza: 1 day. Alexandria: 2-3 days. Other governorates: 3-5 days. Cash on delivery available." },
+                    { question: "Where to buy original Anker 20W charger in Egypt?", answer: "Buy from Cairo Volt—authorized distributor. Free Cairo delivery, 18-month warranty, cash on delivery." }
                 ]
             },
             ar: {
-                name: "شاحن انكر 20 واط USB-C للايفون",
-                shortDescription: "شاحن انكر صغير وسريع 20 واط للايفون 15/14/13",
-                description: "شاحن انكر 20 واط يوفر شحن سريع وفعال للايفون 15 و 14 و 13 وأجهزة USB-C الأخرى. تصميم صغير مثالي للسفر.",
-                features: ["شحن سريع 20 واط", "USB-C Power Delivery", "تصميم صغير مع قابس قابل للطي", "نظام حماية MultiProtect", "يعمل مع ايفون 15/14/13/12"],
-                metaTitle: "شاحن انكر 20 واط للايفون | أفضل سعر في مصر",
-                metaDesc: "اشتري شاحن انكر 20 واط USB-C للايفون في مصر. تصميم صغير، شحن سريع، ضمان وأفضل سعر.",
+                name: "شاحن انكر 20 وات USB-C للايفون 17",
+                shortDescription: "شاحن انكر 20 وات يشحن iPhone 17 من 0% لـ 50% في 30 دقيقة | أسرع 3 مرات من شاحن 5 وات",
+                description: "شاحن انكر 20 وات هو شاحن حائط سريع من الشركة الأمريكية Anker، يوفر شحن iPhone 17 من 0% إلى 50% في 30 دقيقة فقط عبر منفذ USB-C. متوفر في مصر بسعر 379 جنيه مع ضمان 18 شهر وتوصيل سريع للقاهرة والجيزة.\n\nلماذا تختار شاحن انكر 20 وات؟ هذا الشاحن الصغير (4 سم فقط) يأتي بتقنية Power Delivery 3.0، ونظام حماية MultiProtect بـ 10 طبقات، ويعمل مع جميع أجهزة USB-C بما في ذلك iPhone 17/16/15، Samsung S26/S25، iPad، و AirPods Pro. مثالي للسفر بتصميمه الأصغر من علبة الكبريت.",
+                features: [
+                    "20 واط USB-C PD → شحن iPhone 17 من 0% لـ 50% في 30 دقيقة",
+                    "Power Delivery 3.0 → متوافق مع iPhone 17/16/15 و Samsung S26/S25",
+                    "تصميم صغير 4 سم → أصغر من علبة الكبريت، مثالي للسفر",
+                    "حماية MultiProtect 10 طبقات → حماية كاملة من الحرارة الزائدة",
+                    "قابس UK-Style → يناسب جميع المنازل المصرية مباشرة",
+                    "ضمان 18 شهر → ضعف المعيار في مصر"
+                ],
+                metaTitle: "شاحن انكر 20 وات | سعر 379 جنيه مصر 2026 | توصيل سريع",
+                metaDesc: "اشتري شاحن انكر 20 وات الأصلي في مصر بسعر 379 جنيه. يشحن iPhone 17 من 0% لـ 50% في 30 دقيقة. ✅ ضمان 18 شهر ✅ توصيل القاهرة يوم واحد ✅ دفع عند الاستلام",
                 faqs: [
-                    { question: "هل يشحن ايفون 17 بسرعة؟", answer: "يوفر شحناً سريعاً قياسياً (20 واط). لأقصى سرعة لايفون 17، ننصح بشاحن 30 واط." },
-                    { question: "هل هو آمن على البطارية؟", answer: "نعم، نظام MultiProtect يضمن حماية كاملة ضد ارتفاع الحرارة والشحن الزائد." },
-                    { question: "هل يأتي مع كابل؟", answer: "لا، الشواحن الحائطية لا تأتي مع كابل، يجب شراء كابل USB-C منفصل." },
-                    { question: "هل يعمل مع سامسونج S26؟", answer: "نعم! يوفر 20 واط لسامسونج S26. سامسونج يدعم 25 واط، فتحصل على 80% من السرعة القصوى." },
-                    { question: "هل أختار 20 واط أم 25 واط؟", answer: "20 واط مثالي للايفون. لمستخدمي سامسونج S26، 25 واط يستخرج السرعة الكاملة." },
-                    { question: "ما الضمان في مصر؟", answer: "انكر توفر ضمان 18 شهر في مصر مع دعم كامل واستبدال لعيوب الصناعة." }
+                    { question: "كم سعر شاحن انكر 20 وات في مصر؟", answer: "سعر شاحن انكر 20 وات في مصر هو 379 جنيه من Cairo Volt. يشمل ضمان 18 شهر وتوصيل سريع للقاهرة والجيزة." },
+                    { question: "هل شاحن انكر 20 وات يشحن iPhone 17 بسرعة؟", answer: "نعم، يشحن iPhone 17 من 0% إلى 50% في 30 دقيقة فقط - أسرع 3 مرات من الشاحن العادي 5 وات." },
+                    { question: "هل شاحن انكر 20 وات يعمل مع Samsung S26؟", answer: "نعم، متوافق 100%. يوفر شحن 20 واط لـ S26. للسرعة القصوى (25W)، اختر شاحن انكر 25 واط." },
+                    { question: "ما الفرق بين شاحن انكر 20 وات و 25 وات؟", answer: "20 واط مثالي لـ iPhone (أقصى سرعة). 25 واط أفضل لـ Samsung S26 للاستفادة من Super Fast Charging." },
+                    { question: "هل شاحن انكر 20 وات آمن على البطارية؟", answer: "نعم، نظام MultiProtect يوفر 10 طبقات حماية: من الحرارة الزائدة، التيار القصير، والشحن الزائد." },
+                    { question: "هل شاحن انكر 20 وات يأتي مع كابل؟", answer: "لا، الشاحن فقط بدون كابل. ننصح بكابل Anker USB-C to Lightning للحصول على السرعة الكاملة." },
+                    { question: "كيف أعرف شاحن انكر الأصلي من التقليد؟", answer: "الأصلي يأتي مع: كود QR للتحقق، شعار Anker مطبوع بدقة، كارت ضمان 18 شهر. Cairo Volt موزع معتمد." },
+                    { question: "ما ضمان شاحن انكر 20 وات في مصر؟", answer: "ضمان 18 شهر من Cairo Volt - ضعف المعيار. يغطي عيوب الصناعة مع استبدال فوري." },
+                    { question: "هل شاحن انكر 20 وات يدعم iPad؟", answer: "نعم، يشحن iPad mini و iPad Air. للشحن الأسرع لـ iPad Pro، ننصح بشاحن 30 واط أو أعلى." },
+                    { question: "كم مدة توصيل شاحن انكر في مصر؟", answer: "القاهرة والجيزة: يوم واحد. الإسكندرية: 2-3 أيام. المحافظات: 3-5 أيام. دفع عند الاستلام متاح." },
+                    { question: "أين أشتري شاحن انكر 20 وات الأصلي في مصر؟", answer: "اشتري من Cairo Volt - الموزع المعتمد. توصيل مجاني للقاهرة، ضمان 18 شهر، دفع عند الاستلام." }
                 ]
             }
         },
-        seo: { keywords: "شاحن انكر, شاحن انكر 20 واط, شاحن انكر ايفون, anker charger 20w", focusKeyword: "شاحن انكر 20 واط" },
+        seo: {
+            keywords: "شاحن انكر 20 وات, شاحن انكر ٢٠ وات, شاحن انكر 20 واط, راس شاحن انكر, شاحن انكر ايفون, سعر شاحن انكر, شاحن انكر الاصلي, وصلة شاحن انكر, شاحن ايفون انكر, سعر شاحن انكر الاصلي, شاحن انكر تايب سي, انكر شاحن, سعر شاحن انكر للايفون, شاحن ايفون انكر اصلي, فيش شاحن انكر, أدابتر انكر, anker 20w charger egypt, anker charger 20w price, anker powerport 20w, anker usb-c charger, anker fast charger egypt, anker 20w iphone 17",
+            focusKeyword: "شاحن انكر 20 وات"
+        },
         relatedProducts: ["anker-powerline-usb-c-lightning", "anker-powercore-10000"]
     },
     {

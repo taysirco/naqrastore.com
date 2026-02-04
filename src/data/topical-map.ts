@@ -95,7 +95,7 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['iPhone 16', 'iPhone 17', 'MacBook', 'Samsung Galaxy S25', 'USB-C', 'PD Charging'],
                 searchVolume: { ar: 4400, en: 720 },
-                internalLinks: ['/anker/wall-chargers', '/anker/cables', '/joyroom/power-banks'],
+                internalLinks: ['/anker/wall-chargers', '/anker/cables', '/joyroom/power-banks', '/anker/power-banks/anker-powercore-20000'],
             },
             {
                 topic: 'Wall Chargers',
