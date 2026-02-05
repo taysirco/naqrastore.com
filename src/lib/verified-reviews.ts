@@ -179,8 +179,8 @@ export async function submitReview(submission: ReviewSubmission): Promise<{ succ
         ? `${nameParts[0]} ${nameParts[1].charAt(0)}.`
         : nameParts[0];
 
-    // Create review
-    const review: Omit<VerifiedReview, 'id'> = {
+    // Create review - filter out undefined values for Firestore
+    const review = {
         productSlug: tokenData.productSlug,
         productName: tokenData.productName,
         orderId: tokenData.orderId,
@@ -188,18 +188,19 @@ export async function submitReview(submission: ReviewSubmission): Promise<{ succ
         customerName: submission.customerDisplayName || initials,
         customerInitials: initials,
         rating: submission.rating as 1 | 2 | 3 | 4 | 5,
-        title: submission.title,
         reviewText: submission.reviewText,
-        pros: submission.pros,
-        cons: submission.cons,
-        images: submission.images,
         purchaseDate: tokenData.purchaseDate,
         reviewDate: new Date(),
         isVerified: true,
-        status: 'approved', // Auto-approve for now, can add moderation later
+        status: 'approved',
         governorate: tokenData.governorate,
         helpfulCount: 0,
-        locale: 'ar'
+        locale: 'ar',
+        // Optional fields - only include if defined
+        ...(submission.title && { title: submission.title }),
+        ...(submission.pros?.length && { pros: submission.pros }),
+        ...(submission.cons?.length && { cons: submission.cons }),
+        ...(submission.images?.length && { images: submission.images }),
     };
 
     // Save review
