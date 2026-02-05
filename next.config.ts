@@ -16,15 +16,8 @@ const nextConfig = {
     },
     async redirects() {
         return [
-            // === Generic Locale Fix: /ar/ → / (Arabic is default) ===
-            { source: '/ar', destination: '/', permanent: true },
-            { source: '/ar/:path*', destination: '/:path*', permanent: true },
-
-            // === Case-insensitive brand fixes ===
-            { source: '/joyroom/:path*', destination: '/Joyroom/:path*', permanent: true },
-            { source: '/anker/:path*', destination: '/Anker/:path*', permanent: true },
-            { source: '/en/joyroom/:path*', destination: '/en/Joyroom/:path*', permanent: true },
-            { source: '/en/anker/:path*', destination: '/en/Anker/:path*', permanent: true },
+            // NOTE: Generic /ar/ and case-insensitive redirects removed - they conflict with next-intl middleware
+            // The specific redirects below only handle legacy URLs from Google Search Console
 
             // === Anker products: Missing category in URL ===
             { source: '/Anker/anker-powercore-26800', destination: '/Anker/power-banks/anker-powercore-26800', permanent: true },
