@@ -173,7 +173,7 @@ export default async function GovernoratePage({ params }: PageProps) {
                             {staticCategories.slice(0, 8).map((cat) => (
                                 <Link
                                     key={cat.slug}
-                                    href={`/${locale}/anker/${cat.slug}`}
+                                    href={`${locale === 'ar' ? '' : '/en'}/Anker/${cat.slug}`}
                                     className="group p-6 bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition-all text-center"
                                 >
                                     <span className="text-3xl mb-2 block">{cat.icon}</span>
@@ -235,7 +235,7 @@ export default async function GovernoratePage({ params }: PageProps) {
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* Anker Brand */}
                         <Link
-                            href={`/${locale}/anker`}
+                            href={`${locale === 'ar' ? '' : '/en'}/Anker`}
                             className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white hover:shadow-2xl transition-all"
                         >
                             <div className="relative z-10">
@@ -254,7 +254,7 @@ export default async function GovernoratePage({ params }: PageProps) {
 
                         {/* Joyroom Brand */}
                         <Link
-                            href={`/${locale}/joyroom`}
+                            href={`${locale === 'ar' ? '' : '/en'}/Joyroom`}
                             className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hover:shadow-2xl transition-all"
                         >
                             <div className="relative z-10">
