@@ -46,9 +46,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             },
         },
         alternates: {
-            canonical: `https://cairovolt.com/${locale}/locations/${gov.slug}`,
+            canonical: isArabic
+                ? `https://cairovolt.com/locations/${gov.slug}`
+                : `https://cairovolt.com/en/locations/${gov.slug}`,
             languages: {
-                'ar': `https://cairovolt.com/ar/locations/${gov.slug}`,
+                'ar': `https://cairovolt.com/locations/${gov.slug}`,
                 'en': `https://cairovolt.com/en/locations/${gov.slug}`,
             },
         },

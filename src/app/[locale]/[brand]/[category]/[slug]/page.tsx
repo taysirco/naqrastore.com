@@ -92,9 +92,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             countryName: 'Egypt',
         },
         alternates: {
-            canonical: `https://cairovolt.com/${locale}/${brand}/${category}/${slug}`,
+            canonical: isArabic
+                ? `https://cairovolt.com/${brand}/${category}/${slug}`
+                : `https://cairovolt.com/en/${brand}/${category}/${slug}`,
             languages: {
-                'ar': `https://cairovolt.com/ar/${brand}/${category}/${slug}`,
+                'ar': `https://cairovolt.com/${brand}/${category}/${slug}`,
                 'en': `https://cairovolt.com/en/${brand}/${category}/${slug}`,
             }
         },

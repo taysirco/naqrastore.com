@@ -15,9 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             ? 'تواصل معنا عبر واتساب أو الهاتف. نحن هنا لمساعدتك في اختيار أفضل إكسسوارات الموبايل من Anker و Joyroom في مصر.'
             : 'Contact us via WhatsApp or phone. We are here to help you choose the best mobile accessories from Anker and Joyroom in Egypt.',
         alternates: {
-            canonical: `https://cairovolt.com/${locale}/contact`,
+            canonical: isArabic
+                ? 'https://cairovolt.com/contact'
+                : 'https://cairovolt.com/en/contact',
             languages: {
-                'ar': 'https://cairovolt.com/ar/contact',
+                'ar': 'https://cairovolt.com/contact',
                 'en': 'https://cairovolt.com/en/contact',
             },
         },

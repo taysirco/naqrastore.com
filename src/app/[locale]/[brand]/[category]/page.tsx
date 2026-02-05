@@ -24,9 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: meta.description,
         keywords: meta.keywords,
         alternates: {
-            canonical: `https://cairovolt.com/${locale}/${path}`,
+            canonical: locale === 'ar'
+                ? `https://cairovolt.com/${path}`
+                : `https://cairovolt.com/en/${path}`,
             languages: {
-                'ar': `https://cairovolt.com/ar/${path}`,
+                'ar': `https://cairovolt.com/${path}`,
                 'en': `https://cairovolt.com/en/${path}`,
             },
         },
