@@ -54,14 +54,14 @@ export const topicalMap: TopicalMap = {
         pillar: {
             topic: 'Anker Egypt - Official Mobile Accessories',
             topicAr: 'أنكر مصر - إكسسوارات الموبايل الأصلية',
-            url: '/anker',
+            url: '/Anker',
             intent: 'navigational',
         },
         clusters: [
             {
                 topic: 'Power Banks',
                 topicAr: 'باور بانك',
-                url: '/anker/power-banks',
+                url: '/Anker/power-banks',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -95,12 +95,12 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['iPhone 16', 'iPhone 17', 'MacBook', 'Samsung Galaxy S25', 'USB-C', 'PD Charging'],
                 searchVolume: { ar: 4400, en: 720 },
-                internalLinks: ['/anker/wall-chargers', '/anker/cables', '/joyroom/power-banks', '/anker/power-banks/anker-powercore-20000'],
+                internalLinks: ['/Anker/wall-chargers', '/Anker/cables', '/Joyroom/power-banks', '/Anker/power-banks/anker-powercore-20000'],
             },
             {
                 topic: 'Wall Chargers',
                 topicAr: 'شواحن حائط',
-                url: '/anker/wall-chargers',
+                url: '/Anker/wall-chargers',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -127,12 +127,12 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['GaN Technology', 'USB-C PD', 'Anker Nano', 'Anker Prime', 'MacBook Charger'],
                 searchVolume: { ar: 2900, en: 480 },
-                internalLinks: ['/anker/power-banks', '/anker/cables'],
+                internalLinks: ['/Anker/power-banks', '/Anker/cables'],
             },
             {
                 topic: 'Earbuds & Audio',
                 topicAr: 'سماعات وايربودز',
-                url: '/anker/audio',
+                url: '/Anker/audio',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -159,12 +159,12 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['Soundcore', 'ANC', 'Bluetooth 5.3', 'IPX5', 'Hi-Res Audio'],
                 searchVolume: { ar: 3200, en: 590 },
-                internalLinks: ['/anker/speakers', '/joyroom/audio'],
+                internalLinks: ['/Anker/speakers', '/joyroom/audio'],
             },
             {
                 topic: 'Cables',
                 topicAr: 'كابلات شحن',
-                url: '/anker/cables',
+                url: '/Anker/cables',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -184,7 +184,7 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['USB-C', 'Lightning', 'MFi Certification', 'Nylon Braided', '100W'],
                 searchVolume: { ar: 1900, en: 320 },
-                internalLinks: ['/anker/wall-chargers', '/anker/power-banks'],
+                internalLinks: ['/Anker/wall-chargers', '/Anker/power-banks'],
             },
         ],
     },
@@ -192,14 +192,14 @@ export const topicalMap: TopicalMap = {
         pillar: {
             topic: 'Joyroom Egypt - Premium Mobile Accessories',
             topicAr: 'جوي روم مصر - إكسسوارات موبايل متميزة',
-            url: '/joyroom',
+            url: '/Joyroom',
             intent: 'navigational',
         },
         clusters: [
             {
                 topic: 'Power Banks',
                 topicAr: 'باور بانك',
-                url: '/joyroom/power-banks',
+                url: '/Joyroom/power-banks',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -219,12 +219,12 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['22.5W Fast Charging', 'QC 3.0', 'PD 20W', 'Built-in Cable'],
                 searchVolume: { ar: 2200, en: 280 },
-                internalLinks: ['/joyroom/cables', '/anker/power-banks'],
+                internalLinks: ['/Joyroom/cables', '/Anker/power-banks'],
             },
             {
                 topic: 'Earbuds & Audio',
                 topicAr: 'سماعات وايربودز',
-                url: '/joyroom/audio',
+                url: '/Joyroom/audio',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -244,12 +244,12 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['TWS', 'ENC', 'Gaming Mode', 'Bluetooth 5.3', 'Touch Controls'],
                 searchVolume: { ar: 1800, en: 210 },
-                internalLinks: ['/joyroom/cables', '/anker/audio'],
+                internalLinks: ['/Joyroom/cables', '/Anker/audio'],
             },
             {
                 topic: 'Car Accessories',
                 topicAr: 'إكسسوارات السيارة',
-                url: '/joyroom/car-accessories',
+                url: '/Joyroom/car-accessories',
                 intent: 'commercial',
                 supportingContent: [
                     {
@@ -269,7 +269,7 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['MagSafe', 'Wireless Charging', 'Air Vent Mount', 'Dashboard Mount'],
                 searchVolume: { ar: 1400, en: 190 },
-                internalLinks: ['/joyroom/cables', '/joyroom/power-banks'],
+                internalLinks: ['/Joyroom/cables', '/Joyroom/power-banks'],
             },
         ],
     },

@@ -42,22 +42,22 @@ export default function Footer() {
                         <h4 className="font-semibold mb-4 text-gray-900 dark:text-white">{t('shopAnker')}</h4>
                         <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
                             <li>
-                                <Link href={getLocalizedHref('/anker/power-banks')} className="hover:text-blue-600 transition-colors">
+                                <Link href={getLocalizedHref('/Anker/power-banks')} className="hover:text-blue-600 transition-colors">
                                     {tCat('powerBanks')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/anker/wall-chargers')} className="hover:text-blue-600 transition-colors">
+                                <Link href={getLocalizedHref('/Anker/wall-chargers')} className="hover:text-blue-600 transition-colors">
                                     {tCat('wallChargers')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/anker/cables')} className="hover:text-blue-600 transition-colors">
+                                <Link href={getLocalizedHref('/Anker/cables')} className="hover:text-blue-600 transition-colors">
                                     {tCat('cables')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/anker/car-chargers')} className="hover:text-blue-600 transition-colors">
+                                <Link href={getLocalizedHref('/Anker/car-chargers')} className="hover:text-blue-600 transition-colors">
                                     {tCat('carChargers')}
                                 </Link>
                             </li>
@@ -69,22 +69,22 @@ export default function Footer() {
                         <h4 className="font-semibold mb-4 text-gray-900 dark:text-white">{t('shopJoyroom')}</h4>
                         <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
                             <li>
-                                <Link href={getLocalizedHref('/joyroom/audio')} className="hover:text-red-600 transition-colors">
+                                <Link href={getLocalizedHref('/Joyroom/audio')} className="hover:text-red-600 transition-colors">
                                     {tCat('audio')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/joyroom/power-banks')} className="hover:text-red-600 transition-colors">
+                                <Link href={getLocalizedHref('/Joyroom/power-banks')} className="hover:text-red-600 transition-colors">
                                     {tCat('powerBanks')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/joyroom/cables')} className="hover:text-red-600 transition-colors">
+                                <Link href={getLocalizedHref('/Joyroom/cables')} className="hover:text-red-600 transition-colors">
                                     {tCat('cables')}
                                 </Link>
                             </li>
                             <li>
-                                <Link href={getLocalizedHref('/joyroom/wall-chargers')} className="hover:text-red-600 transition-colors">
+                                <Link href={getLocalizedHref('/Joyroom/wall-chargers')} className="hover:text-red-600 transition-colors">
                                     {tCat('wallChargers')}
                                 </Link>
                             </li>

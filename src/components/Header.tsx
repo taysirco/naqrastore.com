@@ -115,7 +115,7 @@ export default function Header() {
                         {/* Anker Dropdown */}
                         <div className="relative group">
                             <Link
-                                href={getLocalizedHref('/anker')}
+                                href={getLocalizedHref('/Anker')}
                                 className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors flex items-center gap-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 <span className="w-2 h-2 rounded-full bg-blue-600"></span>
@@ -131,7 +131,7 @@ export default function Header() {
                                 {ankerCategories.map((cat) => (
                                     <Link
                                         key={cat.slug}
-                                        href={getLocalizedHref(`/anker/${cat.slug}`)}
+                                        href={getLocalizedHref(`/Anker/${cat.slug}`)}
                                         className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 rounded-lg transition-colors"
                                     >
                                         <span className="text-lg">{cat.icon}</span>
@@ -140,7 +140,7 @@ export default function Header() {
                                 ))}
                                 <div className="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
                                     <Link
-                                        href={getLocalizedHref('/anker')}
+                                        href={getLocalizedHref('/Anker')}
                                         className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
                                     >
                                         {isRTL ? 'عرض الكل' : 'View All'}
@@ -153,7 +153,7 @@ export default function Header() {
                         {/* Joyroom Dropdown */}
                         <div className="relative group">
                             <Link
-                                href={getLocalizedHref('/joyroom')}
+                                href={getLocalizedHref('/Joyroom')}
                                 className="px-4 py-2 text-sm font-medium hover:text-red-600 transition-colors flex items-center gap-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                             >
                                 <span className="w-2 h-2 rounded-full bg-red-600"></span>
@@ -169,7 +169,7 @@ export default function Header() {
                                 {joyroomCategories.map((cat) => (
                                     <Link
                                         key={cat.slug}
-                                        href={getLocalizedHref(`/joyroom/${cat.slug}`)}
+                                        href={getLocalizedHref(`/Joyroom/${cat.slug}`)}
                                         className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 rounded-lg transition-colors"
                                     >
                                         <span className="text-lg">{cat.icon}</span>
@@ -178,7 +178,7 @@ export default function Header() {
                                 ))}
                                 <div className="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
                                     <Link
-                                        href={getLocalizedHref('/joyroom')}
+                                        href={getLocalizedHref('/Joyroom')}
                                         className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
                                     >
                                         {isRTL ? 'عرض الكل' : 'View All'}
@@ -190,13 +190,13 @@ export default function Header() {
 
                         {/* Direct Links */}
                         <Link
-                            href={getLocalizedHref('/anker/power-banks')}
+                            href={getLocalizedHref('/Anker/power-banks')}
                             className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
                             {tCat('powerBanks')}
                         </Link>
                         <Link
-                            href={getLocalizedHref('/joyroom/audio')}
+                            href={getLocalizedHref('/Joyroom/audio')}
                             className="px-4 py-2 text-sm font-medium hover:text-red-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
                             {tCat('audio')}
@@ -320,7 +320,7 @@ export default function Header() {
                                     {ankerCategories.map((cat) => (
                                         <Link
                                             key={cat.slug}
-                                            href={getLocalizedHref(`/anker/${cat.slug}`)}
+                                            href={getLocalizedHref(`/Anker/${cat.slug}`)}
                                             onClick={() => setMobileMenuOpen(false)}
                                             className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
                                         >
@@ -341,7 +341,7 @@ export default function Header() {
                                     {joyroomCategories.map((cat) => (
                                         <Link
                                             key={cat.slug}
-                                            href={getLocalizedHref(`/joyroom/${cat.slug}`)}
+                                            href={getLocalizedHref(`/Joyroom/${cat.slug}`)}
                                             onClick={() => setMobileMenuOpen(false)}
                                             className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
                                         >

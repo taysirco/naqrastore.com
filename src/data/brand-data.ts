@@ -74,12 +74,12 @@ export const brandData: Record<string, BrandData> = {
             ]
         },
         categories: [
-            { title: { en: 'Anker Power Banks', ar: 'باور بانك انكر' }, description: { en: 'PowerCore 10000 & 20000mAh', ar: 'شحن ذكي و سعات ضخمة' }, href: '/anker/power-banks', icon: '⚡', volume: { en: '2,900+ searches/mo', ar: '2,900+ بحث/شهر' } },
-            { title: { en: 'Anker Chargers', ar: 'شواحن انكر (Wall)' }, description: { en: 'Nano 20W, 30W & 45W', ar: 'شواحن Nano وسرعات 45W' }, href: '/anker/wall-chargers', icon: '🔌', volume: { en: '2,900+ searches/mo', ar: '2,900+ بحث/شهر' } },
-            { title: { en: 'Soundcore Earbuds', ar: 'سماعات Soundcore' }, description: { en: 'Liberty 4, P40i, R50i', ar: 'عزل ضوضاء وصوت Hi-Res' }, href: '/anker/audio', icon: '🎧', volume: { en: '3,600+ searches/mo', ar: '3,600+ بحث/شهر' } },
-            { title: { en: 'Soundcore Speakers', ar: 'مكبرات صوت (Speakers)' }, description: { en: 'Motion+, Flare 2, Boom 2', ar: 'صوت 360 درجة وحفلات' }, href: '/anker/speakers', icon: '🔊', volume: { en: 'Trending', ar: 'تريندينج' }, badge: { en: '🔥 Best Audio', ar: '🔥 صوت نقي' } },
-            { title: { en: 'Anker Cables', ar: 'كابلات انكر (Strong)' }, description: { en: 'PowerLine III Flow & USB-C', ar: 'كابلات ضد القطع (Lifetime)' }, href: '/anker/cables', icon: '🔗', volume: { en: '320+ searches/mo', ar: '320+ بحث/شهر' } },
-            { title: { en: 'Anker Car Chargers', ar: 'شواحن سيارة' }, description: { en: 'PowerDrive Alloy', ar: 'شحن سريع في الطريق' }, href: '/anker/car-chargers', icon: '🚗', volume: { en: '260+ searches/mo', ar: '260+ بحث/شهر' } },
+            { title: { en: 'Anker Power Banks', ar: 'باور بانك انكر' }, description: { en: 'PowerCore 10000 & 20000mAh', ar: 'شحن ذكي و سعات ضخمة' }, href: '/Anker/power-banks', icon: '⚡', volume: { en: '2,900+ searches/mo', ar: '2,900+ بحث/شهر' } },
+            { title: { en: 'Anker Chargers', ar: 'شواحن انكر (Wall)' }, description: { en: 'Nano 20W, 30W & 45W', ar: 'شواحن Nano وسرعات 45W' }, href: '/Anker/wall-chargers', icon: '🔌', volume: { en: '2,900+ searches/mo', ar: '2,900+ بحث/شهر' } },
+            { title: { en: 'Soundcore Earbuds', ar: 'سماعات Soundcore' }, description: { en: 'Liberty 4, P40i, R50i', ar: 'عزل ضوضاء وصوت Hi-Res' }, href: '/Anker/audio', icon: '🎧', volume: { en: '3,600+ searches/mo', ar: '3,600+ بحث/شهر' } },
+            { title: { en: 'Soundcore Speakers', ar: 'مكبرات صوت (Speakers)' }, description: { en: 'Motion+, Flare 2, Boom 2', ar: 'صوت 360 درجة وحفلات' }, href: '/Anker/speakers', icon: '🔊', volume: { en: 'Trending', ar: 'تريندينج' }, badge: { en: '🔥 Best Audio', ar: '🔥 صوت نقي' } },
+            { title: { en: 'Anker Cables', ar: 'كابلات انكر (Strong)' }, description: { en: 'PowerLine III Flow & USB-C', ar: 'كابلات ضد القطع (Lifetime)' }, href: '/Anker/cables', icon: '🔗', volume: { en: '320+ searches/mo', ar: '320+ بحث/شهر' } },
+            { title: { en: 'Anker Car Chargers', ar: 'شواحن سيارة' }, description: { en: 'PowerDrive Alloy', ar: 'شحن سريع في الطريق' }, href: '/Anker/car-chargers', icon: '🚗', volume: { en: '260+ searches/mo', ar: '260+ بحث/شهر' } },
         ],
         whySection: {
             title: { en: 'Why Anker is the G.O.A.T?', ar: 'لماذا Anker هي الأفضل عالمياً؟' },
@@ -201,16 +201,16 @@ export const brandData: Record<string, BrandData> = {
             ],
             heroProduct: {
                 label: { en: '⭐ The Legend:', ar: '⭐ الأسطورة:' },
-                link: { href: '/joyroom/audio', text: { en: 'Joyroom T03s - The AirPods Alternative', ar: 'Joyroom T03s - البديل الاستراتيجي للايربودز' } }
+                link: { href: '/Joyroom/audio', text: { en: 'Joyroom T03s - The AirPods Alternative', ar: 'Joyroom T03s - البديل الاستراتيجي للايربودز' } }
             }
         },
         categories: [
-            { title: { en: 'T03s Earbuds', ar: 'سماعات T03s' }, description: { en: 'The Market Legend', ar: 'أسطورة السوق المصري' }, href: '/joyroom/audio', icon: '🎧', volume: { en: '15,000+ sold', ar: '15,000+ مباعة' }, badge: { en: '⭐ Legend', ar: '⭐ أسطورة' } },
-            { title: { en: 'Joyroom Power Banks', ar: 'باور بانك جوي روم' }, description: { en: 'Grade A+ Cells (Safe)', ar: 'خلايا Grade A+ (آمنة)' }, href: '/joyroom/power-banks', icon: '⚡', volume: { en: 'High Demand', ar: 'طلب عالي' } },
-            { title: { en: 'Joyroom Chargers', ar: 'شواحن جوي روم' }, description: { en: 'Smart IC Protection', ar: 'حماية Smart IC' }, href: '/joyroom/wall-chargers', icon: '🔌', volume: { en: 'Essential', ar: 'أساسي' } },
-            { title: { en: 'Joyroom Cables', ar: 'كابلات جوي روم' }, description: { en: 'Auto-Disconnect Tech', ar: 'تقنية الفصل التلقائي' }, href: '/joyroom/cables', icon: '🔗', volume: { en: 'Durable', ar: 'معمر' } },
-            { title: { en: 'Joyroom Smart Watches', ar: 'ساعات جوي روم' }, description: { en: 'FT3 Pro & Fit-Life', ar: 'FT3 Pro و Fit-Life' }, href: '/joyroom/smart-watches', icon: '⌚', volume: { en: 'Trending', ar: 'تريندينج' }, badge: { en: '🔥 Hot', ar: '🔥 رائج' } },
-            { title: { en: 'Car Holders', ar: 'حوامل سيارة' }, description: { en: 'Strong Magnets', ar: 'مغناطيس قوي جداً' }, href: '/joyroom/car-holders', icon: '🧭', volume: { en: 'New', ar: 'جديد' } },
+            { title: { en: 'T03s Earbuds', ar: 'سماعات T03s' }, description: { en: 'The Market Legend', ar: 'أسطورة السوق المصري' }, href: '/Joyroom/audio', icon: '🎧', volume: { en: '15,000+ sold', ar: '15,000+ مباعة' }, badge: { en: '⭐ Legend', ar: '⭐ أسطورة' } },
+            { title: { en: 'Joyroom Power Banks', ar: 'باور بانك جوي روم' }, description: { en: 'Grade A+ Cells (Safe)', ar: 'خلايا Grade A+ (آمنة)' }, href: '/Joyroom/power-banks', icon: '⚡', volume: { en: 'High Demand', ar: 'طلب عالي' } },
+            { title: { en: 'Joyroom Chargers', ar: 'شواحن جوي روم' }, description: { en: 'Smart IC Protection', ar: 'حماية Smart IC' }, href: '/Joyroom/wall-chargers', icon: '🔌', volume: { en: 'Essential', ar: 'أساسي' } },
+            { title: { en: 'Joyroom Cables', ar: 'كابلات جوي روم' }, description: { en: 'Auto-Disconnect Tech', ar: 'تقنية الفصل التلقائي' }, href: '/Joyroom/cables', icon: '🔗', volume: { en: 'Durable', ar: 'معمر' } },
+            { title: { en: 'Joyroom Smart Watches', ar: 'ساعات جوي روم' }, description: { en: 'FT3 Pro & Fit-Life', ar: 'FT3 Pro و Fit-Life' }, href: '/Joyroom/smart-watches', icon: '⌚', volume: { en: 'Trending', ar: 'تريندينج' }, badge: { en: '🔥 Hot', ar: '🔥 رائج' } },
+            { title: { en: 'Car Holders', ar: 'حوامل سيارة' }, description: { en: 'Strong Magnets', ar: 'مغناطيس قوي جداً' }, href: '/Joyroom/car-holders', icon: '🧭', volume: { en: 'New', ar: 'جديد' } },
         ],
         whySection: {
             title: { en: 'Why Choose Joyroom?', ar: 'لماذا تختار Joyroom؟' },
