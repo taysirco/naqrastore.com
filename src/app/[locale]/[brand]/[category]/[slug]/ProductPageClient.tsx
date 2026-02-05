@@ -9,6 +9,7 @@ import { useCart } from '@/context/CartContext';
 import BundleSelector from '@/components/products/BundleSelector';
 import RelatedProducts from '@/components/products/RelatedProducts';
 import RelatedLinks from '@/components/seo/RelatedLinks';
+import VerifiedReviews from '@/components/reviews/VerifiedReviews';
 
 interface Product {
     id: string; // Add id
@@ -568,6 +569,11 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                         ))}
                     </div>
                 </div>
+            </div>
+
+            {/* Verified Customer Reviews Section */}
+            <div className="container mx-auto px-4 py-8">
+                <VerifiedReviews productSlug={product.slug} locale={locale} />
             </div>
             {/* Related Products Section */}
             <div className="container mx-auto px-4 pb-8">

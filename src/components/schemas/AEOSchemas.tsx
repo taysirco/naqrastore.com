@@ -290,7 +290,7 @@ export function LocalBusinessSchema({ locale }: LocalBusinessProps) {
         url: 'https://cairovolt.com',
         logo: 'https://cairovolt.com/logo.png',
         image: 'https://cairovolt.com/cairovolt_logo.png',
-        telephone: '+20-XXX-XXX-XXXX', // Replace with actual phone
+        telephone: '+20-106-337-4834',
         email: 'info@cairovolt.com',
         currenciesAccepted: 'EGP',
         paymentAccepted: ['Cash on Delivery', 'الدفع عند الاستلام'],
