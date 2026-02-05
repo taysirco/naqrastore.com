@@ -5,8 +5,7 @@ import { getProductBySlug, getSmartRelatedProducts } from '@/lib/static-products
 import ProductPageClient from './ProductPageClient';
 import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
 import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
-// Review imports commented out - will be re-enabled when verified review system is built
-// import { generateProductReviews, calculateAggregateRating } from '@/data/product-reviews';
+import { calculateVerifiedAggregateRating } from '@/lib/verified-reviews';
 
 type Props = {
     params: Promise<{ locale: string; brand: string; category: string; slug: string }>;
@@ -129,10 +128,8 @@ export default async function ProductPage({ params }: Props) {
     const productDescription = product.translations?.[locale as 'ar' | 'en']?.description || product.translations?.en?.description || '';
     const isArabic = locale === 'ar';
 
-    // Reviews are generated for UI display only
-    // aggregateRating removed from Schema until we have verified customer reviews
-    // This prevents Google penalties for synthetic/fake reviews
-    // TODO: Re-enable when we have 3+ verified reviews from real customers
+    // Fetch verified aggregate rating for SEO Schema
+    const aggregateRating = await calculateVerifiedAggregateRating(slug);
 
     return (
         <>
@@ -154,7 +151,12 @@ export default async function ProductPage({ params }: Props) {
                     images: product.images?.map(img => ({ url: img.url, alt: img.alt || '' })) || []
                 }}
                 locale={locale}
-            // aggregateRating intentionally omitted - will be re-enabled with verified reviews
+                aggregateRating={aggregateRating ? {
+                    ratingValue: aggregateRating.ratingValue,
+                    reviewCount: String(aggregateRating.reviewCount),
+                    bestRating: String(aggregateRating.bestRating),
+                    worstRating: String(aggregateRating.worstRating)
+                } : undefined}
             />
 
             {/* BreadcrumbSchema for navigation */}
