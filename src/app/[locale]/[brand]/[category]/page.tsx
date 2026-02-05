@@ -17,7 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!data) return {};
 
     const meta = locale === 'ar' ? data.metadata.ar : data.metadata.en;
-    const path = `${brandKey}/${categoryKey}`;
+    // Use proper brand casing (Anker, Joyroom) for canonical URLs
+    const properBrand = brandKey.charAt(0).toUpperCase() + brandKey.slice(1);
+    const path = `${properBrand}/${categoryKey}`;
 
     return {
         title: meta.title,

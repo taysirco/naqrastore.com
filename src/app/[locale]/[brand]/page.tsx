@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!data) return {};
 
     const meta = locale === 'ar' ? data.metadata.ar : data.metadata.en;
-    const brandSlug = brand.toLowerCase();
+    // Use proper brand slug casing (Anker, Joyroom) for canonical URLs
+    const properBrandSlug = data.id.charAt(0).toUpperCase() + data.id.slice(1);
 
     return {
         title: meta.title,
@@ -25,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         keywords: meta.keywords,
         alternates: {
             canonical: locale === 'ar'
-                ? `https://cairovolt.com/${brandSlug}`
-                : `https://cairovolt.com/en/${brandSlug}`,
+                ? `https://cairovolt.com/${properBrandSlug}`
+                : `https://cairovolt.com/en/${properBrandSlug}`,
             languages: {
-                'ar': `https://cairovolt.com/${brandSlug}`,
-                'en': `https://cairovolt.com/en/${brandSlug}`,
+                'ar': `https://cairovolt.com/${properBrandSlug}`,
+                'en': `https://cairovolt.com/en/${properBrandSlug}`,
             },
         },
         openGraph: meta.openGraph ? { ...meta.openGraph, locale: locale === 'ar' ? 'ar_EG' : 'en_US' } : undefined,

@@ -93,11 +93,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         alternates: {
             canonical: isArabic
-                ? `https://cairovolt.com/${brand}/${category}/${slug}`
-                : `https://cairovolt.com/en/${brand}/${category}/${slug}`,
+                ? `https://cairovolt.com/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`
+                : `https://cairovolt.com/en/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`,
             languages: {
-                'ar': `https://cairovolt.com/${brand}/${category}/${slug}`,
-                'en': `https://cairovolt.com/en/${brand}/${category}/${slug}`,
+                'ar': `https://cairovolt.com/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`,
+                'en': `https://cairovolt.com/en/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`,
             }
         },
         // Geo Meta Tags
