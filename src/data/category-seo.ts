@@ -339,7 +339,7 @@ export const categoryData: Record<string, Record<string, CategorySeoData>> = {
                             title: 'للسرعة الكاملة: الكابل المناسب',
                             content: `
 **💡 نصيحة مهمة:** للحصول على أقصى سرعة، استخدم كابل USB-C to Lightning من انكر مع الشاحن.
-[تسوق كابل انكر USB-C](/anker/cables) - **خصم 15% عند الشراء مع الشاحن!**
+[تسوق كابل انكر USB-C](/Anker/cables) - **خصم 15% عند الشراء مع الشاحن!**
 `
                         }
                     ],
@@ -413,7 +413,7 @@ Anker chargers are the world's #1 fast charging solution, available from 20W to 
                             title: 'For Full Speed: The Right Cable',
                             content: `
 **💡 Pro Tip:** For maximum speed, use an Anker USB-C to Lightning cable with your charger.
-[Shop Anker Cables](/en/anker/cables) — **15% off when bundled with charger!**
+[Shop Anker Cables](/en/Anker/cables) — **15% off when bundled with charger!**
 `
                         }
                     ],

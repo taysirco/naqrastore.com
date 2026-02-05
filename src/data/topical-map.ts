@@ -159,7 +159,7 @@ export const topicalMap: TopicalMap = {
                 ],
                 relatedEntities: ['Soundcore', 'ANC', 'Bluetooth 5.3', 'IPX5', 'Hi-Res Audio'],
                 searchVolume: { ar: 3200, en: 590 },
-                internalLinks: ['/Anker/speakers', '/joyroom/audio'],
+                internalLinks: ['/Anker/speakers', '/Joyroom/audio'],
             },
             {
                 topic: 'Cables',
