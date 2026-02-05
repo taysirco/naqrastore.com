@@ -305,7 +305,10 @@ export function generateReviewRequestMessage(
     token: string,
     locale: 'ar' | 'en' = 'ar'
 ): string {
-    const reviewUrl = `https://cairovolt.com/${locale}/review/${token}`;
+    // Arabic is default (no prefix), English uses /en
+    const reviewUrl = locale === 'ar'
+        ? `https://cairovolt.com/review/${token}`
+        : `https://cairovolt.com/en/review/${token}`;
 
     if (locale === 'ar') {
         return `🎉 أهلاً ${customerName}!
@@ -364,7 +367,7 @@ export async function generateOrderReviewTokens(
             productSlug: item.slug,
             productName: item.name,
             token,
-            reviewUrl: `https://cairovolt.com/ar/review/${token}`
+            reviewUrl: `https://cairovolt.com/review/${token}`
         });
     }
 

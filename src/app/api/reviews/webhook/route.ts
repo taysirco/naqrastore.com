@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
             'ar'
         );
 
-        // Generate review URL
-        const reviewUrl = `https://cairovolt.com/ar/review/${token}`;
+        // Generate review URL (Arabic is default, no /ar prefix)
+        const reviewUrl = `https://cairovolt.com/review/${token}`;
 
         // Log the review request for tracking
         try {

@@ -104,7 +104,7 @@ export async function GET(req: NextRequest) {
                     'ar'
                 );
 
-                const reviewUrl = `https://cairovolt.com/ar/review/${token}`;
+                const reviewUrl = `https://cairovolt.com/review/${token}`;
                 const whatsappLink = `https://wa.me/${customerPhone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 
                 // Update the notes column to mark as processed
