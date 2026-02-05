@@ -92,7 +92,8 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
         },
         offers: {
             '@type': 'Offer',
-            url: `${baseUrl}/${locale}/${product.brand.toLowerCase()}/${product.slug}`,
+            // Arabic is default (/), English uses /en/. Use proper brand casing.
+            url: `${baseUrl}${locale === 'ar' ? '' : '/en'}/${product.brand.charAt(0).toUpperCase() + product.brand.slice(1).toLowerCase()}/${product.slug}`,
             priceCurrency: 'EGP',
             price: product.price,
             priceValidUntil: '2026-03-31', // Fixed date - update quarterly to prevent cache inconsistencies

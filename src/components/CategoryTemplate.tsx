@@ -144,10 +144,13 @@ export default function CategoryTemplate({
         }))
         : content.products.map((p, idx) => ({ ...p, id: String(idx), slug: '', image: undefined as string | undefined, originalPrice: undefined as number | undefined }));
 
+    // Breadcrumbs - Arabic default locale uses '/', English uses '/en/'
+    // Use proper brand casing (Anker, Joyroom)
+    const localePrefix = locale === 'ar' ? '' : '/en';
     const breadcrumbs = [
-        { name: tCommon('home'), url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}` },
-        { name: translatedBrand, url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}/${brand.toLowerCase()}` },
-        { name: translatedCategory, url: `https://cairovolt.com/${locale === 'ar' ? 'ar' : 'en'}/${brand.toLowerCase()}/${categorySlug}` }
+        { name: tCommon('home'), url: `https://cairovolt.com${localePrefix}` },
+        { name: translatedBrand, url: `https://cairovolt.com${localePrefix}/${brand}` },
+        { name: translatedCategory, url: `https://cairovolt.com${localePrefix}/${brand}/${categorySlug}` }
     ];
 
     return (
@@ -177,8 +180,8 @@ export default function CategoryTemplate({
                     items={displayProducts.map((p, idx) => ({
                         name: p.name,
                         url: p.slug
-                            ? `https://cairovolt.com/${locale}/${brand.toLowerCase()}/${categorySlug}/${p.slug}`
-                            : `https://cairovolt.com/${locale}/${brand.toLowerCase()}/${categorySlug}`,
+                            ? `https://cairovolt.com${localePrefix}/${brand}/${categorySlug}/${p.slug}`
+                            : `https://cairovolt.com${localePrefix}/${brand}/${categorySlug}`,
                         image: p.image || '/placeholder.png',
                         price: p.price,
                         position: idx + 1,
@@ -192,11 +195,11 @@ export default function CategoryTemplate({
                 <div className="container mx-auto px-4">
                     {/* Breadcrumb */}
                     <nav className="text-xs sm:text-sm text-white/70 mb-4 md:mb-6 px-1">
-                        <Link href={`/${locale === 'ar' ? 'ar' : 'en'}`} className="hover:text-white">
+                        <Link href={localePrefix || '/'} className="hover:text-white">
                             {tCommon('home')}
                         </Link>
                         <span className="mx-2">/</span>
-                        <Link href={`/${locale === 'ar' ? 'ar' : 'en'}/${brand.toLowerCase()}`} className="hover:text-white">
+                        <Link href={`${localePrefix}/${brand}`} className="hover:text-white">
                             {translatedBrand}
                         </Link>
                         <span className="mx-2">/</span>
@@ -579,7 +582,7 @@ export default function CategoryTemplate({
                                     <Link
                                         key={product.id || idx}
                                         href={product.slug
-                                            ? `/${locale}/${brand.toLowerCase()}/${categorySlug}/${product.slug}`
+                                            ? `${localePrefix}/${brand}/${categorySlug}/${product.slug}`
                                             : '#'
                                         }
                                         className="flex gap-4 group bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-3 hover:shadow-lg hover:border-gray-200 transition-all duration-300"
@@ -645,7 +648,7 @@ export default function CategoryTemplate({
 
                 {/* Related Categories - Internal Linking */}
                 <RelatedLinks
-                    currentUrl={`/${brand.toLowerCase()}/${categorySlug}`}
+                    currentUrl={`/${brand}/${categorySlug}`}
                     locale={locale}
                     variant="card"
                     maxLinks={4}

@@ -65,8 +65,9 @@ export async function GET() {
     for (const product of products) {
         if (!product.images || product.images.length === 0) continue;
 
-        const brandLower = product.brand.toLowerCase();
-        const productUrl = `${baseUrl}/${brandLower}/${product.categorySlug}/${product.slug}`;
+        // Use proper brand casing (Anker, Joyroom)
+        const properBrand = product.brand.charAt(0).toUpperCase() + product.brand.slice(1).toLowerCase();
+        const productUrl = `${baseUrl}/${properBrand}/${product.categorySlug}/${product.slug}`;
 
         xml += `  <url>
     <loc>${productUrl}</loc>

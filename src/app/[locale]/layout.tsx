@@ -41,10 +41,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     // Each page sets its own canonical in generateMetadata
+    // Arabic is default locale - no /ar/ prefix
     languages: {
-      'ar': 'https://cairovolt.com/ar',
+      'ar': 'https://cairovolt.com',
       'en': 'https://cairovolt.com/en',
-      'x-default': 'https://cairovolt.com/ar',
+      'x-default': 'https://cairovolt.com',
     },
   },
   openGraph: {
@@ -76,9 +77,10 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         {/* hreflang tags for better international SEO */}
-        <link rel="alternate" hrefLang="ar" href="https://cairovolt.com/ar" />
+        {/* Arabic is default locale - no /ar/ prefix */}
+        <link rel="alternate" hrefLang="ar" href="https://cairovolt.com" />
         <link rel="alternate" hrefLang="en" href="https://cairovolt.com/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://cairovolt.com/ar" />
+        <link rel="alternate" hrefLang="x-default" href="https://cairovolt.com" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}

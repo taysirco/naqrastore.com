@@ -13,9 +13,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const baseMetadata = {
     alternates: {
-      canonical: `https://cairovolt.com/${locale}`,
+      // Arabic is default locale - no /ar/ prefix
+      canonical: locale === 'ar' ? 'https://cairovolt.com' : 'https://cairovolt.com/en',
       languages: {
-        'ar': 'https://cairovolt.com/ar',
+        'ar': 'https://cairovolt.com',
         'en': 'https://cairovolt.com/en',
       },
     },
@@ -54,34 +55,35 @@ export default function Home() {
   const locale = useLocale();
   const isRTL = locale === 'ar';
 
+  // Use proper brand casing (Anker, Joyroom) in URLs
   const heroProducts = isRTL
     ? [
-      { name: 'Joyroom T03s', category: 'سماعات', badge: '⭐ الأكثر مبيعاً', href: '/joyroom/audio' },
-      { name: 'Anker PowerCore 20000', category: 'باور بانك', badge: '🔥 الأعلى طلباً', href: '/anker/power-banks' },
-      { name: 'Anker Nano 20W', category: 'شاحن', badge: '📱 iPhone', href: '/anker/wall-chargers' },
+      { name: 'Joyroom T03s', category: 'سماعات', badge: '⭐ الأكثر مبيعاً', href: '/Joyroom/audio' },
+      { name: 'Anker PowerCore 20000', category: 'باور بانك', badge: '🔥 الأعلى طلباً', href: '/Anker/power-banks' },
+      { name: 'Anker Nano 20W', category: 'شاحن', badge: '📱 iPhone', href: '/Anker/wall-chargers' },
     ]
     : [
-      { name: 'Joyroom T03s', category: 'Earbuds', badge: '⭐ Best Seller', href: '/en/joyroom/audio' },
-      { name: 'Anker PowerCore 20000', category: 'Power Bank', badge: '🔥 Top Seller', href: '/en/anker/power-banks' },
-      { name: 'Anker Nano 20W', category: 'Charger', badge: '📱 iPhone', href: '/en/anker/wall-chargers' },
+      { name: 'Joyroom T03s', category: 'Earbuds', badge: '⭐ Best Seller', href: '/en/Joyroom/audio' },
+      { name: 'Anker PowerCore 20000', category: 'Power Bank', badge: '🔥 Top Seller', href: '/en/Anker/power-banks' },
+      { name: 'Anker Nano 20W', category: 'Charger', badge: '📱 iPhone', href: '/en/Anker/wall-chargers' },
     ];
 
   const categories = isRTL
     ? [
-      { title: 'باور بانك', brand: 'Anker', href: '/anker/power-banks', icon: '⚡', color: 'from-blue-600 to-blue-400' },
-      { title: 'سماعات T03s', brand: 'Joyroom', href: '/joyroom/audio', icon: '🎧', color: 'from-red-600 to-red-400', badge: 'Hero' },
-      { title: 'شواحن', brand: 'Anker', href: '/anker/wall-chargers', icon: '🔌', color: 'from-purple-600 to-purple-400' },
-      { title: 'كابلات', brand: 'Anker', href: '/anker/cables', icon: '🔗', color: 'from-green-600 to-green-400' },
-      { title: 'Soundcore', brand: 'Anker', href: '/anker/audio', icon: '🎵', color: 'from-indigo-600 to-indigo-400' },
-      { title: 'شاحن سيارة', brand: 'Anker', href: '/anker/car-chargers', icon: '🚗', color: 'from-orange-600 to-orange-400' },
+      { title: 'باور بانك', brand: 'Anker', href: '/Anker/power-banks', icon: '⚡', color: 'from-blue-600 to-blue-400' },
+      { title: 'سماعات T03s', brand: 'Joyroom', href: '/Joyroom/audio', icon: '🎧', color: 'from-red-600 to-red-400', badge: 'Hero' },
+      { title: 'شواحن', brand: 'Anker', href: '/Anker/wall-chargers', icon: '🔌', color: 'from-purple-600 to-purple-400' },
+      { title: 'كابلات', brand: 'Anker', href: '/Anker/cables', icon: '🔗', color: 'from-green-600 to-green-400' },
+      { title: 'Soundcore', brand: 'Anker', href: '/Anker/audio', icon: '🎵', color: 'from-indigo-600 to-indigo-400' },
+      { title: 'شاحن سيارة', brand: 'Anker', href: '/Anker/car-chargers', icon: '🚗', color: 'from-orange-600 to-orange-400' },
     ]
     : [
-      { title: 'Power Banks', brand: 'Anker', href: '/en/anker/power-banks', icon: '⚡', color: 'from-blue-600 to-blue-400' },
-      { title: 'T03s Earbuds', brand: 'Joyroom', href: '/en/joyroom/audio', icon: '🎧', color: 'from-red-600 to-red-400', badge: 'Hero' },
-      { title: 'Wall Chargers', brand: 'Anker', href: '/en/anker/wall-chargers', icon: '🔌', color: 'from-purple-600 to-purple-400' },
-      { title: 'Cables', brand: 'Anker', href: '/en/anker/cables', icon: '🔗', color: 'from-green-600 to-green-400' },
-      { title: 'Soundcore', brand: 'Anker', href: '/en/anker/audio', icon: '🎵', color: 'from-indigo-600 to-indigo-400' },
-      { title: 'Car Chargers', brand: 'Anker', href: '/en/anker/car-chargers', icon: '🚗', color: 'from-orange-600 to-orange-400' },
+      { title: 'Power Banks', brand: 'Anker', href: '/en/Anker/power-banks', icon: '⚡', color: 'from-blue-600 to-blue-400' },
+      { title: 'T03s Earbuds', brand: 'Joyroom', href: '/en/Joyroom/audio', icon: '🎧', color: 'from-red-600 to-red-400', badge: 'Hero' },
+      { title: 'Wall Chargers', brand: 'Anker', href: '/en/Anker/wall-chargers', icon: '🔌', color: 'from-purple-600 to-purple-400' },
+      { title: 'Cables', brand: 'Anker', href: '/en/Anker/cables', icon: '🔗', color: 'from-green-600 to-green-400' },
+      { title: 'Soundcore', brand: 'Anker', href: '/en/Anker/audio', icon: '🎵', color: 'from-indigo-600 to-indigo-400' },
+      { title: 'Car Chargers', brand: 'Anker', href: '/en/Anker/car-chargers', icon: '🚗', color: 'from-orange-600 to-orange-400' },
     ];
 
   return (
@@ -148,10 +150,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={isRTL ? '/anker' : '/en/anker'} className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-blue-600/30">
+              <Link href={isRTL ? '/Anker' : '/en/Anker'} className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-blue-600/30">
                 {isRTL ? 'تسوق Anker' : 'Shop Anker'}
               </Link>
-              <Link href={isRTL ? '/joyroom' : '/en/joyroom'} className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-red-600/30">
+              <Link href={isRTL ? '/Joyroom' : '/en/Joyroom'} className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-lg shadow-red-600/30">
                 {isRTL ? 'تسوق Joyroom' : 'Shop Joyroom'}
               </Link>
             </div>
@@ -195,7 +197,7 @@ export default function Home() {
         <section className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Anker */}
-            <Link href={isRTL ? '/anker' : '/en/anker'} className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white hover:shadow-2xl transition-all">
+            <Link href={isRTL ? '/Anker' : '/en/Anker'} className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white hover:shadow-2xl transition-all">
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold mb-2">Anker</h3>
                 <p className="text-blue-100 mb-4">
@@ -209,7 +211,7 @@ export default function Home() {
             </Link>
 
             {/* Joyroom */}
-            <Link href={isRTL ? '/joyroom' : '/en/joyroom'} className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hover:shadow-2xl transition-all">
+            <Link href={isRTL ? '/Joyroom' : '/en/Joyroom'} className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 to-red-800 p-8 text-white hover:shadow-2xl transition-all">
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold mb-2">Joyroom</h3>
                 <p className="text-red-100 mb-4">

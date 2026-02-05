@@ -199,7 +199,7 @@ export default async function GovernoratePage({ params }: PageProps) {
                             return (
                                 <Link
                                     key={product.slug}
-                                    href={`/${locale}/${product.brand.toLowerCase()}/${product.categorySlug}/${product.slug}`}
+                                    href={`${locale === 'ar' ? '' : '/en'}/${product.brand.charAt(0).toUpperCase() + product.brand.slice(1).toLowerCase()}/${product.categorySlug}/${product.slug}`}
                                     className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow hover:shadow-lg transition-all"
                                 >
                                     <div className="aspect-square bg-gray-100 dark:bg-gray-700 relative overflow-hidden">

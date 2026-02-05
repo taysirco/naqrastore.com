@@ -7,6 +7,9 @@ import { governorates } from '@/data/governorates';
 
 const baseUrl = 'https://cairovolt.com';
 
+// Helper to capitalize brand (anker → Anker, joyroom → Joyroom)
+const capitalizeBrand = (brand: string) => brand.charAt(0).toUpperCase() + brand.slice(1);
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const routes: MetadataRoute.Sitemap = [
         // Home
@@ -36,34 +39,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/en/terms`, priority: 0.3, changeFrequency: 'yearly', lastModified: new Date() },
     ];
 
-    // Dynamic Brand Pages
+    // Dynamic Brand Pages - Use proper casing (Anker, Joyroom)
     Object.keys(brandData).forEach(brandId => {
+        const properBrand = capitalizeBrand(brandId);
         routes.push({
-            url: `${baseUrl}/${brandId}`,
+            url: `${baseUrl}/${properBrand}`,
             priority: 0.9,
             changeFrequency: 'weekly',
             lastModified: new Date(),
         });
         routes.push({
-            url: `${baseUrl}/en/${brandId}`,
+            url: `${baseUrl}/en/${properBrand}`,
             priority: 0.9,
             changeFrequency: 'weekly',
             lastModified: new Date(),
         });
     });
 
-    // Dynamic Category Pages
+    // Dynamic Category Pages - Use proper casing
     Object.keys(categoryData).forEach(brandId => {
+        const properBrand = capitalizeBrand(brandId);
         const brandCategories = categoryData[brandId];
         Object.keys(brandCategories).forEach(catSlug => {
             routes.push({
-                url: `${baseUrl}/${brandId}/${catSlug}`,
+                url: `${baseUrl}/${properBrand}/${catSlug}`,
                 priority: 0.8,
                 changeFrequency: 'weekly',
                 lastModified: new Date(),
             });
             routes.push({
-                url: `${baseUrl}/en/${brandId}/${catSlug}`,
+                url: `${baseUrl}/en/${properBrand}/${catSlug}`,
                 priority: 0.8,
                 changeFrequency: 'weekly',
                 lastModified: new Date(),
@@ -71,17 +76,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
     });
 
-    // Dynamic Product Pages
+    // Dynamic Product Pages - Use proper casing
     staticProducts.forEach(product => {
-        const brandSlug = product.brand.toLowerCase();
+        const properBrand = capitalizeBrand(product.brand.toLowerCase());
         routes.push({
-            url: `${baseUrl}/${brandSlug}/${product.categorySlug}/${product.slug}`,
+            url: `${baseUrl}/${properBrand}/${product.categorySlug}/${product.slug}`,
             priority: 0.9,
             changeFrequency: 'daily',
             lastModified: new Date(),
         });
         routes.push({
-            url: `${baseUrl}/en/${brandSlug}/${product.categorySlug}/${product.slug}`,
+            url: `${baseUrl}/en/${properBrand}/${product.categorySlug}/${product.slug}`,
             priority: 0.9,
             changeFrequency: 'daily',
             lastModified: new Date(),
@@ -93,3 +98,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return routes;
 }
+
