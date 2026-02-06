@@ -23,23 +23,23 @@ export default function middleware(request: NextRequest) {
     }
 
     // Check for lowercase brand names and redirect to proper casing
-    // Handles: /anker/..., /en/anker/..., /joyroom/..., /en/joyroom/...
     const pathSegments = pathname.split('/').filter(Boolean);
 
     // Determine if first segment is locale
     const hasLocale = pathSegments[0] === 'en' || pathSegments[0] === 'ar';
-    const brandIndex = hasLocale ? 1 : 0;
-    const potentialBrand = pathSegments[brandIndex]?.toLowerCase();
+    const slugIndex = hasLocale ? 1 : 0;
+    const firstSlug = pathSegments[slugIndex]?.toLowerCase();
 
-    if (potentialBrand && brandCaseMap[potentialBrand]) {
-        const actualBrand = pathSegments[brandIndex];
-        const properBrand = brandCaseMap[potentialBrand];
+    // ── Brand case correction ──
+    // /anker/... → 301 redirect to /Anker/...
+    if (firstSlug && brandCaseMap[firstSlug]) {
+        const actualBrand = pathSegments[slugIndex];
+        const properBrand = brandCaseMap[firstSlug];
 
         // Only redirect if case is wrong (lowercase brand in URL)
-        if (actualBrand !== properBrand && actualBrand.toLowerCase() === potentialBrand) {
-            // Build corrected URL
+        if (actualBrand !== properBrand && actualBrand.toLowerCase() === firstSlug) {
             const correctedSegments = [...pathSegments];
-            correctedSegments[brandIndex] = properBrand;
+            correctedSegments[slugIndex] = properBrand;
 
             const correctedPath = '/' + correctedSegments.join('/');
             const url = request.nextUrl.clone();

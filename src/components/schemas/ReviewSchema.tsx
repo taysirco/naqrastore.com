@@ -171,6 +171,13 @@ export function VideoObjectSchema({
     );
 }
 
+// Stable price validity date - 3 months ahead, computed once at module level
+const PRICE_VALID_UNTIL = (() => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 3);
+    return d.toISOString().split('T')[0];
+})();
+
 // ============================================
 // GS1 WEB VOCABULARY SCHEMA
 // ============================================
@@ -243,7 +250,7 @@ export function GS1ProductSchema({
             priceCurrency: currency,
             availability: 'https://schema.org/InStock',
             itemCondition: 'https://schema.org/NewCondition',
-            priceValidUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+            priceValidUntil: PRICE_VALID_UNTIL,
             seller: {
                 '@type': 'Organization',
                 name: isArabic ? 'كايرو فولت' : 'Cairo Volt',

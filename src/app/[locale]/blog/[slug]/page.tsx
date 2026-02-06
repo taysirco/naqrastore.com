@@ -1,0 +1,273 @@
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { getBlogArticle, getAllBlogSlugs, blogArticles } from '@/data/blog-articles';
+import { BreadcrumbSchema } from '@/components/schemas/ProductSchema';
+import { ArticleSchema, SpeakableSchema } from '@/components/schemas/AEOSchemas';
+import { FAQSchema } from '@/components/schemas/ProductSchema';
+
+type Props = {
+    params: Promise<{ locale: string; slug: string }>;
+};
+
+export async function generateStaticParams() {
+    const slugs = getAllBlogSlugs();
+    return ['en', 'ar'].flatMap((locale) =>
+        slugs.map((slug) => ({ locale, slug }))
+    );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale, slug } = await params;
+    const article = getBlogArticle(slug);
+
+    if (!article) return {};
+
+    const isArabic = locale === 'ar';
+    const trans = article.translations[isArabic ? 'ar' : 'en'];
+
+    return {
+        title: trans.metaTitle,
+        description: trans.metaDescription,
+        keywords: trans.keywords,
+        alternates: {
+            canonical: isArabic
+                ? `https://cairovolt.com/blog/${slug}`
+                : `https://cairovolt.com/en/blog/${slug}`,
+            languages: {
+                'ar': `https://cairovolt.com/blog/${slug}`,
+                'en': `https://cairovolt.com/en/blog/${slug}`,
+            },
+        },
+        openGraph: {
+            title: trans.metaTitle,
+            description: trans.metaDescription,
+            locale: isArabic ? 'ar_EG' : 'en_US',
+            type: 'article',
+            siteName: isArabic ? 'كايرو فولت' : 'Cairo Volt',
+            publishedTime: article.publishDate,
+            modifiedTime: article.modifiedDate,
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
+    };
+}
+
+const categoryLabels: Record<string, { ar: string; en: string; icon: string }> = {
+    'buying-guide': { ar: 'دليل شراء', en: 'Buying Guide', icon: '📚' },
+    'comparison': { ar: 'مقارنة', en: 'Comparison', icon: '⚖️' },
+    'how-to': { ar: 'شرح', en: 'How-To', icon: '🔧' },
+    'review': { ar: 'مراجعة', en: 'Review', icon: '⭐' },
+    'tips': { ar: 'نصائح', en: 'Tips', icon: '💡' },
+};
+
+export default async function BlogArticlePage({ params }: Props) {
+    const { locale, slug } = await params;
+    const article = getBlogArticle(slug);
+
+    if (!article) {
+        notFound();
+    }
+
+    const isArabic = locale === 'ar';
+    const trans = article.translations[isArabic ? 'ar' : 'en'];
+    const catLabel = categoryLabels[article.category];
+
+    const getLocalizedHref = (path: string) => {
+        const cleanPath = path.startsWith('/') ? path : `/${path}`;
+        return locale === 'ar' ? cleanPath : `/${locale}${cleanPath}`;
+    };
+
+    // Get related articles (same category, excluding current)
+    const relatedArticles = blogArticles
+        .filter(a => a.slug !== slug)
+        .slice(0, 3);
+
+    return (
+        <>
+            {/* Schema Markup */}
+            <BreadcrumbSchema
+                items={[
+                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com${isArabic ? '' : '/en'}` },
+                    { name: isArabic ? 'المدونة' : 'Blog', url: `https://cairovolt.com${isArabic ? '' : '/en'}/blog` },
+                    { name: trans.title, url: `https://cairovolt.com${isArabic ? '' : '/en'}/blog/${slug}` },
+                ]}
+                locale={locale}
+            />
+            <ArticleSchema
+                headline={trans.title}
+                description={trans.metaDescription}
+                url={`https://cairovolt.com${isArabic ? '' : '/en'}/blog/${slug}`}
+                locale={locale}
+                articleType="BlogPosting"
+                datePublished={article.publishDate}
+                dateModified={article.modifiedDate}
+            />
+            <SpeakableSchema
+                pageUrl={`https://cairovolt.com${isArabic ? '' : '/en'}/blog/${slug}`}
+                headline={trans.title}
+                description={trans.metaDescription}
+                locale={locale}
+            />
+            {trans.faq && trans.faq.length > 0 && (
+                <FAQSchema faqs={trans.faq} locale={locale} />
+            )}
+
+            <main className="min-h-screen bg-white dark:bg-gray-900" dir={isArabic ? 'rtl' : 'ltr'}>
+                {/* Breadcrumb */}
+                <div className="bg-gray-50 dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+                    <div className="container mx-auto px-4 py-3">
+                        <nav className="text-sm text-gray-500 flex items-center gap-1 flex-wrap">
+                            <Link href={getLocalizedHref('/')} className="hover:text-blue-600 transition-colors">
+                                {isArabic ? 'الرئيسية' : 'Home'}
+                            </Link>
+                            <span className="mx-1">/</span>
+                            <Link href={getLocalizedHref('/blog')} className="hover:text-blue-600 transition-colors">
+                                {isArabic ? 'المدونة' : 'Blog'}
+                            </Link>
+                            <span className="mx-1">/</span>
+                            <span className="text-gray-900 dark:text-white font-medium truncate max-w-[250px]">
+                                {trans.title}
+                            </span>
+                        </nav>
+                    </div>
+                </div>
+
+                {/* Article Header */}
+                <header className="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
+                    <div className="mb-6">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
+                            {catLabel.icon} {isArabic ? catLabel.ar : catLabel.en}
+                        </span>
+                    </div>
+
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                        {trans.title}
+                    </h1>
+
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        {trans.excerpt}
+                    </p>
+
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400 pb-8 border-b border-gray-100 dark:border-gray-700">
+                        <span className="flex items-center gap-1.5">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            {new Date(article.modifiedDate).toLocaleDateString(isArabic ? 'ar-EG' : 'en-US', {
+                                year: 'numeric', month: 'long', day: 'numeric',
+                            })}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            {isArabic ? `${article.readingTime} دقائق قراءة` : `${article.readingTime} min read`}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            {isArabic ? 'فريق كايرو فولت' : 'Cairo Volt Team'}
+                        </span>
+                    </div>
+                </header>
+
+                {/* Article Content */}
+                <article className="container mx-auto px-4 max-w-4xl pb-12">
+                    <div
+                        className="prose prose-lg dark:prose-invert max-w-none
+                            prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
+                            prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:pb-2 prose-h2:border-b prose-h2:border-gray-100 dark:prose-h2:border-gray-800
+                            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                            prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+                            prose-li:text-gray-600 dark:prose-li:text-gray-300
+                            prose-strong:text-gray-900 dark:prose-strong:text-white
+                            prose-table:border-collapse prose-table:w-full prose-table:text-sm
+                            prose-th:bg-gray-50 dark:prose-th:bg-gray-800 prose-th:p-3 prose-th:text-start prose-th:font-bold prose-th:border prose-th:border-gray-200 dark:prose-th:border-gray-700
+                            prose-td:p-3 prose-td:border prose-td:border-gray-200 dark:prose-td:border-gray-700
+                            prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+                        dangerouslySetInnerHTML={{ __html: trans.content }}
+                    />
+
+                    {/* FAQ Section */}
+                    {trans.faq && trans.faq.length > 0 && (
+                        <section className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-900 dark:text-white">
+                                <span>🤔</span>
+                                {isArabic ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
+                            </h2>
+                            <div className="space-y-3">
+                                {trans.faq.map((item, idx) => (
+                                    <details
+                                        key={idx}
+                                        className="group bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden"
+                                    >
+                                        <summary className="flex items-center justify-between p-5 cursor-pointer font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                            <span className={`${isArabic ? 'pl-4' : 'pr-4'}`}>{item.question}</span>
+                                            <span className="transform group-open:rotate-180 transition-transform text-gray-400 flex-shrink-0">▼</span>
+                                        </summary>
+                                        <div className="px-5 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-700 pt-4">
+                                            {item.answer}
+                                        </div>
+                                    </details>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* CTA */}
+                    <div className="mt-12 p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white text-center">
+                        <h3 className="text-2xl font-bold mb-3">
+                            {isArabic ? 'مستعد للشراء؟' : 'Ready to Buy?'}
+                        </h3>
+                        <p className="mb-6 text-white/90">
+                            {isArabic
+                                ? 'تسوق منتجات أصلية مع ضمان رسمي وتوصيل لباب البيت'
+                                : 'Shop original products with official warranty and home delivery'}
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-3">
+                            <Link
+                                href={getLocalizedHref('/Anker')}
+                                className="px-6 py-3 bg-white text-blue-700 font-bold rounded-full hover:bg-gray-100 transition-colors"
+                            >
+                                {isArabic ? 'تسوق Anker' : 'Shop Anker'}
+                            </Link>
+                            <Link
+                                href={getLocalizedHref('/Joyroom')}
+                                className="px-6 py-3 bg-white/10 border border-white/30 text-white font-bold rounded-full hover:bg-white/20 transition-colors"
+                            >
+                                {isArabic ? 'تسوق Joyroom' : 'Shop Joyroom'}
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Related Articles */}
+                    {relatedArticles.length > 0 && (
+                        <section className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+                            <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+                                {isArabic ? 'مقالات ذات صلة' : 'Related Articles'}
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {relatedArticles.map((related) => {
+                                    const rTrans = related.translations[isArabic ? 'ar' : 'en'];
+                                    const rCat = categoryLabels[related.category];
+                                    return (
+                                        <Link
+                                            key={related.slug}
+                                            href={getLocalizedHref(`/blog/${related.slug}`)}
+                                            className="p-5 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all hover:-translate-y-0.5"
+                                        >
+                                            <span className="text-xs font-medium text-blue-600 dark:text-blue-400">
+                                                {rCat.icon} {isArabic ? rCat.ar : rCat.en}
+                                            </span>
+                                            <h3 className="font-bold text-sm mt-2 text-gray-900 dark:text-white line-clamp-2">
+                                                {rTrans.title}
+                                            </h3>
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+                        </section>
+                    )}
+                </article>
+            </main>
+        </>
+    );
+}

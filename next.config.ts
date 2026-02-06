@@ -16,6 +16,16 @@ const nextConfig = {
     },
     async redirects() {
         return [
+            // === Generic category: /products/slug → /slug (clean URLs) ===
+            { source: '/products/power-banks', destination: '/power-banks', permanent: true },
+            { source: '/en/products/power-banks', destination: '/en/power-banks', permanent: true },
+            { source: '/products/chargers', destination: '/chargers', permanent: true },
+            { source: '/en/products/chargers', destination: '/en/chargers', permanent: true },
+            { source: '/products/earbuds', destination: '/earbuds', permanent: true },
+            { source: '/en/products/earbuds', destination: '/en/earbuds', permanent: true },
+            { source: '/products/cables', destination: '/cables', permanent: true },
+            { source: '/en/products/cables', destination: '/en/cables', permanent: true },
+
             // NOTE: Generic /ar/ and case-insensitive redirects removed - they conflict with next-intl middleware
             // The specific redirects below only handle legacy URLs from Google Search Console
 

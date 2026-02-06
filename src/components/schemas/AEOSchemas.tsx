@@ -181,7 +181,9 @@ export function ArticleSchema({
     locale,
     articleType = 'Article'
 }: ArticleProps) {
-    const now = new Date().toISOString();
+    // Use stable dates - avoid new Date() which changes on every render
+    // and causes Google to see constantly changing dates
+    const stableDate = '2025-12-01T00:00:00.000Z';
 
     // Combine sections into article body for structured content
     const articleBody = sections
@@ -195,8 +197,8 @@ export function ArticleSchema({
         description: description,
         articleBody: articleBody,
         inLanguage: locale === 'ar' ? 'ar-EG' : 'en-US',
-        datePublished: datePublished || now,
-        dateModified: dateModified || now,
+        datePublished: datePublished || stableDate,
+        dateModified: dateModified || stableDate,
         mainEntityOfPage: {
             '@type': 'WebPage',
             '@id': url,

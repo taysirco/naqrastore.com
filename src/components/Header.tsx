@@ -8,7 +8,6 @@ import { useCart } from '@/context/CartContext';
 
 export default function Header() {
     const locale = useLocale();
-    const t = useTranslations('Header');
     const tCat = useTranslations('Categories');
     const tBrand = useTranslations('Brands');
     const isRTL = locale === 'ar';
@@ -188,18 +187,24 @@ export default function Header() {
                             </div>
                         </div>
 
-                        {/* Direct Links */}
+                        {/* Generic Category Links — clean URLs for SEO */}
                         <Link
-                            href={getLocalizedHref('/Anker/power-banks')}
+                            href={getLocalizedHref('/power-banks')}
                             className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
-                            {tCat('powerBanks')}
+                            {isRTL ? 'باور بانك' : 'Power Banks'}
                         </Link>
                         <Link
-                            href={getLocalizedHref('/Joyroom/audio')}
-                            className="px-4 py-2 text-sm font-medium hover:text-red-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                            href={getLocalizedHref('/chargers')}
+                            className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                         >
-                            {tCat('audio')}
+                            {isRTL ? 'شواحن' : 'Chargers'}
+                        </Link>
+                        <Link
+                            href={getLocalizedHref('/blog')}
+                            className="px-4 py-2 text-sm font-medium hover:text-blue-600 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                            {isRTL ? 'المدونة' : 'Blog'}
                         </Link>
                     </nav>
 
@@ -349,6 +354,61 @@ export default function Header() {
                                             <span>{tCat(cat.key)}</span>
                                         </Link>
                                     ))}
+                                </div>
+                            </div>
+
+                            {/* Shop by Category — generic clean URLs */}
+                            <div>
+                                <h3 className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3">
+                                    {isRTL ? 'تسوق حسب الفئة' : 'Shop by Category'}
+                                </h3>
+                                <div className="space-y-1">
+                                    {[
+                                        { slug: 'power-banks', icon: '🔋', ar: 'باور بانك', en: 'Power Banks' },
+                                        { slug: 'chargers', icon: '⚡', ar: 'شواحن', en: 'Chargers' },
+                                        { slug: 'earbuds', icon: '🎧', ar: 'سماعات بلوتوث', en: 'Earbuds' },
+                                        { slug: 'cables', icon: '🔌', ar: 'كابلات شحن', en: 'Cables' },
+                                    ].map((cat) => (
+                                        <Link
+                                            key={cat.slug}
+                                            href={getLocalizedHref(`/${cat.slug}`)}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                                        >
+                                            <span>{cat.icon}</span>
+                                            <span>{isRTL ? cat.ar : cat.en}</span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Resources */}
+                            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                                <div className="space-y-1">
+                                    <Link
+                                        href={getLocalizedHref('/blog')}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium"
+                                    >
+                                        <span>📝</span>
+                                        <span>{isRTL ? 'المدونة' : 'Blog'}</span>
+                                    </Link>
+                                    <Link
+                                        href={getLocalizedHref('/about')}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                                    >
+                                        <span>ℹ️</span>
+                                        <span>{isRTL ? 'من نحن' : 'About Us'}</span>
+                                    </Link>
+                                    <Link
+                                        href={getLocalizedHref('/faq')}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center gap-3 px-3 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                                    >
+                                        <span>❓</span>
+                                        <span>{isRTL ? 'أسئلة شائعة' : 'FAQ'}</span>
+                                    </Link>
                                 </div>
                             </div>
 

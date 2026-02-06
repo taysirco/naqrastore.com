@@ -99,7 +99,7 @@ export default function Home() {
         }))}
       />
       <SpeakableSchema
-        pageUrl={`https://cairovolt.com/${locale}`}
+        pageUrl={`https://cairovolt.com${isRTL ? '' : '/en'}`}
         speakableSelectors={['h1', '.hero-description', '.trust-badges']}
         headline={isRTL ? 'اكسسوارات موبايل Anker و Joyroom في مصر' : 'Anker & Joyroom Mobile Accessories in Egypt'}
         description={isRTL
@@ -356,6 +356,72 @@ export default function Home() {
                     : 'Our customer support team is available around the clock via WhatsApp to answer your questions and help you choose the right product.'}
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Shop by Category - Internal Links to Generic Pages */}
+        <section className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            {isRTL ? 'تسوق حسب الفئة' : 'Shop by Category'}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { slug: 'power-banks', icon: '🔋', ar: 'باور بانك', en: 'Power Banks' },
+              { slug: 'chargers', icon: '⚡', ar: 'شواحن', en: 'Chargers' },
+              { slug: 'earbuds', icon: '🎧', ar: 'سماعات بلوتوث', en: 'Earbuds' },
+              { slug: 'cables', icon: '🔌', ar: 'كابلات شحن', en: 'Cables' },
+            ].map(cat => (
+              <Link
+                key={cat.slug}
+                href={isRTL ? `/${cat.slug}` : `/${locale}/${cat.slug}`}
+                className="group flex flex-col items-center gap-3 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all"
+              >
+                <span className="text-4xl group-hover:scale-110 transition-transform">{cat.icon}</span>
+                <span className="font-bold text-sm text-gray-900 dark:text-white">{isRTL ? cat.ar : cat.en}</span>
+                <span className="text-xs text-gray-500">{isRTL ? 'Anker & Joyroom' : 'All Brands'}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Blog & Guides Section */}
+        <section className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl p-8 md:p-12">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                {isRTL ? 'أدلة الشراء والمقالات' : 'Buying Guides & Articles'}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                {isRTL ? 'مقالات متخصصة تساعدك في اختيار المنتج المناسب' : 'Expert articles to help you choose the right product'}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              {[
+                { slug: 'best-power-bank-egypt-2026', ar: 'أفضل باور بانك في مصر 2026', en: 'Best Power Bank Egypt 2026', icon: '🔋' },
+                { slug: 'anker-vs-joyroom-comparison', ar: 'انكر vs جوي روم: أيهما أفضل؟', en: 'Anker vs Joyroom: Which is Better?', icon: '⚖️' },
+                { slug: 'how-to-identify-original-anker', ar: 'كيف تعرف انكر الأصلي؟', en: 'How to Spot Fake Anker', icon: '🔍' },
+              ].map(article => (
+                <Link
+                  key={article.slug}
+                  href={isRTL ? `/blog/${article.slug}` : `/${locale}/blog/${article.slug}`}
+                  className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all group"
+                >
+                  <span className="text-2xl flex-shrink-0">{article.icon}</span>
+                  <span className="font-medium text-sm text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {isRTL ? article.ar : article.en}
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link
+                href={isRTL ? '/blog' : `/${locale}/blog`}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-medium rounded-full hover:bg-emerald-700 transition-colors"
+              >
+                {isRTL ? 'عرض كل المقالات' : 'View All Articles'}
+                <span>{isRTL ? '←' : '→'}</span>
+              </Link>
             </div>
           </div>
         </section>

@@ -4,6 +4,8 @@ import { brandData } from '@/data/brand-data';
 import { categoryData } from '@/data/category-seo';
 import { staticProducts } from '@/lib/static-products';
 import { governorates } from '@/data/governorates';
+import { blogArticles } from '@/data/blog-articles';
+import { genericCategories } from '@/data/generic-categories';
 
 const baseUrl = 'https://cairovolt.com';
 
@@ -90,6 +92,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
             changeFrequency: 'daily',
             lastModified: new Date(),
+        });
+    });
+
+    // Generic Category Pages (brand-agnostic landing pages)
+    genericCategories.forEach(cat => {
+        routes.push({
+            url: `${baseUrl}/${cat.slug}`,
+            priority: 0.8,
+            changeFrequency: 'weekly',
+            lastModified: new Date(),
+        });
+        routes.push({
+            url: `${baseUrl}/en/${cat.slug}`,
+            priority: 0.8,
+            changeFrequency: 'weekly',
+            lastModified: new Date(),
+        });
+    });
+
+    // Blog Pages
+    routes.push(
+        { url: `${baseUrl}/blog`, priority: 0.7, changeFrequency: 'weekly' as const, lastModified: new Date() },
+        { url: `${baseUrl}/en/blog`, priority: 0.7, changeFrequency: 'weekly' as const, lastModified: new Date() },
+    );
+    blogArticles.forEach(article => {
+        routes.push({
+            url: `${baseUrl}/blog/${article.slug}`,
+            priority: 0.8,
+            changeFrequency: 'monthly',
+            lastModified: new Date(article.modifiedDate),
+        });
+        routes.push({
+            url: `${baseUrl}/en/blog/${article.slug}`,
+            priority: 0.8,
+            changeFrequency: 'monthly',
+            lastModified: new Date(article.modifiedDate),
         });
     });
 

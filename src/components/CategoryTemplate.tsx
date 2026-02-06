@@ -496,7 +496,7 @@ export default function CategoryTemplate({
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Main Content Column */}
-                    <div className="lg:col-span-8">
+                    <article className="lg:col-span-8">
                         {/* SEO Description */}
                         <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
                             <div
@@ -567,10 +567,10 @@ export default function CategoryTemplate({
                                 </div>
                             </div>
                         )}
-                    </div>
+                    </article>
 
                     {/* Sidebar / Products Column */}
-                    <div className="lg:col-span-4">
+                    <aside className="lg:col-span-4">
                         <div className="sticky top-24">
                             <h2 className="text-xl font-bold mb-6">
                                 {locale === 'ar' ? 'أفضل المنتجات' : 'Top Products'}
@@ -643,7 +643,7 @@ export default function CategoryTemplate({
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </aside>
                 </div>
 
                 {/* Related Categories - Internal Linking */}

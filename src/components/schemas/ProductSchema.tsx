@@ -41,6 +41,13 @@ interface ProductSchemaProps {
     }>;
 }
 
+// Stable price validity date - 3 months ahead, computed once at module level
+const PRICE_VALID_UNTIL = (() => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 3);
+    return d.toISOString().split('T')[0];
+})();
+
 export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.com', aggregateRating, reviews }: ProductSchemaProps) {
     const t = product.translations[locale as 'en' | 'ar'] || product.translations.en;
     const isArabic = locale === 'ar';
@@ -106,7 +113,7 @@ export function ProductSchema({ product, locale, baseUrl = 'https://cairovolt.co
             url: `${baseUrl}${locale === 'ar' ? '' : '/en'}/${product.brand.charAt(0).toUpperCase() + product.brand.slice(1).toLowerCase()}/${product.slug}`,
             priceCurrency: 'EGP',
             price: product.price,
-            priceValidUntil: '2026-03-31', // Fixed date - update quarterly to prevent cache inconsistencies
+            priceValidUntil: PRICE_VALID_UNTIL,
             availability: product.stock > 0
                 ? 'https://schema.org/InStock'
                 : 'https://schema.org/OutOfStock',

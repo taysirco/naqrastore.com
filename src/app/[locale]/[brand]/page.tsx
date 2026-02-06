@@ -54,6 +54,41 @@ export default async function BrandHubPage({ params }: Props) {
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-black" dir={isRTL ? 'rtl' : 'ltr'}>
+            {/* Structured Data Schema Components - placed first for crawler priority */}
+            <BreadcrumbSchema
+                items={[
+                    { name: isRTL ? 'الرئيسية' : 'Home', url: `https://cairovolt.com${isRTL ? '' : '/en'}` },
+                    { name: data.hero.title, url: `https://cairovolt.com${isRTL ? '' : '/en'}/${brand}` },
+                ]}
+                locale={locale}
+            />
+
+            {/* Article Schema for SEO Content */}
+            {data.seoArticle && (
+                <ArticleSchema
+                    headline={isRTL ? data.seoArticle.ar.title : data.seoArticle.en.title}
+                    description={isRTL ? data.metadata.ar.description : data.metadata.en.description}
+                    url={`https://cairovolt.com${isRTL ? '' : '/en'}/${brand}`}
+                    locale={locale}
+                    articleType="Article"
+                    sections={(isRTL ? data.seoArticle.ar.sections : data.seoArticle.en.sections).map((s: { heading: string; content: string }) => ({
+                        heading: s.heading,
+                        content: s.content
+                    }))}
+                />
+            )}
+
+            {/* FAQ Schema for Rich Snippets */}
+            {data.faq && (
+                <FAQSchema
+                    faqs={(isRTL ? data.faq.ar : data.faq.en).map(item => ({
+                        question: item.question,
+                        answer: item.answer
+                    }))}
+                    locale={locale}
+                />
+            )}
+
             {/* Hero Section 2.0 */}
             <section className={`relative overflow-hidden py-20 md:py-32`}>
                 {/* Dynamic Background */}
@@ -285,7 +320,7 @@ export default async function BrandHubPage({ params }: Props) {
             {data.seoArticle && (
                 <section className="py-20 bg-white dark:bg-black border-t border-gray-100 dark:border-gray-900">
                     <div className="container mx-auto px-4 max-w-4xl">
-                        <div className="prose prose-lg dark:prose-invert mx-auto">
+                        <article className="prose prose-lg dark:prose-invert mx-auto">
                             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
                                 {isRTL ? data.seoArticle.ar.title : data.seoArticle.en.title}
                             </h2>
@@ -300,7 +335,7 @@ export default async function BrandHubPage({ params }: Props) {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </article>
                     </div>
                 </section>
             )}
@@ -331,40 +366,6 @@ export default async function BrandHubPage({ params }: Props) {
                 </section>
             )}
 
-            {/* Structured Data Schema Components */}
-            <BreadcrumbSchema
-                items={[
-                    { name: isRTL ? 'الرئيسية' : 'Home', url: `https://cairovolt.com/${locale}` },
-                    { name: data.hero.title, url: `https://cairovolt.com/${locale}/${brand}` },
-                ]}
-                locale={locale}
-            />
-
-            {/* Article Schema for SEO Content */}
-            {data.seoArticle && (
-                <ArticleSchema
-                    headline={isRTL ? data.seoArticle.ar.title : data.seoArticle.en.title}
-                    description={isRTL ? data.metadata.ar.description : data.metadata.en.description}
-                    url={`https://cairovolt.com/${locale}/${brand}`}
-                    locale={locale}
-                    articleType="Article"
-                    sections={(isRTL ? data.seoArticle.ar.sections : data.seoArticle.en.sections).map((s: { heading: string; content: string }) => ({
-                        heading: s.heading,
-                        content: s.content
-                    }))}
-                />
-            )}
-
-            {/* FAQ Schema for Rich Snippets */}
-            {data.faq && (
-                <FAQSchema
-                    faqs={(isRTL ? data.faq.ar : data.faq.en).map(item => ({
-                        question: item.question,
-                        answer: item.answer
-                    }))}
-                    locale={locale}
-                />
-            )}
         </div>
     );
 }

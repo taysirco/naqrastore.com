@@ -89,8 +89,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 height: 630,
             }] : [],
             locale: isArabic ? 'ar_EG' : 'en_US',
-            type: 'website',
             countryName: 'Egypt',
+        },
+        // Product-specific OG meta tags for e-commerce
+        other: {
+            'geo.region': 'EG',
+            'geo.placename': isArabic ? 'القاهرة، مصر' : 'Cairo, Egypt',
+            'geo.position': '30.0444;31.2357',
+            'ICBM': '30.0444, 31.2357',
+            'product:price:amount': String(product.price),
+            'product:price:currency': 'EGP',
+            'product:availability': (product.stock ?? 0) > 0 ? 'in stock' : 'out of stock',
+            'product:condition': 'new',
+            'product:brand': product.brand,
         },
         alternates: {
             canonical: isArabic
@@ -100,13 +111,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 'ar': `https://cairovolt.com/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`,
                 'en': `https://cairovolt.com/en/${brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}/${category}/${slug}`,
             }
-        },
-        // Geo Meta Tags
-        other: {
-            'geo.region': 'EG',
-            'geo.placename': isArabic ? 'القاهرة، مصر' : 'Cairo, Egypt',
-            'geo.position': '30.0444;31.2357',
-            'ICBM': '30.0444, 31.2357',
         },
     };
 }
@@ -201,17 +205,17 @@ export default async function ProductPage({ params }: Props) {
             {/* BreadcrumbSchema for navigation */}
             <BreadcrumbSchema
                 items={[
-                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com/${locale}` },
-                    { name: brand.charAt(0).toUpperCase() + brand.slice(1), url: `https://cairovolt.com/${locale}/${brand}` },
-                    { name: category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), url: `https://cairovolt.com/${locale}/${brand}/${category}` },
-                    { name: productName, url: `https://cairovolt.com/${locale}/${brand}/${category}/${slug}` },
+                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com${isArabic ? '' : '/en'}` },
+                    { name: brand.charAt(0).toUpperCase() + brand.slice(1), url: `https://cairovolt.com${isArabic ? '' : '/en'}/${brand}` },
+                    { name: category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), url: `https://cairovolt.com${isArabic ? '' : '/en'}/${brand}/${category}` },
+                    { name: productName, url: `https://cairovolt.com${isArabic ? '' : '/en'}/${brand}/${category}/${slug}` },
                 ]}
                 locale={locale}
             />
 
             {/* SpeakableSchema for voice search */}
             <SpeakableSchema
-                pageUrl={`https://cairovolt.com/${locale}/${brand}/${category}/${slug}`}
+                pageUrl={`https://cairovolt.com${isArabic ? '' : '/en'}/${brand}/${category}/${slug}`}
                 speakableSelectors={['h1', '.product-description', '.product-features']}
                 headline={productName}
                 description={productDescription.substring(0, 200)}

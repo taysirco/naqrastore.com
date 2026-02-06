@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         robots: {
             index: true,
-            follow: false,
+            follow: true,
         },
     };
 }
@@ -38,8 +38,8 @@ export default function ShippingPage() {
         <>
             <BreadcrumbSchema
                 items={[
-                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com/${locale}` },
-                    { name: t('title'), url: `https://cairovolt.com/${locale}/shipping` },
+                    { name: isArabic ? 'الرئيسية' : 'Home', url: `https://cairovolt.com${isArabic ? '' : '/en'}` },
+                    { name: t('title'), url: `https://cairovolt.com${isArabic ? '' : '/en'}/shipping` },
                 ]}
                 locale={locale}
             />

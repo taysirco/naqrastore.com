@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         robots: {
             index: true,
-            follow: false,
+            follow: true,
         },
     };
 }

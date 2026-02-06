@@ -1,0 +1,16 @@
+import { Metadata } from 'next';
+import { generateCategoryMetadata, GenericCategoryContent } from '@/lib/generic-category-helpers';
+
+const SLUG = 'cables';
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    return generateCategoryMetadata(locale, SLUG);
+}
+
+export default async function CablesPage({ params }: Props) {
+    const { locale } = await params;
+    return <GenericCategoryContent locale={locale} categorySlug={SLUG} />;
+}
