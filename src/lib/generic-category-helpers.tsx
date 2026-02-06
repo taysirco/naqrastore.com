@@ -17,14 +17,16 @@ export function generateCategoryMetadata(locale: string, categorySlug: string): 
     const isArabic = locale === 'ar';
     const meta = data.metadata[isArabic ? 'ar' : 'en'];
 
+    const canonicalUrl = isArabic
+        ? `https://cairovolt.com/${categorySlug}`
+        : `https://cairovolt.com/en/${categorySlug}`;
+
     return {
         title: meta.title,
         description: meta.description,
         keywords: meta.keywords,
         alternates: {
-            canonical: isArabic
-                ? `https://cairovolt.com/${categorySlug}`
-                : `https://cairovolt.com/en/${categorySlug}`,
+            canonical: canonicalUrl,
             languages: {
                 'ar': `https://cairovolt.com/${categorySlug}`,
                 'en': `https://cairovolt.com/en/${categorySlug}`,
@@ -33,11 +35,28 @@ export function generateCategoryMetadata(locale: string, categorySlug: string): 
         openGraph: {
             title: meta.title,
             description: meta.description,
+            url: canonicalUrl,
             locale: isArabic ? 'ar_EG' : 'en_US',
+            alternateLocale: isArabic ? 'en_US' : 'ar_EG',
             type: 'website',
             siteName: isArabic ? 'كايرو فولت' : 'Cairo Volt',
+            images: [{
+                url: 'https://cairovolt.com/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: meta.title,
+            }],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: meta.title,
+            description: meta.description,
+            images: ['https://cairovolt.com/og-image.png'],
         },
         robots: { index: true, follow: true },
+        other: {
+            'article:author': isArabic ? 'كايرو فولت' : 'Cairo Volt',
+        },
     };
 }
 
@@ -99,11 +118,15 @@ export function GenericCategoryContent({
             />
             {faq.length > 0 && <FAQSchema faqs={faq} locale={locale} />}
 
-            <main className="min-h-screen bg-gray-50 dark:bg-gray-950" dir={isArabic ? 'rtl' : 'ltr'}>
+            <main className="min-h-screen bg-gray-50 dark:bg-gray-950" dir={isArabic ? 'rtl' : 'ltr'} itemScope itemType="https://schema.org/CollectionPage">
+                <meta itemProp="name" content={content.title} />
+                <meta itemProp="description" content={data.metadata[isArabic ? 'ar' : 'en'].description} />
+                <meta itemProp="inLanguage" content={isArabic ? 'ar' : 'en'} />
+
                 {/* Breadcrumb */}
                 <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
                     <div className="container mx-auto px-4 py-3">
-                        <nav className="text-sm text-gray-500 flex items-center gap-1">
+                        <nav className="text-sm text-gray-500 flex items-center gap-1" aria-label="Breadcrumb">
                             <Link href={getLocalizedHref('/')} className="hover:text-blue-600 transition-colors">
                                 {isArabic ? 'الرئيسية' : 'Home'}
                             </Link>
@@ -114,17 +137,17 @@ export function GenericCategoryContent({
                 </div>
 
                 {/* Hero */}
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12 md:py-16">
+                <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12 md:py-16">
                     <div className="container mx-auto px-4 text-center max-w-3xl">
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4">{content.title}</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4" itemProp="headline">{content.title}</h1>
                         <p className="text-lg md:text-xl text-white/90 mb-6">{content.subtitle}</p>
                         <p className="text-white/80 text-sm md:text-base leading-relaxed">{content.intro}</p>
                     </div>
-                </div>
+                </header>
 
-                {/* Brand Filters */}
-                <div className="container mx-auto px-4 py-8">
-                    <div className="flex flex-wrap gap-3 justify-center mb-8">
+                {/* Brand Filters + Products */}
+                <section className="container mx-auto px-4 py-8" aria-label={isArabic ? 'المنتجات' : 'Products'}>
+                    <nav className="flex flex-wrap gap-3 justify-center mb-8" aria-label={isArabic ? 'تصفية حسب العلامة' : 'Filter by brand'}>
                         {data.brandCategories.map(bc => (
                             <Link
                                 key={bc.brand}
@@ -138,7 +161,7 @@ export function GenericCategoryContent({
                                 {isArabic ? `تسوق ${bc.brand}` : `Shop ${bc.brand}`}
                             </Link>
                         ))}
-                    </div>
+                    </nav>
 
                     {/* Products Grid */}
                     {sortedProducts.length > 0 ? (
@@ -157,7 +180,7 @@ export function GenericCategoryContent({
                                         className="group bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1"
                                     >
                                         {/* Image */}
-                                        <div className="relative aspect-square bg-gray-50 dark:bg-gray-800 p-4">
+                                        <div className="relative aspect-square bg-gray-50 dark:bg-gray-800 p-4" itemProp="image">
                                             {discount > 0 && (
                                                 <span className={`absolute top-2 ${isArabic ? 'right-2' : 'left-2'} px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full z-10`}>
                                                     -{discount}%
@@ -187,11 +210,13 @@ export function GenericCategoryContent({
 
                                         {/* Info */}
                                         <div className="p-3 md:p-4">
-                                            <h3 className="font-medium text-sm text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors">
+                                            <h3 className="font-medium text-sm text-gray-900 dark:text-white line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors" itemProp="name">
                                                 {t?.name || product.slug}
                                             </h3>
-                                            <div className="flex items-end gap-2">
-                                                <span className="text-lg font-bold text-gray-900 dark:text-white">
+                                            <div className="flex items-end gap-2" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+                                                <meta itemProp="priceCurrency" content="EGP" />
+                                                <meta itemProp="availability" content={product.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'} />
+                                                <span className="text-lg font-bold text-gray-900 dark:text-white" itemProp="price" content={String(product.price)}>
                                                     {product.price.toLocaleString()}
                                                 </span>
                                                 <span className="text-xs text-gray-500">{isArabic ? 'ج.م' : 'EGP'}</span>
@@ -211,10 +236,10 @@ export function GenericCategoryContent({
                             <p className="text-lg">{isArabic ? 'لا توجد منتجات حالياً' : 'No products available'}</p>
                         </div>
                     )}
-                </div>
+                </section>
 
                 {/* Buying Tips */}
-                <div className="bg-white dark:bg-gray-900 py-12">
+                <section className="bg-white dark:bg-gray-900 py-12" aria-label={isArabic ? 'نصائح الشراء' : 'Buying Tips'}>
                     <div className="container mx-auto px-4 max-w-4xl">
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">
                             {isArabic ? 'نصائح الشراء' : 'Buying Tips'}
@@ -230,11 +255,11 @@ export function GenericCategoryContent({
                             ))}
                         </div>
                     </div>
-                </div>
+                </section>
 
                 {/* FAQ */}
                 {faq.length > 0 && (
-                    <div className="container mx-auto px-4 py-12 max-w-4xl">
+                    <section className="container mx-auto px-4 py-12 max-w-4xl" aria-label={isArabic ? 'الأسئلة الشائعة' : 'FAQ'}>
                         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">
                             {isArabic ? 'الأسئلة الشائعة' : 'Frequently Asked Questions'}
                         </h2>
@@ -254,24 +279,30 @@ export function GenericCategoryContent({
                                 </details>
                             ))}
                         </div>
-                    </div>
+                    </section>
                 )}
 
                 {/* Rich Content (SEO guide) */}
                 {richContent && (
-                    <div className="bg-white dark:bg-gray-900 py-12 border-t border-gray-100 dark:border-gray-800">
+                    <article className="bg-white dark:bg-gray-900 py-12 border-t border-gray-100 dark:border-gray-800" itemScope itemType="https://schema.org/Article">
+                        <meta itemProp="headline" content={content.title} />
+                        <meta itemProp="author" content={isArabic ? 'كايرو فولت' : 'Cairo Volt'} />
+                        <meta itemProp="dateModified" content={new Date().toISOString().split('T')[0]} />
+                        <meta itemProp="publisher" content={isArabic ? 'كايرو فولت' : 'Cairo Volt'} />
+                        <meta itemProp="inLanguage" content={isArabic ? 'ar' : 'en'} />
                         <div className="container mx-auto px-4 max-w-4xl">
                             <div
                                 className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-gray-900 dark:prose-h2:text-white prose-table:text-sm prose-th:bg-gray-100 dark:prose-th:bg-gray-800 prose-th:p-3 prose-td:p-3 prose-table:border prose-table:border-gray-200 dark:prose-table:border-gray-700 prose-tr:border-b prose-tr:border-gray-200 dark:prose-tr:border-gray-700 prose-strong:text-gray-900 dark:prose-strong:text-white prose-a:text-blue-600 prose-li:my-1"
                                 dangerouslySetInnerHTML={{ __html: richContent }}
+                                itemProp="articleBody"
                             />
                         </div>
-                    </div>
+                    </article>
                 )}
 
                 {/* Related Blog Articles */}
                 {relatedArticles.length > 0 && (
-                    <div className="bg-gray-50 dark:bg-gray-950 py-12 border-t border-gray-100 dark:border-gray-800">
+                    <section className="bg-gray-50 dark:bg-gray-950 py-12 border-t border-gray-100 dark:border-gray-800" aria-label={isArabic ? 'مقالات ذات صلة' : 'Related Articles'}>
                         <div className="container mx-auto px-4 max-w-4xl">
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">
                                 {isArabic ? 'مقالات ذات صلة' : 'Related Articles'}
@@ -309,10 +340,45 @@ export function GenericCategoryContent({
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 )}
 
-                {/* CollectionPage Schema */}
+                {/* HowTo Schema for buying tips — AEO */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'HowTo',
+                            name: isArabic ? `كيف تختار أفضل ${content.title}` : `How to Choose the Best ${content.title}`,
+                            description: data.metadata[isArabic ? 'ar' : 'en'].description,
+                            step: content.buyingTips.map((tip, i) => ({
+                                '@type': 'HowToStep',
+                                position: i + 1,
+                                text: tip,
+                            })),
+                        }),
+                    }}
+                />
+
+                {/* Speakable Schema — AEO (voice search) */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'WebPage',
+                            name: content.title,
+                            speakable: {
+                                '@type': 'SpeakableSpecification',
+                                cssSelector: ['h1', '.prose h2', '.prose p', 'summary', 'details > div'],
+                            },
+                            url: `https://cairovolt.com${isArabic ? '' : '/en'}/${categorySlug}`,
+                        }),
+                    }}
+                />
+
+                {/* CollectionPage Schema + AggregateOffer */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -323,10 +389,21 @@ export function GenericCategoryContent({
                             description: data.metadata[isArabic ? 'ar' : 'en'].description,
                             url: `https://cairovolt.com${isArabic ? '' : '/en'}/${categorySlug}`,
                             inLanguage: isArabic ? 'ar' : 'en',
+                            dateModified: new Date().toISOString().split('T')[0],
+                            author: {
+                                '@type': 'Organization',
+                                name: isArabic ? 'كايرو فولت' : 'Cairo Volt',
+                                url: 'https://cairovolt.com',
+                            },
                             isPartOf: {
                                 '@type': 'WebSite',
                                 name: isArabic ? 'كايرو فولت' : 'Cairo Volt',
                                 url: 'https://cairovolt.com',
+                            },
+                            about: {
+                                '@type': 'Thing',
+                                name: content.title,
+                                description: data.metadata[isArabic ? 'ar' : 'en'].description,
                             },
                             ...(sortedProducts.length > 0 && {
                                 mainEntity: {
@@ -338,6 +415,14 @@ export function GenericCategoryContent({
                                         url: `https://cairovolt.com${isArabic ? '' : '/en'}/${p.brandSlug}/${p.catSlug}/${p.slug}`,
                                         name: p.translations[isArabic ? 'ar' : 'en']?.name || p.slug,
                                     })),
+                                },
+                                offers: {
+                                    '@type': 'AggregateOffer',
+                                    priceCurrency: 'EGP',
+                                    lowPrice: Math.min(...sortedProducts.map(p => p.price)),
+                                    highPrice: Math.max(...sortedProducts.map(p => p.price)),
+                                    offerCount: sortedProducts.length,
+                                    availability: 'https://schema.org/InStock',
                                 },
                             }),
                         }),
