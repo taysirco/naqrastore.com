@@ -240,7 +240,7 @@ export default function Header() {
                         <a
                             href="https://wa.me/201063374834"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="nofollow noopener noreferrer"
                             className="hidden md:flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-xl transition-colors"
                         >
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -356,6 +356,8 @@ export default function Header() {
                             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                                 <a
                                     href="https://wa.me/201063374834"
+                                    target="_blank"
+                                    rel="nofollow noopener noreferrer"
                                     className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-green-500 text-white font-medium rounded-xl"
                                 >
                                     📱 {isRTL ? 'تواصل عبر واتساب' : 'Chat on WhatsApp'}

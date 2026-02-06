@@ -6,6 +6,7 @@ import ProductPageClient from './ProductPageClient';
 import { ProductSchema, BreadcrumbSchema, FAQSchema } from '@/components/schemas/ProductSchema';
 import { SpeakableSchema } from '@/components/schemas/AEOSchemas';
 import { calculateVerifiedAggregateRating } from '@/lib/verified-reviews';
+import { getProductReviews as getStaticProductReviews, calculateAggregateRating as calcStaticAggregateRating } from '@/data/product-reviews';
 
 type Props = {
     params: Promise<{ locale: string; brand: string; category: string; slug: string }>;
@@ -131,7 +132,42 @@ export default async function ProductPage({ params }: Props) {
     const isArabic = locale === 'ar';
 
     // Fetch verified aggregate rating for SEO Schema
-    const aggregateRating = await calculateVerifiedAggregateRating(slug);
+    const verifiedAggregateRating = await calculateVerifiedAggregateRating(slug);
+
+    // Get static product reviews for structured data (unique per product)
+    const staticReviews = getStaticProductReviews(
+        slug,
+        category,
+        {
+            en: product.translations?.en?.name || slug.replace(/-/g, ' '),
+            ar: product.translations?.ar?.name || slug.replace(/-/g, ' ')
+        },
+        product.price,
+        {
+            en: product.translations?.en?.features || ['quality'],
+            ar: product.translations?.ar?.features || ['الجودة']
+        }
+    );
+
+    // Map reviews to locale-specific content for schema
+    const schemaReviews = staticReviews.map(r => ({
+        author: r.author,
+        rating: r.rating,
+        reviewBody: isArabic ? r.reviewBody.ar : r.reviewBody.en,
+        pros: r.pros ? (isArabic ? r.pros.ar : r.pros.en) : undefined,
+        cons: r.cons ? (isArabic ? r.cons.ar : r.cons.en) : undefined,
+        datePublished: r.datePublished,
+        location: r.location,
+    }));
+
+    // Use verified rating if available, fall back to static reviews rating
+    const staticAggregateRating = calcStaticAggregateRating(staticReviews);
+    const aggregateRating = verifiedAggregateRating || (staticAggregateRating ? {
+        ratingValue: staticAggregateRating.ratingValue,
+        reviewCount: Number(staticAggregateRating.reviewCount),
+        bestRating: Number(staticAggregateRating.bestRating),
+        worstRating: Number(staticAggregateRating.worstRating),
+    } : null);
 
     return (
         <>
@@ -159,6 +195,7 @@ export default async function ProductPage({ params }: Props) {
                     bestRating: String(aggregateRating.bestRating),
                     worstRating: String(aggregateRating.worstRating)
                 } : undefined}
+                reviews={schemaReviews}
             />
 
             {/* BreadcrumbSchema for navigation */}
