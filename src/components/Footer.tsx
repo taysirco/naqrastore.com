@@ -28,10 +28,10 @@ export default function Footer() {
                             <Image
                                 src="/cairovolt_logo.png"
                                 alt={isRTL ? 'كايرو فولت' : 'Cairo Volt'}
-                                width={200}
-                                height={64}
+                                width={160}
+                                height={89}
                                 loading="lazy"
-                                className="object-contain h-16 w-auto"
+                                className="object-contain h-8 md:h-10 w-auto"
                             />
                         </div>
                         <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm leading-relaxed mb-4">
