@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 
 export default function Footer() {
@@ -24,11 +25,13 @@ export default function Footer() {
                     {/* About Section */}
                     <div className="col-span-2 md:col-span-1">
                         <div className="mb-3 md:mb-4">
-                            <img
+                            <Image
                                 src="/cairovolt_logo.png"
                                 alt={isRTL ? 'كايرو فولت' : 'Cairo Volt'}
-                                style={{ height: '64px', width: 'auto', maxWidth: '200px' }}
-                                className="object-contain"
+                                width={200}
+                                height={64}
+                                loading="lazy"
+                                className="object-contain h-16 w-auto"
                             />
                         </div>
                         <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm leading-relaxed mb-4">

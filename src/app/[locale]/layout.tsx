@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css"; // Corrected path
+import Script from 'next/script';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from 'next-intl';
@@ -10,7 +11,7 @@ import { routing } from '@/i18n/routing';
 import { OrganizationSchema } from '@/components/schemas/ProductSchema';
 import { LocalBusinessSchema } from '@/components/schemas/AEOSchemas';
 import { CartProvider } from '@/context/CartContext';
-import AITrafficTracker from '@/components/seo/AITrafficTracker';
+import LazyClientComponents from '@/components/LazyClientComponents';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,9 +71,6 @@ export const metadata: Metadata = {
   },
 };
 
-import CartDrawer from "@/components/cart/CartDrawer";
-
-// ... imports remain the same
 
 export default async function RootLayout({
   children,
@@ -90,6 +88,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
+        {/* Preconnect to critical external origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.statcounter.com" />
+        <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
         {/* hreflang tags for better international SEO */}
         {/* Arabic is default locale - no /ar/ prefix */}
         <link rel="alternate" hrefLang="ar" href="https://cairovolt.com" />
@@ -97,12 +100,10 @@ export default async function RootLayout({
         <link rel="alternate" hrefLang="x-default" href="https://cairovolt.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
+        className={`${geistSans.variable} antialiased bg-gray-50 text-gray-900`}
       >
         <OrganizationSchema locale={locale} />
         <LocalBusinessSchema locale={locale} />
-        {/* AI Traffic Tracking - Monitors referrals from AI Answer Engines */}
-        <AITrafficTracker />
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
             <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden">
@@ -110,13 +111,15 @@ export default async function RootLayout({
               <main className="flex-grow w-full max-w-full overflow-x-hidden">
                 {children}
               </main>
-              <CartDrawer locale={locale} />
               <Footer />
+              <LazyClientComponents locale={locale} />
             </div>
           </CartProvider>
         </NextIntlClientProvider>
-        {/* Statcounter Analytics */}
-        <script
+        {/* Statcounter Analytics - lazyOnload for zero LCP/FCP impact */}
+        <Script
+          id="statcounter-config"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var sc_project=13202580; 
@@ -125,7 +128,10 @@ export default async function RootLayout({
             `
           }}
         />
-        <script src="https://www.statcounter.com/counter/counter.js" async />
+        <Script
+          src="https://www.statcounter.com/counter/counter.js"
+          strategy="lazyOnload"
+        />
         <noscript>
           <div className="statcounter">
             <a title="real time web analytics" href="https://statcounter.com/" target="_blank">

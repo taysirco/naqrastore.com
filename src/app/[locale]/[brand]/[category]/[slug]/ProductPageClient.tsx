@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useRef } from 'react';
 import { QuickSummary, ProductComparisonTable, ExpertOpinion, ProductFAQ } from '@/components/seo/AIOverviewsOptimization';
@@ -218,12 +219,15 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                                 </div>
                             )}
 
-                            <div className="w-full h-full flex items-center justify-center p-8">
+                            <div className="w-full h-full flex items-center justify-center p-8 relative">
                                 {primaryImage ? (
-                                    <img
+                                    <Image
                                         src={primaryImage}
                                         alt={productName}
-                                        className="max-w-full max-h-full object-contain transition-transform hover:scale-105"
+                                        fill
+                                        priority
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-contain p-8 transition-transform hover:scale-105"
                                     />
                                 ) : (
                                     <div className={`text-8xl font-bold bg-gradient-to-br from-${brandColor}-400 to-${brandColor}-600 bg-clip-text text-transparent`}>
@@ -245,10 +249,12 @@ export default function ProductPageClient({ product, relatedProducts = [], local
                                             : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                                             }`}
                                     >
-                                        <img
+                                        <Image
                                             src={img.url}
                                             alt={img.alt || productName}
-                                            className="absolute inset-0 w-full h-full object-cover"
+                                            fill
+                                            sizes="80px"
+                                            className="object-cover"
                                         />
                                     </button>
                                 ))}

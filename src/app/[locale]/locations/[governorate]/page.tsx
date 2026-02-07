@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getGovernorateBySlug, governorates, Governorate } from '@/data/governorates';
 import { staticProducts, staticCategories } from '@/lib/static-products';
 import { LocalBusinessSchema } from '@/components/schemas/AEOSchemas';
@@ -204,10 +205,12 @@ export default async function GovernoratePage({ params }: PageProps) {
                                 >
                                     <div className="aspect-square bg-gray-100 dark:bg-gray-700 relative overflow-hidden">
                                         {primaryImage && (
-                                            <img
+                                            <Image
                                                 src={primaryImage.url}
-                                                alt={primaryImage.alt}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                                                alt={primaryImage.alt || ''}
+                                                fill
+                                                sizes="(max-width: 768px) 50vw, 25vw"
+                                                className="object-cover group-hover:scale-105 transition-transform"
                                             />
                                         )}
                                     </div>

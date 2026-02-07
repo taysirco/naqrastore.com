@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -97,11 +98,13 @@ export default function Header() {
                         className="flex items-center gap-2"
                     >
                         <div className="flex items-center" style={{ height: '64px' }}>
-                            <img
+                            <Image
                                 src="/cairovolt_logo.png"
                                 alt="Cairo Volt"
-                                style={{ height: '64px', width: 'auto', maxWidth: '200px' }}
-                                className="object-contain"
+                                width={200}
+                                height={64}
+                                priority
+                                className="object-contain h-16 w-auto"
                             />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
@@ -296,10 +299,12 @@ export default function Header() {
                         <div className="flex items-center justify-between mb-8">
                             <Link href={getLocalizedHref('/')} className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                                 <div className="h-16 w-auto flex items-center">
-                                    <img
+                                    <Image
                                         src="/cairovolt_logo.png"
                                         alt="Cairo Volt"
-                                        className="h-full w-auto object-contain"
+                                        width={200}
+                                        height={64}
+                                        className="h-16 w-auto object-contain"
                                     />
                                 </div>
                                 <span className="text-lg font-bold">

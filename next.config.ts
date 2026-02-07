@@ -4,9 +4,13 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    poweredByHeader: false,
+    compress: true,
+    reactCompiler: true,
+    cssChunking: 'loose' as const,
     images: {
         formats: ['image/avif', 'image/webp'] as any,
-        minimumCacheTTL: 60,
+        minimumCacheTTL: 31536000,
         remotePatterns: [
             {
                 protocol: 'https',
