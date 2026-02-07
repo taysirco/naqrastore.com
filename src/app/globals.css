@@ -56,13 +56,15 @@ html {
 }
 
 /* Prevent any element from exceeding viewport */
-img,
-video,
-iframe,
-embed,
-object {
-  max-width: 100%;
-  height: auto;
+@layer base {
+  img,
+  video,
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* Hide scrollbar for horizontal scroll */
