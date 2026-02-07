@@ -8,7 +8,6 @@
   --color-brand-gold: #fbbf24;
 
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 :root {
@@ -43,26 +42,10 @@ html {
   max-width: 100vw;
 }
 
-/* Custom premium utilities */
-.glass-nav {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
 /* Mobile-friendly touch targets */
 .touch-target {
   min-width: 44px;
   min-height: 44px;
-}
-
-/* Safe area padding for notched devices */
-.safe-area-bottom {
-  padding-bottom: env(safe-area-inset-bottom, 0);
-}
-
-.safe-area-top {
-  padding-top: env(safe-area-inset-top, 0);
 }
 
 /* Universal box-sizing for predictable layouts */
@@ -70,13 +53,6 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-/* Mobile-safe container utility */
-.mobile-safe {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 /* Prevent any element from exceeding viewport */
@@ -99,14 +75,6 @@ object {
   display: none;
 }
 
-/* Line clamp utilities */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 /* Small screen specific adjustments */
 @media (max-width: 380px) {
   .text-xs {
@@ -120,17 +88,4 @@ object {
   .gap-3 {
     gap: 0.5rem;
   }
-}
-
-/* Smooth touch scrolling */
-.snap-x {
-  scroll-snap-type: x mandatory;
-}
-
-.snap-center {
-  scroll-snap-align: center;
-}
-
-.snap-mandatory {
-  scroll-snap-type: x mandatory;
 }
