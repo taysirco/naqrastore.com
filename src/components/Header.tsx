@@ -104,7 +104,7 @@ export default function Header() {
                                 width={160}
                                 height={89}
                                 priority
-                                className="object-contain h-6 md:h-8 w-auto"
+                                className="object-contain h-4 md:h-6 w-auto"
                             />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hidden sm:inline">
@@ -304,7 +304,7 @@ export default function Header() {
                                         alt="Cairo Volt"
                                         width={120}
                                         height={67}
-                                        className="h-6 w-auto object-contain"
+                                        className="h-4 w-auto object-contain"
                                     />
                                 </div>
                                 <span className="text-lg font-bold">
